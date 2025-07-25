@@ -30,16 +30,21 @@ jobs:
           **/*.php
           **/.DS_Store
           **/README.md
+          **/.github/**
           
-    - name: Rename htaccess and verify deployment
+    - name: Create htaccess and verify deployment
       run: |
         sudo apt-get update
         sudo apt-get install -y lftp
-        lftp -c "
+        lftp -c '
         set ftp:ssl-allow no;
         open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }};
         cd aquabit-lab.com/public_html/;
-        mv htaccess.txt .htaccess;
+        ls -la;
+        echo "DirectoryIndex index.html index.php" > .htaccess;
+        echo "" >> .htaccess;
+        echo "# RewriteEngine On" >> .htaccess;
+        echo "# RewriteRule ^old-page$ /new-page [R=301,L]" >> .htaccess;
         ls -la;
         quit
-        "
+        '
