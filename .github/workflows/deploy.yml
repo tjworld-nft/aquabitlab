@@ -12,23 +12,17 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       
-    - name: List files to be deployed
-      run: |
-        echo "=== Files to be deployed ==="
-        ls -la
-        echo "=== HTML files ==="
-        find . -name "*.html" -type f
-        
     - name: Deploy to Xserver via FTP
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./
-        server-dir: /
+        server-dir: aquabit-lab.com/public_html/
         log-level: verbose
-        dangerous-clean-slate: false
+        dangerous-clean-slate: true
+        timeout: 600000
         exclude: |
           **/.git*
           **/.git*/**
@@ -36,3 +30,15 @@ jobs:
           **/*.php
           **/.DS_Store
           **/README.md
+          
+    - name: Verify deployment with lftp
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y lftp
+        lftp -c "
+        set ftp:ssl-allow no;
+        open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }};
+        cd aquabit-lab.com/public_html/;
+        ls -la;
+        quit
+        "
