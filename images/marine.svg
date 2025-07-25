@@ -1,0 +1,27 @@
+<svg width="1060" height="600" viewBox="0 0 1060 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="oceanGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#4682B4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#191970;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1060" height="600" fill="url(#oceanGradient)"/>
+  <g>
+    <!-- 波のパターン -->
+    <path d="M0,400 Q265,350 530,400 T1060,400 L1060,600 L0,600 Z" fill="rgba(64,224,208,0.3)"/>
+    <path d="M0,450 Q265,400 530,450 T1060,450 L1060,600 L0,600 Z" fill="rgba(64,224,208,0.2)"/>
+    
+    <!-- 魚のシルエット -->
+    <ellipse cx="200" cy="200" rx="40" ry="15" fill="rgba(255,255,255,0.6)"/>
+    <ellipse cx="800" cy="300" rx="30" ry="12" fill="rgba(255,255,255,0.4)"/>
+    <ellipse cx="400" cy="250" rx="25" ry="10" fill="rgba(255,255,255,0.5)"/>
+    
+    <!-- ダイビング器材のシルエット -->
+    <rect x="500" y="480" width="60" height="80" rx="30" fill="rgba(0,0,0,0.3)"/>
+    <circle cx="530" cy="470" r="15" fill="rgba(255,255,255,0.8)"/>
+  </g>
+  
+  <text x="530" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white">マリン事業</text>
+  <text x="530" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="white">海の魅力を、すべての人へ</text>
+</svg>
