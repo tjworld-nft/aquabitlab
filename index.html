@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AquaBit LAB - マリン・AI・WEB3の未来を創造する</title>
+  <style>
+    /* ベース設定 - アップル風デザインの基礎 */
+    :root {
+      --apple-font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+      --apple-text-color: #1d1d1f;
+      --apple-light-text: #f5f5f7;
+      --apple-link-color: #0066cc;
+      --apple-grey-bg: #fbfbfd;
+      --apple-dark-bg: #000000;
+      --aqua-color: #40E0D0;
+      --max-content-width: 980px;
+      --max-hero-width: 1440px;
+      --vertical-spacing: 130px;
+      --gutter: 22px;
+    }
+
+    /* グローバルリセットとベーススタイル */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: var(--apple-font);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: var(--apple-text-color);
+      background-color: #fff;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* レイアウト基本クラス */
+    .apple-wrapper {
+      width: 100%;
+      overflow-x: hidden;
+      font-size: 17px;
+      line-height: 1.47059;
+      font-weight: 400;
+      letter-spacing: -0.022em;
+    }
+
+    .full-bleed {
+      width: 100%;
+      position: relative;
+    }
+
+    .centered-content {
+      max-width: var(--max-content-width);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+      position: relative;
+    }
+
+    .hero-centered-content {
+      max-width: var(--max-hero-width);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+      position: relative;
+    }
+
+    /* カスタムヘッダーナビゲーション */
+    .apple-nav {
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      height: 44px;
+    }
+
+    .nav-container {
+      max-width: var(--max-content-width);
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 var(--gutter);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      opacity: 0.9;
+      transition: opacity 0.3s;
+    }
+
+    .nav-logo:hover {
+      opacity: 1;
+    }
+    
+    .nav-logo img {
+      height: 30px;
+      width: auto;
+      margin-right: 8px;
+    }
+    
+    .nav-logo-text {
+      color: #f5f5f7;
+      font-size: 21px;
+      font-weight: 500;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu li {
+      margin-left: 30px;
+    }
+
+    .nav-menu a {
+      color: #f5f5f7;
+      font-size: 12px;
+      font-weight: 400;
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+
+    .nav-menu a:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    .nav-menu-toggle {
+      display: none;
+      color: #f5f5f7;
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* ヒーローセクション */
+    .hero-section {
+      background-image: url('https://aquabit-lab.com/wp-content/uploads/2025/03/ABL-hero.png');
+      background-size: cover;
+      background-position: center;
+      height: 80vh;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin-top: 44px; /* ナビゲーションの高さ分 */
+    }
+
+    .hero-content {
+      width: 100%;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1.2s ease forwards 0.2s;
+      padding: 40px 0;
+    }
+    
+    .hero-logo {
+      max-width: 200px;
+      margin: 0 auto 40px;
+    }
+
+    .hero-eyebrow {
+      font-size: 21px;
+      line-height: 1.19048;
+      font-weight: 600;
+      letter-spacing: .011em;
+      margin-bottom: 16px;
+      color: #86868b;
+    }
+
+    .hero-headline {
+      font-size: 56px;
+      line-height: 1.07143;
+      font-weight: 600;
+      letter-spacing: -.005em;
+      margin: 20px 0;
+      color: var(--aqua-color);
+    }
+
+    .hero-subhead {
+      font-size: 28px;
+      line-height: 1.10722;
+      font-weight: 400;
+      letter-spacing: .004em;
+      margin-bottom: 35px;
+      color: #f5f5f7;
+    }
+
+    /* 製品セクション共通スタイル */
+    .product-section {
+      padding: var(--vertical-spacing) 0;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .product-eyebrow {
+      font-size: 21px;
+      line-height: 1.19048;
+      font-weight: 600;
+      letter-spacing: .011em;
+      margin-bottom: 4px;
+      color: var(--apple-link-color);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .product-headline {
+      font-size: 48px;
+      line-height: 1.08349;
+      font-weight: 600;
+      letter-spacing: -.003em;
+      margin-bottom: 24px;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .product-image {
+      margin: 30px auto 50px;
+      max-width: 1060px;
+      overflow: hidden;
+      border-radius: 18px;
+      box-shadow: 0 8px 42px rgba(0, 0, 0, 0.12);
+      transition: transform 1s ease, box-shadow 1s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .product-image img {
+      width: 100%;
+      transition: transform 1.5s ease;
+      display: block;
+    }
+
+    .product-image:hover {
+      transform: scale(1.01);
+      box-shadow: 0 12px 50px rgba(0, 0, 0, 0.18);
+    }
+
+    .product-image:hover img {
+      transform: scale(1.02);
+    }
+
+    .product-description {
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .product-description p {
+      font-size: 21px;
+      line-height: 1.381;
+      font-weight: 400;
+      letter-spacing: .011em;
+      margin-bottom: 20px;
+    }
+
+    /* グリッドセクション */
+    .grid-section {
+      padding: var(--vertical-spacing) 0;
+      background-color: var(--apple-grey-bg);
+    }
+
+    .section-headline {
+      font-size: 48px;
+      line-height: 1.08349;
+      font-weight: 600;
+      letter-spacing: -.003em;
+      text-align: center;
+      margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .section-intro {
+      font-size: 21px;
+      line-height: 1.381;
+      font-weight: 400;
+      letter-spacing: .011em;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 60px;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      max-width: var(--max-content-width);
+      margin: 0 auto;
+    }
+
+    .grid-item {
+      background-color: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 42px rgba(0, 0, 0, 0.08);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .grid-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 50px rgba(0, 0, 0, 0.12);
+    }
+
+    .grid-item-content {
+      padding: 30px;
+    }
+
+    .grid-item-title {
+      font-size: 28px;
+      line-height: 1.14286;
+      font-weight: 600;
+      letter-spacing: .007em;
+      margin-bottom: 16px;
+    }
+
+    .grid-item-image {
+      margin-bottom: 20px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .grid-item-description {
+      font-size: 17px;
+      line-height: 1.47059;
+      font-weight: 400;
+      letter-spacing: -.022em;
+      margin-bottom: 20px;
+    }
+
+    /* CTA リンクスタイル */
+    .cta-links {
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      margin-top: 20px;
+    }
+
+    .cta-link {
+      color: var(--apple-link-color);
+      font-size: 21px;
+      line-height: 1.381;
+      font-weight: 400;
+      letter-spacing: .011em;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    .cta-link.small {
+      font-size: 17px;
+      line-height: 1.47059;
+      letter-spacing: -.022em;
+    }
+
+    .cta-link.secondary {
+      color: #86868b;
+    }
+
+    .cta-link:hover {
+      text-decoration: underline;
+    }
+
+    .arrow {
+      display: inline-block;
+      transition: transform 0.3s ease;
+      font-size: 0.8em;
+      position: relative;
+      top: -1px;
+    }
+
+    .cta-link:hover .arrow {
+      transform: translateX(3px);
+    }
+
+    /* ボタンスタイル */
+    .apple-button {
+      background-color: var(--apple-link-color);
+      color: white;
+      border-radius: 980px;
+      padding: 12px 24px;
+      font-size: 17px;
+      font-weight: 400;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    .apple-button:hover {
+      background-color: #0077ed;
+      text-decoration: none;
+    }
+
+    /* お問い合わせセクション */
+    .contact-section {
+      padding: var(--vertical-spacing) 0;
+      background-color: #fff;
+    }
+
+    .contact-form-container {
+      max-width: 680px;
+      margin: 0 auto;
+      background-color: var(--apple-grey-bg);
+      padding: 40px;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    /* カスタムフッター */
+    .apple-footer {
+      background-color: #f5f5f7;
+      color: #6e6e73;
+      padding: 60px 0 30px;
+      font-size: 12px;
+      line-height: 1.33337;
+      font-weight: 400;
+      letter-spacing: -.01em;
+    }
+
+    .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .footer-column h3 {
+      font-size: 12px;
+      line-height: 1.33337;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      margin-bottom: 12px;
+      color: #1d1d1f;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-column li {
+      margin-bottom: 8px;
+    }
+
+    .footer-column a {
+      color: #6e6e73;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column a:hover {
+      color: #1d1d1f;
+      text-decoration: underline;
+    }
+
+    .footer-legal {
+      padding-top: 20px;
+      border-top: 1px solid #d2d2d7;
+      text-align: center;
+    }
+    
+    .footer-logo {
+      max-width: 120px;
+      margin: 0 auto 20px;
+    }
+
+    /* アニメーション */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    /* レスポンシブデザイン - アップルのブレイクポイントに合わせる */
+    @media only screen and (max-width: 1068px) {
+      :root {
+        --vertical-spacing: 100px;
+      }
+      
+      .hero-section {
+        height: 70vh;
+        min-height: 500px;
+      }
+      
+      .hero-headline {
+        font-size: 48px;
+      }
+      
+      .hero-subhead {
+        font-size: 24px;
+      }
+      
+      .product-headline {
+        font-size: 40px;
+      }
+      
+      .section-headline {
+        font-size: 40px;
+      }
+      
+      .product-description p {
+        font-size: 19px;
+      }
+    }
+
+    @media only screen and (max-width: 734px) {
+      :root {
+        --vertical-spacing: 80px;
+        --gutter: 16px;
+      }
+      
+      .hero-section {
+        height: 60vh;
+        min-height: 400px;
+      }
+      
+      .hero-headline {
+        font-size: 32px;
+      }
+      
+      .hero-subhead {
+        font-size: 19px;
+      }
+      
+      .hero-eyebrow {
+        font-size: 19px;
+      }
+      
+      .product-headline {
+        font-size: 32px;
+      }
+      
+      .section-headline {
+        font-size: 32px;
+        margin-bottom: 40px;
+      }
+      
+      .product-eyebrow {
+        font-size: 19px;
+      }
+      
+      .product-description p {
+        font-size: 17px;
+      }
+      
+      .cta-link {
+        font-size: 17px;
+      }
+      
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-columns {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      /* モバイルナビゲーション */
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 44px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        flex-direction: column;
+        padding: 20px 0;
+      }
+      
+      .nav-menu.active {
+        display: flex;
+      }
+      
+      .nav-menu li {
+        margin: 0;
+        padding: 10px var(--gutter);
+      }
+      
+      .nav-menu-toggle {
+        display: block;
+      }
+    }
+
+    /* Safari特有の調整 */
+    @supports (-webkit-touch-callout: none) {
+      /* Safari用の特別な調整があれば記述 */
+    }
+  </style>
+</head>
+<body>
+  <div class="apple-wrapper">
+    <!-- カスタムヘッダーナビゲーション -->
+    <nav class="apple-nav">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <img src="https://aquabit-lab.com/wp-content/uploads/2025/03/AquaBit-LAB-logo.png" alt="AquaBit LAB">
+          <span class="nav-logo-text">AquaBit LAB</span>
+        </a>
+        <button class="nav-menu-toggle">☰</button>
+        <ul class="nav-menu">
+          <li><a href="#marine">マリン事業</a></li>
+          <li><a href="#ai">AI事業</a></li>
+          <li><a href="#education">教育コンテンツ</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- メインヒーロー -->
+    <section class="hero-section full-bleed">
+      <div class="hero-centered-content">
+        <div class="hero-content">
+          <h2 class="hero-eyebrow">NEW</h2>
+          <h1 class="hero-headline">AquaBit LAB</h1>
+          <h3 class="hero-subhead">マリン・AIの未来を創造する</h3>
+          <div class="cta-links">
+            <a href="#marine" class="cta-link">詳しく見る <span class="arrow">❯</span></a>
+            <a href="#contact" class="cta-link secondary">お問い合わせ <span class="arrow">❯</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- マリン事業 -->
+    <section id="marine" class="product-section full-bleed reveal" style="background-color: #fbfbfd;">
+      <div class="centered-content">
+        <h2 class="product-eyebrow reveal">マリン事業</h2>
+        <h3 class="product-headline reveal">海の魅力を、すべての人へ。</h3>
+        <div class="product-image reveal">
+          <img src="https://aquabit-lab.com/wp-content/uploads/2025/03/1.png" alt="マリン事業">
+        </div>
+        <div class="product-description reveal">
+          <p>ダイビングを中心とした海のアクティビティを提供しています。初心者から上級者まで、幅広いニーズに対応したサービスをご用意しております。</p>
+          <div class="cta-links">
+            <a href="marine.html" class="cta-link">詳しく見る <span class="arrow">❯</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI事業 -->
+    <section id="ai" class="product-section full-bleed reveal" style="background-color: #000000; color: #f5f5f7;">
+      <div class="centered-content">
+        <h2 class="product-eyebrow reveal" style="color: #6e6e73;">AI事業</h2>
+        <h3 class="product-headline reveal" style="color: #f5f5f7;">AI技術を、あなたのビジネスに。</h3>
+        <div class="product-image reveal">
+          <img src="https://aquabit-lab.com/wp-content/uploads/2025/03/2.png" alt="AI事業">
+        </div>
+        <div class="product-description reveal">
+          <p style="color: #f5f5f7;">最新のAI技術の活用方法を教育・指導しています。企業や個人に向けたAIソリューションの提案から実装までをサポートします。</p>
+          <div class="cta-links">
+            <a href="ai-service.html" class="cta-link" style="color: #2997ff;">詳しく見る <span class="arrow">❯</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 教育コンテンツ -->
+    <section id="education" class="grid-section full-bleed">
+      <div class="centered-content">
+        <h2 class="section-headline reveal">教育コンテンツ</h2>
+        <div class="product-grid">
+          <!-- Udemyコース -->
+          <div class="grid-item reveal">
+            <div class="grid-item-content">
+              <h3 class="grid-item-title">Udemyコース</h3>
+              <div class="grid-item-image">
+                <img src="https://aquabit-lab.com/wp-content/uploads/2025/03/1-1.png" alt="Udemyコース">
+              </div>
+              <p class="grid-item-description">実践的なスキルを身につけるための様々なオンラインコースを提供しています。</p>
+              <a href="education.html#courses" class="cta-link small">コースを見る <span class="arrow">❯</span></a>
+            </div>
+          </div>
+          
+          <!-- 書籍 -->
+          <div class="grid-item reveal">
+            <div class="grid-item-content">
+              <h3 class="grid-item-title">書籍</h3>
+              <div class="grid-item-image">
+                <img src="https://aquabit-lab.com/wp-content/uploads/2025/03/2-1.png" alt="書籍">
+              </div>
+              <p class="grid-item-description">専門知識を分かりやすく解説した書籍や絵本をAmazonで販売しています。</p>
+              <a href="education.html#books" class="cta-link small">Amazonで購入 <span class="arrow">❯</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- カスタムフッター -->
+    <footer class="apple-footer">
+      <div class="centered-content">
+        <div class="footer-logo">
+          <a href="index.html">
+            <img src="https://aquabit-lab.com/wp-content/uploads/2025/03/AquaBit-LAB-logo.png" alt="AquaBit LAB">
+          </a>
+        </div>
+        <div class="footer-columns">
+          <div class="footer-column">
+            <h3>事業内容</h3>
+            <ul>
+              <li><a href="marine.html">マリン事業</a></li>
+              <li><a href="ai-service.html">AI事業</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>教育</h3>
+            <ul>
+              <li><a href="education.html#courses">Udemyコース</a></li>
+              <li><a href="education.html#books">書籍</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>AquaBit LAB</h3>
+            <ul>
+              <li><a href="about.html">ABLとは？</a></li>
+              <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
+              <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-legal">
+          <p>Copyright © 2025 AquaBit LAB All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // スクロールアニメーション
+    document.addEventListener('DOMContentLoaded', function() {
+      // すべての .reveal 要素を取得
+      const reveals = document.querySelectorAll('.reveal');
+      
+      // スクロール時のイベントリスナーを追加
+      window.addEventListener('scroll', revealOnScroll);
+      
+      // 初期表示時にも実行
+      revealOnScroll();
+      
+      function revealOnScroll() {
+        for (let i = 0; i < reveals.length; i++) {
+          const windowHeight = window.innerHeight;
+          const elementTop = reveals[i].getBoundingClientRect().top;
+          const elementVisible = 150; // 要素が見える位置の閾値
+          
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add('active');
+          }
+        }
+      }
+      
+      // モバイルメニュートグル
+      const menuToggle = document.querySelector('.nav-menu-toggle');
+      const navMenu = document.querySelector('.nav-menu');
+      
+      if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+          navMenu.classList.toggle('active');
+        });
+      }
+      
+      // スムーススクロール
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            // モバイルメニューが開いていたら閉じる
+            if (navMenu.classList.contains('active')) {
+              navMenu.classList.remove('active');
+            }
+            
+            window.scrollTo({
+              top: targetElement.offsetTop - 60, // ヘッダーの高さを考慮
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>非日常の海体験 | AquaBit LAB</title>
+  <style>
+    /* ベース設定 - アップル風デザインの基礎 */
+    :root {
+      --apple-font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+      --apple-text-color: #1d1d1f;
+      --apple-light-text: #f5f5f7;
+      --apple-link-color: #0066cc;
+      --apple-grey-bg: #fbfbfd;
+      --apple-dark-bg: #000000;
+      --marine-primary: #0071e3; /* マリンテーマカラー - ブルー */
+      --marine-secondary: #00b4db; /* マリンセカンダリーカラー */
+      --marine-accent: #47cfff; /* マリンアクセントカラー */
+      --max-content-width: 980px;
+      --max-hero-width: 1440px;
+      --vertical-spacing: 130px;
+      --gutter: 22px;
+    }
+
+    /* グローバルリセットとベーススタイル */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: var(--apple-font);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: var(--apple-text-color);
+      background-color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* レイアウト基本クラス */
+    .apple-wrapper {
+      width: 100%;
+      overflow-x: hidden;
+      font-size: 17px;
+      line-height: 1.47059;
+      font-weight: 400;
+      letter-spacing: -0.022em;
+    }
+
+    .full-bleed {
+      width: 100%;
+      position: relative;
+    }
+
+    .centered-content {
+      max-width: var(--max-content-width);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+      position: relative;
+    }
+
+    .hero-centered-content {
+      max-width: var(--max-hero-width);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+      position: relative;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* カスタムヘッダーナビゲーション */
+    .apple-nav {
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      height: 44px;
+    }
+
+    .nav-container {
+      max-width: var(--max-content-width);
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 var(--gutter);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      opacity: 0.9;
+      transition: opacity 0.3s;
+    }
+
+    .nav-logo:hover {
+      opacity: 1;
+    }
+    
+    .nav-logo img {
+      height: 30px;
+      width: auto;
+      margin-right: 8px;
+    }
+    
+    .nav-logo-text {
+      color: #f5f5f7;
+      font-size: 21px;
+      font-weight: 500;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu li {
+      margin-left: 30px;
+    }
+
+    .nav-menu a {
+      color: #f5f5f7;
+      font-size: 12px;
+      font-weight: 400;
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+
+    .nav-menu a:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    .nav-menu-toggle {
+      display: none;
+      color: #f5f5f7;
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    
+    /* ヒーローセクション */
+    .hero-section {
+      position: relative;
+      height: 80vh;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: #000;
+      color: #f5f5f7;
+      margin-top: 44px; /* ナビゲーションの高さ分 */
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(0,0,0,0), rgba(0,0,0,0.4));
+      z-index: 2;
+    }
+
+    .hero-bg-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+    
+    .hero-content {
+      width: 100%;
+      text-align: center;
+      z-index: 3;
+      max-width: 800px;
+      padding: 0 20px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1.2s ease forwards 0.2s;
+    }
+    
+    .hero-content h1 {
+      font-size: 56px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      letter-spacing: -0.005em;
+    }
+    
+    .hero-content p {
+      font-size: 27px;
+      margin-bottom: 30px;
+      font-weight: 400;
+      letter-spacing: 0.004em;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      padding: 12px 22px;
+      background-color: var(--marine-primary);
+      color: white;
+      font-size: 17px;
+      text-decoration: none;
+      border-radius: 980px;
+      transition: all 0.3s ease;
+      font-weight: 400;
+    }
+    
+    .cta-button:hover {
+      background-color: #0077ed;
+      transform: scale(1.02);
+    }
+    
+    /* 特徴セクション */
+    .features-section {
+      padding: var(--vertical-spacing) 0;
+      background-color: var(--apple-grey-bg);
+      text-align: center;
+    }
+    
+    .section-title {
+      font-size: 48px;
+      line-height: 1.08349;
+      font-weight: 600;
+      letter-spacing: -.003em;
+      margin-bottom: 30px;
+      color: #1d1d1f;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .section-subtitle {
+      font-size: 24px;
+      font-weight: 400;
+      max-width: 700px;
+      margin: 0 auto 60px;
+      color: #86868b;
+      letter-spacing: 0.004em;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+    
+    .feature-item {
+      text-align: center;
+      padding: 20px;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    
+    .feature-img {
+      margin-bottom: 20px;
+    }
+    
+    .feature-img img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto;
+    }
+    
+    .feature-title {
+      font-size: 21px;
+      font-weight: 600;
+      margin: 20px 0 10px;
+      color: #1d1d1f;
+    }
+    
+    .feature-description {
+      font-size: 17px;
+      color: #86868b;
+      line-height: 1.5;
+    }
+    
+    /* リラクゼーションセクション */
+    .relaxation-section {
+      padding: var(--vertical-spacing) 0;
+      background-color: #fff;
+      position: relative;
+    }
+    
+    .split-layout {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+    
+    .split-content {
+      flex: 1;
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    
+    .split-image {
+      flex: 1;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 12px 50px rgba(0, 0, 0, 0.12);
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    
+    .split-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+    
+    .split-image:hover img {
+      transform: scale(1.03);
+    }
+    
+    .content-title {
+      font-size: 40px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: #1d1d1f;
+      letter-spacing: -0.003em;
+    }
+    
+    .content-text {
+      font-size: 19px;
+      margin-bottom: 20px;
+      color: #1d1d1f;
+      line-height: 1.5;
+    }
+    
+    .benefit-list {
+      margin: 30px 0;
+    }
+    
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .benefit-text {
+      font-size: 19px;
+      color: #1d1d1f;
+    }
+
+    /* フューチャーセクション */
+    .future-section {
+      padding: var(--vertical-spacing) 0;
+      background-color: var(--apple-grey-bg);
+    }
+    
+    /* CTAセクション */
+    .cta-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--marine-primary) 0%, var(--marine-secondary) 100%);
+      text-align: center;
+      color: #fff;
+    }
+    
+    .cta-content {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .cta-content h2 {
+      font-size: 40px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    
+    .cta-content p {
+      font-size: 19px;
+      line-height: 1.42115;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+    
+    .cta-button-white {
+      display: inline-block;
+      background-color: #fff;
+      color: var(--marine-primary);
+      font-size: 17px;
+      font-weight: 600;
+      padding: 16px 32px;
+      border-radius: 980px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .cta-button-white:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    /* カスタムフッター */
+    .apple-footer {
+      background-color: #f5f5f7;
+      color: #6e6e73;
+      padding: 60px 0 30px;
+      font-size: 12px;
+      line-height: 1.33337;
+      font-weight: 400;
+      letter-spacing: -.01em;
+    }
+
+    .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .footer-column h3 {
+      font-size: 12px;
+      line-height: 1.33337;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      margin-bottom: 12px;
+      color: #1d1d1f;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-column li {
+      margin-bottom: 8px;
+    }
+
+    .footer-column a {
+      color: #6e6e73;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column a:hover {
+      color: #1d1d1f;
+      text-decoration: underline;
+    }
+
+    .footer-legal {
+      padding-top: 20px;
+      border-top: 1px solid #d2d2d7;
+      text-align: center;
+    }
+    
+    .footer-logo {
+      max-width: 120px;
+      margin: 0 auto 20px;
+    }
+
+    /* アニメーション */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* レスポンシブデザイン */
+    @media only screen and (max-width: 1068px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+
+      .split-layout {
+        gap: 30px;
+      }
+
+      .hero-content h1 {
+        font-size: 48px;
+      }
+      
+      .section-title {
+        font-size: 40px;
+      }
+      
+      .content-title {
+        font-size: 32px;
+      }
+    }
+
+    @media only screen and (max-width: 734px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .split-layout {
+        flex-direction: column-reverse;
+      }
+      
+      .split-content, .split-image {
+        width: 100%;
+      }
+
+      .hero-content h1 {
+        font-size: 40px;
+      }
+
+      .hero-content p {
+        font-size: 21px;
+      }
+
+      .section-title {
+        font-size: 32px;
+      }
+
+      .section-subtitle {
+        font-size: 19px;
+      }
+      
+      .content-title {
+        font-size: 28px;
+      }
+      
+      .content-text, .benefit-text {
+        font-size: 17px;
+      }
+      
+      .cta-content h2 {
+        font-size: 32px;
+      }
+      
+      .footer-columns {
+        grid-template-columns: 1fr;
+      }
+
+      /* モバイルナビゲーション */
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 44px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        flex-direction: column;
+        padding: 20px 0;
+      }
+      
+      .nav-menu.active {
+        display: flex;
+      }
+      
+      .nav-menu li {
+        margin: 0;
+        padding: 10px var(--gutter);
+      }
+      
+      .nav-menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="apple-wrapper">
+    <!-- カスタムヘッダーナビゲーション -->
+    <nav class="apple-nav">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <img src="https://aquabit-lab.com/wp-content/uploads/2025/03/AquaBit-LAB-logo.png" alt="AquaBit LAB">
+          <span class="nav-logo-text">AquaBit LAB</span>
+        </a>
+        <button class="nav-menu-toggle">☰</button>
+        <ul class="nav-menu">
+          <li><a href="marine.html">マリン事業</a></li>
+          <li><a href="ai-service.html">AI事業</a></li>
+          <li><a href="education.html">教育コンテンツ</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero-section">
+      <div class="hero-overlay"></div>
+      <img class="hero-bg-image" src="https://aquabit-lab.com/wp-content/uploads/2025/03/marine-hero.png" alt="海中の風景">
+      <div class="hero-centered-content">
+        <div class="hero-content">
+          <h1>非日常の海体験</h1>
+          <p>日常から離れ、心と体を解放する究極のリラクゼーション</p>
+          <a href="https://miura-diving.com/" class="cta-button">マリン事業サイトへ</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 特徴セクション -->
+    <section class="features-section">
+      <div class="centered-content">
+        <h2 class="section-title reveal">海の中で見つける新しい自分</h2>
+        <p class="section-subtitle reveal">水中世界での体験は、単なるレジャーを超えた心身のリフレッシュと新たな発見をもたらします</p>
+        <div class="features-grid">
+          <div class="feature-item reveal">
+            <div class="feature-img">
+              <img src="https://aquabit-lab.com/wp-content/uploads/2025/03/feature-1.png" alt="非日常空間">
+            </div>
+            <h3 class="feature-title">非日常空間</h3>
+            <p class="feature-description">重力から解放された水中世界は、日常のストレスから完全に切り離された特別な空間です。</p>
+          </div>
+          <div class="feature-item reveal">
+            <div class="feature-img">
+              <img src="https://aquabit-lab.com/wp-content/uploads/2025/03/feature-2.png" alt="マインドフルネス">
+            </div>
+            <h3 class="feature-title">マインドフルネス</h3>
+            <p class="feature-description">海中では呼吸と動きに集中することで、自然とマインドフルな状態になり、心が静まります。</p>
+          </div>
+          <div class="feature-item reveal">
+            <div class="feature-img">
+              <img src="https://aquabit-lab.com/wp-content/uploads/2025/03/ChatGPT-Image-2025年3月29日-23_22_10.png" alt="感覚の覚醒">
+            </div>
+            <h3 class="feature-title">感覚の覚醒</h3>
+            <p class="feature-description">通常とは異なる環境で感覚が研ぎ澄まされ、新たな気づきと感動を体験できます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- リラクゼーションセクション -->
+    <section class="relaxation-section">
+      <div class="centered-content">
+        <div class="split-layout">
+          <div class="split-content reveal">
+            <h2 class="content-title">心身の健康とリラクゼーション</h2>
+            <p class="content-text">海中体験がもたらす効果は、単なる娯楽を超えた深いリラクゼーションと心身の健康促進です。水中での無重力感覚と自然との一体感が、日常では得られない特別なリフレッシュ効果をもたらします。</p>
+            
+            <div class="benefit-list">
+              <div class="benefit-item">
+                <div class="benefit-text">ストレス軽減と心の解放</div>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-text">深い集中と瞑想的効果</div>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-text">全身運動によるエネルギー循環</div>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-text">日常への活力と創造性の回復</div>
+              </div>
+            </div>
+            
+            <a href="https://miura-diving.com/" class="cta-button">マリン事業サイトへ</a>
+          </div>
+          <div class="split-image reveal">
+            <img src="https://aquabit-lab.com/wp-content/uploads/2025/03/relaxation.png" alt="リラックスした様子">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- フューチャーセクション -->
+    <section class="future-section">
+      <div class="centered-content">
+        <div class="split-layout">
+          <div class="split-image reveal">
+            <img src="https://aquabit-lab.com/wp-content/uploads/2025/03/future-experience.png" alt="未来の体験">
+          </div>
+          <div class="split-content reveal">
+            <h3 class="content-title">リアルとデジタルの境界を超える</h3>
+            <p class="content-text">私たちが提供を目指すのは、単なるマリンアクティビティではありません。海中の非日常体験と最新のテクノロジーが融合した、これまでにない新しい体験です。</p>
+            <p class="content-text">現実の海での感動体験を、最新のデジタル技術で拡張し永続化する。それがAquaBit Labのマリン事業が目指す未来の形です。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="cta-section">
+      <div class="centered-content">
+        <div class="cta-content reveal">
+          <h2>今すぐ非日常体験の旅へ</h2>
+          <p>心と体を解放する海中体験を、ぜひあなた自身の感覚で確かめてください。</p>
+          <a href="https://miura-diving.com/" class="cta-button-white">マリン事業サイトへ</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- カスタムフッター -->
+    <footer class="apple-footer">
+      <div class="centered-content">
+        <div class="footer-logo">
+          <a href="index.html">
+            <img src="https://aquabit-lab.com/wp-content/uploads/2025/03/AquaBit-LAB-logo.png" alt="AquaBit LAB">
+          </a>
+        </div>
+        <div class="footer-columns">
+          <div class="footer-column">
+            <h3>事業内容</h3>
+            <ul>
+              <li><a href="marine.html">マリン事業</a></li>
+              <li><a href="ai-service.html">AI事業</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>教育</h3>
+            <ul>
+              <li><a href="education.html">Udemyコース</a></li>
+              <li><a href="education.html">書籍</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>AquaBit LAB</h3>
+            <ul>
+              <li><a href="about.html">ABLとは</a></li>
+              <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
+              <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-legal">
+          <p>Copyright © 2025 AquaBit LAB All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // スクロールアニメーション
+    document.addEventListener('DOMContentLoaded', function() {
+      // すべての .reveal 要素を取得
+      const reveals = document.querySelectorAll('.reveal');
+      
+      // スクロール時のイベントリスナーを追加
+      window.addEventListener('scroll', revealOnScroll);
+      
+      // 初期表示時にも実行
+      revealOnScroll();
+      
+      function revealOnScroll() {
+        for (let i = 0; i < reveals.length; i++) {
+          const windowHeight = window.innerHeight;
+          const elementTop = reveals[i].getBoundingClientRect().top;
+          const elementVisible = 150; // 要素が見える位置の閾値
+          
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add('active');
+          }
+        }
+      }
+      
+      // モバイルメニュートグル
+      const menuToggle = document.querySelector('.nav-menu-toggle');
+      const navMenu = document.querySelector('.nav-menu');
+      
+      if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+          navMenu.classList.toggle('active');
+        });
+      }
+      
+      // スムーススクロール
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            // モバイルメニューが開いていたら閉じる
+            if (navMenu.classList.contains('active')) {
+              navMenu.classList.remove('active');
+            }
+            
+            window.scrollTo({
+              top: targetElement.offsetTop - 60, // ヘッダーの高さを考慮
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

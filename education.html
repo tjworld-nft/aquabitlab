@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>教育コンテンツ | AquaBit LAB</title>
+  <style>
+    /* ベース設定 - アップル風デザインの基礎 */
+    :root {
+      --apple-font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+      --apple-text-color: #1d1d1f;
+      --apple-light-text: #f5f5f7;
+      --apple-link-color: #0066cc;
+      --apple-grey-bg: #fbfbfd;
+      --apple-dark-bg: #000000;
+      --aqua-color: #40E0D0;
+      --max-content-width: 980px;
+      --max-hero-width: 1440px;
+      --vertical-spacing: 100px;
+      --gutter: 22px;
+    }
+
+    /* グローバルリセットとベーススタイル */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: var(--apple-font);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: var(--apple-text-color);
+      background-color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* レイアウト基本クラス */
+    .education-wrapper {
+      width: 100%;
+      overflow-x: hidden;
+      font-size: 17px;
+      line-height: 1.47059;
+      font-weight: 400;
+      letter-spacing: -0.022em;
+    }
+
+    .centered-content {
+      max-width: var(--max-content-width);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+      position: relative;
+    }
+
+    .hero-centered-content {
+      max-width: var(--max-hero-width);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+      position: relative;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* カスタムヘッダーナビゲーション */
+    .apple-nav {
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      height: 44px;
+    }
+
+    .nav-container {
+      max-width: var(--max-content-width);
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 var(--gutter);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      opacity: 0.9;
+      transition: opacity 0.3s;
+    }
+
+    .nav-logo:hover {
+      opacity: 1;
+    }
+    
+    .nav-logo img {
+      height: 30px;
+      width: auto;
+      margin-right: 8px;
+    }
+    
+    .nav-logo-text {
+      color: #f5f5f7;
+      font-size: 21px;
+      font-weight: 500;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu li {
+      margin-left: 30px;
+    }
+
+    .nav-menu a {
+      color: #f5f5f7;
+      font-size: 12px;
+      font-weight: 400;
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+
+    .nav-menu a:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    .nav-menu-toggle {
+      display: none;
+      color: #f5f5f7;
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* ヒーローセクション */
+    .hero-section {
+      background-color: #000000;
+      background-size: cover;
+      background-position: center;
+      height: 70vh;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin-top: 44px; /* ナビゲーションの高さ分 */
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5));
+      z-index: 2;
+    }
+
+    .hero-bg-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    .hero-content {
+      width: 100%;
+      position: relative;
+      z-index: 3;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1.2s ease forwards 0.2s;
+      padding: 40px 0;
+    }
+
+    .hero-eyebrow {
+      font-size: 21px;
+      line-height: 1.19048;
+      font-weight: 600;
+      letter-spacing: .011em;
+      margin-bottom: 16px;
+      color: var(--aqua-color);
+    }
+
+    .hero-headline {
+      font-size: 56px;
+      line-height: 1.07143;
+      font-weight: 600;
+      letter-spacing: -.005em;
+      margin: 20px 0;
+      color: #FFFFFF;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-subhead {
+      font-size: 28px;
+      line-height: 1.10722;
+      font-weight: 400;
+      letter-spacing: .004em;
+      margin-bottom: 35px;
+      color: #FFFFFF;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: var(--apple-link-color);
+      color: white;
+      font-size: 17px;
+      font-weight: 400;
+      padding: 12px 22px;
+      border-radius: 980px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      margin: 0 10px 10px;
+    }
+
+    .cta-button:hover {
+      background-color: #004499;
+    }
+
+    .cta-button-outline {
+      display: inline-block;
+      background-color: transparent;
+      color: white;
+      font-size: 17px;
+      font-weight: 400;
+      padding: 12px 22px;
+      border-radius: 980px;
+      border: 1px solid white;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      margin: 0 10px 10px;
+    }
+
+    .cta-button-outline:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* イントロセクション */
+    .intro-section {
+      padding: var(--vertical-spacing) 0;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .section-title {
+      font-size: 48px;
+      line-height: 1.08349;
+      font-weight: 600;
+      letter-spacing: -.003em;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .section-intro {
+      font-size: 21px;
+      line-height: 1.381;
+      font-weight: 400;
+      letter-spacing: .011em;
+      max-width: 800px;
+      margin: 0 auto 50px;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    /* Udemyコースセクション */
+    .courses-section {
+      background-color: var(--apple-grey-bg);
+      padding: var(--vertical-spacing) 0;
+    }
+
+    .course-card {
+      background-color: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      margin-bottom: 40px;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .course-container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 30px;
+    }
+
+    .course-image {
+      flex: 0 0 300px;
+      margin-right: 30px;
+    }
+
+    .course-image img {
+      border-radius: 8px;
+      width: 100%;
+    }
+
+    .course-content {
+      flex: 1 1 500px;
+    }
+
+    .course-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .course-description {
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .course-features {
+      margin-bottom: 20px;
+    }
+
+    .course-features ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+    }
+
+    .course-features li {
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .course-features li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--apple-link-color);
+      font-weight: bold;
+    }
+
+    .course-pricing {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .price-original {
+      text-decoration: line-through;
+      color: #888;
+      margin-right: 15px;
+    }
+
+    .price-current {
+      font-size: 24px;
+      font-weight: 600;
+      margin-right: 15px;
+    }
+
+    .price-discount {
+      background-color: #ff3b30;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* 書籍セクション */
+    .books-section {
+      padding: var(--vertical-spacing) 0;
+    }
+
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .book-card {
+      background-color: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .book-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .book-image-container {
+      position: relative;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      text-align: center;
+    }
+
+    .book-image {
+      height: 250px;
+      width: auto;
+      margin: 0 auto;
+    }
+
+    .book-category {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: var(--apple-link-color);
+      color: white;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 12px;
+    }
+
+    .book-content {
+      padding: 30px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .book-title {
+      font-size: 21px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .book-subtitle {
+      font-size: 16px;
+      color: #777;
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+
+    .book-description {
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .book-tags {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      gap: 8px;
+    }
+
+    .book-tag {
+      background-color: #f1f1f1;
+      color: #555;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 12px;
+    }
+
+    .amazon-button {
+      display: inline-block;
+      background-color: #FF9900;
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      text-align: center;
+      width: 100%;
+    }
+
+    .amazon-button:hover {
+      background-color: #E68A00;
+    }
+
+    /* カスタムフッター */
+    .apple-footer {
+      background-color: #f5f5f7;
+      color: #6e6e73;
+      padding: 60px 0 30px;
+      font-size: 12px;
+      line-height: 1.33337;
+      font-weight: 400;
+      letter-spacing: -.01em;
+    }
+
+    .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .footer-column h3 {
+      font-size: 12px;
+      line-height: 1.33337;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      margin-bottom: 12px;
+      color: #1d1d1f;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-column li {
+      margin-bottom: 8px;
+    }
+
+    .footer-column a {
+      color: #6e6e73;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column a:hover {
+      color: #1d1d1f;
+      text-decoration: underline;
+    }
+
+    .footer-legal {
+      padding-top: 20px;
+      border-top: 1px solid #d2d2d7;
+      text-align: center;
+    }
+    
+    .footer-logo {
+      max-width: 120px;
+      margin: 0 auto 20px;
+    }
+
+    /* アニメーション */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* レスポンシブデザイン */
+    @media only screen and (max-width: 1068px) {
+      .books-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-headline {
+        font-size: 48px;
+      }
+
+      .hero-subhead {
+        font-size: 24px;
+      }
+
+      .section-title, .cta-title {
+        font-size: 40px;
+      }
+    }
+
+    @media only screen and (max-width: 734px) {
+      .books-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-headline {
+        font-size: 40px;
+      }
+
+      .hero-subhead {
+        font-size: 20px;
+      }
+
+      .section-title, .cta-title {
+        font-size: 32px;
+      }
+
+      .course-container {
+        flex-direction: column;
+      }
+
+      .course-image {
+        flex: 0 0 auto;
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+
+      .course-features ul {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-links {
+        flex-direction: column;
+      }
+
+      /* モバイルナビゲーション */
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 44px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        flex-direction: column;
+        padding: 20px 0;
+      }
+      
+      .nav-menu.active {
+        display: flex;
+      }
+      
+      .nav-menu li {
+        margin: 0;
+        padding: 10px var(--gutter);
+      }
+      
+      .nav-menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="education-wrapper">
+    <!-- カスタムヘッダーナビゲーション -->
+    <nav class="apple-nav">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <img src="https://aquabit-lab.com/wp-content/uploads/2025/03/AquaBit-LAB-logo.png" alt="AquaBit LAB">
+          <span class="nav-logo-text">AquaBit LAB</span>
+        </a>
+        <button class="nav-menu-toggle">☰</button>
+        <ul class="nav-menu">
+          <li><a href="marine.html">マリン事業</a></li>
+          <li><a href="ai-service.html">AI事業</a></li>
+          <li><a href="education.html">教育コンテンツ</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ヒーローセクション -->
+    <section class="hero-section" style="background-image: url('https://aquabit-lab.com/wp-content/uploads/2025/03/education-hero.png'); background-size: cover; background-position: center;">
+      <div class="hero-overlay"></div>
+      <div class="hero-centered-content">
+        <div class="hero-content">
+          <div class="hero-eyebrow">AquaBit LAB</div>
+          <h1 class="hero-headline">教育コンテンツ</h1>
+          <p class="hero-subhead">Udemy講座と書籍で広がる可能性の世界へようこそ</p>
+          <div class="cta-links">
+            <a href="#courses" class="cta-button">講座を見る</a>
+            <a href="#books" class="cta-button-outline">書籍を見る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- イントロセクション -->
+    <section class="intro-section">
+      <div class="centered-content">
+        <h2 class="section-title reveal">知識と創造性の世界があなたを待っています</h2>
+        <p class="section-intro reveal">世界最大級のオンライン学習プラットフォーム「Udemy」での講座や書籍を通じて、新しい知識とスキルを習得できます。新しいことに挑戦する意欲が高く、学ぶことを楽しむ方々に向けた質の高いコンテンツをご用意しました。</p>
+      </div>
+    </section>
+
+    <!-- Udemyコースセクション -->
+    <section id="courses" class="courses-section">
+      <div class="centered-content">
+        <h2 class="section-title reveal">Udemy講座</h2>
+        
+        <!-- ダイビング入門講座 -->
+        <div class="course-card reveal">
+          <div class="course-container">
+            <div class="course-image">
+              <img src="https://miura-diving.com/wp-content/uploads/名称未設定-400-x-300-px-1.png" alt="ダイビング入門講座">
+            </div>
+            <div class="course-content">
+              <h3 class="course-title">初心者向けダイビング入門：プロが教える安全で楽しい始め方完全ガイド</h3>
+              <p class="course-description">器材選びからライセンス取得まで、ダイビングを始めるために必要な知識を完全網羅。PADIコースディレクターの経験を活かし、初心者でも安心して始められる内容です。</p>
+              <div class="course-features">
+                <ul>
+                  <li>ダイビングの基礎知識と安全対策</li>
+                  <li>初心者におすすめの器材選び</li>
+                  <li>ライセンス取得までの流れ</li>
+                  <li>三浦半島のおすすめダイビングスポット</li>
+                </ul>
+              </div>
+              <div class="course-pricing">
+                <span class="price-original">¥12,800</span>
+                <span class="price-current">¥1,500</span>
+                <span class="price-discount">88%OFF</span>
+              </div>
+              <a href="https://www.udemy.com/course/start-diving/?couponCode=20250316" class="cta-button" target="_blank">講座を見る</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- LINEスタンプ講座 -->
+        <div class="course-card reveal">
+          <div class="course-container">
+            <div class="course-image">
+              <img src="https://miura-diving.com/wp-content/uploads/絵が描けなくても大丈夫-400-x-300-px.png" alt="LINEスタンプ制作講座">
+            </div>
+            <div class="course-content">
+              <h3 class="course-title">【はじめての副業にも最適】AI×Canvaで静止画＆動くLINEスタンプ制作</h3>
+              <p class="course-description">AIツールとCanvaを活用して、デザインスキル不要でLINEスタンプを作成・販売する方法を学びます。親子で楽しみながら取り組めます。</p>
+              <div class="course-features">
+                <ul>
+                  <li>AIを活用したイラスト生成の基礎</li>
+                  <li>Canvaでのスタンプデザイン方法</li>
+                  <li>静止画と動くスタンプの作り方</li>
+                  <li>LINEスタンプ販売の手順</li>
+                </ul>
+              </div>
+              <div class="course-pricing">
+                <span class="price-original">¥12,800</span>
+                <span class="price-current">¥1,500</span>
+                <span class="price-discount">88%OFF</span>
+              </div>
+              <a href="https://www.udemy.com/course/line_stamp/?couponCode=20250316" class="cta-button" target="_blank">講座を見る</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- AI作曲講座 -->
+        <div class="course-card reveal">
+          <div class="course-container">
+            <div class="course-image">
+              <img src="https://miura-diving.com/wp-content/uploads/名称未設定-400-x-300-px.png" alt="AI作曲講座">
+            </div>
+            <div class="course-content">
+              <h3 class="course-title">【AI革命】Chat GPT、SUNO AIを使って作詞作曲経験ゼロでもプロ級楽曲が完成！</h3>
+              <p class="course-description">最新のAIツールを活用して、音楽経験がなくても素晴らしいオリジナル楽曲を作れる方法を解説。海をテーマにした曲作りにも応用できます。</p>
+              <div class="course-features">
+                <ul>
+                  <li>Chat GPTを使った作詞テクニック</li>
+                  <li>SUNO AIによる作曲方法</li>
+                  <li>オリジナル楽曲の活用法</li>
+                </ul>
+              </div>
+              <div class="course-pricing">
+                <span class="price-original">¥15,800</span>
+                <span class="price-current">¥1,500</span>
+                <span class="price-discount">90%OFF</span>
+              </div>
+              <a href="https://www.udemy.com/course/ai-chatgpt-sunoai/?couponCode=20250316" class="cta-button" target="_blank">講座を見る</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 書籍セクション -->
+    <section id="books" class="books-section">
+      <div class="centered-content">
+        <h2 class="section-title reveal">書籍</h2>
+        <div class="books-grid">
+          <!-- 書籍1 -->
+          <div class="book-card reveal">
+            <div class="book-image-container">
+              <div class="book-category">AI絵本</div>
+              <img src="https://aquabit-lab.com/wp-content/uploads/2025/03/うみがめになったぜんくんの大冒険.png" alt="うみがめになったぜんくんの大冒険" class="book-image">
+            </div>
+            <div class="book-content">
+              <h3 class="book-title">うみがめになったぜんくんの大冒険</h3>
+              <p class="book-subtitle">海を守る小さな勇者の物語</p>
+              <div class="book-description">
+                <p>6歳のぜんくんが海ガメになる夢を見て、美しい海に広がるゴミにショックを受けます。夢の中で仲間と協力してゴミを拾い、海をきれいにした体験が、現実でもビーチクリーンにつながります。親子で楽しめるこの絵本を通じて、海を守る心や環境への関心が自然と育まれ、日常の小さな行動の大切さに気づくきっかけになることでしょう。</p>
+              </div>
+              <div class="book-tags">
+                <span class="book-tag">海の絵本</span>
+                <span class="book-tag">親子で読む</span>
+                <span class="book-tag">環境教育</span>
+                <span class="book-tag">SDGs</span>
+                <span class="book-tag">ビーチクリーン</span>
+                <span class="book-tag">海洋ごみ</span>
+                <span class="book-tag">マリンアクション</span>
+              </div>
+              <a href="https://amzn.to/4hUxLOb" class="amazon-button" target="_blank">Amazonで見る</a>
+            </div>
+          </div>
+          
+          <!-- 書籍2 -->
+          <div class="book-card reveal">
+            <div class="book-image-container">
+              <div class="book-category">マインドフルネス</div>
+              <img src="https://aquabit-lab.com/wp-content/uploads/2025/03/水中で学ぶマインドフルネス.png" alt="水中マインドフルネス書籍" class="book-image">
+            </div>
+            <div class="book-content">
+              <h3 class="book-title">水中で学ぶマインドフルネス</h3>
+              <p class="book-subtitle">ダイビングがもたらす心の平穏</p>
+              <div class="book-description">
+                <p>四半世紀以上のダイビング経験を持つ著者が贈る、海と心の深い繋がりを探求する一冊。重力から解放された体、静寂に包まれた世界、そして呼吸だけに集中する瞬間—。ダイビングを通じたストレス軽減と集中力向上の技術、水中瞑想の実践方法とその効果について解説します。</p>
+              </div>
+              <div class="book-tags">
+                <span class="book-tag">ダイビング</span>
+                <span class="book-tag">マインドフルネス</span>
+                <span class="book-tag">自己成長</span>
+              </div>
+              <a href="https://amzn.to/3FM1XOa" class="amazon-button" target="_blank">Amazonで見る</a>
+            </div>
+          </div>
+          
+          <!-- 書籍3 -->
+          <div class="book-card reveal">
+            <div class="book-image-container">
+              <div class="book-category">子ども絵本</div>
+              <img src="https://aquabit-lab.com/wp-content/uploads/2025/03/お菓子大好きみーちゃん.png" alt="おかしだいすきみーちゃん" class="book-image">
+            </div>
+            <div class="book-content">
+              <h3 class="book-title">おかしだいすきみーちゃん</h3>
+              <p class="book-subtitle">10歳の女の子が乳幼児に書いた絵本</p>
+              <div class="book-description">
+                <p>10歳の少女が最新技術を駆使して創作した、心温まる冒険譚。甘いものが大好きな4歳の女の子、みーちゃんが夢の中でお菓子の国に迷い込み、思いがけない冒険に巻き込まれます。若い世代の創造性と先端技術の融合が生み出した作品は、子どもたちの無限の可能性を示しています。</p>
+              </div>
+              <div class="book-tags">
+                <span class="book-tag">絵本</span>
+                <span class="book-tag">子ども向け</span>
+                <span class="book-tag">AI創作</span>
+              </div>
+              <a href="https://amzn.to/3FJndE8" class="amazon-button" target="_blank">Amazonで見る</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- カスタムフッター -->
+    <footer class="apple-footer">
+      <div class="centered-content">
+        <div class="footer-columns">
+          <div class="footer-column">
+            <h3>事業</h3>
+            <ul>
+              <li><a href="marine.html">マリン事業</a></li>
+              <li><a href="ai-service.html">AI事業</a></li>
+              <li><a href="education.html">教育コンテンツ</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>サービス</h3>
+            <ul>
+              <li><a href="https://miura-diving.com/" target="_blank">ダイビングツアー</a></li>
+              <li><a href="education.html#courses">Udemy講座</a></li>
+              <li><a href="education.html#books">出版書籍</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>サポート</h3>
+            <ul>
+              <li><a href="about.html">ABLとは？</a></li>
+              <li><a href="contact.html">お問い合わせ</a></li>
+              <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-legal">
+          <a href="index.html">
+            <img src="https://aquabit-lab.com/wp-content/uploads/2025/03/AquaBit-LAB-logo.png" alt="AquaBit LAB" class="footer-logo">
+          </a>
+          <p>Copyright © 2025 AquaBit LAB. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Reveal Animation on Scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const revealElements = document.querySelectorAll('.reveal');
+      
+      function checkReveal() {
+        for (let i = 0; i < revealElements.length; i++) {
+          const windowHeight = window.innerHeight;
+          const elementTop = revealElements[i].getBoundingClientRect().top;
+          const elementVisible = 150;
+          
+          if (elementTop < windowHeight - elementVisible) {
+            revealElements[i].classList.add('active');
+          }
+        }
+      }
+      
+      window.addEventListener('scroll', checkReveal);
+      checkReveal();
+      
+      // モバイルメニュートグル
+      const menuToggle = document.querySelector('.nav-menu-toggle');
+      const navMenu = document.querySelector('.nav-menu');
+      
+      if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+          navMenu.classList.toggle('active');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

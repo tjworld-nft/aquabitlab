@@ -1,0 +1,13 @@
+# PHP files (original WordPress templates)
+*.php
+
+# macOS
+.DS_Store
+
+# IDE files
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.log

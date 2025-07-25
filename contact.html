@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | AquaBit LAB</title>
+  <style>
+    /* ベース設定 - アップル風デザインの基礎 */
+    :root {
+      --apple-font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+      --apple-text-color: #1d1d1f;
+      --apple-light-text: #f5f5f7;
+      --apple-link-color: #0066cc;
+      --apple-grey-bg: #fbfbfd;
+      --apple-dark-bg: #000000;
+      --aqua-color: #40E0D0;
+      --max-content-width: 980px;
+      --max-hero-width: 1440px;
+      --vertical-spacing: 130px;
+      --gutter: 22px;
+    }
+
+    /* グローバルリセットとベーススタイル */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: var(--apple-font);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color: var(--apple-text-color);
+      background-color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* レイアウト基本クラス */
+    .apple-wrapper {
+      width: 100%;
+      overflow-x: hidden;
+      font-size: 17px;
+      line-height: 1.47059;
+      font-weight: 400;
+      letter-spacing: -0.022em;
+    }
+
+    .full-bleed {
+      width: 100%;
+      position: relative;
+    }
+
+    .centered-content {
+      max-width: var(--max-content-width);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+      position: relative;
+    }
+
+    .hero-centered-content {
+      max-width: var(--max-hero-width);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+      position: relative;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* カスタムヘッダーナビゲーション */
+    .apple-nav {
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      height: 44px;
+    }
+
+    .nav-container {
+      max-width: var(--max-content-width);
+      margin: 0 auto;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 var(--gutter);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      opacity: 0.9;
+      transition: opacity 0.3s;
+    }
+
+    .nav-logo:hover {
+      opacity: 1;
+    }
+    
+    .nav-logo img {
+      height: 30px;
+      width: auto;
+      margin-right: 8px;
+    }
+    
+    .nav-logo-text {
+      color: #f5f5f7;
+      font-size: 21px;
+      font-weight: 500;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu li {
+      margin-left: 30px;
+    }
+
+    .nav-menu a {
+      color: #f5f5f7;
+      font-size: 12px;
+      font-weight: 400;
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+    }
+
+    .nav-menu a:hover {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    .nav-menu-toggle {
+      display: none;
+      color: #f5f5f7;
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* お問い合わせページ専用スタイル */
+    .contact-hero {
+      background-color: var(--apple-grey-bg);
+      padding-top: 120px;
+      padding-bottom: 60px;
+      text-align: center;
+    }
+
+    .contact-title {
+      font-size: 48px;
+      line-height: 1.08349;
+      font-weight: 600;
+      letter-spacing: -.003em;
+      color: var(--apple-text-color);
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease forwards 0.2s;
+    }
+
+    .contact-subtitle {
+      font-size: 24px;
+      line-height: 1.16667;
+      font-weight: 400;
+      letter-spacing: .009em;
+      color: #6e6e73;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease forwards 0.4s;
+    }
+
+    .contact-container {
+      max-width: 680px;
+      margin: 0 auto 80px;
+      background-color: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+      padding: 50px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease forwards 0.6s;
+    }
+
+    /* フォームスタイル */
+    .contact-form label {
+      display: block;
+      font-size: 17px;
+      line-height: 1.47059;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--apple-text-color);
+    }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="tel"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+      width: 100%;
+      padding: 13px 16px;
+      margin-bottom: 24px;
+      border-radius: 12px;
+      border: 1px solid #d2d2d7;
+      font-family: var(--apple-font);
+      font-size: 17px;
+      line-height: 1.47059;
+      font-weight: 400;
+      color: var(--apple-text-color);
+      background-color: #fff;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-form input[type="text"]:focus,
+    .contact-form input[type="tel"]:focus,
+    .contact-form input[type="email"]:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--apple-link-color);
+      box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.1);
+    }
+
+    .contact-form textarea {
+      min-height: 180px;
+      resize: vertical;
+    }
+
+    .contact-form input[type="submit"] {
+      background: linear-gradient(90deg, var(--aqua-color), #4facfe);
+      color: #fff;
+      font-size: 17px;
+      line-height: 1.47059;
+      font-weight: 600;
+      border-radius: 980px;
+      padding: 12px 30px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .contact-form input[type="submit"]:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(79, 172, 254, 0.3);
+    }
+
+    /* 情報セクション */
+    .info-section {
+      background-color: var(--apple-dark-bg);
+      color: var(--apple-light-text);
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .info-title {
+      font-size: 32px;
+      line-height: 1.125;
+      font-weight: 600;
+      letter-spacing: 0.004em;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .info-content {
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .info-item {
+      margin-bottom: 20px;
+    }
+
+    .info-label {
+      font-size: 17px;
+      line-height: 1.47059;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #6e6e73;
+    }
+
+    .info-value {
+      font-size: 21px;
+      line-height: 1.381;
+      font-weight: 400;
+    }
+
+    .info-value a {
+      color: var(--aqua-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .info-value a:hover {
+      text-decoration: underline;
+      color: #4facfe;
+    }
+
+    /* FAQセクション */
+    .faq-section {
+      padding: 80px 0;
+      background-color: var(--apple-grey-bg);
+    }
+
+    .faq-title {
+      font-size: 40px;
+      line-height: 1.1;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 50px;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background-color: #fff;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .faq-question {
+      padding: 20px 25px;
+      font-size: 19px;
+      line-height: 1.42;
+      font-weight: 600;
+      color: var(--apple-text-color);
+      background-color: #fff;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    .faq-question:after {
+      content: '+';
+      position: absolute;
+      right: 25px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-question.active:after {
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+
+    .faq-answer-content {
+      padding: 0 25px 20px;
+      font-size: 17px;
+      line-height: 1.47059;
+      color: #333;
+    }
+
+    /* カスタムフッター */
+    .apple-footer {
+      background-color: #f5f5f7;
+      color: #6e6e73;
+      padding: 60px 0 30px;
+      font-size: 12px;
+      line-height: 1.33337;
+      font-weight: 400;
+      letter-spacing: -.01em;
+    }
+
+    .footer-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .footer-column h3 {
+      font-size: 12px;
+      line-height: 1.33337;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      margin-bottom: 12px;
+      color: #1d1d1f;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-column li {
+      margin-bottom: 8px;
+    }
+
+    .footer-column a {
+      color: #6e6e73;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column a:hover {
+      color: #1d1d1f;
+      text-decoration: underline;
+    }
+
+    .footer-legal {
+      padding-top: 20px;
+      border-top: 1px solid #d2d2d7;
+      text-align: center;
+    }
+    
+    .footer-logo {
+      max-width: 120px;
+      margin: 0 auto 20px;
+    }
+
+    /* アニメーション */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* レスポンシブデザイン */
+    @media only screen and (max-width: 1068px) {
+      .contact-title {
+        font-size: 40px;
+      }
+      
+      .contact-subtitle {
+        font-size: 21px;
+      }
+      
+      .info-title {
+        font-size: 28px;
+      }
+      
+      .faq-title {
+        font-size: 32px;
+      }
+    }
+
+    @media only screen and (max-width: 734px) {
+      :root {
+        --gutter: 16px;
+      }
+      
+      .contact-hero {
+        padding-top: 90px;
+      }
+      
+      .contact-title {
+        font-size: 32px;
+      }
+      
+      .contact-subtitle {
+        font-size: 19px;
+      }
+      
+      .contact-container {
+        padding: 30px 20px;
+        margin-bottom: 60px;
+      }
+      
+      .info-title {
+        font-size: 24px;
+      }
+      
+      .info-value {
+        font-size: 19px;
+      }
+      
+      .faq-title {
+        font-size: 28px;
+      }
+      
+      .faq-question {
+        font-size: 17px;
+        padding: 16px 20px;
+      }
+      
+      .faq-question:after {
+        right: 20px;
+      }
+      
+      .footer-columns {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      /* モバイルナビゲーション */
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 44px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        flex-direction: column;
+        padding: 20px 0;
+      }
+      
+      .nav-menu.active {
+        display: flex;
+      }
+      
+      .nav-menu li {
+        margin: 0;
+        padding: 10px var(--gutter);
+      }
+      
+      .nav-menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="apple-wrapper">
+    <!-- カスタムヘッダーナビゲーション -->
+    <nav class="apple-nav">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <img src="https://aquabit-lab.com/wp-content/uploads/2025/03/AquaBit-LAB-logo.png" alt="AquaBit LAB">
+          <span class="nav-logo-text">AquaBit LAB</span>
+        </a>
+        <button class="nav-menu-toggle">☰</button>
+        <ul class="nav-menu">
+          <li><a href="marine.html">マリン事業</a></li>
+          <li><a href="ai-service.html">AI事業</a></li>
+          <li><a href="education.html">教育コンテンツ</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- お問い合わせヒーロー -->
+    <section class="contact-hero full-bleed">
+      <div class="centered-content">
+        <h1 class="contact-title">お問い合わせ</h1>
+        <p class="contact-subtitle">AquaBit LABへのお問い合わせやご質問は、以下のフォームよりお気軽にご連絡ください。</p>
+      </div>
+    </section>
+
+    <!-- お問い合わせフォーム -->
+    <section class="contact-form-section">
+      <div class="centered-content">
+        <div class="contact-container">
+          <form class="contact-form" action="#" method="post">
+            <div class="form-group">
+              <label for="name">お名前</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">電話番号</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+            
+            <div class="form-group">
+              <label for="email">メールアドレス</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">お問い合わせ内容</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            
+            <div class="form-submit">
+              <input type="submit" value="送信する">
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- 連絡先情報 -->
+    <section class="info-section full-bleed">
+      <div class="centered-content">
+        <h2 class="info-title reveal">直接のお問い合わせ</h2>
+        <div class="info-content reveal">
+          <div class="info-item">
+            <p class="info-label">メールアドレス</p>
+            <p class="info-value"><a href="mailto:info@aquabit-lab.com">info@aquabit-lab.com</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section full-bleed">
+      <div class="centered-content">
+        <h2 class="faq-title reveal">よくあるご質問</h2>
+        <div class="faq-container">
+          <div class="faq-item reveal">
+            <button class="faq-question">どのような事業を行っていますか？</button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p>AquaBit LABでは、マリン事業、AI事業の2つの分野で活動しています。マリン事業ではダイビングを中心としたマリンアクティビティを提供し、AI事業ではAI技術の活用方法の教育・指導を行っています。</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="faq-item reveal">
+            <button class="faq-question">コラボレーションや提携は可能ですか？</button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p>はい、新しいアイデアやコラボレーションを歓迎しています。お問い合わせフォームからご連絡いただくか、直接メールでお問い合わせください。ユニークな視点や情熱をお持ちの方との協業を楽しみにしています。</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="faq-item reveal">
+            <button class="faq-question">Udemyコースや書籍はどこで購入できますか？</button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <p>Udemyコースはudemy.comで、書籍はAmazonなどのオンライン書店で購入いただけます。詳細なリンクは教育コンテンツページでご確認いただけます。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- カスタムフッター -->
+    <footer class="apple-footer">
+      <div class="centered-content">
+        <div class="footer-logo">
+          <a href="index.html">
+            <img src="https://aquabit-lab.com/wp-content/uploads/2025/03/AquaBit-LAB-logo.png" alt="AquaBit LAB">
+          </a>
+        </div>
+        <div class="footer-columns">
+          <div class="footer-column">
+            <h3>事業内容</h3>
+            <ul>
+              <li><a href="marine.html">マリン事業</a></li>
+              <li><a href="ai-service.html">AI事業</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>教育</h3>
+            <ul>
+              <li><a href="education.html">Udemyコース</a></li>
+              <li><a href="education.html">書籍</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>AquaBit LAB</h3>
+            <ul>
+              <li><a href="about.html">ABLとは？</a></li>
+              <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
+              <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-legal">
+          <p>Copyright © 2025 AquaBit LAB All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // スクロールアニメーション
+    document.addEventListener('DOMContentLoaded', function() {
+      // すべての .reveal 要素を取得
+      const reveals = document.querySelectorAll('.reveal');
+      
+      // スクロール時のイベントリスナーを追加
+      window.addEventListener('scroll', revealOnScroll);
+      
+      // 初期表示時にも実行
+      revealOnScroll();
+      
+      function revealOnScroll() {
+        for (let i = 0; i < reveals.length; i++) {
+          const windowHeight = window.innerHeight;
+          const elementTop = reveals[i].getBoundingClientRect().top;
+          const elementVisible = 150; // 要素が見える位置の閾値
+          
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add('active');
+          }
+        }
+      }
+      
+      // モバイルメニュートグル
+      const menuToggle = document.querySelector('.nav-menu-toggle');
+      const navMenu = document.querySelector('.nav-menu');
+      
+      if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+          navMenu.classList.toggle('active');
+        });
+      }
+      
+      // FAQアコーディオン
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+          this.classList.toggle('active');
+          const answer = this.nextElementSibling;
+          
+          if (this.classList.contains('active')) {
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+          } else {
+            answer.style.maxHeight = 0;
+          }
+          
+          // 他の開いているFAQを閉じる
+          faqQuestions.forEach(otherQuestion => {
+            if (otherQuestion !== this && otherQuestion.classList.contains('active')) {
+              otherQuestion.classList.remove('active');
+              otherQuestion.nextElementSibling.style.maxHeight = 0;
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
