@@ -31,7 +31,7 @@ jobs:
           **/.DS_Store
           **/README.md
           
-    - name: Verify deployment with lftp
+    - name: Rename htaccess and verify deployment
       run: |
         sudo apt-get update
         sudo apt-get install -y lftp
@@ -39,6 +39,7 @@ jobs:
         set ftp:ssl-allow no;
         open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }};
         cd aquabit-lab.com/public_html/;
+        mv htaccess.txt .htaccess;
         ls -la;
         quit
         "
