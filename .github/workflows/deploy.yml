@@ -12,6 +12,13 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       
+    - name: List files to be deployed
+      run: |
+        echo "=== Files to be deployed ==="
+        ls -la
+        echo "=== HTML files ==="
+        find . -name "*.html" -type f
+        
     - name: Deploy to Xserver via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
@@ -21,7 +28,7 @@ jobs:
         local-dir: ./
         server-dir: /
         log-level: verbose
-        dangerous-clean-slate: true
+        dangerous-clean-slate: false
         exclude: |
           **/.git*
           **/.git*/**
