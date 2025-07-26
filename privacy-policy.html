@@ -56,7 +56,9 @@
 
     /* カスタムヘッダーナビゲーション */
     .apple-nav {
-      background-color: rgba(0, 0, 0, 0.8);
+      background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(10,10,20,0.9) 100%);
+      border-bottom: 1px solid rgba(0,255,255,0.3);
+      box-shadow: 0 0 15px rgba(0,255,255,0.2);
       backdrop-filter: saturate(180%) blur(20px);
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       position: fixed;
@@ -93,6 +95,7 @@
       height: 30px;
       width: auto;
       margin-right: 8px;
+      filter: drop-shadow(0 0 10px rgba(0,255,255,0.5));
     }
     
     .nav-logo-text {
@@ -149,6 +152,7 @@
       letter-spacing: 0;
       color: var(--apple-text-color);
       margin-bottom: 16px;
+      text-shadow: 0 0 12px rgba(64,224,208,0.4);
     }
 
     .privacy-updated {
