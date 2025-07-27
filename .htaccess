@@ -3,6 +3,10 @@ DirectoryIndex index.html index.php
 RewriteEngine On
 RewriteRule ^marine/?$ marine.html [L]
 RewriteRule ^ai/?$ ai-service.html [L]
+RewriteRule ^about/?$ about.html [L]
+RewriteRule ^contact/?$ contact.html [L]
+RewriteRule ^privacy-policy/?$ privacy-policy.html [L]
+RewriteRule ^tokushoho/?$ tokushoho.html [L]
 
 # Cache Control Settings
 <IfModule mod_expires.c>
