@@ -1,6 +1,8 @@
 DirectoryIndex index.html index.php
 
 RewriteEngine On
+# Test if mod_rewrite is working
+RewriteRule ^test/?$ index.html [L]
 RewriteRule ^marine/?$ marine.html [L]
 RewriteRule ^ai/?$ ai-service.html [L]
 RewriteRule ^about/?$ about.html [L]
