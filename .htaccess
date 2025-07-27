@@ -1,14 +1,10 @@
 DirectoryIndex index.html index.php
 
+# Remove .html from URLs for cleaner appearance (optional)
 RewriteEngine On
-# Test if mod_rewrite is working
-RewriteRule ^test/?$ index.html [L]
-RewriteRule ^marine/?$ marine.html [L]
-RewriteRule ^ai/?$ ai-service.html [L]
-RewriteRule ^about/?$ about.html [L]
-RewriteRule ^contact/?$ contact.html [L]
-RewriteRule ^privacy-policy/?$ privacy-policy.html [L]
-RewriteRule ^tokushoho/?$ tokushoho.html [L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
 
 # Cache Control Settings
 <IfModule mod_expires.c>
