@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI学習サロン｜ゼロから最先端AIまで最短習得｜月額9,800円</title>
+    <meta name="description" content="AIを学びたいけど何から始めれば？Discord上で24時間質問可能、自分のペースで最短学習。月額9,800円で最先端AIスキルを習得できる実践的学習サロン。">
+    
+    <!-- OGP -->
+    <meta property="og:title" content="AI学習サロン｜ゼロから最先端AIまで最短習得">
+    <meta property="og:description" content="AIを学びたいけど何から始めれば？Discord上で24時間質問可能、自分のペースで最短学習。">
+    <meta property="og:image" content="/ai-salon/img/ai-ogp.png">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        'primary': '#0a0a0a',
+                        'secondary': '#1a1a1a',
+                        'accent': '#3b82f6',
+                        'accent-light': '#60a5fa',
+                        'success': '#10b981',
+                        'warning': '#f59e0b',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'fadeInUp': 'fadeInUp 0.8s ease-out forwards',
+                        'gradient': 'gradient 3s ease infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom CSS */
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #1a1a1a;
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --success: #10b981;
+            --text-primary: #ffffff;
+            --text-secondary: #e5e7eb;
+            --text-muted: #9ca3af;
+        }
+        
+        body {
+            background: var(--primary);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes glow {
+            0% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+            100% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Hero Background - Neon Punk Style */
+        .hero-bg {
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.7), rgba(10, 0, 20, 0.8)),
+                url('/ai-salon/img/hero-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Neon grid overlay */
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.3) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.25) 0%, transparent 45%),
+                radial-gradient(circle at 60% 80%, rgba(0, 255, 128, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 30% 70%, rgba(255, 20, 147, 0.15) 0%, transparent 35%);
+            pointer-events: none;
+            animation: neon-pulse 4s ease-in-out infinite;
+        }
+        
+        /* Cyber scan lines */
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, 
+                    transparent 0%, 
+                    rgba(0, 255, 255, 0.15) 10%, 
+                    transparent 20%,
+                    rgba(255, 0, 255, 0.1) 40%,
+                    transparent 50%,
+                    rgba(0, 255, 128, 0.12) 70%,
+                    transparent 80%,
+                    rgba(255, 20, 147, 0.08) 90%,
+                    transparent 100%
+                );
+            background-size: 300% 300%;
+            animation: cyber-scan 12s linear infinite;
+            pointer-events: none;
+        }
+        
+        /* Neon animations */
+        @keyframes neon-pulse {
+            0%, 100% { 
+                opacity: 0.8;
+                filter: brightness(1) saturate(1.2);
+            }
+            50% { 
+                opacity: 1;
+                filter: brightness(1.3) saturate(1.5);
+            }
+        }
+        
+        @keyframes cyber-scan {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 300% 300%; }
+        }
+        
+        /* Neon text effects */
+        .neon-title {
+            text-shadow: 
+                0 0 5px rgba(0, 255, 255, 0.8),
+                0 0 10px rgba(0, 255, 255, 0.6),
+                0 0 20px rgba(0, 255, 255, 0.4),
+                0 0 40px rgba(0, 255, 255, 0.2);
+            animation: neon-flicker 2s infinite alternate;
+        }
+        
+        .neon-price {
+            text-shadow: 
+                0 0 5px rgba(255, 0, 255, 0.8),
+                0 0 10px rgba(255, 0, 255, 0.6),
+                0 0 20px rgba(255, 0, 255, 0.4),
+                0 0 40px rgba(255, 0, 255, 0.2);
+            animation: neon-pulse-text 3s ease-in-out infinite;
+        }
+        
+        .cyber-button {
+            background: linear-gradient(135deg, 
+                rgba(0, 255, 255, 0.2), 
+                rgba(255, 0, 255, 0.2), 
+                rgba(0, 255, 128, 0.2)
+            );
+            border: 2px solid rgba(0, 255, 255, 0.6);
+            box-shadow: 
+                0 0 20px rgba(0, 255, 255, 0.3),
+                inset 0 0 20px rgba(0, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .cyber-button:hover {
+            background: linear-gradient(135deg, 
+                rgba(0, 255, 255, 0.4), 
+                rgba(255, 0, 255, 0.4), 
+                rgba(0, 255, 128, 0.4)
+            );
+            border-color: rgba(0, 255, 255, 1);
+            box-shadow: 
+                0 0 30px rgba(0, 255, 255, 0.6),
+                inset 0 0 30px rgba(0, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        @keyframes neon-flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 
+                    0 0 5px rgba(0, 255, 255, 0.8),
+                    0 0 10px rgba(0, 255, 255, 0.6),
+                    0 0 20px rgba(0, 255, 255, 0.4),
+                    0 0 40px rgba(0, 255, 255, 0.2);
+            }
+            20%, 24%, 55% {
+                text-shadow: 
+                    0 0 2px rgba(0, 255, 255, 0.4),
+                    0 0 5px rgba(0, 255, 255, 0.3),
+                    0 0 10px rgba(0, 255, 255, 0.2),
+                    0 0 20px rgba(0, 255, 255, 0.1);
+            }
+        }
+        
+        @keyframes neon-pulse-text {
+            0%, 100% {
+                text-shadow: 
+                    0 0 5px rgba(255, 0, 255, 0.8),
+                    0 0 10px rgba(255, 0, 255, 0.6),
+                    0 0 20px rgba(255, 0, 255, 0.4),
+                    0 0 40px rgba(255, 0, 255, 0.2);
+            }
+            50% {
+                text-shadow: 
+                    0 0 8px rgba(255, 0, 255, 1),
+                    0 0 16px rgba(255, 0, 255, 0.8),
+                    0 0 30px rgba(255, 0, 255, 0.6),
+                    0 0 60px rgba(255, 0, 255, 0.3);
+            }
+        }
+        
+        /* Floating particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+        }
+        
+        .particle {
+            position: absolute;
+            display: block;
+            pointer-events: none;
+            width: 2px;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+            opacity: 0.6;
+        }
+        
+        /* Glass morphism */
+        .glass {
+            background: rgba(26, 26, 26, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+        }
+        
+        .glass:hover {
+            background: rgba(26, 26, 26, 0.8);
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            transition: all 0.3s ease;
+        }
+        
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--success) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Button styles */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            padding: 16px 32px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        /* Section styles */
+        .section-dark {
+            background: var(--secondary);
+        }
+        
+        .section-pattern {
+            background-image: 
+                radial-gradient(circle at 2px 2px, rgba(59, 130, 246, 0.1) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        
+        /* Hide initially for animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .fade-in.visible {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        /* Timeline */
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+        }
+        
+        .timeline-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            font-size: 18px;
+        }
+        
+        /* Feature icons */
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--success) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Pricing card */
+        .pricing-card {
+            background: rgba(26, 26, 26, 0.8);
+            border: 2px solid var(--accent);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--success));
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center justify-center relative">
+        <div class="particles">
+            <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+            <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
+            <div class="particle" style="left: 40%; animation-delay: 1s;"></div>
+            <div class="particle" style="left: 50%; animation-delay: 3s;"></div>
+            <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
+            <div class="particle" style="left: 70%; animation-delay: 2s;"></div>
+            <div class="particle" style="left: 80%; animation-delay: 4s;"></div>
+            <div class="particle" style="left: 90%; animation-delay: 6s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10 max-w-5xl">
+            <div class="animate-float">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 fade-in neon-title">
+                    <span class="gradient-text">AI</span>を学びたいけど<br>
+                    <span class="gradient-text">何から始めれば？</span>
+                </h1>
+            </div>
+            
+            <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto fade-in" style="animation-delay: 0.2s;">
+                Discord上で24時間質問可能、自分のペースで最短学習<br>
+                <span class="gradient-text font-semibold">ゼロから最先端AIまで</span>を習得
+            </p>
+            
+            <div class="mb-10 fade-in pricing-card p-8 max-w-md mx-auto" style="animation-delay: 0.4s;">
+                <div class="text-sm text-gray-400 mb-2">月額料金</div>
+                <div class="text-5xl md:text-6xl font-bold gradient-text neon-price mb-2">¥9,800</div>
+                <div class="text-lg text-gray-400 mb-4">（税込）</div>
+                <div class="text-sm text-gray-300 space-y-1">
+                    <div>✓ いつでも解約可能</div>
+                    <div>✓ 最低利用期間なし</div>
+                    <div>✓ 24時間Discord質問対応</div>
+                </div>
+            </div>
+            
+            <button id="cta-btn" class="btn-primary cyber-button text-xl font-bold fade-in animate-glow" style="animation-delay: 0.6s;">
+                今すぐAI学習を始める
+            </button>
+            
+            <p class="text-sm text-gray-400 mt-4 fade-in" style="animation-delay: 0.8s;">
+                月額9,800円・いつでも解約可能
+            </p>
+        </div>
+    </section>
+
+    <!-- 課題提起セクション -->
+    <section class="py-20 section-dark section-pattern">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 fade-in">
+                こんな<span class="gradient-text">悩み</span>ありませんか？
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="glass p-8 text-center fade-in">
+                    <div class="feature-icon">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">何から学習すれば良いかわからない</h3>
+                    <p class="text-gray-300">ChatGPT、Claude、画像生成AI...たくさんあるけど、どこから手をつければ効率的？</p>
+                </div>
+                
+                <div class="glass p-8 text-center fade-in" style="animation-delay: 0.2s;">
+                    <div class="feature-icon">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">独学だと続かない</h3>
+                    <p class="text-gray-300">一人だとモチベーション維持が難しく、分からないことがあっても相談できない</p>
+                </div>
+                
+                <div class="glass p-8 text-center fade-in" style="animation-delay: 0.4s;">
+                    <div class="feature-icon">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">最新情報についていけない</h3>
+                    <p class="text-gray-300">AI技術の進歩が早すぎて、学んでいる間に古い情報になってしまう不安</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ソリューションセクション -->
+    <section class="py-20 bg-primary">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 fade-in">
+                <span class="gradient-text">AI学習サロン</span>なら解決！
+            </h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="fade-in">
+                        <img src="/ai-salon/img/discord-learning.png" alt="Discord学習環境" class="rounded-2xl shadow-2xl">
+                        <!-- 推奨サイズ: 600x400px -->
+                    </div>
+                    <div class="fade-in">
+                        <h3 class="text-3xl font-bold mb-6">24時間質問し放題のDiscordコミュニティ</h3>
+                        <ul class="space-y-4 text-lg">
+                            <li class="flex items-start">
+                                <span class="gradient-text font-bold mr-3">✓</span>
+                                いつでも質問・相談可能
+                            </li>
+                            <li class="flex items-start">
+                                <span class="gradient-text font-bold mr-3">✓</span>
+                                同じ目標を持つ仲間と学習
+                            </li>
+                            <li class="flex items-start">
+                                <span class="gradient-text font-bold mr-3">✓</span>
+                                専門メンターが丁寧にサポート
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in order-2 md:order-1">
+                        <h3 class="text-3xl font-bold mb-6">体系的なカリキュラムで最短習得</h3>
+                        <ul class="space-y-4 text-lg">
+                            <li class="flex items-start">
+                                <span class="gradient-text font-bold mr-3">✓</span>
+                                初心者から上級者まで段階的に学習
+                            </li>
+                            <li class="flex items-start">
+                                <span class="gradient-text font-bold mr-3">✓</span>
+                                実践的なハンズオン形式
+                            </li>
+                            <li class="flex items-start">
+                                <span class="gradient-text font-bold mr-3">✓</span>
+                                最新AI技術を常にアップデート
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="fade-in order-1 md:order-2">
+                        <img src="/ai-salon/img/ai-curriculum.jpg.png" alt="AI学習カリキュラム" class="rounded-2xl shadow-2xl">
+                        <!-- 推奨サイズ: 600x400px -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- カリキュラムセクション -->
+    <section class="py-20 section-dark section-pattern">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 fade-in">
+                <span class="gradient-text">4段階</span>学習ロードマップ
+            </h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <div class="absolute left-6 top-0 bottom-0 w-px bg-accent opacity-30"></div>
+                    
+                    <div class="space-y-12">
+                        <div class="timeline-item fade-in">
+                            <div class="timeline-number">1</div>
+                            <div class="glass p-8">
+                                <h3 class="text-2xl font-bold mb-4">AI基礎理解</h3>
+                                <p class="text-gray-300 mb-4">AI・機械学習の基本概念から最新トレンドまで理解</p>
+                                <ul class="text-gray-400 space-y-2">
+                                    <li>• ChatGPT・Claude等の言語モデル活用法</li>
+                                    <li>• プロンプトエンジニアリング基礎</li>
+                                    <li>• AI業界動向・ビジネス活用事例</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item fade-in" style="animation-delay: 0.2s;">
+                            <div class="timeline-number">2</div>
+                            <div class="glass p-8">
+                                <h3 class="text-2xl font-bold mb-4">実践スキル習得</h3>
+                                <p class="text-gray-300 mb-4">実際にAIツールを使って成果物を作成・改善</p>
+                                <ul class="text-gray-400 space-y-2">
+                                    <li>• 画像生成AI（Midjourney、DALL-E等）</li>
+                                    <li>• 動画生成・音声生成AI活用</li>
+                                    <li>• コード生成・開発支援AI</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item fade-in" style="animation-delay: 0.4s;">
+                            <div class="timeline-number">3</div>
+                            <div class="glass p-8">
+                                <h3 class="text-2xl font-bold mb-4">応用・連携技術</h3>
+                                <p class="text-gray-300 mb-4">複数AIの組み合わせ・自動化・APIアクセス</p>
+                                <ul class="text-gray-400 space-y-2">
+                                    <li>• API経由でのAI活用</li>
+                                    <li>• ワークフロー自動化</li>
+                                    <li>• カスタムAIアプリ開発基礎</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item fade-in" style="animation-delay: 0.6s;">
+                            <div class="timeline-number">4</div>
+                            <div class="glass p-8">
+                                <h3 class="text-2xl font-bold mb-4">最先端・収益化</h3>
+                                <p class="text-gray-300 mb-4">最新AI技術をキャッチアップし、ビジネス活用</p>
+                                <ul class="text-gray-400 space-y-2">
+                                    <li>• 最新モデル・技術のいち早いキャッチアップ</li>
+                                    <li>• AIを活用した副業・フリーランス</li>
+                                    <li>• 自分だけのAIサービス開発</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 講師紹介セクション -->
+    <section class="py-20 bg-primary">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 fade-in">
+                <span class="gradient-text">講師紹介</span>
+            </h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="glass p-10 text-center mb-16 fade-in">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden">
+                        <img src="/ai-salon/img/kuragejyoshi-toka.png" alt="ティージェー プロフィール" class="w-full h-full object-cover">
+                        <!-- 推奨サイズ: 400x400px -->
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4 gradient-text">ティージェー</h3>
+                    <p class="text-xl text-gray-300 mb-8">AIデジタルクリエイター / PADIコースディレクター</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 text-left">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-4 gradient-text">AI・デジタル分野</h4>
+                            <ul class="space-y-3 text-gray-300">
+                                <li class="flex items-start">
+                                    <span class="gradient-text font-bold mr-3">✓</span>
+                                    累計500名以上参加のウェビナーを15回以上開催
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="gradient-text font-bold mr-3">✓</span>
+                                    ChatGPT・Claude・Gemini・Cursor等最先端AIツールのエキスパート
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="gradient-text font-bold mr-3">✓</span>
+                                    <div>
+                                        AI絵本「うみがめになったぜん君の大冒険」Amazon AI絵本ランキング2位獲得
+                                        <div class="text-sm text-gray-400 mt-1 space-x-4">
+                                            <a href="https://amzn.to/4ny1P6k" target="_blank" class="text-accent hover:text-accent-light transition-colors">
+                                                Amazon で見る →
+                                            </a>
+                                            <span>|</span>
+                                            <a href="https://miura-diving.com/#%E5%90%89%E7%94%B0%E3%81%AE%E8%91%97%E6%9B%B8" target="_blank" class="text-accent hover:text-accent-light transition-colors">
+                                                著書一覧 →
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="gradient-text font-bold mr-3">✓</span>
+                                    全国の教育機関・メディアでAI活用術講演
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="gradient-text font-bold mr-3">✓</span>
+                                    V0・Cursor・Claude等のコーディングAI活用指導
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="gradient-text font-bold mr-3">✓</span>
+                                    <div>
+                                        AIバーチャルミュージシャン「TJ」プロデュース・14曲収録アルバムリリース
+                                        <div class="text-sm text-gray-400 mt-1">
+                                            <a href="https://tj-music.com/" target="_blank" class="text-accent hover:text-accent-light transition-colors">
+                                                TJ Music 公式サイト →
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="gradient-text font-bold mr-3">✓</span>
+                                    <div>
+                                        AI活用による海洋教育ゲーム開発・3Dマリンメイズ等5種類制作
+                                        <div class="text-sm text-gray-400 mt-1">
+                                            <a href="https://miura-diving.com/games/" target="_blank" class="text-accent hover:text-accent-light transition-colors">
+                                                ゲーム体験サイト →
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="gradient-text font-bold mr-3">✓</span>
+                                    <div>
+                                        AI活用書籍「AIは、あなたの『魔法の杖』」など14冊の著書を出版
+                                        <div class="text-sm text-gray-400 mt-1">
+                                            <a href="https://miura-diving.com/#%E5%90%89%E7%94%B0%E3%81%AE%E8%91%97%E6%9B%B8" target="_blank" class="text-accent hover:text-accent-light transition-colors">
+                                                全著書一覧を見る →
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="gradient-text font-bold mr-3">✓</span>
+                                    Udemyオンライン講師として活動開始
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-semibold mb-4 gradient-text">教育・指導実績</h4>
+                            <ul class="space-y-3 text-gray-300">
+                                <li class="flex items-start">
+                                    <span class="gradient-text font-bold mr-3">✓</span>
+                                    25年以上のプロフェッショナル教育経験
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="gradient-text font-bold mr-3">✓</span>
+                                    PADIコースディレクター（最高峰指導資格）
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="gradient-text font-bold mr-3">✓</span>
+                                    1,500名を超える認定者育成実績
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="gradient-text font-bold mr-3">✓</span>
+                                    神奈川県三浦海の学校を拠点に教育活動
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="gradient-text font-bold mr-3">✓</span>
+                                    6人の子どもの父として次世代教育に情熱
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 p-6 bg-secondary rounded-lg">
+                        <p class="text-gray-300 leading-relaxed">
+                            「AIとデジタルスキルの普及を通じて、一人ひとりの創造性と可能性を最大限に引き出すことが私の使命です。
+                            25年間の教育経験と最新のAI技術を組み合わせ、誰もが楽しく学べる環境を提供します。」
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 fade-in">
+                充実の<span class="gradient-text">学習環境</span>
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="glass p-8 text-center fade-in">
+                    <div class="feature-icon">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Discord質問対応</h3>
+                    <p class="text-gray-300">Discord上で質問・相談可能。ティージェーが直接丁寧にサポート</p>
+                </div>
+                
+                <div class="glass p-8 text-center fade-in" style="animation-delay: 0.1s;">
+                    <div class="feature-icon">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">体系的カリキュラム</h3>
+                    <p class="text-gray-300">初心者から上級者まで段階的に学習できる体系的なコンテンツ</p>
+                </div>
+                
+                <div class="glass p-8 text-center fade-in" style="animation-delay: 0.2s;">
+                    <div class="feature-icon">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">実践重視</h3>
+                    <p class="text-gray-300">理論だけでなく、実際にAIツールを使った実践的な学習</p>
+                </div>
+                
+                <div class="glass p-8 text-center fade-in" style="animation-delay: 0.3s;">
+                    <div class="feature-icon">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">最新情報</h3>
+                    <p class="text-gray-300">急速に進歩するAI技術の最新情報を常にアップデート</p>
+                </div>
+                
+                <div class="glass p-8 text-center fade-in" style="animation-delay: 0.4s;">
+                    <div class="feature-icon">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h4c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">自分のペース</h3>
+                    <p class="text-gray-300">忙しい人でも空いた時間に自分のペースで学習できる</p>
+                </div>
+                
+                <div class="glass p-8 text-center fade-in" style="animation-delay: 0.5s;">
+                    <div class="feature-icon">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">個別指導</h3>
+                    <p class="text-gray-300">一人ひとりのレベルに合わせた個別学習サポート</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 料金セクション -->
+    <section class="py-20 section-dark section-pattern">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 fade-in">
+                <span class="gradient-text">シンプル</span>な料金体系
+            </h2>
+            
+            <div class="max-w-md mx-auto">
+                <div class="pricing-card p-8 text-center fade-in">
+                    <h3 class="text-2xl font-bold mb-6">AI学習サロン</h3>
+                    <div class="text-6xl font-bold gradient-text mb-4">¥9,800</div>
+                    <div class="text-gray-400 mb-8">月額（税込）</div>
+                    
+                    <ul class="text-left space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <span class="gradient-text font-bold mr-3">✓</span>
+                            24時間Discord質問対応
+                        </li>
+                        <li class="flex items-start">
+                            <span class="gradient-text font-bold mr-3">✓</span>
+                            体系的AI学習カリキュラム
+                        </li>
+                        <li class="flex items-start">
+                            <span class="gradient-text font-bold mr-3">✓</span>
+                            実践的ハンズオン学習
+                        </li>
+                        <li class="flex items-start">
+                            <span class="gradient-text font-bold mr-3">✓</span>
+                            最新AI技術情報の共有
+                        </li>
+                        <li class="flex items-start">
+                            <span class="gradient-text font-bold mr-3">✓</span>
+                            専門メンターサポート
+                        </li>
+                        <li class="flex items-start">
+                            <span class="gradient-text font-bold mr-3">✓</span>
+                            学習コミュニティ参加
+                        </li>
+                    </ul>
+                    
+                    <button id="pricing-cta" class="btn-primary w-full text-lg font-bold mb-4">
+                        今すぐ始める
+                    </button>
+                    
+                    <p class="text-sm text-gray-400">
+                        いつでも解約可能・最低利用期間なし
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQセクション -->
+    <section class="py-20 bg-primary">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 fade-in">
+                よくある<span class="gradient-text">質問</span>
+            </h2>
+            
+            <div class="max-w-3xl mx-auto space-y-6">
+                <div class="glass p-6 fade-in">
+                    <h3 class="text-xl font-semibold mb-3">完全初心者でも大丈夫ですか？</h3>
+                    <p class="text-gray-300">はい、問題ありません。AIの基礎知識がない方でも理解できるよう、段階的なカリキュラムを用意しています。専門メンターが丁寧にサポートします。</p>
+                </div>
+                
+                <div class="glass p-6 fade-in" style="animation-delay: 0.1s;">
+                    <h3 class="text-xl font-semibold mb-3">どのくらいの時間が必要ですか？</h3>
+                    <p class="text-gray-300">1日30分〜1時間程度の学習時間を想定していますが、自分のペースで学習できます。忙しい方は週末にまとめて学習することも可能です。</p>
+                </div>
+                
+                <div class="glass p-6 fade-in" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-semibold mb-3">退会はいつでもできますか？</h3>
+                    <p class="text-gray-300">はい、いつでも退会可能です。最低利用期間の縛りはありません。Stripe決済システムからいつでもキャンセルできます。</p>
+                </div>
+                
+                <div class="glass p-6 fade-in" style="animation-delay: 0.3s;">
+                    <h3 class="text-xl font-semibold mb-3">質問の回答はどのくらいで返ってきますか？</h3>
+                    <p class="text-gray-300">Discord上での質問は、平均2-3時間以内に回答しています。緊急性の高い質問はより早く対応します。</p>
+                </div>
+                
+                <div class="glass p-6 fade-in" style="animation-delay: 0.4s;">
+                    <h3 class="text-xl font-semibold mb-3">プログラミング知識は必要ですか？</h3>
+                    <p class="text-gray-300">基本的には不要です。AIツールの使い方から始めて、必要に応じて簡単なプログラミングも学べます。段階的に進めるので安心してください。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTAセクション -->
+    <section class="py-20 hero-bg relative">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 fade-in">
+                今すぐ<span class="gradient-text">AI学習</span>を始めよう
+            </h2>
+            
+            <p class="text-xl mb-10 text-gray-300 max-w-2xl mx-auto fade-in" style="animation-delay: 0.2s;">
+                今すぐAI学習を始めて、未来のスキルを身につけましょう。<br>
+                あなたの可能性を広げる第一歩を、今踏み出してください。
+            </p>
+            
+            <button id="final-cta" class="btn-primary text-2xl font-bold px-12 py-6 fade-in animate-glow" style="animation-delay: 0.4s;">
+                今すぐ参加する
+            </button>
+            
+            <p class="text-sm text-gray-400 mt-6 fade-in" style="animation-delay: 0.6s;">
+                月額9,800円・いつでもキャンセル可能
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary py-12">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold mb-4 gradient-text">AI学習サロン</h3>
+                <p class="text-gray-400 mb-6">ゼロから最先端AIまで、最短で習得</p>
+                <p class="text-sm text-gray-500">© 2024 AquaBit LAB. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Stripe決済処理（審査完了後に実装）
+        async function handleCheckout() {
+            // TODO: Stripe審査完了後に以下のコードを有効化
+            /*
+            try {
+                const response = await fetch('/api/create-checkout-session', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        priceId: 'price_xxxxx', // Stripe Price ID（審査完了後に設定）
+                        successUrl: window.location.origin + '/success',
+                        cancelUrl: window.location.origin + '/cancel'
+                    })
+                });
+                
+                const session = await response.json();
+                
+                if (session.url) {
+                    window.location.href = session.url;
+                } else {
+                    throw new Error('セッションURLの取得に失敗しました');
+                }
+            } catch (error) {
+                console.error('決済エラー:', error);
+                alert('決済処理中にエラーが発生しました。時間を置いて再度お試しください。');
+            }
+            */
+            
+            // 現在は仮の処理（Stripe審査完了まで）
+            alert('Coming soon');
+        }
+
+        // CTAボタンにイベントリスナー追加
+        document.getElementById('cta-btn').addEventListener('click', handleCheckout);
+        document.getElementById('pricing-cta').addEventListener('click', handleCheckout);
+        document.getElementById('final-cta').addEventListener('click', handleCheckout);
+
+        // スクロールアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // ページ読み込み時にアニメーション対象を観察
+        document.addEventListener('DOMContentLoaded', function() {
+            const animationTargets = document.querySelectorAll('.fade-in');
+            animationTargets.forEach(target => {
+                observer.observe(target);
+            });
+        });
+
+        // パーティクルの位置をランダムに調整
+        document.addEventListener('DOMContentLoaded', function() {
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach(particle => {
+                const randomTop = Math.random() * 100;
+                particle.style.top = randomTop + '%';
+            });
+        });
+    </script>
+</body>
+</html>

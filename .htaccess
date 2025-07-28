@@ -4,7 +4,7 @@ DirectoryIndex index.html index.php
 RewriteEngine On
 
 # AI salon specific rule
-RewriteRule ^ai-salon/?$ AIサロン/index.html [NC,L]
+RewriteRule ^ai-salon/?$ ai-salon/index.html [NC,L]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
