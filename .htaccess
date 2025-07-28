@@ -6,9 +6,11 @@ RewriteEngine On
 # AI salon specific rule
 RewriteRule ^ai-salon/?$ ai-salon/index.html [NC,L]
 
+# Clean URL rules
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.html [NC,L]
+RewriteCond %{REQUEST_FILENAME} !\.(css|js|png|jpg|gif|ico|svg)$
+RewriteRule ^([^\.]+)/?$ $1.html [NC,L]
 
 # Cache Control Settings
 <IfModule mod_expires.c>
