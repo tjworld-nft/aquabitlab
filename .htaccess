@@ -2,6 +2,10 @@ DirectoryIndex index.html index.php
 
 # Remove .html from URLs for cleaner appearance (optional)
 RewriteEngine On
+
+# AI salon specific rule
+RewriteRule ^ai-salon/?$ AIサロン/index.html [NC,L]
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
