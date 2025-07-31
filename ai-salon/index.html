@@ -12,6 +12,9 @@
     <meta property="og:image" content="/ai-salon/img/ai-ogp.png">
     <meta property="og:type" content="website">
     
+    <!-- ★★★ 追加 Stripe Buy Button Script -->
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -477,9 +480,13 @@
                 </div>
             </div>
             
-            <button id="cta-btn" class="btn-primary cyber-button text-xl font-bold fade-in animate-glow" style="animation-delay: 0.6s;">
-                今すぐAI学習を始める
-            </button>
+            <!-- ★★★ 追加 Stripe Buy Button (Hero Section) -->
+            <stripe-buy-button
+              buy-button-id="buy_btn_1RqTunFBGw5ddKLLkyhEcXjr"
+              publishable-key="pk_live_5lRp1qkFBGw5ddKLL01rNghL317Gh0yjo7moSphEKWuaQKr08jqdrJQTZ5r1gPIMCYjpdKME8RqseSEfganAxHy1G00HmCBNmSr"
+              class="block mx-auto mt-8 mb-12 fade-in animate-glow"
+              style="animation-delay: 0.6s;"
+            ></stripe-buy-button>
             
             <p class="text-sm text-gray-400 mt-4 fade-in" style="animation-delay: 0.8s;">
                 月額9,800円・いつでも解約可能
@@ -1040,9 +1047,12 @@
                         </li>
                     </ul>
                     
-                    <button id="pricing-cta" class="btn-primary w-full text-lg font-bold mb-4">
-                        今すぐ始める
-                    </button>
+                    <!-- ★★★ 追加 Stripe Buy Button (Pricing Section) -->
+                    <stripe-buy-button
+                      buy-button-id="buy_btn_1RqTunFBGw5ddKLLkyhEcXjr"
+                      publishable-key="pk_live_5lRp1qkFBGw5ddKLL01rNghL317Gh0yjo7moSphEKWuaQKr08jqdrJQTZ5r1gPIMCYjpdKME8RqseSEfganAxHy1G00HmCBNmSr"
+                      class="block mx-auto mt-8 mb-12"
+                    ></stripe-buy-button>
                     
                     <p class="text-sm text-gray-400">
                         いつでも解約可能・最低利用期間なし
@@ -1112,9 +1122,13 @@
                 実際に「できる」ようになって、AIを自分のものにしませんか？
             </p>
             
-            <button id="final-cta" class="btn-primary text-2xl font-bold px-12 py-6 fade-in animate-glow" style="animation-delay: 0.4s;">
-                今すぐ参加する
-            </button>
+            <!-- ★★★ 追加 Stripe Buy Button (Final CTA) -->
+            <stripe-buy-button
+              buy-button-id="buy_btn_1RqTunFBGw5ddKLLkyhEcXjr"
+              publishable-key="pk_live_5lRp1qkFBGw5ddKLL01rNghL317Gh0yjo7moSphEKWuaQKr08jqdrJQTZ5r1gPIMCYjpdKME8RqseSEfganAxHy1G00HmCBNmSr"
+              class="block mx-auto mt-8 mb-12 fade-in animate-glow"
+              style="animation-delay: 0.4s;"
+            ></stripe-buy-button>
             
             <p class="text-sm text-gray-400 mt-6 fade-in" style="animation-delay: 0.6s;">
                 月額9,800円・いつでもキャンセル可能
@@ -1135,44 +1149,7 @@
 
     <!-- Scripts -->
     <script>
-        // Stripe決済処理（審査完了後に実装）
-        async function handleCheckout() {
-            // TODO: Stripe審査完了後に以下のコードを有効化
-            /*
-            try {
-                const response = await fetch('/api/create-checkout-session', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        priceId: 'price_xxxxx', // Stripe Price ID（審査完了後に設定）
-                        successUrl: window.location.origin + '/success',
-                        cancelUrl: window.location.origin + '/cancel'
-                    })
-                });
-                
-                const session = await response.json();
-                
-                if (session.url) {
-                    window.location.href = session.url;
-                } else {
-                    throw new Error('セッションURLの取得に失敗しました');
-                }
-            } catch (error) {
-                console.error('決済エラー:', error);
-                alert('決済処理中にエラーが発生しました。時間を置いて再度お試しください。');
-            }
-            */
-            
-            // 現在は仮の処理（Stripe審査完了まで）
-            alert('Coming soon');
-        }
-
-        // CTAボタンにイベントリスナー追加
-        document.getElementById('cta-btn').addEventListener('click', handleCheckout);
-        document.getElementById('pricing-cta').addEventListener('click', handleCheckout);
-        document.getElementById('final-cta').addEventListener('click', handleCheckout);
+        // ★★★ 削除 不要になったStripe決済処理（Stripe Buy Buttonに置き換えのため）
 
         // スクロールアニメーション
         const observerOptions = {
