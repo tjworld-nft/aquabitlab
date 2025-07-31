@@ -403,6 +403,41 @@
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-sm border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                    <img src="https://aquabit-lab.com/images/aquabit-lab-logo.png" alt="AquaBit LAB" class="h-8 w-auto">
+                    <span class="text-white font-semibold text-lg">AquaBit LAB</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="/marine" class="text-gray-300 hover:text-white transition-colors text-sm uppercase tracking-wide">マリン事業</a>
+                    <a href="/ai-service" class="text-gray-300 hover:text-white transition-colors text-sm uppercase tracking-wide">AI事業</a>
+                    <a href="/about" class="text-gray-300 hover:text-white transition-colors text-sm uppercase tracking-wide">ABLとは？</a>
+                    <a href="/contact" class="text-gray-300 hover:text-white transition-colors text-sm uppercase tracking-wide">お問い合わせ</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/95 backdrop-blur-sm border-t border-gray-800">
+            <div class="container mx-auto px-6 py-4 space-y-4">
+                <a href="/marine" class="block text-gray-300 hover:text-white transition-colors text-sm uppercase tracking-wide">マリン事業</a>
+                <a href="/ai-service" class="block text-gray-300 hover:text-white transition-colors text-sm uppercase tracking-wide">AI事業</a>
+                <a href="/about" class="block text-gray-300 hover:text-white transition-colors text-sm uppercase tracking-wide">ABLとは？</a>
+                <a href="/contact" class="block text-gray-300 hover:text-white transition-colors text-sm uppercase tracking-wide">お問い合わせ</a>
+            </div>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
     <section class="hero-bg min-h-screen flex items-center justify-center relative">
         <div class="particles">
@@ -417,7 +452,7 @@
             <div class="particle" style="left: 90%; animation-delay: 6s;"></div>
         </div>
         
-        <div class="container mx-auto px-6 text-center relative z-10 max-w-5xl">
+        <div class="container mx-auto px-6 text-center relative z-10 max-w-5xl pt-20">
             <div class="animate-float">
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 fade-in neon-title">
                     <span class="gradient-text">「知ってる」</span>と<br>
@@ -1091,6 +1126,16 @@
                 particle.style.top = randomTop + '%';
             });
         });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
     </script>
 </body>
 </html>
