@@ -8,9 +8,7 @@
     <!-- ★★★ セキュリティ強化 CSP Header -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
-        script-src 'self' 'unsafe-inline' https://js.stripe.com https://cdn.tailwindcss.com;
-        frame-src https://js.stripe.com;
-        connect-src 'self' https://api.stripe.com;
+        script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
         font-src https://fonts.gstatic.com;
         img-src 'self' data: https:;
@@ -24,16 +22,15 @@
     <meta property="og:image" content="/ai-salon/img/ai-ogp.png">
     <meta property="og:type" content="website">
     
-    <!-- ★★★ 追加 Stripe Buy Button Script -->
-    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+    <!-- ★★★ 削除済み: Stripe Buy Button Script (Payment Link使用のため不要) -->
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS - Production Ready -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <script>
         tailwind.config = {
             theme: {
