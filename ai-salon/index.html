@@ -133,7 +133,12 @@
 
     <!-- ヒーローセクション -->
     <section class="pt-24 pb-16 relative">
-        <div class="container mx-auto px-6 text-center">
+        <!-- 背景画像 -->
+        <div class="absolute inset-0 z-0">
+            <img src="/images/ai-hero-background.png" alt="AI背景" class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/60 to-slate-900/80"></div>
+        </div>
+        <div class="container mx-auto px-6 text-center relative z-10">
             <!-- バッジ -->
             <div class="inline-block px-6 py-2 rounded-full glass-effect mb-8 animate-fade-in">
                 <span class="text-sm font-semibold text-cyan-300">✨ プレミアム学習サロン</span>
@@ -286,6 +291,46 @@
                     <div class="text-4xl mb-4">🎯</div>
                     <h3 class="text-xl font-bold mb-4 text-cyan-400">実践重視のアプローチ</h3>
                     <p class="text-gray-300">理論だけでなく、実際に収益を生み出せるスキルを身につけることができます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 講師紹介セクション -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl md:text-6xl font-bold text-center mb-16 animate-fade-in">
+                <span class="text-white">講師紹介</span>
+            </h2>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="premium-card rounded-2xl p-12 text-center animate-slide-up">
+                    <div class="mb-8">
+                        <div class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-cyan-300 bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+                            <span class="text-4xl font-bold text-white">TJ</span>
+                        </div>
+                        <h3 class="text-3xl font-bold mb-2 premium-gradient">ティージェー（TJ）</h3>
+                        <p class="text-xl text-cyan-300 mb-6">AquaBit LAB 代表 / AIエキスパート</p>
+                    </div>
+                    
+                    <div class="text-left max-w-3xl mx-auto space-y-4 text-gray-300 leading-relaxed">
+                        <p>
+                            <span class="text-white font-semibold">AI活用書籍「AIは、あなたの『魔法の杖』」など14冊の著書</span>を出版し、
+                            全国の教育機関・メディアでAI活用術の講演を多数実施。
+                        </p>
+                        <p>
+                            <span class="text-cyan-300 font-semibold">最新のAIトレンドを常にキャッチアップ</span>し、
+                            実践的なスキルを分かりやすく伝えることに定評があります。
+                        </p>
+                        <p>
+                            <span class="text-emerald-300 font-semibold">「知識」ではなく「実際に使えるスキル」</span>を重視し、
+                            受講生が確実に成果を出せるよう、個別サポートにも力を入れています。
+                        </p>
+                        <p class="text-center pt-4">
+                            <span class="text-white font-semibold">「AIを使って、あなたの『できない』を『できる』に変える」</span><br>
+                            <span class="text-gray-400">それが私のミッションです。</span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
