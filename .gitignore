@@ -1,5 +1,6 @@
 # PHP files (original WordPress templates)
 *.php
+!send-mail.php
 
 # macOS
 .DS_Store

@@ -27,11 +27,20 @@ jobs:
           **/.git*
           **/.git*/**
           **/node_modules/**
-          **/*.php
           **/.DS_Store
           **/README.md
           **/.github/**
           **/htaccess-backup.txt
+          **/server.py
+          **/dev.sh
+          **/about.php
+          **/ai-service.php
+          **/contact.php
+          **/education.php
+          **/front.php
+          **/marine.php
+          **/privacy-policy.php
+          **/web3.php
           
     - name: Verify deployment with lftp
       run: |
