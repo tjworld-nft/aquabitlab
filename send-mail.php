@@ -2,13 +2,15 @@
 /**
  * お問い合わせフォーム メール送信スクリプト
  * AquaBit LAB (aquabit-lab.com)
+ * 
+ * 日本語メール送信: ISO-2022-JP + Base64エンコーディング
  */
 
 // 文字エンコーディング設定
 mb_language("Japanese");
 mb_internal_encoding("UTF-8");
 
-// CORS設定（同一ドメインのみ許可）
+// レスポンスはJSON（UTF-8）
 header('Content-Type: application/json; charset=UTF-8');
 
 // POST以外のリクエストを拒否
@@ -20,7 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 // ハニーポット（スパム対策）- このフィールドが入力されていたらスパム
 if (!empty($_POST['website'])) {
-    // スパムボットには成功を返すが、実際には何もしない
     echo json_encode(['success' => true, 'message' => 'お問い合わせを受け付けました。']);
     exit;
 }
@@ -57,76 +58,73 @@ if (!empty($errors)) {
 // --- 送信先設定 ---
 $to = 'info@aquabit-lab.com';
 
+// --- 日本語メール送信関数（UTF-8 + Base64） ---
+function send_japanese_mail($to, $subject, $body, $from, $reply_to = '') {
+    // 件名をUTF-8でBase64 MIMEエンコード
+    $encoded_subject = '=?UTF-8?B?' . base64_encode($subject) . '?=';
+    
+    // 本文をBase64エンコード
+    $encoded_body = base64_encode($body);
+    
+    // ヘッダー構築
+    $headers  = "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+    $headers .= "Content-Transfer-Encoding: base64\r\n";
+    $headers .= "From: {$from}\r\n";
+    if ($reply_to !== '') {
+        $headers .= "Reply-To: {$reply_to}\r\n";
+    }
+    
+    return mail($to, $encoded_subject, $encoded_body, $headers);
+}
+
 // --- 管理者宛メール ---
 $admin_subject = '【AquaBit LAB】お問い合わせがありました';
-$admin_body = <<<EOT
-AquaBit LAB ウェブサイトからお問い合わせがありました。
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-■ お名前
-{$name}
-
-■ メールアドレス
-{$email}
-
-■ 電話番号
-{$phone}
-
-■ お問い合わせ内容
-{$message}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-送信日時: %DATE%
-EOT;
-
-// 日時を挿入
-$admin_body = str_replace('%DATE%', date('Y年m月d日 H:i:s'), $admin_body);
-
-$admin_headers = "From: info@aquabit-lab.com\r\n";
-$admin_headers .= "Reply-To: {$email}\r\n";
-$admin_headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+$admin_body = "AquaBit LAB ウェブサイトからお問い合わせがありました。\n";
+$admin_body .= "\n";
+$admin_body .= "------------------------------------------------------------\n";
+$admin_body .= "お名前: {$name}\n";
+$admin_body .= "メールアドレス: {$email}\n";
+$admin_body .= "電話番号: {$phone}\n";
+$admin_body .= "\n";
+$admin_body .= "お問い合わせ内容:\n";
+$admin_body .= "{$message}\n";
+$admin_body .= "------------------------------------------------------------\n";
+$admin_body .= "\n";
+$admin_body .= "送信日時: " . date('Y/m/d H:i:s') . "\n";
 
 // --- 自動返信メール ---
 $reply_subject = '【AquaBit LAB】お問い合わせありがとうございます';
-$reply_body = <<<EOT
-{$name} 様
-
-AquaBit LABにお問い合わせいただき、誠にありがとうございます。
-以下の内容でお問い合わせを受け付けました。
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-■ お名前
-{$name}
-
-■ メールアドレス
-{$email}
-
-■ 電話番号
-{$phone}
-
-■ お問い合わせ内容
-{$message}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-内容を確認の上、担当者よりご連絡させていただきます。
-通常2〜3営業日以内にご返信いたします。
-
-※ このメールは自動送信されています。
-　 このメールに直接ご返信いただいてもお答えできない場合がございます。
-
-─────────────────────────────
-AquaBit LAB（アクアビットラボ）
-https://aquabit-lab.com
-Mail: info@aquabit-lab.com
-─────────────────────────────
-EOT;
-
-$reply_headers = "From: info@aquabit-lab.com\r\n";
-$reply_headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+$reply_body = "{$name} 様\n";
+$reply_body .= "\n";
+$reply_body .= "AquaBit LABにお問い合わせいただき、誠にありがとうございます。\n";
+$reply_body .= "以下の内容でお問い合わせを受け付けました。\n";
+$reply_body .= "\n";
+$reply_body .= "------------------------------------------------------------\n";
+$reply_body .= "お名前: {$name}\n";
+$reply_body .= "メールアドレス: {$email}\n";
+$reply_body .= "電話番号: {$phone}\n";
+$reply_body .= "\n";
+$reply_body .= "お問い合わせ内容:\n";
+$reply_body .= "{$message}\n";
+$reply_body .= "------------------------------------------------------------\n";
+$reply_body .= "\n";
+$reply_body .= "内容を確認の上、担当者よりご連絡させていただきます。\n";
+$reply_body .= "通常2-3営業日以内にご返信いたします。\n";
+$reply_body .= "\n";
+$reply_body .= "※ このメールは自動送信されています。\n";
+$reply_body .= "  このメールに直接ご返信いただいてもお答えできない場合がございます。\n";
+$reply_body .= "\n";
+$reply_body .= "------------------------------------------------------------\n";
+$reply_body .= "AquaBit LAB\n";
+$reply_body .= "https://aquabit-lab.com\n";
+$reply_body .= "Mail: info@aquabit-lab.com\n";
+$reply_body .= "------------------------------------------------------------\n";
 
 // --- メール送信 ---
-$admin_sent = mb_send_mail($to, $admin_subject, $admin_body, $admin_headers);
-$reply_sent = mb_send_mail($email, $reply_subject, $reply_body, $reply_headers);
+$from = 'info@aquabit-lab.com';
+$admin_sent = send_japanese_mail($to, $admin_subject, $admin_body, $from, $email);
+$reply_sent = send_japanese_mail($email, $reply_subject, $reply_body, $from);
 
 if ($admin_sent) {
     echo json_encode([
