@@ -5,55 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AquaBit LAB - マリン・AIの未来を創造する</title>
   <link rel="icon" type="image/png" href="/images/aquabit-lab-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* サイバーパンク風デザイン設定 */
     :root {
-      --cyber-font: 'Courier New', monospace, 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Mono', 'Droid Sans Mono', 'Source Code Pro', monospace;
-      --neon-cyan: #00ffff;
-      --neon-pink: #ff0080;
-      --neon-green: #00ff41;
-      --neon-purple: #8a2be2;
-      --dark-bg: #0a0a0a;
-      --darker-bg: #000000;
-      --grid-color: #1a1a1a;
-      --text-primary: #ffffff;
-      --text-secondary: #cccccc;
-      --text-muted: #888888;
-      --aqua-neon: #00ffff;
+      --font-main: 'Noto Sans JP', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --accent: #2563eb;
+      --accent-light: #3b82f6;
+      --accent-deep: #1e40af;
+      --indigo: #4f46e5;
+      --text-dark: #0f172a;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --text-muted: #94a3b8;
+      --text-on-dark: #e2e8f0;
+      --bg-white: #ffffff;
+      --bg-light: #f8fafc;
+      --bg-navy: #0f172a;
+      --border-soft: #e2e8f0;
       --max-content-width: 980px;
       --max-hero-width: 1440px;
-      --vertical-spacing: 130px;
+      --vertical-spacing: 120px;
       --gutter: 22px;
     }
 
-    /* グローバルリセットとベーススタイル */
     body, html {
       margin: 0;
       padding: 0;
-      font-family: var(--cyber-font);
+      font-family: var(--font-main);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       color: var(--text-primary);
-      background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
-      background-attachment: fixed;
+      background: var(--bg-white);
       overflow-x: hidden;
-      position: relative;
-    }
-
-    /* サイバーグリッド背景 */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        linear-gradient(rgba(0,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,255,255,0.03) 1px, transparent 1px);
-      background-size: 50px 50px;
-      pointer-events: none;
-      z-index: -1;
     }
 
     img {
@@ -62,7 +47,6 @@
       display: block;
     }
 
-    /* レイアウト基本クラス */
     .apple-wrapper {
       width: 100%;
       overflow-x: hidden;
@@ -91,13 +75,12 @@
       position: relative;
     }
 
-    /* サイバーパンク風ナビゲーション */
+    /* ナビゲーション */
     .apple-nav {
-      background: linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(10,10,10,0.95) 100%);
-      border-bottom: 2px solid var(--neon-cyan);
-      box-shadow: 0 0 20px rgba(0,255,255,0.3);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.85);
+      border-bottom: 1px solid var(--border-soft);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       position: fixed;
       top: 0;
       left: 0;
@@ -124,23 +107,19 @@
       transition: opacity 0.3s;
     }
 
-    .nav-logo:hover {
-      opacity: 1;
-    }
-    
+    .nav-logo:hover { opacity: 1; }
+
     .nav-logo img {
       height: 30px;
       width: auto;
       margin-right: 8px;
-      filter: drop-shadow(0 0 10px rgba(0,255,255,0.5));
     }
-    
+
     .nav-logo-text {
-      color: var(--neon-cyan);
-      font-size: 21px;
+      color: var(--text-dark);
+      font-size: 20px;
       font-weight: 700;
-      text-shadow: 0 0 10px var(--neon-cyan);
-      letter-spacing: 2px;
+      letter-spacing: 0.5px;
     }
 
     .nav-menu {
@@ -150,42 +129,32 @@
       padding: 0;
     }
 
-    .nav-menu li {
-      margin-left: 30px;
-    }
+    .nav-menu li { margin-left: 30px; }
 
     .nav-menu a {
       color: var(--text-secondary);
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 14px;
+      font-weight: 500;
       text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: all 0.3s ease;
-      border: 1px solid transparent;
-      padding: 8px 16px;
-      border-radius: 4px;
+      letter-spacing: 0.02em;
+      transition: color 0.3s ease;
+      padding: 8px 12px;
     }
 
-    .nav-menu a:hover {
-      color: var(--neon-cyan);
-      border-color: var(--neon-cyan);
-      box-shadow: 0 0 15px rgba(0,255,255,0.5);
-      text-shadow: 0 0 5px var(--neon-cyan);
-    }
+    .nav-menu a:hover { color: var(--accent); }
 
     .nav-menu-toggle {
       display: none;
-      color: #f5f5f7;
+      color: var(--text-primary);
       font-size: 24px;
       background: none;
       border: none;
       cursor: pointer;
     }
 
-    /* ヒーローセクション */
+    /* ヒーローセクション - 画像活用 */
     .hero-section {
-      background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(10,10,10,0.8) 50%, rgba(0,0,0,0.6) 100%), url('images/hero-cyberpunk.png');
+      background: linear-gradient(160deg, rgba(15,23,42,0.75) 0%, rgba(30,64,175,0.6) 50%, rgba(79,70,229,0.5) 100%), url('images/hero-cyberpunk.png');
       background-size: cover;
       background-position: center;
       height: 100vh;
@@ -198,21 +167,6 @@
       overflow: hidden;
     }
 
-    .hero-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 98px,
-        rgba(0,255,255,0.05) 100px
-      );
-    }
-
     .hero-content {
       width: 100%;
       opacity: 0;
@@ -220,43 +174,40 @@
       animation: fadeInUp 1.2s ease forwards 0.2s;
       padding: 40px 0;
     }
-    
+
     .hero-logo {
       max-width: 200px;
       margin: 0 auto 40px;
     }
 
     .hero-eyebrow {
-      font-size: 21px;
-      line-height: 1.19048;
+      font-size: 16px;
       font-weight: 600;
-      letter-spacing: .011em;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
       margin-bottom: 16px;
-      color: #86868b;
+      color: rgba(255,255,255,0.7);
     }
 
     .hero-headline {
-      font-size: 72px;
+      font-size: 68px;
       line-height: 1.1;
-      font-weight: 900;
-      letter-spacing: 3px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
       margin: 20px 0;
-      color: var(--neon-cyan);
-      text-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
-      text-transform: uppercase;
+      color: #ffffff;
     }
 
     .hero-subhead {
-      font-size: 24px;
-      line-height: 1.3;
-      font-weight: 300;
-      letter-spacing: 2px;
-      margin-bottom: 35px;
-      color: var(--text-secondary);
-      text-shadow: 0 0 10px rgba(255,255,255,0.3);
+      font-size: 22px;
+      line-height: 1.5;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      margin-bottom: 40px;
+      color: rgba(255,255,255,0.85);
     }
 
-    /* 製品セクション共通スタイル */
+    /* 製品セクション */
     .product-section {
       padding: var(--vertical-spacing) 0;
       text-align: center;
@@ -264,37 +215,38 @@
     }
 
     .product-eyebrow {
-      font-size: 16px;
-      line-height: 1.2;
+      font-size: 13px;
       font-weight: 700;
-      letter-spacing: 2px;
-      margin-bottom: 4px;
-      color: var(--neon-pink);
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+      color: var(--accent);
       text-transform: uppercase;
-      text-shadow: 0 0 10px var(--neon-pink);
       opacity: 0;
       transform: translateY(20px);
     }
 
     .product-headline {
-      font-size: 48px;
-      line-height: 1.1;
-      font-weight: 800;
-      letter-spacing: 1px;
-      margin-bottom: 24px;
-      color: var(--text-primary);
-      text-shadow: 0 0 15px rgba(255,255,255,0.3);
+      font-size: 44px;
+      line-height: 1.15;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      color: var(--text-dark);
       opacity: 0;
       transform: translateY(20px);
     }
+
+    /* ダークセクション用 */
+    .dark-section .product-eyebrow { color: var(--accent-light); }
+    .dark-section .product-headline { color: #ffffff; }
+    .dark-section .product-description p { color: var(--text-on-dark); }
 
     .product-image {
       margin: 30px auto 50px;
       max-width: 1060px;
       overflow: hidden;
-      border-radius: 12px;
-      border: 2px solid var(--neon-cyan);
-      box-shadow: 0 0 30px rgba(0,255,255,0.4), 0 8px 42px rgba(0, 0, 0, 0.6);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
       transition: all 0.5s ease;
       opacity: 0;
       transform: translateY(30px);
@@ -308,14 +260,11 @@
     }
 
     .product-image:hover {
-      transform: scale(1.02) translateY(-10px);
-      box-shadow: 0 0 50px rgba(0,255,255,0.6), 0 20px 60px rgba(0, 0, 0, 0.8);
-      border-color: var(--neon-pink);
+      transform: translateY(-6px);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
     }
 
-    .product-image:hover img {
-      transform: scale(1.02);
-    }
+    .product-image:hover img { transform: scale(1.02); }
 
     .product-description {
       max-width: 600px;
@@ -325,130 +274,62 @@
     }
 
     .product-description p {
-      font-size: 21px;
-      line-height: 1.381;
+      font-size: 19px;
+      line-height: 1.6;
       font-weight: 400;
-      letter-spacing: .011em;
-      margin-bottom: 20px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
     }
 
-    /* グリッドセクション */
-    .grid-section {
-      padding: var(--vertical-spacing) 0;
-      background-color: var(--apple-grey-bg);
-    }
-
-    .section-headline {
-      font-size: 48px;
-      line-height: 1.08349;
-      font-weight: 600;
-      letter-spacing: -.003em;
-      text-align: center;
-      margin-bottom: 60px;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .section-intro {
-      font-size: 21px;
-      line-height: 1.381;
-      font-weight: 400;
-      letter-spacing: .011em;
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 60px;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-      max-width: var(--max-content-width);
-      margin: 0 auto;
-    }
-
-    .grid-item {
-      background-color: #fff;
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 8px 42px rgba(0, 0, 0, 0.08);
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    .grid-item:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 50px rgba(0, 0, 0, 0.12);
-    }
-
-    .grid-item-content {
-      padding: 30px;
-    }
-
-    .grid-item-title {
-      font-size: 28px;
-      line-height: 1.14286;
-      font-weight: 600;
-      letter-spacing: .007em;
-      margin-bottom: 16px;
-    }
-
-    .grid-item-image {
-      margin-bottom: 20px;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    .grid-item-description {
-      font-size: 17px;
-      line-height: 1.47059;
-      font-weight: 400;
-      letter-spacing: -.022em;
-      margin-bottom: 20px;
-    }
-
-    /* CTA リンクスタイル */
+    /* CTA リンク */
     .cta-links {
       display: flex;
       justify-content: center;
-      gap: 35px;
-      margin-top: 20px;
+      gap: 16px;
+      margin-top: 24px;
     }
 
     .cta-link {
-      color: var(--neon-cyan);
-      font-size: 18px;
+      color: #ffffff;
+      font-size: 16px;
       line-height: 1.4;
       font-weight: 600;
-      letter-spacing: 1px;
+      letter-spacing: 0.02em;
       text-decoration: none;
       display: inline-block;
-      padding: 12px 24px;
-      border: 2px solid var(--neon-cyan);
-      border-radius: 6px;
-      text-transform: uppercase;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 12px;
       transition: all 0.3s ease;
-      background: rgba(0,255,255,0.1);
-    }
-
-    .cta-link.small {
-      font-size: 17px;
-      line-height: 1.47059;
-      letter-spacing: -.022em;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--indigo) 100%);
     }
 
     .cta-link.secondary {
-      color: #86868b;
+      color: var(--text-secondary);
+      background: transparent;
+      border: 1.5px solid var(--border-soft);
+    }
+
+    /* ヒーロー上のボタン */
+    .hero-section .cta-link.secondary {
+      color: rgba(255,255,255,0.9);
+      border-color: rgba(255,255,255,0.4);
+    }
+    .hero-section .cta-link.secondary:hover {
+      border-color: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.1);
+      box-shadow: none;
     }
 
     .cta-link:hover {
-      background: rgba(0,255,255,0.2);
-      box-shadow: 0 0 20px rgba(0,255,255,0.5);
-      text-shadow: 0 0 10px var(--neon-cyan);
       transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
+    }
+
+    .cta-link.secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: none;
     }
 
     .arrow {
@@ -459,72 +340,15 @@
       top: -1px;
     }
 
-    .cta-link:hover .arrow {
-      transform: translateX(3px);
-    }
+    .cta-link:hover .arrow { transform: translateX(3px); }
 
-    /* ボタンスタイル */
-    .apple-button {
-      background-color: var(--apple-link-color);
-      color: white;
-      border-radius: 980px;
-      padding: 12px 24px;
-      font-size: 17px;
-      font-weight: 400;
-      text-decoration: none;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
-
-    .apple-button:hover {
-      background-color: #0077ed;
-      text-decoration: none;
-    }
-
-    /* お問い合わせセクション */
-    .contact-section {
-      padding: var(--vertical-spacing) 0;
-      background-color: #fff;
-    }
-
-    .contact-form-container {
-      max-width: 680px;
-      margin: 0 auto;
-      background-color: var(--apple-grey-bg);
-      padding: 40px;
-      border-radius: 18px;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    /* サイバーフッター */
+    /* フッター */
     .apple-footer {
-      background: linear-gradient(180deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
-      border-top: 2px solid var(--neon-cyan);
-      color: var(--text-secondary);
+      background: var(--bg-navy);
+      color: var(--text-on-dark);
       padding: 60px 0 30px;
-      font-size: 13px;
-      line-height: 1.4;
-      font-weight: 400;
-      letter-spacing: 1px;
-      position: relative;
-    }
-
-    .apple-footer::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 1; }
+      font-size: 14px;
+      line-height: 1.5;
     }
 
     .footer-columns {
@@ -535,41 +359,31 @@
     }
 
     .footer-column h3 {
-      font-size: 12px;
-      line-height: 1.33337;
+      font-size: 13px;
       font-weight: 600;
-      letter-spacing: -.01em;
+      letter-spacing: 0.05em;
       margin-bottom: 12px;
-      color: #1d1d1f;
+      color: #ffffff;
     }
 
-    .footer-column ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .footer-column li {
-      margin-bottom: 8px;
-    }
+    .footer-column ul { list-style: none; margin: 0; padding: 0; }
+    .footer-column li { margin-bottom: 8px; }
 
     .footer-column a {
-      color: #6e6e73;
+      color: var(--text-muted);
       text-decoration: none;
       transition: color 0.3s ease;
     }
 
-    .footer-column a:hover {
-      color: #1d1d1f;
-      text-decoration: underline;
-    }
+    .footer-column a:hover { color: #ffffff; }
 
     .footer-legal {
       padding-top: 20px;
-      border-top: 1px solid #d2d2d7;
+      border-top: 1px solid rgba(255,255,255,0.1);
       text-align: center;
+      color: var(--text-muted);
     }
-    
+
     .footer-logo {
       max-width: 120px;
       margin: 0 auto 20px;
@@ -584,243 +398,75 @@
     .active {
       opacity: 1;
       transform: translateY(0);
-      transition: opacity 1s ease, transform 1s ease;
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
-    /* レスポンシブデザイン - アップルのブレイクポイントに合わせる */
+    /* レスポンシブ */
     @media only screen and (max-width: 1068px) {
-      :root {
-        --vertical-spacing: 100px;
-        --gutter: 20px;
-      }
-      
-      .hero-section {
-        height: 70vh;
-        min-height: 500px;
-        padding: 0 20px;
-      }
-      
-      .hero-headline {
-        font-size: 48px;
-        line-height: 1.1;
-      }
-      
-      .hero-subhead {
-        font-size: 20px;
-        margin-bottom: 25px;
-      }
-      
-      .product-headline {
-        font-size: 40px;
-      }
-      
-      .section-headline {
-        font-size: 40px;
-      }
-      
-      .product-description p {
-        font-size: 19px;
-      }
-      
-      .cta-links {
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-      }
-      
-      .cta-link {
-        min-width: 200px;
-        text-align: center;
-      }
+      :root { --vertical-spacing: 100px; --gutter: 20px; }
+      .hero-section { height: 70vh; min-height: 500px; padding: 0 20px; }
+      .hero-headline { font-size: 48px; }
+      .hero-subhead { font-size: 20px; margin-bottom: 25px; }
+      .product-headline { font-size: 36px; }
+      .cta-links { flex-direction: column; gap: 12px; align-items: center; }
+      .cta-link { min-width: 200px; text-align: center; }
     }
 
     @media only screen and (max-width: 734px) {
-      :root {
-        --vertical-spacing: 60px;
-        --gutter: 16px;
-      }
-      
-      .hero-section {
-        height: 70vh;
-        min-height: 500px;
-        padding: 0 16px;
-        margin-top: 60px;
-      }
-      
-      .hero-headline {
-        font-size: 32px;
-        line-height: 1.1;
-        margin: 15px 0;
-      }
-      
-      .hero-subhead {
-        font-size: 18px;
-        line-height: 1.4;
-        margin-bottom: 20px;
-      }
-      
-      .hero-eyebrow {
-        font-size: 16px;
-        margin-bottom: 12px;
-      }
-      
-      .product-headline {
-        font-size: 28px;
-        line-height: 1.2;
-        margin-bottom: 20px;
-      }
-      
-      .section-headline {
-        font-size: 28px;
-        margin-bottom: 30px;
-        line-height: 1.2;
-      }
-      
-      .product-eyebrow {
-        font-size: 16px;
-        margin-bottom: 8px;
-      }
-      
-      .product-description p {
-        font-size: 16px;
-        line-height: 1.5;
-        margin-bottom: 16px;
-      }
-      
-      .product-image {
-        margin: 20px auto 30px;
-        border-radius: 8px;
-      }
-      
-      .cta-links {
-        flex-direction: column;
-        gap: 12px;
-        align-items: center;
-        margin-top: 15px;
-      }
-      
-      .cta-link {
-        font-size: 16px;
-        padding: 10px 20px;
-        min-width: 180px;
-        text-align: center;
-        border-radius: 8px;
-      }
-      
-      .product-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-      
-      .footer-columns {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-      
-      .nav-container {
-        padding: 0 16px;
-      }
-      
-      .nav-logo-text {
-        font-size: 18px;
-      }
-      
-      .nav-logo img {
-        height: 24px;
-      }
-      
-      /* モバイルナビゲーション */
+      :root { --vertical-spacing: 60px; --gutter: 16px; }
+      .hero-section { height: 70vh; min-height: 500px; padding: 0 16px; margin-top: 60px; }
+      .hero-headline { font-size: 32px; margin: 15px 0; }
+      .hero-subhead { font-size: 17px; margin-bottom: 20px; }
+      .hero-eyebrow { font-size: 13px; }
+      .product-headline { font-size: 28px; line-height: 1.2; margin-bottom: 16px; }
+      .product-eyebrow { font-size: 12px; margin-bottom: 8px; }
+      .product-description p { font-size: 16px; }
+      .product-image { margin: 20px auto 30px; border-radius: 12px; }
+      .cta-link { font-size: 15px; padding: 12px 24px; min-width: 180px; }
+      .footer-columns { grid-template-columns: 1fr; }
+      .nav-logo-text { font-size: 18px; }
+      .nav-logo img { height: 24px; }
+
       .nav-menu {
         display: none;
         position: absolute;
         top: 60px;
         left: 0;
         width: 100%;
-        background: linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(10,10,10,0.95) 100%);
+        background: rgba(255,255,255,0.97);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         flex-direction: column;
-        padding: 20px 0;
-        border-top: 1px solid var(--neon-cyan);
+        padding: 16px 0;
+        border-top: 1px solid var(--border-soft);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.06);
       }
-      
-      .nav-menu.active {
-        display: flex;
-      }
-      
-      .nav-menu li {
-        margin: 0;
-        padding: 12px 16px;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-      }
-      
-      .nav-menu li:last-child {
-        border-bottom: none;
-      }
-      
-      .nav-menu a {
-        font-size: 16px;
-        padding: 8px 12px;
-        display: block;
-        width: 100%;
-      }
-      
+      .nav-menu.active { display: flex; }
+      .nav-menu li { margin: 0; padding: 12px 16px; border-bottom: 1px solid var(--border-soft); }
+      .nav-menu li:last-child { border-bottom: none; }
+      .nav-menu a { font-size: 16px; padding: 8px 12px; display: block; width: 100%; color: var(--text-primary); }
       .nav-menu-toggle {
         display: block;
-        color: var(--neon-cyan);
+        color: var(--text-primary);
         font-size: 20px;
         background: none;
-        border: 1px solid var(--neon-cyan);
-        border-radius: 4px;
+        border: 1px solid var(--border-soft);
+        border-radius: 6px;
         padding: 6px 10px;
         cursor: pointer;
-        transition: all 0.3s ease;
-      }
-      
-      .nav-menu-toggle:hover {
-        background: rgba(0,255,255,0.1);
-        box-shadow: 0 0 10px rgba(0,255,255,0.3);
       }
     }
 
     @media only screen and (max-width: 480px) {
-      .hero-section {
-        height: 80vh;
-        min-height: 600px;
-      }
-      
-      .hero-headline {
-        font-size: 28px;
-      }
-      
-      .hero-subhead {
-        font-size: 16px;
-      }
-      
-      .product-headline {
-        font-size: 24px;
-      }
-      
-      .section-headline {
-        font-size: 24px;
-      }
-      
-      .cta-link {
-        font-size: 14px;
-        padding: 8px 16px;
-        min-width: 160px;
-      }
-    }
-
-    /* Safari特有の調整 */
-    @supports (-webkit-touch-callout: none) {
-      /* Safari用の特別な調整があれば記述 */
+      .hero-headline { font-size: 28px; }
+      .hero-subhead { font-size: 16px; }
+      .product-headline { font-size: 24px; }
+      .cta-link { font-size: 14px; padding: 10px 20px; min-width: 160px; }
     }
   </style>
 </head>
 <body>
   <div class="apple-wrapper">
-    <!-- カスタムヘッダーナビゲーション -->
     <nav class="apple-nav">
       <div class="nav-container">
         <a href="/" class="nav-logo">
@@ -837,11 +483,11 @@
       </div>
     </nav>
 
-    <!-- メインヒーロー -->
+    <!-- メインヒーロー - 画像活用 -->
     <section class="hero-section full-bleed">
       <div class="hero-centered-content">
         <div class="hero-content">
-          <h2 class="hero-eyebrow">NEW</h2>
+          <h2 class="hero-eyebrow">Marine & AI Innovation</h2>
           <h1 class="hero-headline">AquaBit LAB</h1>
           <h3 class="hero-subhead">マリン・AIの未来を創造する</h3>
           <div class="cta-links">
@@ -852,10 +498,10 @@
       </div>
     </section>
 
-    <!-- マリン事業 -->
-    <section id="marine" class="product-section full-bleed reveal" style="background-color: #fbfbfd;">
+    <!-- マリン事業 - 白ベース -->
+    <section id="marine" class="product-section full-bleed reveal" style="background-color: #ffffff;">
       <div class="centered-content">
-        <h2 class="product-eyebrow reveal">マリン事業</h2>
+        <h2 class="product-eyebrow reveal">Marine</h2>
         <h3 class="product-headline reveal">海の魅力を、すべての人へ。</h3>
         <div class="product-image reveal">
           <img src="/images/marine.png" alt="マリン事業">
@@ -869,26 +515,25 @@
       </div>
     </section>
 
-    <!-- AI事業 -->
-    <section id="ai" class="product-section full-bleed reveal" style="background-color: #000000; color: #f5f5f7;">
+    <!-- AI事業 - ダークセクション -->
+    <section id="ai" class="product-section full-bleed reveal dark-section" style="background: linear-gradient(160deg, #0f172a 0%, #1e293b 100%);">
       <div class="centered-content">
-        <h2 class="product-eyebrow reveal" style="color: #6e6e73;">AI事業</h2>
-        <h3 class="product-headline reveal" style="color: #f5f5f7;">AI技術を、あなたのビジネスに。</h3>
+        <h2 class="product-eyebrow reveal">AI Solutions</h2>
+        <h3 class="product-headline reveal">AI技術を、あなたのビジネスに。</h3>
         <div class="product-image reveal">
           <img src="/images/ai-cyberpunk.png" alt="AI事業">
         </div>
         <div class="product-description reveal">
-          <p style="color: #f5f5f7;">最新のAI技術の活用方法を教育・指導しています。企業や個人に向けたAIソリューションの提案から実装までをサポートします。</p>
+          <p>最新のAI技術の活用方法を教育・指導しています。企業や個人に向けたAIソリューションの提案から実装までをサポートします。</p>
           <div class="cta-links">
-            <a href="/ai-service" class="cta-link" style="color: #2997ff;">詳しく見る <span class="arrow">❯</span></a>
-            <a href="/ai-salon" class="cta-link" style="color: #00ffff;">AI学習サロン <span class="arrow">❯</span></a>
+            <a href="/ai-service" class="cta-link">詳しく見る <span class="arrow">❯</span></a>
+            <a href="/ai-salon" class="cta-link">AI学習サロン <span class="arrow">❯</span></a>
           </div>
         </div>
       </div>
     </section>
 
-
-    <!-- カスタムフッター -->
+    <!-- フッター - ダーク -->
     <footer class="apple-footer">
       <div class="centered-content">
         <div class="footer-logo">
@@ -916,66 +561,45 @@
           </div>
         </div>
         <div class="footer-legal">
-          <p>Copyright © 2025 AquaBit LAB All rights reserved.</p>
+          <p>Copyright &copy; 2025 AquaBit LAB All rights reserved.</p>
         </div>
       </div>
     </footer>
   </div>
 
   <script>
-    // スクロールアニメーション
     document.addEventListener('DOMContentLoaded', function() {
-      // すべての .reveal 要素を取得
       const reveals = document.querySelectorAll('.reveal');
-      
-      // スクロール時のイベントリスナーを追加
       window.addEventListener('scroll', revealOnScroll);
-      
-      // 初期表示時にも実行
       revealOnScroll();
-      
+
       function revealOnScroll() {
         for (let i = 0; i < reveals.length; i++) {
           const windowHeight = window.innerHeight;
           const elementTop = reveals[i].getBoundingClientRect().top;
-          const elementVisible = 150; // 要素が見える位置の閾値
-          
-          if (elementTop < windowHeight - elementVisible) {
+          if (elementTop < windowHeight - 150) {
             reveals[i].classList.add('active');
           }
         }
       }
-      
-      // モバイルメニュートグル
+
       const menuToggle = document.querySelector('.nav-menu-toggle');
       const navMenu = document.querySelector('.nav-menu');
-      
       if (menuToggle) {
         menuToggle.addEventListener('click', function() {
           navMenu.classList.toggle('active');
         });
       }
-      
-      // スムーススクロール
+
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
           e.preventDefault();
-          
           const targetId = this.getAttribute('href');
           if (targetId === '#') return;
-          
           const targetElement = document.querySelector(targetId);
-          
           if (targetElement) {
-            // モバイルメニューが開いていたら閉じる
-            if (navMenu.classList.contains('active')) {
-              navMenu.classList.remove('active');
-            }
-            
-            window.scrollTo({
-              top: targetElement.offsetTop - 60, // ヘッダーの高さを考慮
-              behavior: 'smooth'
-            });
+            if (navMenu.classList.contains('active')) navMenu.classList.remove('active');
+            window.scrollTo({ top: targetElement.offsetTop - 60, behavior: 'smooth' });
           }
         });
       });
