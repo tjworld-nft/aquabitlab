@@ -54,8 +54,8 @@
                         'mono': ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
-                        'primary': '#faf8f5',
-                        'secondary': '#f1f0eb',
+                        'primary': '#ffffff',
+                        'secondary': '#f8fafc',
                         'accent': '#2563eb',
                         'accent-light': '#3b82f6',
                         'success': '#059669',
@@ -72,17 +72,18 @@
     <style>
         /* Custom CSS - Creator Style */
         :root {
-            --primary: #faf8f5;
-            --secondary: #f1f0eb;
+            --primary: #ffffff;
+            --secondary: #f8fafc;
             --accent: #2563eb;
             --accent-light: #3b82f6;
-            --accent-warm: #6366f1;
+            --accent-warm: #4f46e5;
             --success: #059669;
             --text-primary: #1a1a2e;
             --text-secondary: #64748b;
             --text-muted: #94a3b8;
-            --border-soft: #e2e0d9;
+            --border-soft: #e2e8f0;
             --card-bg: #ffffff;
+            --bg-navy: #0f172a;
         }
 
         body {
@@ -104,25 +105,16 @@
             }
         }
 
-        /* Hero Background - Creator Style */
+        /* Hero Background - Modern Professional */
         .hero-bg {
-            background: linear-gradient(160deg, #f0ebe3 0%, #e8e0d4 40%, #ddd5c8 100%);
+            background: linear-gradient(160deg, rgba(15,23,42,0.8) 0%, rgba(30,64,175,0.7) 50%, rgba(79,70,229,0.6) 100%),
+                        linear-gradient(160deg, #0f172a 0%, #1e3a5f 50%, #2d1b69 100%);
             position: relative;
             overflow: hidden;
         }
 
-        /* Soft decorative overlay */
         .hero-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(37, 99, 235, 0.05) 0%, transparent 50%);
-            pointer-events: none;
+            display: none;
         }
 
         .hero-bg::after {
@@ -175,7 +167,8 @@
 
         /* Section styles */
         .section-dark {
-            background: var(--secondary);
+            background: linear-gradient(160deg, #0f172a 0%, #1e293b 100%);
+            color: #f1f5f9;
         }
 
         .section-pattern {
@@ -254,7 +247,7 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full z-50 bg-white/92 backdrop-blur-sm border-b border-stone-200">
+    <nav class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <a href="/" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
@@ -278,7 +271,7 @@
         </div>
 
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white/97 backdrop-blur-sm border-t border-stone-200">
+        <div id="mobile-menu" class="hidden md:hidden bg-white/97 backdrop-blur-sm border-t border-slate-200">
             <div class="container mx-auto px-6 py-4 space-y-4">
                 <a href="/marine" class="block text-gray-600 hover:text-blue-600 transition-colors text-sm tracking-wide">マリン事業</a>
                 <a href="/ai-service" class="block text-gray-600 hover:text-blue-600 transition-colors text-sm tracking-wide">AI事業</a>
@@ -294,70 +287,67 @@
             <!-- Main Title -->
             <div class="mb-8">
                 <h1 class="text-5xl md:text-8xl font-bold mb-6 fade-in leading-tight">
-                    <span class="gradient-text block mb-4">「知ってる」</span>
-                    <div class="text-3xl md:text-4xl text-gray-600 mb-4">と</div>
-                    <span class="gradient-text block">「できる」</span>
-                    <div class="text-4xl md:text-6xl text-gray-800 mt-4">は違う</div>
+                    <span class="text-white block mb-2">「知ってる」と「できる」</span>
+                    <div class="text-4xl md:text-6xl text-blue-200 mt-2">は、まったく違う</div>
                 </h1>
             </div>
-            
+
             <!-- Subtitle -->
             <div class="mb-12 fade-in" style="animation-delay: 0.2s;">
-                <p class="text-xl md:text-3xl mb-6 text-gray-600 max-w-5xl mx-auto leading-relaxed">
-                    <span class="gradient-text font-bold text-2xl md:text-4xl block mb-4">AIの基本から今話題のVibe Codingまで</span>
-                    <span class="text-gray-800 font-semibold">実践的なスキルを最短で習得。</span>
-                    <span class="text-blue-700 font-bold">「できない」がなくなる時代</span>に<br>
-                    <span class="text-gray-800 font-semibold text-xl md:text-2xl">自分のアイデア、創造力が形になる</span>
+                <p class="text-xl md:text-3xl mb-6 text-blue-100 max-w-5xl mx-auto leading-relaxed">
+                    <span class="text-white font-bold text-2xl md:text-4xl block mb-4">AIを使って、アイデアを形にする力を身につける</span>
+                    <span class="text-blue-200">画像生成・音楽制作・Vibe Codingまで</span><br>
+                    <span class="text-white/90 font-semibold text-xl md:text-2xl">実践で「できる」を積み上げるAI学習サロン</span>
                 </p>
 
                 <!-- Achievement Stats -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-8">
-                    <div class="glass p-4 rounded-xl">
-                        <div class="text-2xl md:text-3xl font-bold gradient-text">25年+</div>
-                        <div class="text-sm text-gray-500">教育経験</div>
+                    <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-4 rounded-xl">
+                        <div class="text-2xl md:text-3xl font-bold text-white">25年+</div>
+                        <div class="text-sm text-blue-200">教育経験</div>
                     </div>
-                    <div class="glass p-4 rounded-xl">
-                        <div class="text-2xl md:text-3xl font-bold gradient-text">1,500+</div>
-                        <div class="text-sm text-gray-500">指導実績</div>
+                    <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-4 rounded-xl">
+                        <div class="text-2xl md:text-3xl font-bold text-white">1,500+</div>
+                        <div class="text-sm text-blue-200">指導実績</div>
                     </div>
-                    <div class="glass p-4 rounded-xl">
-                        <div class="text-2xl md:text-3xl font-bold gradient-text">500+</div>
-                        <div class="text-sm text-gray-500">ウェビナー参加者</div>
+                    <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-4 rounded-xl">
+                        <div class="text-2xl md:text-3xl font-bold text-white">500+</div>
+                        <div class="text-sm text-blue-200">ウェビナー参加者</div>
                     </div>
-                    <div class="glass p-4 rounded-xl">
-                        <div class="text-2xl md:text-3xl font-bold gradient-text">24/7</div>
-                        <div class="text-sm text-gray-500">サポート対応</div>
+                    <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-4 rounded-xl">
+                        <div class="text-2xl md:text-3xl font-bold text-white">24/7</div>
+                        <div class="text-sm text-blue-200">サポート対応</div>
                     </div>
                 </div>
             </div>
             
             <!-- Pricing Card -->
-            <div class="mb-12 fade-in pricing-card p-10 max-w-lg mx-auto relative" style="animation-delay: 0.4s;">
+            <div class="mb-12 fade-in bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-10 max-w-lg mx-auto relative" style="animation-delay: 0.4s;">
 
-                <div class="text-lg text-gray-500 mb-2">月額料金</div>
-                <div class="text-6xl md:text-7xl font-bold gradient-text mb-4">¥9,800</div>
-                <div class="text-xl text-gray-500 mb-6">（税込）</div>
+                <div class="text-lg text-blue-200 mb-2">月額料金</div>
+                <div class="text-6xl md:text-7xl font-bold text-white mb-4">¥9,800</div>
+                <div class="text-xl text-blue-200 mb-6">（税込）</div>
 
-                <div class="grid grid-cols-2 gap-4 text-sm text-gray-600 mb-6">
+                <div class="grid grid-cols-2 gap-4 text-sm text-blue-100 mb-6">
                     <div class="flex items-center">
-                        <span class="text-blue-600 font-bold mr-2">✓</span>
+                        <span class="text-blue-300 font-bold mr-2">✓</span>
                         いつでも解約可能
                     </div>
                     <div class="flex items-center">
-                        <span class="text-blue-600 font-bold mr-2">✓</span>
+                        <span class="text-blue-300 font-bold mr-2">✓</span>
                         最低利用期間なし
                     </div>
                     <div class="flex items-center">
-                        <span class="text-blue-600 font-bold mr-2">✓</span>
+                        <span class="text-blue-300 font-bold mr-2">✓</span>
                         Discord質問サポート
                     </div>
                     <div class="flex items-center">
-                        <span class="text-blue-600 font-bold mr-2">✓</span>
+                        <span class="text-blue-300 font-bold mr-2">✓</span>
                         全カリキュラム利用
                     </div>
                 </div>
 
-                <div class="text-xs text-gray-500">
+                <div class="text-xs text-blue-200/70">
                     質の高い学習環境を提供するため、人数に限りがあります
                 </div>
             </div>
@@ -366,11 +356,11 @@
             <div class="text-center mb-8">
                 <a href="https://buy.stripe.com/28EeVdfpzbkGeFu6QX18c00"
                    target="_blank"
-                   class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-6 px-12 rounded-2xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl text-xl md:text-2xl">
+                   class="inline-block bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-bold py-6 px-12 rounded-2xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-blue-500/25 text-xl md:text-2xl">
                     今すぐAI学習を始める
                 </a>
-                
-                <div class="mt-6 flex flex-col md:flex-row items-center justify-center gap-4 text-sm text-gray-500">
+
+                <div class="mt-6 flex flex-col md:flex-row items-center justify-center gap-4 text-sm text-blue-200">
                     <div class="flex items-center">
                         <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
@@ -394,24 +384,24 @@
             
             <!-- Success Stories Teaser -->
             <div class="text-center fade-in" style="animation-delay: 0.8s;">
-                <p class="text-lg text-gray-600 mb-4">
-                    <span class="gradient-text font-semibold">実際の受講生の声</span>
+                <p class="text-lg text-blue-200 mb-4">
+                    <span class="text-white font-semibold">実際の受講生の声</span>
                 </p>
                 <div class="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto text-sm">
-                    <div class="glass p-4 rounded-lg">
-                        <div class="text-amber-500 mb-2">⭐⭐⭐⭐⭐</div>
-                        <p class="text-gray-700">"AIで初めてLINEスタンプを作って販売できました！"</p>
-                        <p class="text-gray-500 mt-2">- Aさん（会社員）</p>
+                    <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-4 rounded-lg">
+                        <div class="text-amber-400 mb-2">⭐⭐⭐⭐⭐</div>
+                        <p class="text-white">"AIで初めてLINEスタンプを作って販売できました！"</p>
+                        <p class="text-blue-200 mt-2">- Aさん（会社員）</p>
                     </div>
-                    <div class="glass p-4 rounded-lg">
-                        <div class="text-amber-500 mb-2">⭐⭐⭐⭐⭐</div>
-                        <p class="text-gray-700">"Vibe Codingでホームページが作れるように！"</p>
-                        <p class="text-gray-500 mt-2">- Bさん（フリーランス）</p>
+                    <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-4 rounded-lg">
+                        <div class="text-amber-400 mb-2">⭐⭐⭐⭐⭐</div>
+                        <p class="text-white">"Vibe Codingでホームページが作れるように！"</p>
+                        <p class="text-blue-200 mt-2">- Bさん（フリーランス）</p>
                     </div>
-                    <div class="glass p-4 rounded-lg">
-                        <div class="text-amber-500 mb-2">⭐⭐⭐⭐⭐</div>
-                        <p class="text-gray-700">"AIで音楽制作の幅が一気に広がりました"</p>
-                        <p class="text-gray-500 mt-2">- Cさん（音楽制作者）</p>
+                    <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-4 rounded-lg">
+                        <div class="text-amber-400 mb-2">⭐⭐⭐⭐⭐</div>
+                        <p class="text-white">"AIで音楽制作の幅が一気に広がりました"</p>
+                        <p class="text-blue-200 mt-2">- Cさん（音楽制作者）</p>
                     </div>
                 </div>
             </div>
@@ -419,7 +409,7 @@
     </section>
 
     <!-- 課題提起セクション -->
-    <section class="py-20" style="background: #f1f0eb;">
+    <section class="py-20" style="background: #f8fafc;">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 fade-in text-gray-800">
                 AI学習の<span class="gradient-text">よくある勘違い</span>
@@ -551,7 +541,7 @@
                             </div>
                         </div>
                         <div class="mt-6 p-4 bg-orange-50 rounded-lg border border-orange-200">
-                            <p class="text-orange-400 font-semibold text-sm">
+                            <p class="text-orange-600 font-semibold text-sm">
                                 → いつでも質問投稿可能で、自分のペースでしっかり学習できます
                             </p>
                         </div>
@@ -627,7 +617,7 @@
                                 <span class="text-indigo-600 font-semibold">あなたの「できない」を「できる」に変えましょう</span>
                             </p>
                             <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-4 border border-blue-200">
-                                <p class="text-sm text-gray-200">
+                                <p class="text-sm text-gray-600">
                                     <span class="text-blue-600 font-semibold">無料体験</span>はありませんが、<br>
                                     <span class="text-indigo-600 font-semibold">月額制でいつでも解約可能</span>なので安心して始められます
                                 </p>
@@ -640,7 +630,7 @@
     </section>
 
     <!-- ソリューションセクション -->
-    <section class="py-20" style="background: #faf8f5;">
+    <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 fade-in text-gray-800">
                 <span class="gradient-text">実践重視</span>のAI初心者サロン
@@ -699,7 +689,7 @@
     </section>
 
     <!-- カリキュラムセクション -->
-    <section class="py-20" style="background: #f1f0eb;">
+    <section class="py-20" style="background: #f8fafc;">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 fade-in text-gray-800">
                 <span class="gradient-text">実践で身につける</span>4つのステップ
@@ -716,7 +706,7 @@
                                 <h3 class="text-2xl font-bold mb-4">基本AIツールを実際に使う</h3>
                                 <p class="text-gray-600 mb-4">まずは代表的なAIを触って「できる」を体験</p>
                                 <ul class="text-gray-500 space-y-2">
-                                    <li>• ChatGPT・Claudeで文章作成を実践</li>
+                                    <li>• ChatGPT・Claude等で文章作成を実践</li>
                                     <li>• 実際にプロンプトを書いて成果物を作る</li>
                                     <li>• 「こんなことができるんだ」を実感</li>
                                 </ul>
@@ -729,7 +719,7 @@
                                 <h3 class="text-2xl font-bold mb-4">複数のAIツールを使い分ける</h3>
                                 <p class="text-gray-600 mb-4">用途別にAIを選択し、実際に成果物を制作</p>
                                 <ul class="text-gray-500 space-y-2">
-                                    <li>• 画像生成（Midjourney、DALL-E等）でLINEスタンプ作成</li>
+                                    <li>• 画像生成AI（Midjourney、DALL-E、Flux等）でLINEスタンプ作成</li>
                                     <li>• 音楽生成AIでオリジナル楽曲制作</li>
                                     <li>• 各AIツールの得意分野と使い分けを実践で習得</li>
                                 </ul>
@@ -804,22 +794,22 @@
                     </div>
                 </div>
                 
-                <div class="bg-gradient-to-r from-red-900/30 to-orange-900/30 rounded-xl p-8 mt-12 border border-red-500/30 fade-in" style="animation-delay: 0.6s;">
-                    <h3 class="text-2xl md:text-3xl font-bold text-red-400 mb-4">
-                        ⚡ 今、始めることで圧倒的な差がつく
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8 mt-12 border border-blue-200 fade-in" style="animation-delay: 0.6s;">
+                    <h3 class="text-2xl md:text-3xl font-bold text-blue-700 mb-4">
+                        今、始めることで圧倒的な差がつく
                     </h3>
                     <p class="text-lg text-gray-600 mb-4">
-                        AIはまだ黎明期。<span class="text-blue-700 font-bold">今学んでおけば、数年後には他の人と圧倒的な差がついています</span>
+                        AIの進化はますます加速中。<span class="text-blue-700 font-bold">今使いこなせるようになれば、周りと圧倒的な差がつきます</span>
                     </p>
-                    <div class="grid md:grid-cols-2 gap-6 text-sm text-gray-500">
+                    <div class="grid md:grid-cols-2 gap-6 text-sm text-gray-600">
                         <div>
-                            <span class="text-red-400">❌ 後から始める人</span><br>
+                            <span class="text-red-500 font-semibold">後から始める人</span><br>
                             • AIに置き換えられる不安<br>
                             • 遅れを取り戻すのに苦労<br>
                             • 基礎知識不足で効率が悪い
                         </div>
                         <div>
-                            <span class="text-green-600">✅ 今始める人</span><br>
+                            <span class="text-green-600 font-semibold">今始める人</span><br>
                             • AIを使いこなして生産性向上<br>
                             • 新たな収入源を創出<br>
                             • 市場価値の高い人材になる
@@ -905,7 +895,7 @@
                             </div>
                         </div>
                         
-                        <div class="bg-secondary/50 rounded-xl p-6 border border-indigo-500/30">
+                        <div class="bg-secondary/50 rounded-xl p-6 border border-indigo-200">
                             <div class="mb-6">
                                 <div class="w-32 h-32 mx-auto rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
                                     <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -916,8 +906,8 @@
                             <h4 class="text-xl font-bold gradient-text mb-3">実用アプリ</h4>
                             <p class="text-gray-600 text-sm mb-4">文字起こし、タイマー等の業務効率化アプリ</p>
                             <div class="flex items-center justify-between">
-                                <span class="text-indigo-400 font-semibold text-sm">⚡ 業務効率化</span>
-                                <span class="text-indigo-500 font-semibold text-sm">🎯 実用性重視</span>
+                                <span class="text-indigo-600 font-semibold text-sm">⚡ 業務効率化</span>
+                                <span class="text-indigo-600 font-semibold text-sm">🎯 実用性重視</span>
                             </div>
                         </div>
                     </div>
@@ -931,14 +921,14 @@
                     </h3>
                     
                     <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-secondary/50 rounded-xl p-6 border border-pink-500/30">
+                        <div class="bg-secondary/50 rounded-xl p-6 border border-pink-200">
                             <div class="mb-6">
                                 <img src="img/music.png" alt="音楽作成" class="w-32 h-32 mx-auto rounded-lg shadow-lg">
                             </div>
                             <h4 class="text-xl font-bold gradient-text mb-3">オリジナル音楽</h4>
                             <p class="text-gray-600 text-sm mb-4">AIで作詞・作曲・編集まで一貫制作</p>
                             <div class="flex items-center justify-between">
-                                <span class="text-indigo-500 font-semibold text-sm">🎼 14曲アルバム</span>
+                                <span class="text-indigo-600 font-semibold text-sm">🎼 14曲アルバム</span>
                                 <a href="https://tj-music.com/" target="_blank" class="text-accent hover:text-accent-light text-sm">
                                     試聴可能 →
                                 </a>
@@ -956,7 +946,7 @@
                             <h4 class="text-xl font-bold gradient-text mb-3">教育ゲーム</h4>
                             <p class="text-gray-600 text-sm mb-4">3Dマリンメイズ等、学習×エンタメの融合</p>
                             <div class="flex items-center justify-between">
-                                <span class="text-orange-400 font-semibold text-sm">🎮 5種類制作</span>
+                                <span class="text-orange-600 font-semibold text-sm">🎮 5種類制作</span>
                                 <a href="https://miura-diving.com/games/" target="_blank" class="text-accent hover:text-accent-light text-sm">
                                     体験可能 →
                                 </a>
@@ -997,7 +987,7 @@
                                 <div class="text-gray-500">技術不要で高品質</div>
                             </div>
                             <div class="bg-secondary/30 rounded-lg p-4">
-                                <div class="font-semibold text-indigo-500 mb-2">無限の可能性</div>
+                                <div class="font-semibold text-indigo-600 mb-2">無限の可能性</div>
                                 <div class="text-gray-500">想像が現実になる</div>
                             </div>
                         </div>
@@ -1006,7 +996,7 @@
             </div>
 
             <!-- Enhanced Bottom Message -->
-            <div class="text-center fade-in bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-2xl p-8 border border-purple-200">
+            <div class="text-center fade-in bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-200">
                 <h3 class="text-2xl md:text-3xl font-bold gradient-text mb-6">
                     すべてコードの知識は一切不要
                 </h3>
@@ -1014,8 +1004,8 @@
                     最新のAI技術を使って、プログラミング経験がなくても<br>
                     <span class="text-blue-700 font-semibold">プロレベルの成果物</span>を作ることができる時代です
                 </p>
-                
-                <div class="bg-yellow-900/20 rounded-xl p-6 border border-yellow-200 max-w-2xl mx-auto">
+
+                <div class="bg-amber-50 rounded-xl p-6 border border-amber-200 max-w-2xl mx-auto">
                     <div class="flex items-start">
                         <div class="text-2xl mr-4">💡</div>
                         <div class="text-left">
@@ -1130,19 +1120,19 @@
                                     <div class="text-gray-600 text-sm">PADIコースディレクター認定</div>
                                 </div>
                                 <div class="bg-secondary/30 rounded-lg p-4 border-l-4 border-indigo-500">
-                                    <div class="font-semibold text-indigo-400 mb-2">1,500名+ 指導実績</div>
+                                    <div class="font-semibold text-indigo-600 mb-2">1,500名+ 指導実績</div>
                                     <div class="text-gray-600 text-sm">25年以上のプロフェッショナル経験</div>
                                 </div>
                                 <div class="bg-secondary/30 rounded-lg p-4 border-l-4 border-teal-500">
-                                    <div class="font-semibold text-teal-400 mb-2">教育拠点運営</div>
+                                    <div class="font-semibold text-teal-600 mb-2">教育拠点運営</div>
                                     <div class="text-gray-600 text-sm">神奈川県三浦海の学校</div>
                                 </div>
                                 <div class="bg-secondary/30 rounded-lg p-4 border-l-4 border-orange-500">
-                                    <div class="font-semibold text-orange-400 mb-2">次世代教育への情熱</div>
+                                    <div class="font-semibold text-orange-600 mb-2">次世代教育への情熱</div>
                                     <div class="text-gray-600 text-sm">6人の子どもの父として活動</div>
                                 </div>
                                 <div class="bg-secondary/30 rounded-lg p-4 border-l-4 border-red-500">
-                                    <div class="font-semibold text-red-400 mb-2">Udemy講師活動</div>
+                                    <div class="font-semibold text-red-600 mb-2">Udemy講師活動</div>
                                     <div class="text-gray-600 text-sm">オンライン教育にも積極参画</div>
                                 </div>
                             </div>
@@ -1152,7 +1142,7 @@
                 
                 <!-- Success Philosophy -->
                 <div class="text-center mb-16 fade-in">
-                    <div class="bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-2xl p-8 border border-purple-200">
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-200">
                         <h3 class="text-2xl md:text-3xl font-bold gradient-text mb-6">
                             ティージェーの教育フィロソフィー
                         </h3>
@@ -1243,7 +1233,7 @@
     </section>
 
     <!-- 料金セクション -->
-    <section class="py-20 relative overflow-hidden" style="background: #f1f0eb;">
+    <section class="py-20 relative overflow-hidden" style="background: #f8fafc;">
 
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-20">
@@ -1358,13 +1348,13 @@
                                 <div class="flex items-start">
                                     <span class="gradient-text font-bold mr-3 text-lg">✓</span>
                                     <div>
-                                        <div class="font-semibold text-white">作品制作完全サポート</div>
+                                        <div class="font-semibold text-gray-800">作品制作完全サポート</div>
                                         <div class="text-sm text-gray-500">アイデアから完成まで伴走</div>
                                     </div>
                                 </div>
                             </div>
                             
-                            <div class="mt-6 p-4 bg-gradient-to-r from-blue-900/30 to-indigo-50 rounded-xl border border-blue-200">
+                            <div class="mt-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200">
                                 <div class="text-center">
                                     <div class="text-lg font-semibold text-blue-600">充実のサポート内容</div>
                                     <div class="text-xl font-bold gradient-text">すべて込みで</div>
@@ -1375,11 +1365,10 @@
                         
                         <!-- CTA Button -->
                         <div class="mb-8">
-                            <a href="https://buy.stripe.com/28EeVdfpzbkGeFu6QX18c00" 
+                            <a href="https://buy.stripe.com/28EeVdfpzbkGeFu6QX18c00"
                                target="_blank"
-                               class="inline-block bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 hover:from-purple-700 hover:via-pink-700 hover:to-blue-700 text-white font-bold py-6 px-12 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-purple-500/25 text-xl md:text-2xl w-full max-w-md mx-auto relative overflow-hidden">
-                                <span class="relative z-10">今すぐ始める</span>
-                                <div class="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent transform -skew-x-12 -translate-x-full hover:translate-x-full transition-transform duration-1000"></div>
+                               class="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-6 px-12 rounded-2xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-blue-500/25 text-xl md:text-2xl w-full max-w-md mx-auto">
+                                今すぐ始める
                             </a>
                         </div>
                         
@@ -1405,7 +1394,7 @@
                             </div>
                         </div>
                         
-                        <div class="mt-6 p-4 bg-blue-900/20 rounded-xl border border-blue-200">
+                        <div class="mt-6 p-4 bg-blue-50 rounded-xl border border-blue-200">
                             <div class="text-center">
                                 <div class="text-blue-600 font-semibold mb-2">💡 学習環境について</div>
                                 <div class="text-sm text-gray-600">
@@ -1453,7 +1442,7 @@
                     <p class="text-gray-600 mb-3">確かにChatGPTやClaude、Geminiなど多くのAIツールに無料版がありますが、<span class="text-blue-700 font-semibold">本格的に学習・制作するなら有料版の利用を強くお勧めします</span>。</p>
                     <ul class="text-gray-600 space-y-2 text-sm">
                         <li>• <span class="text-blue-600">回数制限なし</span>：無料版は1日の利用回数に制限があり、学習が途中で止まってしまいます</li>
-                        <li>• <span class="text-green-600">高性能モデル</span>：GPT-4やClaude-3.5 Sonnetなど最新の高性能モデルが使用可能</li>
+                        <li>• <span class="text-green-600">高性能モデル</span>：GPT-4oやClaude等の最新高性能モデルが使用可能</li>
                         <li>• <span class="text-indigo-600">高画質・高品質</span>：画像生成や音楽生成で商用レベルの品質を実現</li>
                         <li>• <span class="text-indigo-500">時間効率</span>：処理速度が速く、待ち時間なしで集中して学習できます</li>
                     </ul>
@@ -1469,13 +1458,13 @@
     </section>
 
     <!-- CTAセクション -->
-    <section class="py-20 relative" style="background: linear-gradient(160deg, #f0ebe3 0%, #e8e0d4 100%);">
+    <section class="py-20 relative" style="background: linear-gradient(160deg, #0f172a 0%, #1e293b 100%);">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-8 fade-in text-gray-800">
-                <span class="gradient-text">「できる」</span>を増やす<br>第一歩を踏み出そう
+            <h2 class="text-4xl md:text-5xl font-bold mb-8 fade-in text-white">
+                <span class="text-blue-400">「できる」</span>を増やす<br>第一歩を踏み出そう
             </h2>
 
-            <p class="text-xl mb-10 text-gray-600 max-w-2xl mx-auto fade-in" style="animation-delay: 0.2s;">
+            <p class="text-xl mb-10 text-slate-300 max-w-2xl mx-auto fade-in" style="animation-delay: 0.2s;">
                 「知ってる」だけでは終わらない。<br>
                 実際に「できる」ようになって、AIを自分のものにしませんか？
             </p>
@@ -1484,28 +1473,28 @@
             <div class="text-center">
                 <a href="https://buy.stripe.com/28EeVdfpzbkGeFu6QX18c00"
                    target="_blank"
-                   class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 px-10 rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl text-xl fade-in"
+                   class="inline-block bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-bold py-5 px-10 rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-blue-500/25 text-xl fade-in"
                    style="animation-delay: 0.4s;">
                     今すぐ参加する
                 </a>
             </div>
-            
-            <p class="text-sm text-gray-500 mt-6 fade-in" style="animation-delay: 0.6s;">
+
+            <p class="text-sm text-slate-400 mt-6 fade-in" style="animation-delay: 0.6s;">
                 月額9,800円・いつでもキャンセル可能
             </p>
-            <p class="text-xs text-gray-600 mt-4">
+            <p class="text-xs text-slate-500 mt-4">
                 <!-- デプロイ確認: 2025-08-01 15:30 JST - Payment Links Active -->
             </p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 border-t" style="background: #f1f0eb; border-color: #e2e0d9;">
+    <footer class="py-12 border-t" style="background: #0f172a; border-color: #1e293b;">
         <div class="container mx-auto px-6">
             <div class="text-center">
-                <h3 class="text-2xl font-bold mb-4 gradient-text">AI学習サロン</h3>
-                <p class="text-gray-500 mb-6">ゼロから最先端AIまで、最短で習得</p>
-                <p class="text-sm text-gray-500">© 2024 AquaBit LAB. All rights reserved.</p>
+                <h3 class="text-2xl font-bold mb-4 text-white">AI学習サロン</h3>
+                <p class="text-slate-400 mb-6">ゼロから最先端AIまで、最短で習得</p>
+                <p class="text-sm text-slate-500">© 2025 AquaBit LAB. All rights reserved.</p>
             </div>
         </div>
     </footer>
