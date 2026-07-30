@@ -2,1078 +2,371 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AquaBit LAB - 海とAI、二つの未来へ。</title>
-  <meta name="description" content="AquaBit LAB は、ダイビングを中心としたマリン事業と、AI教育・AIソリューションを展開しています。25年の教育経験を活かしたAI学習サロンでは、ゼロから最先端AIまで最短で習得できます。">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>AquaBit LAB｜海とAI、二つの未来へ。</title>
+  <meta name="description" content="AquaBit LAB（アクアビットラボ）は、ダイビングを中心としたマリン事業と、AI教育・AIソリューションを展開する研究開発組織です。月額9,800円のAI学習サロンでは、AIの基本からVibe Codingまで実践重視で学べます。">
+  <meta name="theme-color" content="#04070d">
+  <link rel="canonical" href="https://aquabit-lab.com/">
+
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AquaBit LAB">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="https://aquabit-lab.com/">
+  <meta property="og:title" content="AquaBit LAB｜海とAI、二つの未来へ。">
+  <meta property="og:description" content="ダイビングを中心としたマリン事業と、AI教育・AIソリューション。AI学習サロンでは、AIの基本からVibe Codingまで実践重視で学べます。">
+  <meta property="og:image" content="https://aquabit-lab.com/images/ogp.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AquaBit LAB - 海とAIの未来を創造する">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AquaBit LAB｜海とAI、二つの未来へ。">
+  <meta name="twitter:description" content="ダイビングを中心としたマリン事業と、AI教育・AIソリューション。AI学習サロンでは、AIの基本からVibe Codingまで実践重視で学べます。">
+  <meta name="twitter:image" content="https://aquabit-lab.com/images/ogp.png">
+
+  <!-- Icons -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/favicon.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --font-main: 'Noto Sans JP', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      --accent: #2563eb;
-      --accent-light: #3b82f6;
-      --accent-deep: #1e40af;
-      --indigo: #4f46e5;
-      --violet: #7c3aed;
-      --teal: #0891b2;
-      --amber: #f59e0b;
-      --text-dark: #0f172a;
-      --text-primary: #1e293b;
-      --text-secondary: #64748b;
-      --text-muted: #94a3b8;
-      --text-on-dark: #cbd5e1;
-      --bg-white: #ffffff;
-      --bg-light: #f8fafc;
-      --bg-soft: #f1f5f9;
-      --bg-navy: #0b1120;
-      --bg-navy-2: #111c33;
-      --border-soft: #e2e8f0;
-      --border-dark: rgba(255,255,255,0.08);
-      --max-content-width: 1080px;
-      --max-hero-width: 1440px;
-      --vertical-spacing: 140px;
-      --gutter: 24px;
-    }
-
-    * { box-sizing: border-box; }
-
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: var(--font-main);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      color: var(--text-primary);
-      background: var(--bg-white);
-      overflow-x: hidden;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    a { color: inherit; }
-
-    .apple-wrapper {
-      width: 100%;
-      overflow-x: hidden;
-      font-size: 17px;
-      line-height: 1.6;
-      font-weight: 400;
-      letter-spacing: -0.01em;
-    }
-
-    .full-bleed { width: 100%; position: relative; }
-
-    .centered-content {
-      max-width: var(--max-content-width);
-      margin: 0 auto;
-      padding: 0 var(--gutter);
-      position: relative;
-    }
-
-    .hero-centered-content {
-      max-width: var(--max-hero-width);
-      margin: 0 auto;
-      padding: 0 var(--gutter);
-      position: relative;
-    }
-
-    /* ナビゲーション */
-    .apple-nav {
-      background: rgba(255,255,255,0.8);
-      border-bottom: 1px solid var(--border-soft);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 9999;
-      height: 64px;
-    }
-
-    .nav-container {
-      max-width: var(--max-content-width);
-      margin: 0 auto;
-      height: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 var(--gutter);
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      opacity: 0.92;
-      transition: opacity 0.3s;
-    }
-
-    .nav-logo:hover { opacity: 1; }
-
-    .nav-logo img {
-      height: 30px;
-      width: auto;
-      margin-right: 10px;
-    }
-
-    .nav-logo-text {
-      color: var(--text-dark);
-      font-size: 19px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-    }
-
-    .nav-menu {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      align-items: center;
-    }
-
-    .nav-menu li { margin-left: 28px; }
-
-    .nav-menu a {
-      color: var(--text-secondary);
-      font-size: 14px;
-      font-weight: 500;
-      text-decoration: none;
-      letter-spacing: 0.02em;
-      transition: color 0.2s ease;
-      padding: 8px 0;
-    }
-
-    .nav-menu a:hover { color: var(--accent); }
-
-    .nav-menu a.nav-cta {
-      color: #ffffff;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--indigo) 100%);
-      padding: 8px 16px;
-      border-radius: 999px;
-      font-weight: 600;
-      box-shadow: 0 4px 14px rgba(37,99,235,0.25);
-    }
-    .nav-menu a.nav-cta:hover {
-      color: #fff;
-      transform: translateY(-1px);
-      box-shadow: 0 8px 22px rgba(37,99,235,0.35);
-    }
-
-    .nav-menu-toggle {
-      display: none;
-      color: var(--text-primary);
-      font-size: 22px;
-      background: none;
-      border: 1px solid var(--border-soft);
-      border-radius: 8px;
-      padding: 6px 10px;
-      cursor: pointer;
-    }
-
-    /* ヒーローセクション */
-    .hero-section {
-      background:
-        radial-gradient(ellipse at 20% 30%, rgba(79,70,229,0.35) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 70%, rgba(8,145,178,0.3) 0%, transparent 50%),
-        linear-gradient(160deg, rgba(11,17,32,0.85) 0%, rgba(15,23,42,0.7) 60%, rgba(30,64,175,0.55) 100%),
-        url('images/aqua-hero.png');
-      background-size: cover;
-      background-position: center;
-      min-height: 86vh;
-      display: flex;
-      align-items: center;
-      text-align: center;
-      margin-top: 64px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-section::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 120px;
-      background: linear-gradient(to bottom, transparent, var(--bg-white));
-      pointer-events: none;
-    }
-
-    .hero-content {
-      width: 100%;
-      max-width: 880px;
-      margin: 0 auto;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1.1s ease forwards 0.2s;
-      padding: 60px 0;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-      color: rgba(255,255,255,0.85);
-      padding: 8px 18px;
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 999px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      background: rgba(255,255,255,0.04);
-    }
-
-    .hero-headline {
-      font-size: 72px;
-      line-height: 1.08;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin: 12px 0 24px;
-      color: #ffffff;
-      background: linear-gradient(180deg, #ffffff 0%, #c7d2fe 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-subhead {
-      font-size: 19px;
-      line-height: 1.7;
-      font-weight: 400;
-      letter-spacing: 0.01em;
-      margin: 0 auto 44px;
-      color: rgba(255,255,255,0.78);
-      max-width: 620px;
-    }
-
-    .hero-cta-row {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    /* セクション共通 */
-    .product-section {
-      padding: var(--vertical-spacing) 0;
-      text-align: center;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .product-eyebrow {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      margin-bottom: 16px;
-      color: var(--accent);
-      text-transform: uppercase;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .product-headline {
-      font-size: 46px;
-      line-height: 1.18;
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      margin-bottom: 20px;
-      color: var(--text-dark);
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .dark-section .product-eyebrow { color: #818cf8; }
-    .dark-section .product-headline { color: #ffffff; }
-    .dark-section .product-description p { color: var(--text-on-dark); }
-
-    .product-image {
-      margin: 36px auto 48px;
-      max-width: 980px;
-      overflow: hidden;
-      border-radius: 22px;
-      box-shadow: 0 24px 60px -20px rgba(15,23,42,0.18);
-      transition: all 0.5s ease;
-      opacity: 0;
-      transform: translateY(30px);
-      position: relative;
-    }
-    .product-image img {
-      width: 100%;
-      transition: transform 1.5s ease;
-      display: block;
-    }
-    .product-image:hover { transform: translateY(-4px); box-shadow: 0 30px 80px -20px rgba(15,23,42,0.25); }
-    .product-image:hover img { transform: scale(1.02); }
-
-    .product-description {
-      max-width: 640px;
-      margin: 0 auto;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .product-description p {
-      font-size: 18px;
-      line-height: 1.75;
-      font-weight: 400;
-      color: var(--text-secondary);
-      margin-bottom: 28px;
-    }
-
-    /* === 特集: AI学習サロン === */
-    .salon-feature {
-      background:
-        radial-gradient(ellipse at 15% 0%, rgba(124,58,237,0.18) 0%, transparent 55%),
-        radial-gradient(ellipse at 100% 100%, rgba(8,145,178,0.18) 0%, transparent 55%),
-        linear-gradient(165deg, #0b1120 0%, #111c33 100%);
-      padding: calc(var(--vertical-spacing) - 20px) 0;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .salon-feature::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 56px 56px;
-      mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.7), transparent 75%);
-      -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.7), transparent 75%);
-      pointer-events: none;
-    }
-
-    .salon-inner {
-      max-width: var(--max-content-width);
-      margin: 0 auto;
-      padding: 0 var(--gutter);
-      position: relative;
-      z-index: 2;
-    }
-
-    .salon-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      padding: 8px 16px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, rgba(124,58,237,0.25), rgba(37,99,235,0.25));
-      border: 1px solid rgba(167,139,250,0.35);
-      color: #c7d2fe;
-      margin-bottom: 22px;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    .salon-badge .dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: #a78bfa;
-      box-shadow: 0 0 10px #a78bfa;
-    }
-
-    .salon-headline {
-      font-size: 56px;
-      line-height: 1.15;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin: 0 0 22px;
-      color: #ffffff;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    .salon-headline .accent {
-      background: linear-gradient(135deg, #a78bfa 0%, #60a5fa 50%, #22d3ee 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .salon-sub {
-      font-size: 19px;
-      line-height: 1.8;
-      color: rgba(255,255,255,0.78);
-      max-width: 660px;
-      margin: 0 auto 44px;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .salon-visual {
-      max-width: 980px;
-      margin: 8px auto 56px;
-      border-radius: 22px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 30px 80px -24px rgba(0,0,0,0.6);
-      opacity: 0;
-      transform: translateY(20px);
-      position: relative;
-    }
-    .salon-visual img { width: 100%; display: block; }
-    .salon-visual::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(11,17,32,0.04) 0%, transparent 30%, transparent 70%, rgba(11,17,32,0.35) 100%);
-      pointer-events: none;
-    }
-
-    .salon-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin: 0 auto 48px;
-      max-width: 920px;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .salon-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 28px 22px;
-      text-align: left;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
-    }
-    .salon-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(167,139,250,0.4);
-      background: rgba(255,255,255,0.06);
-    }
-
-    .salon-card-num {
-      display: inline-block;
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      color: rgba(167,139,250,0.9);
-      margin-bottom: 18px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      width: 100%;
-    }
-
-    .salon-card h4 {
-      font-size: 16px;
-      font-weight: 700;
-      color: #fff;
-      margin: 0 0 8px;
-      letter-spacing: -0.01em;
-    }
-    .salon-card p {
-      font-size: 14px;
-      line-height: 1.65;
-      color: rgba(255,255,255,0.65);
-      margin: 0;
-    }
-
-    .salon-meta {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      flex-wrap: wrap;
-      margin-bottom: 36px;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    .salon-meta-item {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      font-size: 14px;
-      color: rgba(255,255,255,0.6);
-    }
-    .salon-meta-item strong {
-      font-size: 22px;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: -0.01em;
-    }
-    .salon-meta-item .price-prefix {
-      font-size: 13px;
-      color: rgba(255,255,255,0.55);
-    }
-
-    .salon-cta-row {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .salon-cta {
-      color: #ffffff;
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 16px 32px;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
-      box-shadow: 0 10px 30px -10px rgba(124,58,237,0.6);
-    }
-    .salon-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 40px -10px rgba(124,58,237,0.8);
-    }
-
-    .salon-cta.ghost {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.2);
-      box-shadow: none;
-      color: rgba(255,255,255,0.9);
-    }
-    .salon-cta.ghost:hover {
-      border-color: rgba(255,255,255,0.5);
-      background: rgba(255,255,255,0.04);
-      box-shadow: none;
-    }
-
-    /* CTA リンク */
-    .cta-links {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      margin-top: 24px;
-      flex-wrap: wrap;
-    }
-
-    .cta-link {
-      color: #ffffff;
-      font-size: 15px;
-      line-height: 1.4;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 14px 30px;
-      border: none;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--indigo) 100%);
-    }
-
-    .cta-link.secondary {
-      color: var(--text-secondary);
-      background: transparent;
-      border: 1.5px solid var(--border-soft);
-    }
-
-    .hero-section .cta-link.secondary {
-      color: rgba(255,255,255,0.9);
-      border-color: rgba(255,255,255,0.25);
-      background: rgba(255,255,255,0.04);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-    .hero-section .cta-link.secondary:hover {
-      border-color: rgba(255,255,255,0.6);
-      background: rgba(255,255,255,0.1);
-      box-shadow: none;
-    }
-
-    .cta-link:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(37, 99, 235, 0.3);
-    }
-
-    .cta-link.secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      box-shadow: none;
-    }
-
-    .arrow {
-      display: inline-block;
-      transition: transform 0.3s ease;
-      font-size: 0.85em;
-      position: relative;
-    }
-    .cta-link:hover .arrow,
-    .salon-cta:hover .arrow { transform: translateX(3px); }
-
-    /* セクション・セパレーター（細い装飾線） */
-    .section-divider {
-      max-width: var(--max-content-width);
-      margin: 0 auto;
-      padding: 0 var(--gutter);
-    }
-    .section-divider::after {
-      content: '';
-      display: block;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border-soft), transparent);
-    }
-
-    /* AI事業 / マリン事業 - 2カラム並列 */
-    .duo-section {
-      padding: var(--vertical-spacing) 0;
-      background: var(--bg-light);
-    }
-
-    .duo-header {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 64px;
-      padding: 0 var(--gutter);
-    }
-
-    .duo-header .product-eyebrow,
-    .duo-header .product-headline { opacity: 1; transform: none; }
-
-    .duo-grid {
-      max-width: var(--max-content-width);
-      margin: 0 auto;
-      padding: 0 var(--gutter);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-    }
-
-    .duo-card {
-      background: #ffffff;
-      border: 1px solid var(--border-soft);
-      border-radius: 22px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-      opacity: 0;
-      transform: translateY(24px);
-    }
-
-    .duo-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 60px -24px rgba(15,23,42,0.18);
-      border-color: transparent;
-    }
-
-    .duo-card-image {
-      aspect-ratio: 16 / 10;
-      overflow: hidden;
-      position: relative;
-    }
-    .duo-card-image img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 1.2s ease;
-    }
-    .duo-card:hover .duo-card-image img { transform: scale(1.04); }
-
-    .duo-card-body {
-      padding: 32px 30px 36px;
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .duo-card-eyebrow {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      color: var(--accent);
-    }
-    .duo-card.marine .duo-card-eyebrow { color: var(--teal); }
-
-    .duo-card h3 {
-      font-size: 26px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--text-dark);
-      margin: 0 0 14px;
-      line-height: 1.3;
-    }
-
-    .duo-card p {
-      font-size: 15.5px;
-      line-height: 1.75;
-      color: var(--text-secondary);
-      margin: 0 0 26px;
-      flex: 1;
-    }
-
-    .duo-card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--accent);
-      font-size: 15px;
-      font-weight: 600;
-      text-decoration: none;
-      align-self: flex-start;
-      transition: gap 0.3s ease;
-    }
-    .duo-card.marine .duo-card-link { color: var(--teal); }
-    .duo-card-link:hover { gap: 12px; }
-
-    /* フッター */
-    .apple-footer {
-      background: var(--bg-navy);
-      color: var(--text-on-dark);
-      padding: 70px 0 32px;
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
-    .footer-columns {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 44px;
-    }
-
-    .footer-column h3 {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-      color: rgba(255,255,255,0.95);
-    }
-
-    .footer-column ul { list-style: none; margin: 0; padding: 0; }
-    .footer-column li { margin-bottom: 10px; }
-
-    .footer-column a {
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-    .footer-column a:hover { color: #ffffff; }
-
-    .footer-brand p {
-      color: var(--text-muted);
-      font-size: 14px;
-      margin: 14px 0 0;
-      line-height: 1.7;
-      max-width: 300px;
-    }
-
-    .footer-logo {
-      max-width: 130px;
-      margin: 0 0 4px;
-    }
-
-    .footer-legal {
-      padding-top: 24px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 13px;
-    }
-
-    /* アニメーション */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .active {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    /* レスポンシブ */
-    @media only screen and (max-width: 1068px) {
-      :root { --vertical-spacing: 100px; --gutter: 20px; }
-      .hero-section { min-height: 70vh; padding: 0 20px; }
-      .hero-headline { font-size: 54px; }
-      .hero-subhead { font-size: 18px; }
-      .salon-headline { font-size: 44px; }
-      .product-headline { font-size: 38px; }
-      .salon-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
-      .salon-card { padding: 24px 20px; }
-      .duo-grid { grid-template-columns: 1fr 1fr; gap: 22px; }
-      .footer-columns { grid-template-columns: 1.2fr 1fr 1fr; gap: 32px; }
-    }
-
-    @media only screen and (max-width: 768px) {
-      .salon-grid { grid-template-columns: 1fr; max-width: 480px; }
-      .duo-grid { grid-template-columns: 1fr; gap: 20px; }
-      .footer-columns { grid-template-columns: 1fr 1fr; gap: 28px; }
-      .footer-brand { grid-column: 1 / -1; }
-    }
-
-    @media only screen and (max-width: 734px) {
-      :root { --vertical-spacing: 70px; --gutter: 18px; }
-      .hero-section { min-height: 68vh; padding: 0 16px; margin-top: 64px; }
-      .hero-headline { font-size: 38px; }
-      .hero-subhead { font-size: 16px; margin-bottom: 32px; }
-      .hero-eyebrow { font-size: 11px; margin-bottom: 22px; padding: 6px 14px; }
-      .salon-feature { padding: 80px 0; }
-      .salon-headline { font-size: 32px; }
-      .salon-sub { font-size: 16px; }
-      .salon-meta { gap: 20px; }
-      .salon-meta-item strong { font-size: 18px; }
-      .salon-cta { padding: 14px 26px; font-size: 14px; }
-      .product-headline { font-size: 28px; line-height: 1.25; margin-bottom: 14px; }
-      .product-eyebrow { font-size: 11px; margin-bottom: 12px; }
-      .product-description p { font-size: 15.5px; }
-      .product-image { margin: 24px auto 32px; border-radius: 14px; }
-      .duo-card-body { padding: 26px 24px 30px; }
-      .duo-card h3 { font-size: 22px; }
-      .duo-card p { font-size: 15px; }
-      .cta-link { font-size: 14px; padding: 12px 24px; }
-      .footer-columns { grid-template-columns: 1fr; gap: 28px; }
-      .footer-brand p { max-width: 100%; }
-      .nav-logo-text { font-size: 17px; }
-      .nav-logo img { height: 26px; }
-
-      .nav-menu {
-        display: none;
-        position: absolute;
-        top: 64px;
-        left: 0;
-        width: 100%;
-        background: rgba(255,255,255,0.97);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        flex-direction: column;
-        padding: 12px 0;
-        border-top: 1px solid var(--border-soft);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-      }
-      .nav-menu.active { display: flex; }
-      .nav-menu li { margin: 0; padding: 4px 16px; border-bottom: 1px solid var(--border-soft); }
-      .nav-menu li:last-child { border-bottom: none; padding: 12px 16px; }
-      .nav-menu a { font-size: 15px; padding: 12px 0; display: block; width: 100%; color: var(--text-primary); }
-      .nav-menu a.nav-cta { display: inline-block; width: auto; }
-      .nav-menu-toggle { display: block; }
-    }
-
-    @media only screen and (max-width: 480px) {
-      .hero-headline { font-size: 32px; }
-      .hero-subhead { font-size: 15px; }
-      .salon-headline { font-size: 26px; }
-      .product-headline { font-size: 24px; }
-      .cta-link { font-size: 14px; padding: 11px 22px; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="/images/aqua-hero.webp">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "AquaBit LAB",
+    "alternateName": "アクアビットラボ",
+    "url": "https://aquabit-lab.com/",
+    "logo": "https://aquabit-lab.com/images/aquabit-lab-logo.png",
+    "image": "https://aquabit-lab.com/images/ogp.png",
+    "description": "ダイビングを中心としたマリン事業と、AI技術の教育・開発を行うAI事業を展開する研究開発組織。",
+    "areaServed": "JP",
+    "knowsAbout": ["スキューバダイビング", "生成AI", "AI教育", "Webサイト制作", "AIアプリ開発"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AquaBit LAB",
+    "url": "https://aquabit-lab.com/",
+    "inLanguage": "ja"
+  }
+  </script>
+
+  <link rel="stylesheet" href="/css/aqua.css">
 </head>
 <body>
-  <div class="apple-wrapper">
-    <nav class="apple-nav">
-      <div class="nav-container">
-        <a href="/" class="nav-logo">
-          <img src="https://aquabit-lab.com/images/aquabit-lab-logo.png" alt="AquaBit LAB">
-          <span class="nav-logo-text">AquaBit LAB</span>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <img src="/images/logo-mark.webp" width="34" height="34" alt="AquaBit LAB ロゴ">
+        <span>AquaBit LAB</span>
+      </a>
+      <button class="burger" id="burger" aria-label="メニューを開く" aria-expanded="false"><span></span></button>
+      <ul class="nav-links" id="navlinks">
+        <li><a href="/marine">マリン事業</a></li>
+        <li><a href="/ai-service">AI事業</a></li>
+        <li><a href="/about">ABLとは？</a></li>
+        <li><a href="/contact">お問い合わせ</a></li>
+        <li><a class="nav-cta" href="/ai-salon">AI学習サロン</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero" id="top">
+    <div class="hero-fallback" aria-hidden="true"></div>
+    <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <i class="dot"></i>
+        AquaBit LAB &nbsp;/&nbsp; <b>Rendered with <span id="gpu-tag">WebGPU</span><noscript>three.js</noscript></b>
+      </div>
+
+      <h1 class="jp">
+        <span class="grad">海とAI、<br>二つの未来へ。</span>
+      </h1>
+
+      <p class="hero-lead">
+        ダイビングを中心としたマリン事業と、AI教育・AIソリューション。<br>
+        異なる二つのフィールドから、新しい体験を届けます。
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn" href="/ai-salon">
+          AI学習サロンを見る
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
         </a>
-        <button class="nav-menu-toggle" aria-label="メニュー">☰</button>
-        <ul class="nav-menu">
-          <li><a href="/marine">マリン事業</a></li>
-          <li><a href="/ai-service">AI事業</a></li>
-          <li><a href="/about">ABLとは？</a></li>
-          <li><a href="/contact">お問い合わせ</a></li>
-          <li><a href="/ai-salon" class="nav-cta">AI学習サロン</a></li>
-        </ul>
+        <a class="btn ghost" href="#services">
+          事業を見る
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
-    </nav>
 
-    <!-- ヒーロー -->
-    <section class="hero-section full-bleed">
-      <div class="hero-centered-content">
-        <div class="hero-content">
-          <span class="hero-eyebrow">AquaBit LAB</span>
-          <h1 class="hero-headline">海とAI、<br>二つの未来へ。</h1>
-          <p class="hero-subhead">ダイビングを中心としたマリン事業と、AI教育・AIソリューション。<br>異なる二つのフィールドから、新しい体験を届けます。</p>
-          <div class="hero-cta-row">
-            <a href="/ai-salon" class="cta-link">AI学習サロンを見る <span class="arrow">→</span></a>
-            <a href="#services" class="cta-link secondary">事業を見る <span class="arrow">→</span></a>
-          </div>
+      <div class="hero-meta">
+        <span>AI Education</span>
+        <span>Generative AI</span>
+        <span>Diving Experience</span>
+        <span>Creative Development</span>
+      </div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <i></i>
+    </div>
+  </header>
+
+  <!-- ================= 特集：AI学習サロン ================= -->
+  <section class="salon-feature" id="salon">
+    <div class="shell">
+      <span class="salon-badge reveal"><i class="dot"></i>Featured &middot; AI 学習サロン</span>
+      <h2 class="salon-headline reveal d1">AIを<span class="accent">&ldquo;使う&rdquo;</span>から<br><span class="accent">&ldquo;創る&rdquo;</span>へ。</h2>
+      <p class="salon-sub reveal d2">
+        25年の教育経験を持つティージェーが直接指導。<br>
+        ゼロから最先端AIまで、実践重視で最短習得できる学習コミュニティです。
+      </p>
+
+      <div class="salon-visual reveal">
+        <picture>
+          <source srcset="/images/aquabit-4.webp" type="image/webp">
+          <img src="/images/aquabit-4.png" alt="AI学習サロンで創れるもの - LINEスタンプ、アプリ、音楽、Webサイトなど" loading="lazy" decoding="async">
+        </picture>
+      </div>
+
+      <div class="salon-grid">
+        <div class="salon-card reveal">
+          <span class="salon-card-num">01 / Coding</span>
+          <h4>Vibe Coding</h4>
+          <p>最新のAIツールで、コードを書けない方でもアプリ開発が可能に。</p>
+        </div>
+        <div class="salon-card reveal d1">
+          <span class="salon-card-num">02 / Creation</span>
+          <h4>音楽・スタンプ・アプリ</h4>
+          <p>LINEスタンプ、AI音楽、Webアプリまで。アイデアを形にする講座が充実。</p>
+        </div>
+        <div class="salon-card reveal d2">
+          <span class="salon-card-num">03 / Support</span>
+          <h4>Discord 個別サポート</h4>
+          <p>つまずいてもすぐ質問。コミュニティで仲間と一緒に学べます。</p>
         </div>
       </div>
-    </section>
 
-    <!-- 特集: AI学習サロン -->
-    <section class="salon-feature full-bleed">
-      <div class="salon-inner reveal">
-        <span class="salon-badge reveal"><span class="dot"></span>FEATURED &middot; AI 学習サロン</span>
-        <h2 class="salon-headline reveal">AIを<span class="accent">"使う"</span>から<br><span class="accent">"創る"</span>へ。</h2>
-        <p class="salon-sub reveal">25年の教育経験を持つティージェーが直接指導。<br>ゼロから最先端AIまで、実践重視で最短習得できる学習コミュニティです。</p>
-
-        <div class="salon-visual reveal">
-          <img src="/images/aquabit-4.png" alt="AI学習サロンで創れるもの - LINEスタンプ、アプリ、音楽、Webサイトなど">
+      <div class="salon-meta reveal">
+        <div class="salon-meta-item">
+          <span class="price-prefix">月額</span><strong>¥9,800</strong><span>（税込）</span>
         </div>
-
-        <div class="salon-grid reveal">
-          <div class="salon-card">
-            <span class="salon-card-num">01 / Coding</span>
-            <h4>Vibe Coding</h4>
-            <p>最新のAIツールで、コードを書けない方でもアプリ開発が可能に。</p>
-          </div>
-          <div class="salon-card">
-            <span class="salon-card-num">02 / Creation</span>
-            <h4>音楽・スタンプ・アプリ</h4>
-            <p>LINEスタンプ、AI音楽、Webアプリまで。アイデアを形にする講座が充実。</p>
-          </div>
-          <div class="salon-card">
-            <span class="salon-card-num">03 / Support</span>
-            <h4>Discord 個別サポート</h4>
-            <p>つまずいてもすぐ質問。コミュニティで仲間と一緒に学べます。</p>
-          </div>
+        <div class="salon-meta-item">
+          <strong>初心者</strong><span>歓迎</span>
         </div>
-
-        <div class="salon-meta reveal">
-          <div class="salon-meta-item">
-            <span class="price-prefix">月額</span><strong>¥9,800</strong><span>（税込）</span>
-          </div>
-          <div class="salon-meta-item">
-            <strong>初心者</strong><span>歓迎</span>
-          </div>
-          <div class="salon-meta-item">
-            <strong>いつでも</strong><span>キャンセル可</span>
-          </div>
-        </div>
-
-        <div class="salon-cta-row reveal">
-          <a href="/ai-salon" class="salon-cta">サロンの詳細を見る <span class="arrow">→</span></a>
-          <a href="/contact" class="salon-cta ghost">まずは相談する <span class="arrow">→</span></a>
+        <div class="salon-meta-item">
+          <strong>いつでも</strong><span>キャンセル可</span>
         </div>
       </div>
-    </section>
 
-    <!-- 事業紹介（2カラム） -->
-    <section id="services" class="duo-section full-bleed">
-      <div class="duo-header">
-        <h2 class="product-eyebrow">Our Services</h2>
-        <h3 class="product-headline">私たちの事業</h3>
+      <div class="salon-cta-row reveal">
+        <a class="btn" href="/ai-salon">
+          サロンの詳細を見る
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn ghost" href="/contact">
+          まずは相談する
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
-      <div class="duo-grid">
-        <article class="duo-card reveal">
-          <div class="duo-card-image">
-            <img src="/images/aquabit-ai.png" alt="AI事業">
-          </div>
-          <div class="duo-card-body">
-            <span class="duo-card-eyebrow">AI Solutions</span>
-            <h3>AI技術を、あなたのビジネスに。</h3>
-            <p>最新AI技術の活用方法を教育・指導。企業や個人に向けたAIソリューションの提案から実装までをサポートします。</p>
-            <a href="/ai-service" class="duo-card-link">詳しく見る <span class="arrow">→</span></a>
-          </div>
-        </article>
-        <article class="duo-card marine reveal">
-          <div class="duo-card-image">
-            <img src="/images/aquabit-marine.png" alt="マリン事業">
-          </div>
-          <div class="duo-card-body">
-            <span class="duo-card-eyebrow">Marine</span>
-            <h3>海の魅力を、すべての人へ。</h3>
-            <p>ダイビングを中心とした海のアクティビティを提供。初心者から上級者まで、幅広いニーズに対応したサービスをご用意しています。</p>
-            <a href="/marine" class="duo-card-link">詳しく見る <span class="arrow">→</span></a>
-          </div>
-        </article>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- フッター -->
-    <footer class="apple-footer">
-      <div class="centered-content">
-        <div class="footer-columns">
-          <div class="footer-column footer-brand">
-            <a href="/">
-              <img src="https://aquabit-lab.com/images/aquabit-lab-logo.png" alt="AquaBit LAB" class="footer-logo">
+  <!-- ================= 事業 ================= -->
+  <section class="band" id="services">
+    <div class="shell">
+      <p class="eyebrow reveal">Our Services</p>
+      <h2 class="title reveal d1">私たちの事業</h2>
+      <p class="lead reveal d2">
+        AquaBit LAB は、AI活用を教え・つくるAI事業と、海の非日常体験を届けるマリン事業を展開しています。
+        どちらも「体験したことのない景色に人を連れていく」という一点でつながっています。
+      </p>
+
+      <div class="work">
+
+        <article class="card reveal">
+          <div class="card-body">
+            <div class="kicker">AI Solutions</div>
+            <h3>AI技術を、<br>あなたのビジネスに。</h3>
+            <p>
+              最新AI技術の活用方法を教育・指導。企業や個人に向けたAIソリューションの提案から実装までをサポートします。
+              LINEスタンプ、オリジナル楽曲、チャットボット、アプリ、Webサイト、LP。
+              これまで数週間かかっていた制作を、数時間の仕事に変えます。
+            </p>
+            <ul class="tags">
+              <li>生成AI活用支援</li>
+              <li>Web・LP制作</li>
+              <li>アプリ開発</li>
+              <li>AIチャットボット</li>
+            </ul>
+            <a class="card-link" href="/ai-service">
+              詳しく見る
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
             </a>
-            <p>マリン × AI。<br>二つのフィールドから、新しい体験と学びを届けます。</p>
           </div>
-          <div class="footer-column">
-            <h3>事業内容</h3>
-            <ul>
-              <li><a href="/ai-salon">AI学習サロン</a></li>
-              <li><a href="/ai-service">AI事業</a></li>
-              <li><a href="/marine">マリン事業</a></li>
+          <div class="card-visual">
+            <picture>
+              <source srcset="/images/aquabit-ai.webp" type="image/webp">
+              <img src="/images/aquabit-ai.png" alt="データが流れるデジタル空間のイメージ" loading="lazy" decoding="async">
+            </picture>
+          </div>
+        </article>
+
+        <article class="card flip reveal">
+          <div class="card-body">
+            <div class="kicker">Marine</div>
+            <h3>海の魅力を、<br>すべての人へ。</h3>
+            <p>
+              ダイビングを中心とした海のアクティビティを提供。初心者から上級者まで、幅広いニーズに対応したサービスをご用意しています。
+              呼吸と動きだけに集中する水中は、日常のストレスから完全に切り離された特別な空間です。
+            </p>
+            <ul class="tags">
+              <li>体験ダイビング</li>
+              <li>ライセンス取得</li>
+              <li>ファンダイブ</li>
+              <li>マインドフルネス</li>
             </ul>
+            <a class="card-link" href="/marine">
+              詳しく見る
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+            </a>
           </div>
-          <div class="footer-column">
-            <h3>AquaBit LAB</h3>
-            <ul>
-              <li><a href="/about">ABLとは？</a></li>
-              <li><a href="/contact">お問い合わせ</a></li>
-              <li><a href="/privacy-policy">プライバシーポリシー</a></li>
-              <li><a href="/tokushoho">特定商取引法に基づく表記</a></li>
-            </ul>
+          <div class="card-visual">
+            <picture>
+              <source srcset="/images/aquabit-marine.webp" type="image/webp">
+              <img src="/images/aquabit-marine.png" alt="サンゴ礁の上を泳ぐダイバー" loading="lazy" decoding="async">
+            </picture>
           </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 数字 ================= -->
+  <section class="strip">
+    <div class="shell">
+      <div class="strip-grid">
+        <div class="strip-item reveal">
+          <b>25<small>年</small></b>
+          <span>教育の現場で培った指導経験</span>
         </div>
-        <div class="footer-legal">
-          <p>Copyright &copy; 2025 AquaBit LAB All rights reserved.</p>
+        <div class="strip-item reveal d1">
+          <b>2</b>
+          <span>マリン事業 &amp; AI事業の二軸</span>
+        </div>
+        <div class="strip-item reveal d2">
+          <b>∞</b>
+          <span>AI × 海が生む体験の可能性</span>
         </div>
       </div>
-    </footer>
-  </div>
+    </div>
+  </section>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const reveals = document.querySelectorAll('.reveal');
-      window.addEventListener('scroll', revealOnScroll);
-      revealOnScroll();
+  <!-- ================= ミッション ================= -->
+  <section class="band mission" id="about">
+    <div class="shell">
+      <p class="eyebrow reveal" style="justify-content:center;">About ABL</p>
+      <h2 class="title reveal d1">マリン × AI。<br>二つのフィールドから、<br>新しい体験と学びを。</h2>
+      <p class="lead reveal d2">
+        AquaBit LAB（ABL）は、マリン事業とAI事業を通じて、海の魅力と最新技術の可能性を探求する研究開発組織です。
+        海の素晴らしさを多くの人に伝えるとともに、AI技術を活用したイノベーションを創出し、持続可能な未来の実現に貢献することを目指しています。
+      </p>
 
-      function revealOnScroll() {
-        for (let i = 0; i < reveals.length; i++) {
-          const windowHeight = window.innerHeight;
-          const elementTop = reveals[i].getBoundingClientRect().top;
-          if (elementTop < windowHeight - 120) {
-            reveals[i].classList.add('active');
-          }
-        }
-      }
+      <div class="pillars">
+        <div class="pillar reveal">
+          <i>🎓</i>
+          <b>使える形で教える</b>
+          <p>Udemyや書籍、サロンを通じて、明日から手を動かせる実践知を共有しています。</p>
+        </div>
+        <div class="pillar reveal d1">
+          <i>⚡</i>
+          <b>技術で時間を返す</b>
+          <p>AIで制作プロセスを短縮し、人が本当にやるべき創造的な仕事に時間を戻します。</p>
+        </div>
+        <div class="pillar reveal d2">
+          <i>🌊</i>
+          <b>リアルな感動を届ける</b>
+          <p>水中でしか味わえない無重力感と静けさ。その一次体験を、できるだけ多くの人へ。</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      const menuToggle = document.querySelector('.nav-menu-toggle');
-      const navMenu = document.querySelector('.nav-menu');
-      if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-          navMenu.classList.toggle('active');
-        });
-      }
+  <!-- ================= 最終CTA ================= -->
+  <section class="band final">
+    <div class="shell">
+      <p class="eyebrow reveal" style="justify-content:center;">Contact</p>
+      <h2 class="title reveal d1">その企画、<br>AIと海のラボと組んでみませんか。</h2>
+      <p class="lead reveal d2" style="margin-left:auto;margin-right:auto;max-width:36em;">
+        マリン体験のご相談も、AI導入・制作のご依頼も、まずは気軽にお問い合わせください。
+      </p>
+      <div class="reveal d3">
+        <a class="btn" href="/contact">
+          お問い合わせはこちら
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
 
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          const targetId = this.getAttribute('href');
-          if (targetId === '#') return;
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            e.preventDefault();
-            if (navMenu.classList.contains('active')) navMenu.classList.remove('active');
-            window.scrollTo({ top: targetElement.offsetTop - 64, behavior: 'smooth' });
-          }
-        });
-      });
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="shell">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a class="brand" href="/">
+            <img src="/images/logo-mark.webp" width="34" height="34" alt="AquaBit LAB ロゴ">
+            <span>AquaBit LAB</span>
+          </a>
+          <p>海の魅力とAI技術の可能性を探求する研究開発組織。マリン事業とAI事業の二軸で、新しい体験と価値をつくっています。</p>
+        </div>
+        <div>
+          <h4>Business</h4>
+          <ul>
+            <li><a href="/ai-salon">AI学習サロン</a></li>
+            <li><a href="/ai-service">AI事業</a></li>
+            <li><a href="/marine">マリン事業</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>AquaBit LAB</h4>
+          <ul>
+            <li><a href="/about">ABLとは？</a></li>
+            <li><a href="/contact">お問い合わせ</a></li>
+            <li><a href="/privacy-policy">プライバシーポリシー</a></li>
+            <li><a href="/tokushoho">特定商取引法に基づく表記</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-legal">
+        <span>&copy; 2025 AquaBit LAB. All rights reserved.</span>
+        <span>Built with three.js &amp; WebGPU</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import('/js/hero.min.js').catch((e) => {
+      console.warn('[AquaBit] hero module failed to load', e);
     });
   </script>
+
+  <script src="/js/site.js" defer></script>
 </body>
 </html>

@@ -27,8 +27,16 @@ jobs:
           **/.git*
           **/.git*/**
           **/node_modules/**
+          **/.claude/**
+          **/src/**
+          **/tools/**
+          **/package.json
+          **/package-lock.json
+          **/_preview_test.html
           **/.DS_Store
           **/README.md
+          **/README-DEV.md
+          **/pamphlet-print-instructions.md
           **/.github/**
           **/htaccess-backup.txt
           **/server.py

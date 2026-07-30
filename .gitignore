@@ -12,3 +12,10 @@
 # Temporary files
 *.tmp
 *.log
+
+# Node
+node_modules/
+package-lock.json
+
+# Claude Code のローカル作業用
+.claude/

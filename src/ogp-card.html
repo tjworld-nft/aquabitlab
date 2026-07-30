@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--
+  OGP画像（1200x630）の生成用テンプレート。
+  下記コマンドで images/ogp.png を作り直せる。
+
+    npm run build:ogp
+-->
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1200px; height: 630px; overflow: hidden; background: #04070d; }
+
+  .card {
+    position: relative;
+    width: 1200px;
+    height: 630px;
+    background: #04070d url('../images/aqua-hero.png') center/cover no-repeat;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #eef6ff;
+    overflow: hidden;
+  }
+
+  .card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(90% 80% at 12% 45%, rgba(4,7,13,0.94) 0%, rgba(4,7,13,0.62) 45%, rgba(4,7,13,0.1) 78%),
+      linear-gradient(180deg, rgba(4,7,13,0.5) 0%, rgba(4,7,13,0) 40%, rgba(4,7,13,0.7) 100%);
+  }
+
+  .inner {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    padding: 74px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 40px;
+  }
+  .brand img {
+    width: 74px; height: 74px;
+    border-radius: 18px;
+    box-shadow: 0 0 46px rgba(79, 216, 255, 0.4);
+  }
+  .brand span {
+    font-family: 'Outfit', sans-serif;
+    font-size: 38px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  h1 {
+    font-size: 76px;
+    font-weight: 900;
+    line-height: 1.28;
+    letter-spacing: -0.01em;
+  }
+  h1 em {
+    font-style: normal;
+    background: linear-gradient(100deg, #ffffff 10%, #4fd8ff 55%, #7b6cf6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  p {
+    margin-top: 30px;
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(224, 238, 255, 0.82);
+  }
+
+  .tags {
+    display: flex;
+    gap: 12px;
+    margin-top: 40px;
+  }
+  .tags b {
+    font-family: 'Outfit', sans-serif;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 11px 22px;
+    border: 1px solid rgba(140, 190, 255, 0.28);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.05);
+    color: rgba(224, 238, 255, 0.9);
+  }
+
+  .url {
+    position: absolute;
+    right: 80px;
+    bottom: 62px;
+    z-index: 2;
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.1em;
+    color: rgba(147, 169, 198, 0.85);
+  }
+</style>
+</head>
+<body>
+  <div class="card" id="card">
+    <div class="inner">
+      <div class="brand">
+        <img src="../images/aquabit-lab-logo.png" alt="">
+        <span>AquaBit LAB</span>
+      </div>
+      <h1><em id="title">海とAIの未来を、<br>創造する。</em></h1>
+      <p id="sub">マリン事業 × AI事業 ／ 研究開発ラボ</p>
+      <div class="tags" id="tags">
+        <b>Diving</b>
+        <b>Generative AI</b>
+        <b>AI Education</b>
+      </div>
+    </div>
+    <div class="url">aquabit-lab.com</div>
+  </div>
+
+  <script>
+    // ?title=...&sub=...&tags=a,b,c&bg=画像ファイル名 で各ページ用に差し替えられる
+    var q = new URLSearchParams(location.search);
+    if (q.get('title')) document.getElementById('title').innerHTML = q.get('title').replace(/\|/g, '<br>');
+    if (q.get('sub')) document.getElementById('sub').textContent = q.get('sub');
+    if (q.get('bg')) {
+      document.getElementById('card').style.backgroundImage = "url('../images/" + q.get('bg') + "')";
+    }
+    if (q.get('tags')) {
+      document.getElementById('tags').innerHTML = q.get('tags').split(',')
+        .map(function (t) { return '<b>' + t.trim() + '</b>'; }).join('');
+    }
+  </script>
+</body>
+</html>
