@@ -2,13 +2,8 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>特定商取引法に基づく表記 | AquaBit LAB</title>
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/favicon.png">
-
   <meta name="description" content="AquaBit LABが提供するサービスに関する、特定商取引法に基づく表記です。">
   <meta name="theme-color" content="#04070d">
   <link rel="canonical" href="https://aquabit-lab.com/tokushoho">
@@ -31,562 +26,129 @@
   <meta name="twitter:description" content="AquaBit LABが提供するサービスに関する、特定商取引法に基づく表記です。">
   <meta name="twitter:image" content="https://aquabit-lab.com/images/ogp.png">
 
+  <!-- Icons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/aqua.css?v=20260731">
+
   <style>
-    /* サイバーパンク風デザイン設定 */
-    :root {
-      --cyber-font: 'Courier New', monospace, 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Mono', 'Droid Sans Mono', 'Source Code Pro', monospace;
-      --neon-cyan: #00ffff;
-      --neon-pink: #ff0080;
-      --neon-green: #00ff41;
-      --neon-purple: #8a2be2;
-      --dark-bg: #0a0a0a;
-      --darker-bg: #000000;
-      --grid-color: #1a1a1a;
-      --text-primary: #ffffff;
-      --text-secondary: #cccccc;
-      --text-muted: #888888;
-      --aqua-neon: #00ffff;
-      --max-content-width: 980px;
-      --max-hero-width: 1440px;
-      --vertical-spacing: 130px;
-      --gutter: 22px;
-    }
-
-    /* グローバルリセットとベーススタイル */
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: var(--cyber-font);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      color: var(--text-primary);
-      background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
-      background-attachment: fixed;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    /* サイバーグリッド背景 */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        linear-gradient(rgba(0,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,255,255,0.03) 1px, transparent 1px);
-      background-size: 50px 50px;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    /* レイアウト基本クラス */
-    .apple-wrapper {
-      width: 100%;
-      overflow-x: hidden;
-      font-size: 17px;
-      line-height: 1.47059;
-      font-weight: 400;
-      letter-spacing: -0.022em;
-    }
-
-    .full-bleed {
-      width: 100%;
-      position: relative;
-    }
-
-    .centered-content {
-      max-width: var(--max-content-width);
-      margin: 0 auto;
-      padding: 0 var(--gutter);
-      position: relative;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* サイバーパンク風ナビゲーション */
-    .apple-nav {
-      background: linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(10,10,10,0.95) 100%);
-      border-bottom: 2px solid var(--neon-cyan);
-      box-shadow: 0 0 20px rgba(0,255,255,0.3);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 9999;
-      height: 60px;
-    }
-
-    .nav-container {
-      max-width: var(--max-content-width);
-      margin: 0 auto;
-      height: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 var(--gutter);
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      opacity: 0.9;
-      transition: opacity 0.3s;
-    }
-
-    .nav-logo:hover {
-      opacity: 1;
-    }
-    
-    .nav-logo img {
-      height: 30px;
-      width: auto;
-      margin-right: 8px;
-      filter: drop-shadow(0 0 10px rgba(0,255,255,0.5));
-    }
-    
-    .nav-logo-text {
-      color: var(--neon-cyan);
-      font-size: 21px;
-      font-weight: 700;
-      text-shadow: 0 0 10px var(--neon-cyan);
-      letter-spacing: 2px;
-    }
-
-    .nav-menu {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-menu li {
-      margin-left: 30px;
-    }
-
-    .nav-menu a {
-      color: var(--text-secondary);
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: all 0.3s ease;
-      border: 1px solid transparent;
-      padding: 8px 16px;
-      border-radius: 4px;
-    }
-
-    .nav-menu a:hover {
-      color: var(--neon-cyan);
-      border-color: var(--neon-cyan);
-      box-shadow: 0 0 15px rgba(0,255,255,0.5);
-      text-shadow: 0 0 5px var(--neon-cyan);
-    }
-
-    .nav-menu-toggle {
-      display: none;
-      color: var(--text-primary);
-      font-size: 24px;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    /* メインコンテンツ */
-    .main-content {
-      padding-top: 120px;
-      padding-bottom: var(--vertical-spacing);
-    }
-
-    .page-title {
-      font-size: 48px;
-      line-height: 1.1;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-align: center;
-      margin-bottom: 60px;
-      color: var(--neon-cyan);
-      text-shadow: 0 0 20px var(--neon-cyan);
-      text-transform: uppercase;
-    }
-
-    .content-section {
-      max-width: 680px;
-      margin: 0 auto;
-      font-size: 16px;
-      line-height: 1.6;
-      font-weight: 400;
-      letter-spacing: 1px;
-    }
-
-    .tokushoho-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 40px;
-      border: 2px solid var(--neon-cyan);
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(0,255,255,0.2);
-    }
-
-    .tokushoho-table th,
-    .tokushoho-table td {
-      padding: 20px;
-      text-align: left;
-      border-bottom: 1px solid var(--grid-color);
-      vertical-align: top;
-    }
-
-    .tokushoho-table th {
-      background: linear-gradient(90deg, rgba(0,255,255,0.1) 0%, rgba(0,255,255,0.05) 100%);
-      color: var(--neon-cyan);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      width: 200px;
-      border-right: 1px solid var(--neon-cyan);
-    }
-
-    .tokushoho-table td {
-      color: var(--text-secondary);
-      background: rgba(0,0,0,0.3);
-    }
-
-    .tokushoho-table tr:last-child th,
-    .tokushoho-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .content-section h2 {
-      font-size: 28px;
-      line-height: 1.2;
-      font-weight: 700;
-      letter-spacing: 1px;
-      margin: 50px 0 20px;
-      color: var(--neon-pink);
-      text-shadow: 0 0 10px var(--neon-pink);
-      text-transform: uppercase;
-    }
-
-    .content-section p {
-      margin-bottom: 24px;
-      color: var(--text-secondary);
-    }
-
-    /* サイバーフッター */
-    .apple-footer {
-      background: linear-gradient(180deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
-      border-top: 2px solid var(--neon-cyan);
-      color: var(--text-secondary);
-      padding: 60px 0 30px;
-      font-size: 13px;
-      line-height: 1.4;
-      font-weight: 400;
-      letter-spacing: 1px;
-      position: relative;
-    }
-
-    .apple-footer::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 1; }
-    }
-
-    .footer-columns {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-      margin-bottom: 40px;
-    }
-
-    .footer-column h3 {
-      font-size: 12px;
-      line-height: 1.33337;
-      font-weight: 600;
-      letter-spacing: -.01em;
-      margin-bottom: 12px;
-      color: var(--neon-cyan);
-      text-transform: uppercase;
-    }
-
-    .footer-column ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .footer-column li {
-      margin-bottom: 8px;
-    }
-
-    .footer-column a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .footer-column a:hover {
-      color: var(--neon-cyan);
-      text-shadow: 0 0 5px var(--neon-cyan);
-    }
-
-    .footer-legal {
-      padding-top: 20px;
-      border-top: 1px solid var(--grid-color);
-      text-align: center;
-    }
-    
-    .footer-logo {
-      max-width: 120px;
-      margin: 0 auto 20px;
-    }
-
-    /* レスポンシブデザイン */
-    @media only screen and (max-width: 1068px) {
-      .page-title {
-        font-size: 40px;
-      }
-      
-      .content-section {
-        font-size: 15px;
-      }
-      
-      .tokushoho-table th {
-        width: 150px;
-      }
-      
-      .tokushoho-table th,
-      .tokushoho-table td {
-        padding: 15px;
-      }
-    }
-
-    @media only screen and (max-width: 734px) {
-      :root {
-        --vertical-spacing: 80px;
-        --gutter: 16px;
-      }
-      
-      .page-title {
-        font-size: 32px;
-        margin-bottom: 40px;
-      }
-      
-      .content-section {
-        font-size: 14px;
-      }
-      
-      .tokushoho-table th,
-      .tokushoho-table td {
-        padding: 12px;
-        font-size: 13px;
-      }
-      
-      .tokushoho-table th {
-        width: 120px;
-      }
-      
-      .footer-columns {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      
-      /* モバイルナビゲーション */
-      .nav-menu {
-        display: none;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(10,10,10,0.95) 100%);
-        border-top: 1px solid var(--neon-cyan);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        flex-direction: column;
-        padding: 20px 0;
-      }
-      
-      .nav-menu.active {
-        display: flex;
-      }
-      
-      .nav-menu li {
-        margin: 0;
-        padding: 10px var(--gutter);
-      }
-      
-      .nav-menu-toggle {
-        display: block;
-      }
-    }
+    .page-hero { min-height: 38svh; }
+    .page-hero .hero-fallback { background-image: url('/images/aqua-hero.webp'); }
+    .table-scroll { overflow-x: auto; }
   </style>
 </head>
 <body>
-  <div class="apple-wrapper">
-    <!-- カスタムヘッダーナビゲーション -->
-    <nav class="apple-nav">
-      <div class="nav-container">
-        <a href="/" class="nav-logo">
-          <img src="https://aquabit-lab.com/images/aquabit-lab-logo.png" alt="AquaBit LAB">
-          <span class="nav-logo-text">AquaBit LAB</span>
-        </a>
-        <button class="nav-menu-toggle">☰</button>
-        <ul class="nav-menu">
-          <li><a href="/marine">マリン事業</a></li>
-          <li><a href="/ai-service">AI事業</a></li>
-          <li><a href="/about">ABLとは？</a></li>
-          <li><a href="/contact">お問い合わせ</a></li>
-        </ul>
-      </div>
-    </nav>
 
-    <!-- メインコンテンツ -->
-    <main class="main-content">
-      <div class="centered-content">
-        <h1 class="page-title">特定商取引法に基づく表記</h1>
-        <div class="content-section">
-          
-          <table class="tokushoho-table">
-            <tr>
-              <th>販売業者</th>
-              <td>AquaBit LAB</td>
-            </tr>
-            <tr>
-              <th>運営統括責任者</th>
-              <td>吉田 哲司</td>
-            </tr>
-            <tr>
-              <th>所在地</th>
-              <td>〒238-0224<br>神奈川県三浦市三崎町諸磯1621</td>
-            </tr>
-            <tr>
-              <th>電話番号</th>
-              <td>046-880-0835</td>
-            </tr>
-            <tr>
-              <th>メールアドレス</th>
-              <td>info@aquabit-lab.com</td>
-            </tr>
-            <tr>
-              <th>販売価格</th>
-              <td>各サービスページに記載</td>
-            </tr>
-            <tr>
-              <th>商品代金以外の費用</th>
-              <td>消費税、送料（該当する場合）</td>
-            </tr>
-            <tr>
-              <th>支払方法</th>
-              <td>銀行振込、クレジットカード決済、その他指定の方法</td>
-            </tr>
-            <tr>
-              <th>支払時期</th>
-              <td>サービス提供前の前払い</td>
-            </tr>
-            <tr>
-              <th>サービス提供時期</th>
-              <td>お申し込み後、別途ご案内いたします</td>
-            </tr>
-            <tr>
-              <th>返品・交換</th>
-              <td>サービスの性質上、原則として返品・返金はお受けできません</td>
-            </tr>
-            <tr>
-              <th>キャンセル</th>
-              <td>サービス開始前であればキャンセル可能です。詳細はお問い合わせください</td>
-            </tr>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <img src="/images/logo-mark.webp" width="34" height="34" alt="AquaBit LAB ロゴ">
+        <span>AquaBit LAB</span>
+      </a>
+      <button class="burger" id="burger" aria-label="メニューを開く" aria-expanded="false"><span></span></button>
+      <ul class="nav-links" id="navlinks">
+        <li><a href="/marine">マリン事業</a></li>
+        <li><a href="/ai-service">AI事業</a></li>
+        <li><a href="/about">ABLとは？</a></li>
+        <li><a href="/contact">お問い合わせ</a></li>
+        <li><a class="nav-cta" href="/ai-salon">AI学習サロン</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="hero-fallback" aria-hidden="true"></div>
+    <div class="shell">
+      <p class="eyebrow">Legal</p>
+      <h1><span class="grad">特定商取引法に基づく表記</span></h1>
+    </div>
+  </header>
+
+  <section class="band">
+    <div class="shell">
+      <div class="legal reveal">
+
+        <div class="table-scroll">
+          <table class="legal-table">
+            <tbody>
+              <tr><th>販売業者</th><td>AquaBit LAB</td></tr>
+              <tr><th>運営統括責任者</th><td>吉田 哲司</td></tr>
+              <tr><th>所在地</th><td>〒238-0224<br>神奈川県三浦市三崎町諸磯1621</td></tr>
+              <tr><th>電話番号</th><td>046-880-0835</td></tr>
+              <tr><th>メールアドレス</th><td><a href="mailto:info@aquabit-lab.com">info@aquabit-lab.com</a></td></tr>
+              <tr><th>販売価格</th><td>各サービスページに記載</td></tr>
+              <tr><th>商品代金以外の費用</th><td>消費税、送料（該当する場合）</td></tr>
+              <tr><th>支払方法</th><td>銀行振込、クレジットカード決済、その他指定の方法</td></tr>
+              <tr><th>支払時期</th><td>サービス提供前の前払い</td></tr>
+              <tr><th>サービス提供時期</th><td>お申し込み後、別途ご案内いたします</td></tr>
+              <tr><th>返品・交換</th><td>サービスの性質上、原則として返品・返金はお受けできません</td></tr>
+              <tr><th>キャンセル</th><td>サービス開始前であればキャンセル可能です。詳細はお問い合わせください</td></tr>
+            </tbody>
           </table>
-
-          <h2>免責事項</h2>
-          <p>当サイトに掲載されている情報の正確性については万全を期しておりますが、利用者が当サイトの情報を用いて行う一切の行為について、当社は何ら責任を負うものではありません。</p>
-
-          <h2>著作権について</h2>
-          <p>当サイト内の文章、画像等の著作権は AquaBit LAB に帰属します。無断での転載、複製等は固く禁じます。</p>
-
-          <h2>サブスクリプションについて</h2>
-          <ul style="color: var(--text-secondary); font-size: 16px; line-height: 1.6; margin-bottom: 30px;">
-            <li><strong>課金サイクル</strong>：お申込み日を起算日とし、毎月同日に自動更新・自動課金</li>
-            <li><strong>解約方法</strong>：マイページまたは info@aquabit-lab.com へのメール連絡でいつでも解約可。解約手続完了後、次回更新分から課金停止（日割り返金なし）。</li>
-            <li><strong>返金ポリシー</strong>：デジタルサービスのため提供開始後の返金不可。システム不具合等当社責による場合は個別対応。</li>
-          </ul>
-
-          <h2>プライバシーポリシー</h2>
-          <p>個人情報の取り扱いについては、<a href="/privacy-policy" style="color: var(--neon-cyan);">プライバシーポリシー</a>をご確認ください。</p>
-
-
-          <p style="margin-top: 40px; text-align: center; color: var(--text-muted);">
-            最終更新日：2025年7月28日
-          </p>
         </div>
-      </div>
-    </main>
 
-    <!-- カスタムフッター -->
-    <footer class="apple-footer">
-      <div class="centered-content">
-        <div class="footer-logo">
-          <a href="/">
-            <img src="https://aquabit-lab.com/images/aquabit-lab-logo.png" alt="AquaBit LAB">
+        <h2>免責事項</h2>
+        <p>当サイトに掲載されている情報の正確性については万全を期しておりますが、利用者が当サイトの情報を用いて行う一切の行為について、当社は何ら責任を負うものではありません。</p>
+
+        <h2>著作権について</h2>
+        <p>当サイト内の文章、画像等の著作権は AquaBit LAB に帰属します。無断での転載、複製等は固く禁じます。</p>
+
+        <h2>サブスクリプションについて</h2>
+        <ul>
+          <li><strong>課金サイクル</strong>：お申込み日を起算日とし、毎月同日に自動更新・自動課金</li>
+          <li><strong>解約方法</strong>：マイページまたは info@aquabit-lab.com へのメール連絡でいつでも解約可。解約手続完了後、次回更新分から課金停止（日割り返金なし）。</li>
+          <li><strong>返金ポリシー</strong>：デジタルサービスのため提供開始後の返金不可。システム不具合等当社責による場合は個別対応。</li>
+        </ul>
+
+        <h2>プライバシーポリシー</h2>
+        <p>個人情報の取り扱いについては、<a href="/privacy-policy">プライバシーポリシー</a>をご確認ください。</p>
+
+        <p class="updated">最終更新日：2025年7月28日</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="shell">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a class="brand" href="/">
+            <img src="/images/logo-mark.webp" width="34" height="34" alt="AquaBit LAB ロゴ">
+            <span>AquaBit LAB</span>
           </a>
+          <p>海の魅力とAI技術の可能性を探求する研究開発組織。マリン事業とAI事業の二軸で、新しい体験と価値をつくっています。</p>
         </div>
-        <div class="footer-columns">
-          <div class="footer-column">
-            <h3>事業内容</h3>
-            <ul>
-              <li><a href="/marine">マリン事業</a></li>
-              <li><a href="/ai-service">AI事業</a></li>
-              <li><a href="/ai-salon">AI学習サロン</a></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h3>AquaBit LAB</h3>
-            <ul>
-              <li><a href="/about">ABLとは？</a></li>
-              <li><a href="/privacy-policy">プライバシーポリシー</a></li>
-              <li><a href="/contact">お問い合わせ</a></li>
-              <li><a href="/tokushoho">特定商取引法に基づく表記</a></li>
-            </ul>
-          </div>
+        <div>
+          <h4>Business</h4>
+          <ul>
+            <li><a href="/ai-salon">AI学習サロン</a></li>
+            <li><a href="/ai-service">AI事業</a></li>
+            <li><a href="/marine">マリン事業</a></li>
+          </ul>
         </div>
-        <div class="footer-legal">
-          <p>Copyright © 2025 AquaBit LAB All rights reserved.</p>
+        <div>
+          <h4>AquaBit LAB</h4>
+          <ul>
+            <li><a href="/about">ABLとは？</a></li>
+            <li><a href="/contact">お問い合わせ</a></li>
+            <li><a href="/privacy-policy">プライバシーポリシー</a></li>
+            <li><a href="/tokushoho">特定商取引法に基づく表記</a></li>
+          </ul>
         </div>
       </div>
-    </footer>
-  </div>
+      <div class="foot-legal">
+        <span>&copy; 2025 AquaBit LAB. All rights reserved.</span>
+        <span>Built with three.js &amp; WebGPU</span>
+      </div>
+    </div>
+  </footer>
 
-  <script>
-    // モバイルメニュートグル
-    document.addEventListener('DOMContentLoaded', function() {
-      const menuToggle = document.querySelector('.nav-menu-toggle');
-      const navMenu = document.querySelector('.nav-menu');
-      
-      if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-          navMenu.classList.toggle('active');
-        });
-      }
-    });
-  </script>
+  <script src="/js/site.js?v=20260731" defer></script>
 </body>
 </html>

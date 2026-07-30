@@ -25,8 +25,8 @@ AquaBit LABの公式ウェブサイトです。WordPressから静的HTMLサイ�
 ├── contact.html          # お問い合わせ
 ├── privacy-policy.html   # プライバシーポリシー
 ├── tokushoho.html        # 特定商取引法に基づく表記
-├── css/aqua.css          # 共通デザインシステム（ダークテーマ）
-├── js/site.js            # 共通UI（ナビ・スクロール出現）
+├── css/aqua.css          # 共通デザインシステム（ダークテーマ／全ページ共通）
+├── js/site.js            # 共通UI（ナビ・スクロール出現・FAQ・お問い合わせ送信）
 ├── js/hero.min.js        # ヒーロー描画のビルド済みバンドル（コミット対象）
 ├── src/hero.js           # ↑のソース（three.js / TSL）
 ├── src/ogp-card.html     # OGP画像の生成テンプレート
@@ -54,6 +54,17 @@ AquaBit LABの公式ウェブサイトです。WordPressから静的HTMLサイ�
 ```bash
 npm install
 npm run build
+```
+
+### キャッシュ対策（重要）
+
+`.htaccess` で CSS / JS を1ヶ月キャッシュしているため、`css/aqua.css` `js/site.js`
+`js/hero.min.js` を変更したら、各HTMLの読み込みURLに付けている `?v=YYYYMMDD` を
+新しい日付に一括で書き換えてください。これを忘れると、再訪問者に古いCSSが当たって
+レイアウトが崩れます。
+
+```bash
+grep -rl 'v=20260731' *.html | xargs sed -i '' 's/v=20260731/v=YYYYMMDD/g'
 ```
 
 ### OGP画像の生成

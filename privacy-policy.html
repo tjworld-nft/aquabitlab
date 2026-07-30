@@ -2,13 +2,8 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>プライバシーポリシー | AquaBit LAB</title>
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/favicon.png">
-
   <meta name="description" content="AquaBit LABにおける個人情報の取り扱いについて定めたプライバシーポリシーです。">
   <meta name="theme-color" content="#04070d">
   <link rel="canonical" href="https://aquabit-lab.com/privacy-policy">
@@ -31,484 +26,146 @@
   <meta name="twitter:description" content="AquaBit LABにおける個人情報の取り扱いについて定めたプライバシーポリシーです。">
   <meta name="twitter:image" content="https://aquabit-lab.com/images/ogp.png">
 
+  <!-- Icons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/aqua.css?v=20260731">
+
   <style>
-    /* ベース設定 - アップル風デザインの基礎 */
-    :root {
-      --apple-font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
-      --apple-text-color: #1d1d1f;
-      --apple-light-text: #f5f5f7;
-      --apple-link-color: #0066cc;
-      --apple-grey-bg: #fbfbfd;
-      --apple-dark-bg: #000000;
-      --aqua-color: #40E0D0;
-      --max-content-width: 980px;
-      --max-hero-width: 1440px;
-      --vertical-spacing: 130px;
-      --gutter: 22px;
-    }
-
-    /* グローバルリセットとベーススタイル */
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: var(--apple-font);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      color: var(--apple-text-color);
-      background-color: #fff;
-      overflow-x: hidden;
-    }
-
-    /* レイアウト基本クラス */
-    .apple-wrapper {
-      width: 100%;
-      overflow-x: hidden;
-      font-size: 17px;
-      line-height: 1.47059;
-      font-weight: 400;
-      letter-spacing: -0.022em;
-    }
-
-    .full-bleed {
-      width: 100%;
-      position: relative;
-    }
-
-    .centered-content {
-      max-width: var(--max-content-width);
-      margin: 0 auto;
-      padding: 0 var(--gutter);
-      position: relative;
-    }
-
-    /* カスタムヘッダーナビゲーション */
-    .apple-nav {
-      background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(10,10,20,0.9) 100%);
-      border-bottom: 1px solid rgba(0,255,255,0.3);
-      box-shadow: 0 0 15px rgba(0,255,255,0.2);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 9999;
-      height: 44px;
-    }
-
-    .nav-container {
-      max-width: var(--max-content-width);
-      margin: 0 auto;
-      height: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 var(--gutter);
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      opacity: 0.9;
-      transition: opacity 0.3s;
-    }
-
-    .nav-logo:hover {
-      opacity: 1;
-    }
-    
-    .nav-logo img {
-      height: 30px;
-      width: auto;
-      margin-right: 8px;
-      filter: drop-shadow(0 0 10px rgba(0,255,255,0.5));
-    }
-    
-    .nav-logo-text {
-      color: #f5f5f7;
-      font-size: 21px;
-      font-weight: 500;
-    }
-
-    .nav-menu {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-menu li {
-      margin-left: 30px;
-    }
-
-    .nav-menu a {
-      color: #f5f5f7;
-      font-size: 12px;
-      font-weight: 400;
-      text-decoration: none;
-      opacity: 0.8;
-      transition: opacity 0.3s;
-    }
-
-    .nav-menu a:hover {
-      opacity: 1;
-      text-decoration: none;
-    }
-
-    .nav-menu-toggle {
-      display: none;
-      color: #f5f5f7;
-      font-size: 24px;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    /* プライバシーポリシー専用スタイル */
-    .privacy-header {
-      margin-top: 120px;
-      text-align: center;
-      padding-bottom: 40px;
-    }
-
-    .privacy-title {
-      font-size: 40px;
-      line-height: 1.1;
-      font-weight: 600;
-      letter-spacing: 0;
-      color: var(--apple-text-color);
-      margin-bottom: 16px;
-      text-shadow: 0 0 12px rgba(64,224,208,0.4);
-    }
-
-    .privacy-updated {
-      font-size: 17px;
-      color: #6e6e73;
-    }
-
-    .privacy-container {
-      margin-bottom: 80px;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    .privacy-section {
-      margin-bottom: 40px;
-    }
-
-    .privacy-section h2 {
-      font-size: 24px;
-      line-height: 1.16667;
-      font-weight: 600;
-      letter-spacing: .009em;
-      margin-bottom: 16px;
-    }
-
-    .privacy-section p, 
-    .privacy-section li {
-      font-size: 17px;
-      line-height: 1.47059;
-      font-weight: 400;
-      letter-spacing: -.022em;
-      margin-bottom: 16px;
-      color: #333;
-    }
-
-    .privacy-section ul {
-      margin-left: 20px;
-      margin-bottom: 24px;
-      padding-left: 0;
-    }
-
-    .privacy-section li {
-      margin-bottom: 8px;
-    }
-
-    .contact-info {
-      background-color: #f5f5f7;
-      padding: 24px;
-      border-radius: 12px;
-      margin-top: 16px;
-    }
-
-    .contact-info p {
-      margin-bottom: 8px;
-    }
-
-    /* カスタムフッター */
-    .apple-footer {
-      background-color: #f5f5f7;
-      color: #6e6e73;
-      padding: 60px 0 30px;
-      font-size: 12px;
-      line-height: 1.33337;
-      font-weight: 400;
-      letter-spacing: -.01em;
-    }
-
-    .footer-columns {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-      margin-bottom: 40px;
-    }
-
-    .footer-column h3 {
-      font-size: 12px;
-      line-height: 1.33337;
-      font-weight: 600;
-      letter-spacing: -.01em;
-      margin-bottom: 12px;
-      color: #1d1d1f;
-    }
-
-    .footer-column ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .footer-column li {
-      margin-bottom: 8px;
-    }
-
-    .footer-column a {
-      color: #6e6e73;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .footer-column a:hover {
-      color: #1d1d1f;
-      text-decoration: underline;
-    }
-
-    .footer-legal {
-      padding-top: 20px;
-      border-top: 1px solid #d2d2d7;
-      text-align: center;
-    }
-    
-    .footer-logo {
-      max-width: 120px;
-      margin: 0 auto 20px;
-    }
-
-    /* アニメーション */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    /* レスポンシブデザイン */
-    @media only screen and (max-width: 1068px) {
-      .privacy-title {
-        font-size: 36px;
-      }
-      
-      .privacy-section h2 {
-        font-size: 22px;
-      }
-    }
-
-    @media only screen and (max-width: 734px) {
-      :root {
-        --gutter: 16px;
-      }
-      
-      .privacy-header {
-        margin-top: 80px;
-        padding-bottom: 30px;
-      }
-      
-      .privacy-title {
-        font-size: 28px;
-      }
-      
-      .privacy-section h2 {
-        font-size: 20px;
-      }
-      
-      .footer-columns {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      
-      /* モバイルナビゲーション */
-      .nav-menu {
-        display: none;
-        position: absolute;
-        top: 44px;
-        left: 0;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        backdrop-filter: saturate(180%) blur(20px);
-        -webkit-backdrop-filter: saturate(180%) blur(20px);
-        flex-direction: column;
-        padding: 20px 0;
-      }
-      
-      .nav-menu.active {
-        display: flex;
-      }
-      
-      .nav-menu li {
-        margin: 0;
-        padding: 10px var(--gutter);
-      }
-      
-      .nav-menu-toggle {
-        display: block;
-      }
-    }
+    .page-hero { min-height: 38svh; }
+    .page-hero .hero-fallback { background-image: url('/images/aqua-hero.webp'); }
   </style>
 </head>
 <body>
-  <div class="apple-wrapper">
-    <!-- カスタムヘッダーナビゲーション -->
-    <nav class="apple-nav">
-      <div class="nav-container">
-        <a href="/" class="nav-logo">
-          <img src="https://aquabit-lab.com/images/aquabit-lab-logo.png" alt="AquaBit LAB">
-          <span class="nav-logo-text">AquaBit LAB</span>
-        </a>
-        <button class="nav-menu-toggle">☰</button>
-        <ul class="nav-menu">
-          <li><a href="/marine">マリン事業</a></li>
-          <li><a href="/ai-service">AI事業</a></li>
-          <li><a href="/about">ABLとは？</a></li>
-          <li><a href="/contact">お問い合わせ</a></li>
+
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <img src="/images/logo-mark.webp" width="34" height="34" alt="AquaBit LAB ロゴ">
+        <span>AquaBit LAB</span>
+      </a>
+      <button class="burger" id="burger" aria-label="メニューを開く" aria-expanded="false"><span></span></button>
+      <ul class="nav-links" id="navlinks">
+        <li><a href="/marine">マリン事業</a></li>
+        <li><a href="/ai-service">AI事業</a></li>
+        <li><a href="/about">ABLとは？</a></li>
+        <li><a href="/contact">お問い合わせ</a></li>
+        <li><a class="nav-cta" href="/ai-salon">AI学習サロン</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="hero-fallback" aria-hidden="true"></div>
+    <div class="shell">
+      <p class="eyebrow">Privacy</p>
+      <h1><span class="grad">プライバシーポリシー</span></h1>
+      <p>最終更新日: 2025年7月25日</p>
+    </div>
+  </header>
+
+  <section class="band">
+    <div class="shell">
+      <div class="legal reveal">
+
+        <h2>1. はじめに</h2>
+        <p>Aquabit Lab（以下、「当社」）は、お客様のプライバシーを尊重し、個人情報の保護に努めています。本プライバシーポリシーでは、当社のウェブサイト（https://aquabit-lab.com）における個人情報の取り扱いについて説明します。</p>
+
+        <h2>2. 収集する情報</h2>
+        <p>当社は、以下の情報を収集することがあります：</p>
+        <ul>
+          <li><strong>お問い合わせ情報：</strong> お名前、メールアドレス、電話番号などのお問い合わせフォームから提供される情報</li>
+          <li><strong>アクセス情報：</strong> IPアドレス、ブラウザの種類、アクセス日時、参照元ページなど</li>
+          <li><strong>Cookieを通じて収集される情報：</strong> 当社ウェブサイトの利用状況、閲覧履歴など</li>
         </ul>
-      </div>
-    </nav>
 
-    <!-- プライバシーポリシーコンテンツ -->
-    <div class="centered-content">
-      <div class="privacy-header">
-        <h1 class="privacy-title">プライバシーポリシー</h1>
-        <p class="privacy-updated">最終更新日: 2025年7月25日</p>
-      </div>
+        <h2>3. 情報の利用目的</h2>
+        <p>当社は、収集した情報を以下の目的で利用します：</p>
+        <ul>
+          <li>お問い合わせへの対応</li>
+          <li>サービスの提供および改善</li>
+          <li>ウェブサイトの利用状況の分析</li>
+          <li>セキュリティの確保</li>
+          <li>法令に基づく対応</li>
+        </ul>
 
-      <div class="privacy-container">
-        <section class="privacy-section">
-          <h2>1. はじめに</h2>
-          <p>Aquabit Lab（以下、「当社」）は、お客様のプライバシーを尊重し、個人情報の保護に努めています。本プライバシーポリシーでは、当社のウェブサイト（https://aquabit-lab.com）における個人情報の取り扱いについて説明します。</p>
-        </section>
+        <h2>4. 情報の共有</h2>
+        <p>当社は、以下の場合を除き、お客様の個人情報を第三者と共有することはありません：</p>
+        <ul>
+          <li>お客様の同意がある場合</li>
+          <li>法令に基づく場合</li>
+          <li>当社のサービス提供に必要な業務委託先（その場合、適切な契約により個人情報の保護を義務付けています）</li>
+        </ul>
 
-        <section class="privacy-section">
-          <h2>2. 収集する情報</h2>
-          <p>当社は、以下の情報を収集することがあります：</p>
-          <ul>
-            <li><strong>お問い合わせ情報：</strong> お名前、メールアドレス、電話番号などのお問い合わせフォームから提供される情報</li>
-            <li><strong>アクセス情報：</strong> IPアドレス、ブラウザの種類、アクセス日時、参照元ページなど</li>
-            <li><strong>Cookieを通じて収集される情報：</strong> 当社ウェブサイトの利用状況、閲覧履歴など</li>
-          </ul>
-        </section>
+        <h2>5. Cookieの使用</h2>
+        <p>当社のウェブサイトでは、ユーザー体験の向上やウェブサイトの利用状況の分析のためにCookieを使用しています。ブラウザの設定により、Cookieの受け入れを制御することができます。</p>
 
-        <section class="privacy-section">
-          <h2>3. 情報の利用目的</h2>
-          <p>当社は、収集した情報を以下の目的で利用します：</p>
-          <ul>
-            <li>お問い合わせへの対応</li>
-            <li>サービスの提供および改善</li>
-            <li>ウェブサイトの利用状況の分析</li>
-            <li>セキュリティの確保</li>
-            <li>法令に基づく対応</li>
-          </ul>
-        </section>
+        <h2>6. セキュリティ</h2>
+        <p>当社は、個人情報の紛失、不正アクセス、漏洩、改ざん、破壊から保護するために適切なセキュリティ対策を講じています。</p>
 
-        <section class="privacy-section">
-          <h2>4. 情報の共有</h2>
-          <p>当社は、以下の場合を除き、お客様の個人情報を第三者と共有することはありません：</p>
-          <ul>
-            <li>お客様の同意がある場合</li>
-            <li>法令に基づく場合</li>
-            <li>当社のサービス提供に必要な業務委託先（その場合、適切な契約により個人情報の保護を義務付けています）</li>
-          </ul>
-        </section>
+        <h2>7. お子様のプライバシー</h2>
+        <p>当社のウェブサイトは、16歳未満の方を対象としていません。16歳未満の方の個人情報を故意に収集することはありません。</p>
 
-        <section class="privacy-section">
-          <h2>5. Cookieの使用</h2>
-          <p>当社のウェブサイトでは、ユーザー体験の向上やウェブサイトの利用状況の分析のためにCookieを使用しています。ブラウザの設定により、Cookieの受け入れを制御することができます。</p>
-        </section>
+        <h2>8. 他のウェブサイトへのリンク</h2>
+        <p>当社のウェブサイトには、他のウェブサイトへのリンクが含まれることがあります。本プライバシーポリシーは当社のウェブサイトにのみ適用され、リンク先のウェブサイトのプライバシーポリシーについては当社は責任を負いません。</p>
 
-        <section class="privacy-section">
-          <h2>6. セキュリティ</h2>
-          <p>当社は、個人情報の紛失、不正アクセス、漏洩、改ざん、破壊から保護するために適切なセキュリティ対策を講じています。</p>
-        </section>
+        <h2>9. プライバシーポリシーの変更</h2>
+        <p>当社は、必要に応じて本プライバシーポリシーを変更することがあります。変更があった場合は、当ウェブサイトで通知します。</p>
 
-        <section class="privacy-section">
-          <h2>7. お子様のプライバシー</h2>
-          <p>当社のウェブサイトは、16歳未満の方を対象としていません。16歳未満の方の個人情報を故意に収集することはありません。</p>
-        </section>
+        <h2>10. お問い合わせ</h2>
+        <p>本プライバシーポリシーに関するご質問やご意見は、<a href="/contact">お問い合わせフォーム</a>からお寄せください。</p>
 
-        <section class="privacy-section">
-          <h2>8. 他のウェブサイトへのリンク</h2>
-          <p>当社のウェブサイトには、他のウェブサイトへのリンクが含まれることがあります。本プライバシーポリシーは当社のウェブサイトにのみ適用され、リンク先のウェブサイトのプライバシーポリシーについては当社は責任を負いません。</p>
-        </section>
+        <div class="info-card" style="margin-top:40px;">
+          <p style="margin:0 0 6px;color:var(--ink);font-weight:700;">Aquabit Lab</p>
+          <p style="margin:0;">メールアドレス：<a href="mailto:info@aquabit-lab.com" style="color:var(--cyan);">info@aquabit-lab.com</a></p>
+        </div>
 
-        <section class="privacy-section">
-          <h2>9. プライバシーポリシーの変更</h2>
-          <p>当社は、必要に応じて本プライバシーポリシーを変更することがあります。変更があった場合は、当ウェブサイトで通知します。</p>
-        </section>
-
-        <section class="privacy-section">
-          <h2>10. お問い合わせ</h2>
-          <p>本プライバシーポリシーに関するご質問やご意見は、<a href="/contact" style="color: var(--aqua-color);">お問い合わせフォーム</a>からお寄せください。</p>
-          <div class="contact-info">
-            <p>Aquabit Lab</p>
-            <p>メールアドレス：info@aquabit-lab.com</p>
-          </div>
-        </section>
+        <p class="updated">最終更新日: 2025年7月25日</p>
       </div>
     </div>
+  </section>
 
-    <!-- カスタムフッター -->
-    <footer class="apple-footer">
-      <div class="centered-content">
-        <div class="footer-logo">
-          <a href="/">
-            <img src="https://aquabit-lab.com/images/aquabit-lab-logo.png" alt="AquaBit LAB">
+  <footer>
+    <div class="shell">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a class="brand" href="/">
+            <img src="/images/logo-mark.webp" width="34" height="34" alt="AquaBit LAB ロゴ">
+            <span>AquaBit LAB</span>
           </a>
+          <p>海の魅力とAI技術の可能性を探求する研究開発組織。マリン事業とAI事業の二軸で、新しい体験と価値をつくっています。</p>
         </div>
-        <div class="footer-columns">
-          <div class="footer-column">
-            <h3>事業内容</h3>
-            <ul>
-              <li><a href="/marine">マリン事業</a></li>
-              <li><a href="/ai-service">AI事業</a></li>
-              <li><a href="/ai-salon">AI学習サロン</a></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h3>AquaBit LAB</h3>
-            <ul>
-              <li><a href="/about">ABLとは？</a></li>
-              <li><a href="/privacy-policy">プライバシーポリシー</a></li>
-              <li><a href="/contact">お問い合わせ</a></li>
-              <li><a href="/tokushoho">特定商取引法に基づく表訖</a></li>
-            </ul>
-          </div>
+        <div>
+          <h4>Business</h4>
+          <ul>
+            <li><a href="/ai-salon">AI学習サロン</a></li>
+            <li><a href="/ai-service">AI事業</a></li>
+            <li><a href="/marine">マリン事業</a></li>
+          </ul>
         </div>
-        <div class="footer-legal">
-          <p>Copyright © 2025 AquaBit LAB All rights reserved.</p>
+        <div>
+          <h4>AquaBit LAB</h4>
+          <ul>
+            <li><a href="/about">ABLとは？</a></li>
+            <li><a href="/contact">お問い合わせ</a></li>
+            <li><a href="/privacy-policy">プライバシーポリシー</a></li>
+            <li><a href="/tokushoho">特定商取引法に基づく表記</a></li>
+          </ul>
         </div>
       </div>
-    </footer>
-  </div>
+      <div class="foot-legal">
+        <span>&copy; 2025 AquaBit LAB. All rights reserved.</span>
+        <span>Built with three.js &amp; WebGPU</span>
+      </div>
+    </div>
+  </footer>
 
-  <script>
-    // モバイルメニュートグル
-    document.addEventListener('DOMContentLoaded', function() {
-      const menuToggle = document.querySelector('.nav-menu-toggle');
-      const navMenu = document.querySelector('.nav-menu');
-      
-      if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-          navMenu.classList.toggle('active');
-        });
-      }
-    });
-  </script>
+  <script src="/js/site.js?v=20260731" defer></script>
 </body>
 </html>
