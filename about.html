@@ -2,425 +2,316 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>ABLとは？ | AquaBit LAB</title>
+  <meta name="description" content="AquaBit LAB（ABL）は、マリン事業とAI事業を通じて、海の魅力と最新技術の可能性を探求する研究開発組織です。ミッション・事業内容・教育への取り組み・今後の展望をご紹介します。">
+  <meta name="theme-color" content="#04070d">
+  <link rel="canonical" href="https://aquabit-lab.com/about">
+
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AquaBit LAB">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:url" content="https://aquabit-lab.com/about">
+  <meta property="og:title" content="ABLとは？ | AquaBit LAB">
+  <meta property="og:description" content="マリン事業とAI事業を通じて、海の魅力と最新技術の可能性を探求する研究開発組織。AquaBit LABのミッションと事業内容をご紹介します。">
+  <meta property="og:image" content="https://aquabit-lab.com/images/ogp.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AquaBit LAB - 海とAIの未来を創造する">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ABLとは？ | AquaBit LAB">
+  <meta name="twitter:description" content="マリン事業とAI事業を通じて、海の魅力と最新技術の可能性を探求する研究開発組織。AquaBit LABのミッションと事業内容をご紹介します。">
+  <meta name="twitter:image" content="https://aquabit-lab.com/images/ogp.png">
+
+  <!-- Icons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/aqua.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "ABLとは？ | AquaBit LAB",
+    "url": "https://aquabit-lab.com/about",
+    "inLanguage": "ja",
+    "about": {
+      "@type": "Organization",
+      "name": "AquaBit LAB",
+      "url": "https://aquabit-lab.com/"
+    }
+  }
+  </script>
+
   <style>
-    /* ベース設定 - アップル風デザインの基礎 */
-    :root {
-      --apple-font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
-      --apple-text-color: #1d1d1f;
-      --apple-light-text: #f5f5f7;
-      --apple-link-color: #0066cc;
-      --apple-grey-bg: #fbfbfd;
-      --apple-dark-bg: #000000;
-      --aqua-color: #40E0D0;
-      --max-content-width: 980px;
-      --max-hero-width: 1440px;
-      --vertical-spacing: 130px;
-      --gutter: 22px;
-    }
-
-    /* グローバルリセットとベーススタイル */
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: var(--apple-font);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      color: var(--apple-text-color);
-      background-color: #fff;
-      overflow-x: hidden;
-    }
-
-    /* レイアウト基本クラス */
-    .apple-wrapper {
-      width: 100%;
-      overflow-x: hidden;
-      font-size: 17px;
-      line-height: 1.47059;
-      font-weight: 400;
-      letter-spacing: -0.022em;
-    }
-
-    .full-bleed {
-      width: 100%;
+    /* --- このページ専用の調整 --- */
+    .page-hero {
       position: relative;
-    }
-
-    .centered-content {
-      max-width: var(--max-content-width);
-      margin: 0 auto;
-      padding: 0 var(--gutter);
-      position: relative;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* カスタムヘッダーナビゲーション */
-    .apple-nav {
-      background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(10,10,20,0.9) 100%);
-      border-bottom: 1px solid rgba(0,255,255,0.3);
-      box-shadow: 0 0 15px rgba(0,255,255,0.2);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 9999;
-      height: 44px;
-    }
-
-    .nav-container {
-      max-width: var(--max-content-width);
-      margin: 0 auto;
-      height: 100%;
+      min-height: 62svh;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 var(--gutter);
+      align-items: flex-end;
+      overflow: hidden;
+      isolation: isolate;
+      border-bottom: 1px solid var(--line);
     }
+    .page-hero .hero-canvas,
+    .page-hero .hero-fallback { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -2; }
+    .page-hero .hero-fallback { background: #04070d url('/images/aqua-hero.webp') center/cover no-repeat; }
+    .page-hero::after {
+      content: "";
+      position: absolute; inset: 0; z-index: -1; pointer-events: none;
+      background:
+        radial-gradient(95% 80% at 20% 70%, rgba(4,7,13,0.88) 0%, rgba(4,7,13,0.45) 45%, rgba(4,7,13,0) 78%),
+        linear-gradient(180deg, rgba(4,7,13,0.8) 0%, rgba(4,7,13,0.05) 30%, rgba(4,7,13,0.6) 85%, var(--bg) 100%);
+    }
+    .page-hero .shell { padding-top: calc(var(--nav-h) + 90px); padding-bottom: 76px; }
+    .page-hero h1 {
+      margin: 14px 0 0;
+      font-size: clamp(32px, 5.6vw, 62px);
+      font-weight: 700;
+      line-height: 1.26;
+      letter-spacing: -0.02em;
+    }
+    .page-hero h1 .grad {
+      background: linear-gradient(100deg, #ffffff 8%, var(--cyan) 55%, var(--violet) 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .page-hero p { margin: 22px 0 0; max-width: 40em; color: rgba(224,238,255,0.82); font-size: clamp(15px, 1.7vw, 18px); }
 
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      opacity: 0.9;
-      transition: opacity 0.3s;
+    .prose h3 {
+      margin: 0 0 14px;
+      font-size: clamp(20px, 2.4vw, 26px);
+      font-weight: 700;
+      line-height: 1.5;
     }
+    .prose p { margin: 0; color: var(--muted); font-size: 15.5px; }
 
-    .nav-logo:hover {
-      opacity: 1;
-    }
-    
-    .nav-logo img {
-      height: 30px;
-      width: auto;
-      margin-right: 8px;
-      filter: drop-shadow(0 0 10px rgba(0,255,255,0.5));
-    }
-    
-    .nav-logo-text {
-      color: #f5f5f7;
-      font-size: 21px;
-      font-weight: 500;
-    }
-
-    .nav-menu {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-menu li {
-      margin-left: 30px;
-    }
-
-    .nav-menu a {
-      color: #f5f5f7;
-      font-size: 12px;
-      font-weight: 400;
-      text-decoration: none;
-      opacity: 0.8;
-      transition: opacity 0.3s;
-    }
-
-    .nav-menu a:hover {
-      opacity: 1;
-      text-decoration: none;
-    }
-
-    .nav-menu-toggle {
-      display: none;
-      color: #f5f5f7;
-      font-size: 24px;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    /* メインコンテンツ */
-    .main-content {
-      padding-top: 100px;
-      padding-bottom: var(--vertical-spacing);
-    }
-
-    .page-title {
-      font-size: 48px;
-      line-height: 1.08349;
-      font-weight: 600;
-      letter-spacing: -.003em;
-      text-align: center;
-      margin-bottom: 60px;
-      color: var(--aqua-color);
-      text-shadow: 0 0 15px rgba(64,224,208,0.6);
-    }
-
-    .content-section {
-      max-width: 680px;
-      margin: 0 auto;
-      font-size: 21px;
-      line-height: 1.381;
-      font-weight: 400;
-      letter-spacing: .011em;
-    }
-
-    .content-section p {
-      margin-bottom: 24px;
-    }
-
-    .content-section h2 {
-      font-size: 32px;
-      line-height: 1.125;
-      font-weight: 600;
-      letter-spacing: .004em;
-      margin: 50px 0 20px;
-      color: var(--apple-text-color);
-    }
-
-    .content-section h3 {
-      font-size: 24px;
-      line-height: 1.16667;
-      font-weight: 600;
-      letter-spacing: .009em;
-      margin: 40px 0 16px;
-      color: var(--apple-text-color);
-    }
-
-    /* カスタムフッター */
-    .apple-footer {
-      background-color: #f5f5f7;
-      color: #6e6e73;
-      padding: 60px 0 30px;
-      font-size: 12px;
-      line-height: 1.33337;
-      font-weight: 400;
-      letter-spacing: -.01em;
-    }
-
-    .footer-columns {
+    .rows { display: grid; gap: 22px; margin-top: 56px; }
+    .row {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-      margin-bottom: 40px;
+      grid-template-columns: 200px 1fr;
+      gap: 34px;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--glass);
+      transition: border-color 0.4s ease, transform 0.5s cubic-bezier(.2,.7,.3,1);
     }
-
-    .footer-column h3 {
-      font-size: 12px;
-      line-height: 1.33337;
+    .row:hover { border-color: rgba(79,216,255,0.28); transform: translateY(-4px); }
+    .row .no {
+      font-family: var(--font-en);
+      font-size: 13px;
       font-weight: 600;
-      letter-spacing: -.01em;
-      margin-bottom: 12px;
-      color: #1d1d1f;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cyan);
+    }
+    .row .no b {
+      display: block;
+      font-size: 46px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+      color: rgba(140, 190, 255, 0.22);
     }
 
-    .footer-column ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
+    .pillar .card-link { font-size: 14px; }
 
-    .footer-column li {
-      margin-bottom: 8px;
-    }
-
-    .footer-column a {
-      color: #6e6e73;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .footer-column a:hover {
-      color: #1d1d1f;
-      text-decoration: underline;
-    }
-
-    .footer-legal {
-      padding-top: 20px;
-      border-top: 1px solid #d2d2d7;
-      text-align: center;
-    }
-    
-    .footer-logo {
-      max-width: 120px;
-      margin: 0 auto 20px;
-    }
-
-    /* レスポンシブデザイン */
-    @media only screen and (max-width: 1068px) {
-      .page-title {
-        font-size: 40px;
-      }
-      
-      .content-section {
-        font-size: 19px;
-      }
-      
-      .content-section h2 {
-        font-size: 28px;
-      }
-      
-      .content-section h3 {
-        font-size: 21px;
-      }
-    }
-
-    @media only screen and (max-width: 734px) {
-      :root {
-        --vertical-spacing: 80px;
-        --gutter: 16px;
-      }
-      
-      .page-title {
-        font-size: 32px;
-        margin-bottom: 40px;
-      }
-      
-      .content-section {
-        font-size: 17px;
-      }
-      
-      .content-section h2 {
-        font-size: 24px;
-        margin: 40px 0 16px;
-      }
-      
-      .content-section h3 {
-        font-size: 19px;
-        margin: 30px 0 12px;
-      }
-      
-      .footer-columns {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      
-      /* モバイルナビゲーション */
-      .nav-menu {
-        display: none;
-        position: absolute;
-        top: 44px;
-        left: 0;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        backdrop-filter: saturate(180%) blur(20px);
-        -webkit-backdrop-filter: saturate(180%) blur(20px);
-        flex-direction: column;
-        padding: 20px 0;
-      }
-      
-      .nav-menu.active {
-        display: flex;
-      }
-      
-      .nav-menu li {
-        margin: 0;
-        padding: 10px var(--gutter);
-      }
-      
-      .nav-menu-toggle {
-        display: block;
-      }
+    @media (max-width: 780px) {
+      .row { grid-template-columns: 1fr; gap: 16px; padding: 28px 24px; }
+      .row .no b { font-size: 34px; }
+      .page-hero .shell { padding-top: calc(var(--nav-h) + 60px); padding-bottom: 54px; }
     }
   </style>
 </head>
 <body>
-  <div class="apple-wrapper">
-    <!-- カスタムヘッダーナビゲーション -->
-    <nav class="apple-nav">
-      <div class="nav-container">
-        <a href="/" class="nav-logo">
-          <img src="https://aquabit-lab.com/images/aquabit-lab-logo.png" alt="AquaBit LAB">
-          <span class="nav-logo-text">AquaBit LAB</span>
-        </a>
-        <button class="nav-menu-toggle">☰</button>
-        <ul class="nav-menu">
-          <li><a href="/marine">マリン事業</a></li>
-          <li><a href="/ai-service">AI事業</a></li>
-          <li><a href="/about">ABLとは？</a></li>
-          <li><a href="/contact">お問い合わせ</a></li>
-        </ul>
-      </div>
-    </nav>
 
-    <!-- メインコンテンツ -->
-    <main class="main-content">
-      <div class="centered-content">
-        <h1 class="page-title">ABLとは？</h1>
-        <div class="content-section">
-          <p>AquaBit LAB（ABL）は、マリン事業とAI事業を通じて、海の魅力と最新技術の可能性を探求する研究開発組織です。</p>
-          
-          <h2>私たちのミッション</h2>
-          <p>海の素晴らしさを多くの人に伝えるとともに、AI技術を活用したイノベーションを創出し、持続可能な未来の実現に貢献することを目指しています。</p>
-          
-          <h2>事業内容</h2>
-          
-          <h3>マリン事業</h3>
-          <p>ダイビングを中心とした海のアクティビティを提供し、海の魅力を広く伝える活動を行っています。初心者から上級者まで、それぞれのレベルに応じたサービスを展開しています。</p>
-          
-          <h3>AI事業</h3>
-          <p>最新のAI技術を活用したソリューションの開発・提供を行っています。企業や個人のニーズに合わせたAIシステムの構築から、AI技術の教育・指導まで幅広くサポートしています。</p>
-          
-          <h2>教育への取り組み</h2>
-          <p>Udemyでのオンラインコース提供や書籍の出版を通じて、専門知識の普及と人材育成に力を入れています。実践的なスキルを身につけられる教育コンテンツを継続的に開発しています。</p>
-          
-          <h2>今後の展望</h2>
-          <p>マリン事業とAI事業の融合により、海洋分野における新たな技術革新を目指しています。持続可能な海洋利用と最先端技術の発展を両立させ、社会に貢献していきます。</p>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <img src="/images/logo-mark.webp" width="34" height="34" alt="AquaBit LAB ロゴ">
+        <span>AquaBit LAB</span>
+      </a>
+      <button class="burger" id="burger" aria-label="メニューを開く" aria-expanded="false"><span></span></button>
+      <ul class="nav-links" id="navlinks">
+        <li><a href="/marine">マリン事業</a></li>
+        <li><a href="/ai-service">AI事業</a></li>
+        <li><a href="/ai-salon">AI学習サロン</a></li>
+        <li><a href="/about">ABLとは？</a></li>
+        <li><a class="nav-cta" href="/contact">お問い合わせ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="hero-fallback" aria-hidden="true"></div>
+    <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="shell">
+      <p class="eyebrow">About ABL</p>
+      <h1><span class="grad">海とAIの、あいだにある未来。</span></h1>
+      <p>
+        AquaBit LAB（ABL）は、マリン事業とAI事業を通じて、海の魅力と最新技術の可能性を探求する研究開発組織です。
+      </p>
+    </div>
+  </header>
+
+  <section class="band">
+    <div class="shell">
+      <p class="eyebrow reveal">Mission</p>
+      <h2 class="title reveal d1">海の素晴らしさを伝え、<br>技術で未来をひらく。</h2>
+      <p class="lead reveal d2">
+        海の素晴らしさを多くの人に伝えるとともに、AI技術を活用したイノベーションを創出し、
+        持続可能な未来の実現に貢献することを目指しています。
+        まったく違う領域に見えるふたつは、私たちのなかでは「まだ誰も見たことのない景色へ人を連れていく」という同じ仕事です。
+      </p>
+
+      <div class="rows prose">
+        <div class="row reveal">
+          <div class="no"><b>01</b>Marine</div>
+          <div>
+            <h3>マリン事業</h3>
+            <p>
+              ダイビングを中心とした海のアクティビティを提供し、海の魅力を広く伝える活動を行っています。
+              初心者から上級者まで、それぞれのレベルに応じたサービスを展開しています。
+            </p>
+          </div>
+        </div>
+
+        <div class="row reveal">
+          <div class="no"><b>02</b>AI</div>
+          <div>
+            <h3>AI事業</h3>
+            <p>
+              最新のAI技術を活用したソリューションの開発・提供を行っています。
+              企業や個人のニーズに合わせたAIシステムの構築から、AI技術の教育・指導まで幅広くサポートしています。
+            </p>
+          </div>
+        </div>
+
+        <div class="row reveal">
+          <div class="no"><b>03</b>Education</div>
+          <div>
+            <h3>教育への取り組み</h3>
+            <p>
+              Udemyでのオンラインコース提供や書籍の出版を通じて、専門知識の普及と人材育成に力を入れています。
+              実践的なスキルを身につけられる教育コンテンツを継続的に開発しています。
+            </p>
+          </div>
+        </div>
+
+        <div class="row reveal">
+          <div class="no"><b>04</b>Future</div>
+          <div>
+            <h3>今後の展望</h3>
+            <p>
+              マリン事業とAI事業の融合により、海洋分野における新たな技術革新を目指しています。
+              持続可能な海洋利用と最先端技術の発展を両立させ、社会に貢献していきます。
+            </p>
+          </div>
         </div>
       </div>
-    </main>
+    </div>
+  </section>
 
-    <!-- カスタムフッター -->
-    <footer class="apple-footer">
-      <div class="centered-content">
-        <div class="footer-logo">
-          <a href="/">
-            <img src="https://aquabit-lab.com/images/aquabit-lab-logo.png" alt="AquaBit LAB">
+  <section class="band mission">
+    <div class="shell">
+      <p class="eyebrow reveal" style="justify-content:center;">Business</p>
+      <h2 class="title reveal d1">ふたつの入口から、<br>AquaBit LAB を見る。</h2>
+      <div class="pillars">
+        <div class="pillar reveal">
+          <i>🌊</i>
+          <b>マリン事業</b>
+          <p>重力から解放された水中世界へ。体験ダイビングからライセンス取得まで。</p>
+          <a class="card-link" href="/marine" style="margin-top:18px;">
+            詳しく見る
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
           </a>
         </div>
-        <div class="footer-columns">
-          <div class="footer-column">
-            <h3>事業内容</h3>
-            <ul>
-              <li><a href="/marine">マリン事業</a></li>
-              <li><a href="/ai-service">AI事業</a></li>
-              <li><a href="/ai-salon">AI学習サロン</a></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h3>AquaBit LAB</h3>
-            <ul>
-              <li><a href="/about">ABLとは？</a></li>
-              <li><a href="/privacy-policy">プライバシーポリシー</a></li>
-              <li><a href="/contact">お問い合わせ</a></li>
-              <li><a href="/tokushoho">特定商取引法に基づく表記</a></li>
-            </ul>
-          </div>
+        <div class="pillar reveal d1">
+          <i>⚡</i>
+          <b>AI事業</b>
+          <p>LINEスタンプ、音楽、アプリ、Web制作。生成AIで制作の時間を圧縮します。</p>
+          <a class="card-link" href="/ai-service" style="margin-top:18px;">
+            詳しく見る
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
-        <div class="footer-legal">
-          <p>Copyright © 2025 AquaBit LAB All rights reserved.</p>
+        <div class="pillar reveal d2">
+          <i>🎓</i>
+          <b>AI学習サロン</b>
+          <p>25年の教育経験をもとに、AIの基本からVibe Codingまで実践で学べる場。</p>
+          <a class="card-link" href="/ai-salon" style="margin-top:18px;">
+            詳しく見る
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
       </div>
-    </footer>
-  </div>
+    </div>
+  </section>
 
-  <script>
-    // モバイルメニュートグル
-    document.addEventListener('DOMContentLoaded', function() {
-      const menuToggle = document.querySelector('.nav-menu-toggle');
-      const navMenu = document.querySelector('.nav-menu');
-      
-      if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-          navMenu.classList.toggle('active');
-        });
-      }
+  <section class="band final">
+    <div class="shell">
+      <p class="eyebrow reveal" style="justify-content:center;">Contact</p>
+      <h2 class="title reveal d1">気になることがあれば、<br>お気軽にどうぞ。</h2>
+      <div class="reveal d2">
+        <a class="btn" href="/contact">
+          お問い合わせはこちら
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="shell">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a class="brand" href="/">
+            <img src="/images/logo-mark.webp" width="34" height="34" alt="AquaBit LAB ロゴ">
+            <span>AquaBit LAB</span>
+          </a>
+          <p>海の魅力とAI技術の可能性を探求する研究開発組織。マリン事業とAI事業の二軸で、新しい体験と価値をつくっています。</p>
+        </div>
+        <div>
+          <h4>Business</h4>
+          <ul>
+            <li><a href="/marine">マリン事業</a></li>
+            <li><a href="/ai-service">AI事業</a></li>
+            <li><a href="/ai-salon">AI学習サロン</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>AquaBit LAB</h4>
+          <ul>
+            <li><a href="/about">ABLとは？</a></li>
+            <li><a href="/contact">お問い合わせ</a></li>
+            <li><a href="/privacy-policy">プライバシーポリシー</a></li>
+            <li><a href="/tokushoho">特定商取引法に基づく表記</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-legal">
+        <span>&copy; 2025 AquaBit LAB. All rights reserved.</span>
+        <span>Built with three.js &amp; WebGPU</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import('/js/hero.min.js').catch((e) => {
+      console.warn('[AquaBit] hero module failed to load', e);
     });
   </script>
+  <script src="/js/site.js" defer></script>
 </body>
 </html>
