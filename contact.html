@@ -2,13 +2,8 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>お問い合わせ | AquaBit LAB</title>
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/favicon.png">
-
   <meta name="description" content="AquaBit LABへのお問い合わせフォーム。マリン体験のご相談、AI導入・制作のご依頼、AI学習サロンについてなど、お気軽にご連絡ください。">
   <meta name="theme-color" content="#04070d">
   <link rel="canonical" href="https://aquabit-lab.com/contact">
@@ -31,681 +26,121 @@
   <meta name="twitter:description" content="AquaBit LABへのお問い合わせフォーム。マリン体験のご相談、AI導入・制作のご依頼、AI学習サロンについてなど、お気軽にご連絡ください。">
   <meta name="twitter:image" content="https://aquabit-lab.com/images/ogp.png">
 
+  <!-- Icons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/aqua.css?v=20260731">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "お問い合わせ | AquaBit LAB",
+    "url": "https://aquabit-lab.com/contact",
+    "inLanguage": "ja"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "どのような事業を行っていますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AquaBit LABでは、マリン事業、AI事業の2つの分野で活動しています。マリン事業ではダイビングを中心としたマリンアクティビティを提供し、AI事業ではAI技術の活用方法の教育・指導を行っています。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "コラボレーションや提携は可能ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい、新しいアイデアやコラボレーションを歓迎しています。お問い合わせフォームからご連絡いただくか、直接メールでお問い合わせください。ユニークな視点や情熱をお持ちの方との協業を楽しみにしています。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Udemyコースや書籍はどこで購入できますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Udemyコースはudemy.comで、書籍はAmazonなどのオンライン書店で購入いただけます。詳細なリンクは教育コンテンツページでご確認いただけます。"
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
-    /* ベース設定 - アップル風デザインの基礎 */
-    :root {
-      --apple-font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
-      --apple-text-color: #1d1d1f;
-      --apple-light-text: #f5f5f7;
-      --apple-link-color: #0066cc;
-      --apple-grey-bg: #fbfbfd;
-      --apple-dark-bg: #000000;
-      --aqua-color: #40E0D0;
-      --max-content-width: 980px;
-      --max-hero-width: 1440px;
-      --vertical-spacing: 130px;
-      --gutter: 22px;
-    }
-
-    /* グローバルリセットとベーススタイル */
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: var(--apple-font);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      color: var(--apple-text-color);
-      background-color: #fff;
-      overflow-x: hidden;
-    }
-
-    /* レイアウト基本クラス */
-    .apple-wrapper {
-      width: 100%;
-      overflow-x: hidden;
-      font-size: 17px;
-      line-height: 1.47059;
-      font-weight: 400;
-      letter-spacing: -0.022em;
-    }
-
-    .full-bleed {
-      width: 100%;
-      position: relative;
-    }
-
-    .centered-content {
-      max-width: var(--max-content-width);
-      margin: 0 auto;
-      padding: 0 var(--gutter);
-      position: relative;
-    }
-
-    .hero-centered-content {
-      max-width: var(--max-hero-width);
-      margin: 0 auto;
-      padding: 0 var(--gutter);
-      position: relative;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* カスタムヘッダーナビゲーション */
-    .apple-nav {
-      background: linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(10,10,20,0.9) 100%);
-      border-bottom: 1px solid rgba(0,255,255,0.3);
-      box-shadow: 0 0 15px rgba(0,255,255,0.2);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 9999;
-      height: 44px;
-    }
-
-    .nav-container {
-      max-width: var(--max-content-width);
-      margin: 0 auto;
-      height: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 var(--gutter);
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      opacity: 0.9;
-      transition: opacity 0.3s;
-    }
-
-    .nav-logo:hover {
-      opacity: 1;
-    }
-    
-    .nav-logo img {
-      height: 30px;
-      width: auto;
-      margin-right: 8px;
-      filter: drop-shadow(0 0 10px rgba(0,255,255,0.5));
-    }
-    
-    .nav-logo-text {
-      color: #f5f5f7;
-      font-size: 21px;
-      font-weight: 500;
-    }
-
-    .nav-menu {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-menu li {
-      margin-left: 30px;
-    }
-
-    .nav-menu a {
-      color: #f5f5f7;
-      font-size: 12px;
-      font-weight: 400;
-      text-decoration: none;
-      opacity: 0.8;
-      transition: opacity 0.3s;
-    }
-
-    .nav-menu a:hover {
-      opacity: 1;
-      text-decoration: none;
-    }
-
-    .nav-menu-toggle {
-      display: none;
-      color: #f5f5f7;
-      font-size: 24px;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    /* お問い合わせページ専用スタイル */
-    .contact-hero {
-      background-color: var(--apple-grey-bg);
-      padding-top: 120px;
-      padding-bottom: 60px;
-      text-align: center;
-    }
-
-    .contact-title {
-      font-size: 48px;
-      line-height: 1.08349;
-      font-weight: 600;
-      letter-spacing: -.003em;
-      color: var(--apple-text-color);
-      margin-bottom: 20px;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1s ease forwards 0.2s;
-      text-shadow: 0 0 15px rgba(64,224,208,0.4);
-    }
-
-    .contact-subtitle {
-      font-size: 24px;
-      line-height: 1.16667;
-      font-weight: 400;
-      letter-spacing: .009em;
-      color: #6e6e73;
-      max-width: 700px;
-      margin: 0 auto 40px;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1s ease forwards 0.4s;
-    }
-
-    .contact-container {
-      max-width: 680px;
-      margin: 0 auto 80px;
-      background-color: #fff;
-      border-radius: 18px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
-      padding: 50px;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 1s ease forwards 0.6s;
-    }
-
-    /* フォームスタイル */
-    .contact-form label {
-      display: block;
-      font-size: 17px;
-      line-height: 1.47059;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--apple-text-color);
-    }
-
-    .contact-form input[type="text"],
-    .contact-form input[type="tel"],
-    .contact-form input[type="email"],
-    .contact-form textarea {
-      width: 100%;
-      padding: 13px 16px;
-      margin-bottom: 24px;
-      border-radius: 12px;
-      border: 1px solid #d2d2d7;
-      font-family: var(--apple-font);
-      font-size: 17px;
-      line-height: 1.47059;
-      font-weight: 400;
-      color: var(--apple-text-color);
-      background-color: #fff;
-      box-sizing: border-box;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .contact-form input[type="text"]:focus,
-    .contact-form input[type="tel"]:focus,
-    .contact-form input[type="email"]:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: var(--apple-link-color);
-      box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.1);
-    }
-
-    .contact-form textarea {
-      min-height: 180px;
-      resize: vertical;
-    }
-
-    .contact-form input[type="submit"] {
-      background: linear-gradient(90deg, var(--aqua-color), #4facfe);
-      color: #fff;
-      font-size: 17px;
-      line-height: 1.47059;
-      font-weight: 600;
-      border-radius: 980px;
-      padding: 12px 30px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: inline-block;
-      margin-top: 10px;
-    }
-
-    .contact-form input[type="submit"]:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(79, 172, 254, 0.3);
-    }
-
-    .contact-form input[type="submit"]:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    /* ハニーポット（スパム対策）- 非表示 */
-    .hp-field {
-      position: absolute;
-      left: -9999px;
-      top: -9999px;
-      opacity: 0;
-      height: 0;
-      width: 0;
-      z-index: -1;
-    }
-
-    /* 送信結果メッセージ */
-    .form-message {
-      padding: 16px 20px;
-      border-radius: 12px;
-      margin-bottom: 24px;
-      font-size: 15px;
-      line-height: 1.5;
-      display: none;
-      animation: fadeInUp 0.5s ease forwards;
-    }
-
-    .form-message.success {
-      background-color: #d4edda;
-      color: #155724;
-      border: 1px solid #c3e6cb;
-      display: block;
-    }
-
-    .form-message.error {
-      background-color: #f8d7da;
-      color: #721c24;
-      border: 1px solid #f5c6cb;
-      display: block;
-    }
-
-    /* ローディングスピナー */
-    .loading-spinner {
-      display: inline-block;
-      width: 18px;
-      height: 18px;
-      border: 2px solid rgba(255,255,255,0.3);
-      border-radius: 50%;
-      border-top-color: #fff;
-      animation: spin 0.8s ease-in-out infinite;
-      vertical-align: middle;
-      margin-right: 8px;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    /* 情報セクション */
-    .info-section {
-      background-color: var(--apple-dark-bg);
-      color: var(--apple-light-text);
-      padding: 80px 0;
-      text-align: center;
-    }
-
-    .info-title {
-      font-size: 32px;
-      line-height: 1.125;
-      font-weight: 600;
-      letter-spacing: 0.004em;
-      margin-bottom: 30px;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .info-content {
-      max-width: 600px;
-      margin: 0 auto;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .info-item {
-      margin-bottom: 20px;
-    }
-
-    .info-label {
-      font-size: 17px;
-      line-height: 1.47059;
-      font-weight: 600;
-      margin-bottom: 5px;
-      color: #6e6e73;
-    }
-
-    .info-value {
-      font-size: 21px;
-      line-height: 1.381;
-      font-weight: 400;
-    }
-
-    .info-value a {
-      color: var(--aqua-color);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .info-value a:hover {
-      text-decoration: underline;
-      color: #4facfe;
-    }
-
-    /* FAQセクション */
-    .faq-section {
-      padding: 80px 0;
-      background-color: var(--apple-grey-bg);
-    }
-
-    .faq-title {
-      font-size: 40px;
-      line-height: 1.1;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 50px;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .faq-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      background-color: #fff;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      opacity: 0;
-      transform: translateY(20px);
-    }
-
-    .faq-question {
-      padding: 20px 25px;
-      font-size: 19px;
-      line-height: 1.42;
-      font-weight: 600;
-      color: var(--apple-text-color);
-      background-color: #fff;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-      text-align: left;
-      position: relative;
-      transition: all 0.3s ease;
-    }
-
-    .faq-question:hover {
-      background-color: rgba(0, 0, 0, 0.02);
-    }
-
-    .faq-question:after {
-      content: '+';
-      position: absolute;
-      right: 25px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 24px;
-      transition: transform 0.3s ease;
-    }
-
-    .faq-question.active:after {
-      transform: translateY(-50%) rotate(45deg);
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease;
-    }
-
-    .faq-answer-content {
-      padding: 0 25px 20px;
-      font-size: 17px;
-      line-height: 1.47059;
-      color: #333;
-    }
-
-    /* カスタムフッター */
-    .apple-footer {
-      background-color: #f5f5f7;
-      color: #6e6e73;
-      padding: 60px 0 30px;
-      font-size: 12px;
-      line-height: 1.33337;
-      font-weight: 400;
-      letter-spacing: -.01em;
-    }
-
-    .footer-columns {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
-      margin-bottom: 40px;
-    }
-
-    .footer-column h3 {
-      font-size: 12px;
-      line-height: 1.33337;
-      font-weight: 600;
-      letter-spacing: -.01em;
-      margin-bottom: 12px;
-      color: #1d1d1f;
-    }
-
-    .footer-column ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .footer-column li {
-      margin-bottom: 8px;
-    }
-
-    .footer-column a {
-      color: #6e6e73;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .footer-column a:hover {
-      color: #1d1d1f;
-      text-decoration: underline;
-    }
-
-    .footer-legal {
-      padding-top: 20px;
-      border-top: 1px solid #d2d2d7;
-      text-align: center;
-    }
-    
-    .footer-logo {
-      max-width: 120px;
-      margin: 0 auto 20px;
-    }
-
-    /* アニメーション */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .active {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* レスポンシブデザイン */
-    @media only screen and (max-width: 1068px) {
-      .contact-title {
-        font-size: 40px;
-      }
-      
-      .contact-subtitle {
-        font-size: 21px;
-      }
-      
-      .info-title {
-        font-size: 28px;
-      }
-      
-      .faq-title {
-        font-size: 32px;
-      }
-    }
-
-    @media only screen and (max-width: 734px) {
-      :root {
-        --gutter: 16px;
-      }
-      
-      .contact-hero {
-        padding-top: 90px;
-      }
-      
-      .contact-title {
-        font-size: 32px;
-      }
-      
-      .contact-subtitle {
-        font-size: 19px;
-      }
-      
-      .contact-container {
-        padding: 30px 20px;
-        margin-bottom: 60px;
-      }
-      
-      .info-title {
-        font-size: 24px;
-      }
-      
-      .info-value {
-        font-size: 19px;
-      }
-      
-      .faq-title {
-        font-size: 28px;
-      }
-      
-      .faq-question {
-        font-size: 17px;
-        padding: 16px 20px;
-      }
-      
-      .faq-question:after {
-        right: 20px;
-      }
-      
-      .footer-columns {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      
-      /* モバイルナビゲーション */
-      .nav-menu {
-        display: none;
-        position: absolute;
-        top: 44px;
-        left: 0;
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        backdrop-filter: saturate(180%) blur(20px);
-        -webkit-backdrop-filter: saturate(180%) blur(20px);
-        flex-direction: column;
-        padding: 20px 0;
-      }
-      
-      .nav-menu.active {
-        display: flex;
-      }
-      
-      .nav-menu li {
-        margin: 0;
-        padding: 10px var(--gutter);
-      }
-      
-      .nav-menu-toggle {
-        display: block;
-      }
-    }
+    .page-hero { min-height: 46svh; }
+    .page-hero .hero-fallback { background-image: url('/images/aqua-hero.webp'); }
   </style>
 </head>
 <body>
-  <div class="apple-wrapper">
-    <!-- カスタムヘッダーナビゲーション -->
-    <nav class="apple-nav">
-      <div class="nav-container">
-        <a href="/" class="nav-logo">
-          <img src="https://aquabit-lab.com/images/aquabit-lab-logo.png" alt="AquaBit LAB">
-          <span class="nav-logo-text">AquaBit LAB</span>
-        </a>
-        <button class="nav-menu-toggle">☰</button>
-        <ul class="nav-menu">
-          <li><a href="/marine">マリン事業</a></li>
-          <li><a href="/ai-service">AI事業</a></li>
-          <li><a href="/about">ABLとは？</a></li>
-          <li><a href="/contact">お問い合わせ</a></li>
-        </ul>
-      </div>
-    </nav>
 
-    <!-- お問い合わせヒーロー -->
-    <section class="contact-hero full-bleed">
-      <div class="centered-content">
-        <h1 class="contact-title">お問い合わせ</h1>
-        <p class="contact-subtitle">AquaBit LABへのお問い合わせやご質問は、以下のフォームよりお気軽にご連絡ください。</p>
-      </div>
-    </section>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <img src="/images/logo-mark.webp" width="34" height="34" alt="AquaBit LAB ロゴ">
+        <span>AquaBit LAB</span>
+      </a>
+      <button class="burger" id="burger" aria-label="メニューを開く" aria-expanded="false"><span></span></button>
+      <ul class="nav-links" id="navlinks">
+        <li><a href="/marine">マリン事業</a></li>
+        <li><a href="/ai-service">AI事業</a></li>
+        <li><a href="/about">ABLとは？</a></li>
+        <li><a href="/contact">お問い合わせ</a></li>
+        <li><a class="nav-cta" href="/ai-salon">AI学習サロン</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <!-- お問い合わせフォーム -->
-    <section class="contact-form-section">
-      <div class="centered-content">
-        <div class="contact-container">
-          <div id="form-message" class="form-message"></div>
-          <form class="contact-form" id="contact-form" action="/send-mail.php" method="post">
-            <div class="form-group">
-              <label for="name">お名前</label>
-              <input type="text" id="name" name="name" required>
+  <header class="page-hero">
+    <div class="hero-fallback" aria-hidden="true"></div>
+    <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="shell">
+      <p class="eyebrow">Contact</p>
+      <h1><span class="grad">お問い合わせ</span></h1>
+      <p>
+        AquaBit LABへのお問い合わせやご質問は、以下のフォームよりお気軽にご連絡ください。
+      </p>
+    </div>
+  </header>
+
+  <section class="band">
+    <div class="shell">
+      <div class="form-wrap">
+
+        <div class="form-card reveal">
+          <div class="form-message" id="form-message" role="status" aria-live="polite"></div>
+
+          <form id="contact-form" action="/send-mail.php" method="post">
+            <div class="field">
+              <label for="name">お名前 <span class="req">必須</span></label>
+              <input type="text" id="name" name="name" autocomplete="name" placeholder="山田 太郎" required>
             </div>
-            
-            <div class="form-group">
-              <label for="phone">電話番号</label>
-              <input type="tel" id="phone" name="phone">
+
+            <div class="field">
+              <label for="email">メールアドレス <span class="req">必須</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
             </div>
-            
-            <div class="form-group">
-              <label for="email">メールアドレス</label>
-              <input type="email" id="email" name="email" required>
+
+            <div class="field">
+              <label for="phone">電話番号 <span class="opt">任意</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="090-1234-5678">
             </div>
-            
-            <div class="form-group">
-              <label for="message">お問い合わせ内容</label>
-              <textarea id="message" name="message" required></textarea>
+
+            <div class="field">
+              <label for="message">お問い合わせ内容 <span class="req">必須</span></label>
+              <textarea id="message" name="message" placeholder="ご相談内容をご記入ください。" required></textarea>
             </div>
 
             <!-- ハニーポット（スパム対策） -->
@@ -713,214 +148,133 @@
               <label for="website">ウェブサイト</label>
               <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
             </div>
-            
+
             <div class="form-submit">
-              <input type="submit" id="submit-btn" value="送信する">
+              <button type="submit" id="submit-btn">
+                送信する
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
+              </button>
             </div>
           </form>
         </div>
-      </div>
-    </section>
 
-    <!-- 連絡先情報 -->
-    <section class="info-section full-bleed">
-      <div class="centered-content">
-        <h2 class="info-title reveal">直接のお問い合わせ</h2>
-        <div class="info-content reveal">
-          <div class="info-item">
-            <p class="info-label">メールアドレス</p>
-            <p class="info-value"><a href="mailto:info@aquabit-lab.com">info@aquabit-lab.com</a></p>
+        <aside class="info-card reveal d1">
+          <h3>直接のお問い合わせ</h3>
+          <p>フォームが使えない場合や、お急ぎの場合はこちらへ。</p>
+
+          <div class="info-row">
+            <div class="info-label">Email</div>
+            <div class="info-value"><a href="mailto:info@aquabit-lab.com">info@aquabit-lab.com</a></div>
+          </div>
+
+          <div class="info-row" style="margin-top:22px;">
+            <div class="info-label">Reply</div>
+            <div class="info-value" style="color:var(--muted);font-size:14.5px;">
+              通常2〜3営業日以内にご返信いたします。
+            </div>
+          </div>
+
+          <div class="info-row" style="margin-top:22px;">
+            <div class="info-label">Business</div>
+            <div class="info-value">
+              <ul style="list-style:none;margin:0;padding:0;">
+                <li style="margin-bottom:10px;"><a href="/marine" style="font-size:14.5px;">マリン事業について</a></li>
+                <li style="margin-bottom:10px;"><a href="/ai-service" style="font-size:14.5px;">AI事業について</a></li>
+                <li><a href="/ai-salon" style="font-size:14.5px;">AI学習サロンについて</a></li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="band mission">
+    <div class="shell">
+      <p class="eyebrow reveal" style="justify-content:center;">FAQ</p>
+      <h2 class="title reveal d1">よくあるご質問</h2>
+
+      <div class="faq">
+        <div class="faq-item reveal">
+          <button class="faq-q" type="button" aria-expanded="false">
+            どのような事業を行っていますか？
+            <span class="mark" aria-hidden="true">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </span>
+          </button>
+          <div class="faq-a">
+            <p>AquaBit LABでは、マリン事業、AI事業の2つの分野で活動しています。マリン事業ではダイビングを中心としたマリンアクティビティを提供し、AI事業ではAI技術の活用方法の教育・指導を行っています。</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-q" type="button" aria-expanded="false">
+            コラボレーションや提携は可能ですか？
+            <span class="mark" aria-hidden="true">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </span>
+          </button>
+          <div class="faq-a">
+            <p>はい、新しいアイデアやコラボレーションを歓迎しています。お問い合わせフォームからご連絡いただくか、直接メールでお問い合わせください。ユニークな視点や情熱をお持ちの方との協業を楽しみにしています。</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-q" type="button" aria-expanded="false">
+            Udemyコースや書籍はどこで購入できますか？
+            <span class="mark" aria-hidden="true">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </span>
+          </button>
+          <div class="faq-a">
+            <p>Udemyコースはudemy.comで、書籍はAmazonなどのオンライン書店で購入いただけます。詳細なリンクは教育コンテンツページでご確認いただけます。</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- FAQ -->
-    <section class="faq-section full-bleed">
-      <div class="centered-content">
-        <h2 class="faq-title reveal">よくあるご質問</h2>
-        <div class="faq-container">
-          <div class="faq-item reveal">
-            <button class="faq-question">どのような事業を行っていますか？</button>
-            <div class="faq-answer">
-              <div class="faq-answer-content">
-                <p>AquaBit LABでは、マリン事業、AI事業の2つの分野で活動しています。マリン事業ではダイビングを中心としたマリンアクティビティを提供し、AI事業ではAI技術の活用方法の教育・指導を行っています。</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="faq-item reveal">
-            <button class="faq-question">コラボレーションや提携は可能ですか？</button>
-            <div class="faq-answer">
-              <div class="faq-answer-content">
-                <p>はい、新しいアイデアやコラボレーションを歓迎しています。お問い合わせフォームからご連絡いただくか、直接メールでお問い合わせください。ユニークな視点や情熱をお持ちの方との協業を楽しみにしています。</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="faq-item reveal">
-            <button class="faq-question">Udemyコースや書籍はどこで購入できますか？</button>
-            <div class="faq-answer">
-              <div class="faq-answer-content">
-                <p>Udemyコースはudemy.comで、書籍はAmazonなどのオンライン書店で購入いただけます。詳細なリンクは教育コンテンツページでご確認いただけます。</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- カスタムフッター -->
-    <footer class="apple-footer">
-      <div class="centered-content">
-        <div class="footer-logo">
-          <a href="/">
-            <img src="https://aquabit-lab.com/images/aquabit-lab-logo.png" alt="AquaBit LAB">
+  <footer>
+    <div class="shell">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a class="brand" href="/">
+            <img src="/images/logo-mark.webp" width="34" height="34" alt="AquaBit LAB ロゴ">
+            <span>AquaBit LAB</span>
           </a>
+          <p>海の魅力とAI技術の可能性を探求する研究開発組織。マリン事業とAI事業の二軸で、新しい体験と価値をつくっています。</p>
         </div>
-        <div class="footer-columns">
-          <div class="footer-column">
-            <h3>事業内容</h3>
-            <ul>
-              <li><a href="/marine">マリン事業</a></li>
-              <li><a href="/ai-service">AI事業</a></li>
-              <li><a href="/ai-salon">AI学習サロン</a></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h3>AquaBit LAB</h3>
-            <ul>
-              <li><a href="/about">ABLとは？</a></li>
-              <li><a href="/privacy-policy">プライバシーポリシー</a></li>
-              <li><a href="/contact">お問い合わせ</a></li>
-              <li><a href="/tokushoho">特定商取引法に基づく表記</a></li>
-            </ul>
-          </div>
+        <div>
+          <h4>Business</h4>
+          <ul>
+            <li><a href="/ai-salon">AI学習サロン</a></li>
+            <li><a href="/ai-service">AI事業</a></li>
+            <li><a href="/marine">マリン事業</a></li>
+          </ul>
         </div>
-        <div class="footer-legal">
-          <p>Copyright © 2025 AquaBit LAB All rights reserved.</p>
+        <div>
+          <h4>AquaBit LAB</h4>
+          <ul>
+            <li><a href="/about">ABLとは？</a></li>
+            <li><a href="/contact">お問い合わせ</a></li>
+            <li><a href="/privacy-policy">プライバシーポリシー</a></li>
+            <li><a href="/tokushoho">特定商取引法に基づく表記</a></li>
+          </ul>
         </div>
       </div>
-    </footer>
-  </div>
+      <div class="foot-legal">
+        <span>&copy; 2025 AquaBit LAB. All rights reserved.</span>
+        <span>Built with three.js &amp; WebGPU</span>
+      </div>
+    </div>
+  </footer>
 
-  <script>
-    // スクロールアニメーション
-    document.addEventListener('DOMContentLoaded', function() {
-      // すべての .reveal 要素を取得
-      const reveals = document.querySelectorAll('.reveal');
-      
-      // スクロール時のイベントリスナーを追加
-      window.addEventListener('scroll', revealOnScroll);
-      
-      // 初期表示時にも実行
-      revealOnScroll();
-      
-      function revealOnScroll() {
-        for (let i = 0; i < reveals.length; i++) {
-          const windowHeight = window.innerHeight;
-          const elementTop = reveals[i].getBoundingClientRect().top;
-          const elementVisible = 150; // 要素が見える位置の閾値
-          
-          if (elementTop < windowHeight - elementVisible) {
-            reveals[i].classList.add('active');
-          }
-        }
-      }
-      
-      // モバイルメニュートグル
-      const menuToggle = document.querySelector('.nav-menu-toggle');
-      const navMenu = document.querySelector('.nav-menu');
-      
-      if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-          navMenu.classList.toggle('active');
-        });
-      }
-      
-      // FAQアコーディオン
-      const faqQuestions = document.querySelectorAll('.faq-question');
-      
-      faqQuestions.forEach(question => {
-        question.addEventListener('click', function() {
-          this.classList.toggle('active');
-          const answer = this.nextElementSibling;
-          
-          if (this.classList.contains('active')) {
-            answer.style.maxHeight = answer.scrollHeight + 'px';
-          } else {
-            answer.style.maxHeight = 0;
-          }
-          
-          // 他の開いているFAQを閉じる
-          faqQuestions.forEach(otherQuestion => {
-            if (otherQuestion !== this && otherQuestion.classList.contains('active')) {
-              otherQuestion.classList.remove('active');
-              otherQuestion.nextElementSibling.style.maxHeight = 0;
-            }
-          });
-        });
-      });
-
-      // --- お問い合わせフォーム Ajax送信 ---
-      const contactForm = document.getElementById('contact-form');
-      const formMessage = document.getElementById('form-message');
-      const submitBtn = document.getElementById('submit-btn');
-
-      if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-
-          // ボタンをローディング状態に
-          const originalText = submitBtn.value;
-          submitBtn.disabled = true;
-          submitBtn.value = '送信中...';
-
-          // メッセージをリセット
-          formMessage.className = 'form-message';
-          formMessage.textContent = '';
-
-          // フォームデータを取得
-          const formData = new FormData(contactForm);
-
-          fetch('/send-mail.php', {
-            method: 'POST',
-            body: formData
-          })
-          .then(function(response) {
-            return response.json().then(function(data) {
-              return { ok: response.ok, data: data };
-            });
-          })
-          .then(function(result) {
-            if (result.ok && result.data.success) {
-              // 成功
-              formMessage.className = 'form-message success';
-              formMessage.textContent = result.data.message;
-              contactForm.reset();
-              // メッセージ位置までスクロール
-              formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            } else {
-              // バリデーションエラー等
-              formMessage.className = 'form-message error';
-              formMessage.textContent = result.data.message || '送信に失敗しました。';
-              formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-          })
-          .catch(function(error) {
-            // ネットワークエラー等
-            formMessage.className = 'form-message error';
-            formMessage.textContent = '通信エラーが発生しました。お手数ですが、直接メールにてお問い合わせください。';
-            formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          })
-          .finally(function() {
-            // ボタンを元に戻す
-            submitBtn.disabled = false;
-            submitBtn.value = originalText;
-          });
-        });
-      }
+  <script type="module">
+    import('/js/hero.min.js?v=20260731').catch((e) => {
+      console.warn('[AquaBit] hero module failed to load', e);
     });
   </script>
+  <script src="/js/site.js?v=20260731" defer></script>
 </body>
 </html>
