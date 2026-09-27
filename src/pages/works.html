@@ -1,0 +1,239 @@
+<!--@ {
+"title": "実績・取り組み｜AIで作ったアプリ・まんが・映像・Web｜AquaBit LAB",
+"og_title": "作って、公開して、使っている。— 実績・取り組み｜AquaBit LAB",
+"description": "AquaBit LABがAIといっしょに作り、公開・運用しているもの。App Storeで公開中のiOSアプリ「Blue Logbook」「いまメシ」、解説まんが22話、PV・データ映像、アルバム「魚歌」、Webサイトの全面リニューアル、AI検索対策、著書、AIウェビナーなど。",
+"path": "/works",
+"og": "og-works.jpg",
+"nav": "works",
+"crumbs": [["実績・取り組み", "/works"]],
+"jsonld": [
+  {"@type": "CollectionPage", "name": "実績・取り組み", "url": "https://aquabit-lab.com/works", "isPartOf": {"@id": "https://aquabit-lab.com/#site"},
+   "mainEntity": {"@type": "ItemList", "itemListElement": [
+     {"@type": "ListItem", "position": 1, "item": {"@type": "SoftwareApplication", "name": "Blue Logbook - ダイビングログブック", "operatingSystem": "iOS", "applicationCategory": "SportsApplication", "url": "https://apps.apple.com/jp/app/id6806158093", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "author": {"@type": "Person", "name": "吉田 哲司"}}},
+     {"@type": "ListItem", "position": 2, "item": {"@type": "SoftwareApplication", "name": "いまメシ", "operatingSystem": "iOS", "applicationCategory": "FoodAndDrinkApplication", "url": "https://apps.apple.com/jp/app/id6806607641", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "author": {"@type": "Person", "name": "吉田 哲司"}}},
+     {"@type": "ListItem", "position": 3, "item": {"@type": "CreativeWorkSeries", "name": "まんがで読むダイビング", "url": "https://miura-diving.com/manga/"}},
+     {"@type": "ListItem", "position": 4, "item": {"@type": "MusicAlbum", "name": "魚歌 UO-UTA", "url": "https://tj-music.com/", "numTracks": 19}}
+   ]}}
+]
+} @-->
+<section class="phero on-dark" aria-labelledby="page-title">
+  <div class="phero__bits">{{bits}}</div>
+  <div class="wrap">
+    <ol class="crumbs"><li><a href="/">ホーム</a></li><li aria-current="page">実績・取り組み</li></ol>
+    <p class="eyebrow">WORKS — 実績・新しい取り組み</p>
+    <h1 class="h1" id="page-title">作って、公開して、<br>使っている。</h1>
+    <p class="lead">ご提案する前に、まず自分で。AquaBit LAB がAIといっしょに作り、実際に公開・運用しているものをまとめました。お客さまの仕事でも、同じ作り方をします。</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="list-title">
+  <div class="wrap">
+    <h2 class="sr-only" id="list-title">実績の一覧</h2>
+    <div class="chips" role="group" aria-label="種類で絞り込む">
+      <button class="chip" type="button" data-filter="all" aria-pressed="true">すべて</button>
+      <button class="chip" type="button" data-filter="apps" aria-pressed="false">アプリ</button>
+      <button class="chip" type="button" data-filter="media" aria-pressed="false">まんが・映像</button>
+      <button class="chip" type="button" data-filter="web" aria-pressed="false">Web・仕組み</button>
+      <button class="chip" type="button" data-filter="create" aria-pressed="false">音楽・本</button>
+      <button class="chip" type="button" data-filter="teach" aria-pressed="false">教える</button>
+    </div>
+    <p class="sr-only" aria-live="polite" data-filter-live></p>
+
+    <div class="works" id="apps">
+      <a class="work work--wide reveal" data-cat="apps" href="https://apps.apple.com/jp/app/id6806158093" target="_blank" rel="noopener">
+        <div class="work__media"><img src="/images/abl/work-bluelogbook.webp" alt="Blue Logbookのアプリ画面3枚。ログ一覧、生き物の図鑑、潜った場所の地図" width="960" height="600" loading="lazy"><div class="work__badge"><span class="tag tag--live">App Store 公開中</span><span class="tag">無料</span></div></div>
+        <div class="work__body">
+          <p class="work__cat">iOS APP · 2026.09</p>
+          <h3>Blue Logbook — ダイビングのログブック</h3>
+          <p>潜った日の記録、出会った生き物、地図のピン、写真。紙のログブックの横で、手のひらにも記録を残せるiPhoneアプリです。アカウント登録なしで使え、ブラウザ版とのデータの行き来もできます。</p>
+          <p class="work__ai"><span class="tag tag--ai">AI</span>設計・実装・テスト・App Store審査への対応に伴走。何を作るかと、最後の確認は人が。</p>
+          <span class="work__more">App Storeで見る {{ext}}</span>
+        </div>
+      </a>
+      <a class="work reveal" data-cat="apps" data-d="1" href="https://apps.apple.com/jp/app/id6806607641" target="_blank" rel="noopener">
+        <div class="work__media"><img src="/images/abl/work-imameshi.webp" alt="いまメシのアプリ画面。話し言葉でお店を探す画面と、今日の1軒を決める画面" width="960" height="600" loading="lazy"><div class="work__badge"><span class="tag tag--live">App Store 公開中</span><span class="tag">無料</span></div></div>
+        <div class="work__body">
+          <p class="work__cat">iOS APP · 2026.09</p>
+          <h3>いまメシ — 旅先の「今どこで食べる？」</h3>
+          <p>近くのお店を気分で探して、1軒に決めてくれるアプリ。iPhoneの中で動くAIで「子連れで入れる海鮮」のような話し言葉のまま探せます（対応機種）。通信費のかかるAIサーバーを使わない設計です。</p>
+          <span class="work__more">App Storeで見る {{ext}}</span>
+        </div>
+      </a>
+      <div class="work work--row reveal" data-cat="apps">
+        <div class="work__media" style="display:grid;place-items:center;background:radial-gradient(70% 80% at 60% 30%,#0f4a63,#03121f)"><div style="width:62%">{{bits}}</div><div class="work__badge"><span class="tag">開発中</span></div></div>
+        <div class="work__body">
+          <p class="work__cat">iOS APP · IN DEVELOPMENT</p>
+          <h3>三浦 海の学校 公式アプリ</h3>
+          <p>海の学校のお客さま向けのアプリを開発中です。歩いた日も、潜った日も、海とのつながりが続くように。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="works mt-l" id="media">
+      <a class="work work--wide reveal" data-cat="media" href="https://miura-diving.com/manga/" target="_blank" rel="noopener">
+        <div class="work__media"><img src="/images/abl/work-manga.webp" alt="まんがで読むダイビングの表紙5枚" width="960" height="600" loading="lazy"><div class="work__badge"><span class="tag">全22話</span><span class="tag">動画版あり</span></div></div>
+        <div class="work__body">
+          <p class="work__cat">MANGA · 2026.08–</p>
+          <h3>まんがで読むダイビング</h3>
+          <p>「泳げなくても大丈夫？」「一人で行っていい？」「冬も潜れる？」——お問い合わせでよく聞かれる不安を、1話10〜12ページのまんがに。約1〜2分の動画版も作り、サイトとSNSで届けています。料金・安全・健康に関わる事実は、必ず人が確かめてから公開しています。</p>
+          <p class="work__ai"><span class="tag tag--ai">AI</span>構成・作画・動画化・要約文 <span class="tag tag--human">人</span>テーマ選び・事実の確認・全ページの点検</p>
+          <span class="work__more">まんがを読む {{ext}}</span>
+        </div>
+      </a>
+      <a class="work reveal" data-cat="media" data-d="1" href="https://miura-diving.com/#film" target="_blank" rel="noopener">
+        <div class="work__media"><img src="/images/abl/work-pv.webp" alt="三浦 海の学校のPVの一場面。光の粒が集まって文字になる" width="960" height="540" loading="lazy"></div>
+        <div class="work__body">
+          <p class="work__cat">FILM · 2026.09</p>
+          <h3>光の粒で描くPV</h3>
+          <p>光の粒が集まって、波・水・ダイバー・魚になっていく約1分半のPV。実写の映像と組み合わせ、音楽とナレーションもAIで。</p>
+          <span class="work__more">映像を見る {{ext}}</span>
+        </div>
+      </a>
+      <a class="work work--half reveal" data-cat="media" href="https://miura-diving.com/#sea" target="_blank" rel="noopener">
+        <div class="work__media"><img src="/images/abl/work-sites-pv.webp" alt="宮川湾のボートダイビングを紹介する映像の一場面。水面の上と下が分かれて見える" width="960" height="540" loading="lazy"></div>
+        <div class="work__body">
+          <p class="work__cat">FILM · 2026.09</p>
+          <h3>国の地図データから起こした、3D地形の案内映像</h3>
+          <p>国土地理院の標高データから三浦の地形を3Dで起こし、水面の上と下を行き来しながら城ヶ島と宮川湾を紹介する映像です。</p>
+          <span class="work__more">映像を見る {{ext}}</span>
+        </div>
+      </a>
+      <a class="work work--half reveal" data-cat="media" data-d="1" href="https://miura-diving.com/winter-diving/" target="_blank" rel="noopener">
+        <div class="work__media"><img src="/images/abl/work-winter.webp" alt="気象庁の平年値の水温と気温の線が、そのまま水面になっている映像の一場面" width="960" height="540" loading="lazy"></div>
+        <div class="work__body">
+          <p class="work__cat">DATA CINEMA · 2026.09</p>
+          <h3>「海の季節は、終わらない。」</h3>
+          <p>気象庁の水温・気温の平年値が、そのまま映像の構図になる“データシネマ”。「秋になったら海はおしまい」という思い込みを、数字でほどきます。</p>
+          <span class="work__more">映像を見る {{ext}}</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="works mt-l" id="web">
+      <a class="work work--half reveal" data-cat="web" href="https://miura-diving.com/" target="_blank" rel="noopener">
+        <div class="work__media"><img src="/images/abl/work-miura-site.webp" alt="三浦 海の学校のWebサイトのトップ画面" width="960" height="600" loading="lazy"></div>
+        <div class="work__body">
+          <p class="work__cat">WEB · 2026.09</p>
+          <h3>三浦 海の学校のサイトを全面リニューアル</h3>
+          <p>写真の海だけが波打つ水の表現、実写の映像、料金がひと目でわかる計算表。トップページのスマホ表示速度スコアは<b class="num">55</b>から<b class="num">93</b>に（Lighthouse・自社計測）。</p>
+          <span class="work__more">サイトを見る {{ext}}</span>
+        </div>
+      </a>
+      <a class="work work--half reveal" data-cat="web" data-d="1" href="https://miura-diving.com/llms.txt" target="_blank" rel="noopener">
+        <div class="work__media" style="background:#03121f;display:grid;align-content:center;padding:28px 32px;color:#a9bcc7;font-family:var(--f-mono);font-size:13px;line-height:1.9">
+          <span style="color:#3fe3e6"># 三浦 海の学校</span>
+          <span>&gt; 神奈川・三浦のダイビングスクール</span>
+          <span>&nbsp;</span>
+          <span style="color:#e9f2f5">## コースと料金</span>
+          <span>- 体験ダイビング：19,800円（税込）…</span>
+          <span style="color:#e9f2f5">## よくある質問</span>
+          <span>- 泳げなくても参加できますか？…</span>
+        </div>
+        <div class="work__body">
+          <p class="work__cat">AI SEARCH · 2026.08–</p>
+          <h3>AI検索対策と「AIに相談する」ボタン</h3>
+          <p>ChatGPTやPerplexityがお店を調べたとき、正しい料金と条件にたどり着けるよう、AI向けの案内（llms.txt）と構造化データを整備。全ページに、お客さま自身のAIで相談できるボタンを置いています。</p>
+          <span class="work__more">llms.txt を見る {{ext}}</span>
+        </div>
+      </a>
+      <div class="work reveal" data-cat="web">
+        <div class="work__body">
+          <p class="work__cat">OPERATION</p>
+          <h3>公式LINEの配信を仕組みに</h3>
+          <p>配信文の下書き、送る相手の絞り込み（一部の方を除いて送るなど）、無料枠の残りの確認までを仕組みに。送信のボタンは、必ず人が内容を確かめてから押します。</p>
+          <p class="work__ai"><span class="tag tag--plain">社内運用</span>非公開</p>
+        </div>
+      </div>
+      <a class="work reveal" data-cat="web" data-d="1" href="https://miura-diving.com/blog/" target="_blank" rel="noopener">
+        <div class="work__body">
+          <p class="work__cat">OPERATION</p>
+          <h3>潜った日のブログを、仕組みで</h3>
+          <p>海況と、その日あったことを短いメモで渡すと、記事と挿絵の下書きから公開までが進む仕組み。書く時間が、事実を確かめる時間に変わりました。</p>
+          <span class="work__more">ブログを見る {{ext}}</span>
+        </div>
+      </a>
+      <div class="work reveal" data-cat="web" data-d="2">
+        <div class="work__body">
+          <p class="work__cat">THIS SITE</p>
+          <h3>このサイトも、AIといっしょに</h3>
+          <p>トップの水面は、ロゴの「しずく→波紋→ビット」を自作のWebGLで動かしたもの。重い部品を使わずに、速く開けるように作っています。設計から実装、表示の点検まで、AIエージェント（Claude Code）といっしょに作りました。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="works mt-l" id="create">
+      <a class="work work--half reveal" data-cat="create" href="https://tj-music.com/" target="_blank" rel="noopener">
+        <div class="work__media"><img src="/images/abl/work-music-site.webp" alt="アルバム「魚歌」の特設サイト" width="960" height="600" loading="lazy"><div class="work__badge"><span class="tag tag--live">配信中</span></div></div>
+        <div class="work__body">
+          <p class="work__cat">MUSIC · 2026.07</p>
+          <h3>アルバム「魚歌 UO-UTA」全19曲</h3>
+          <p>海の生き物を1匹ずつ主役にした楽曲集。AIの音楽制作ツールで作り、Spotify・Apple Musicなどで配信中。特設サイトではサビから試聴できます。</p>
+          <span class="work__more">特設サイトへ {{ext}}</span>
+        </div>
+      </a>
+      <div class="work work--half reveal" data-cat="create" data-d="1">
+        <div class="work__body">
+          <p class="work__cat">BOOKS · KINDLE</p>
+          <h3>ダイビングからAI入門まで、Kindleで12冊</h3>
+          <div class="books" style="grid-template-columns:repeat(4,1fr);gap:12px;margin:6px 0 4px">
+            <a class="book" href="https://www.amazon.co.jp/dp/B0F6MT4N14" target="_blank" rel="noopener"><span class="book__cover"><img src="/images/abl/book-ai.webp" alt="『AIは、あなたの「魔法の杖」』の表紙" width="320" height="511" loading="lazy"></span></a>
+            <a class="book" href="https://www.amazon.co.jp/dp/B0CW1D9Y1Y" target="_blank" rel="noopener"><span class="book__cover"><img src="/images/abl/book-zen.webp" alt="AI絵本『うみがめになったぜんくんの大冒険』の表紙" width="320" height="320" loading="lazy" style="object-fit:cover"></span></a>
+            <a class="book" href="https://www.tj-web3.com/#books" target="_blank" rel="noopener"><span class="book__cover"><img src="/images/abl/book-start-diving.webp" alt="『ダイビングのはじめ方』の表紙" width="300" height="468" loading="lazy"></span></a>
+            <a class="book" href="https://www.tj-web3.com/#books" target="_blank" rel="noopener"><span class="book__cover"><img src="/images/abl/book-senior-diver.webp" alt="『60代からのダイビング入門』の表紙" width="300" height="473" loading="lazy"></span></a>
+          </div>
+          <p>『AIは、あなたの「魔法の杖」』は、知識ゼロ・パソコンが苦手な方のためのAI入門。AI絵本『うみがめになったぜんくんの大冒険』は、AmazonのAI絵本ランキングで2位になりました。</p>
+          <a class="work__more" href="https://www.tj-web3.com/#books" target="_blank" rel="noopener">著書の一覧 {{ext}}</a>
+        </div>
+      </div>
+      <a class="work work--row reveal" data-cat="create" href="https://store.line.me/stickershop/author/4627048/ja" target="_blank" rel="noopener">
+        <div class="work__body">
+          <p class="work__cat">LINE STICKERS</p>
+          <h3>AIで描いたLINEスタンプ</h3>
+          <p>クラゲ女子やダイバーの女の子など、海のスタンプをAIといっしょに描いて販売しています。</p>
+          <span class="work__more">LINE STOREで見る {{ext}}</span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="works mt-l" id="teach">
+      <div class="work work--wide reveal" data-cat="teach">
+        <div class="work__body">
+          <p class="work__cat">WEBINAR · 50+</p>
+          <h3>AIウェビナーを50回以上。のべ500名以上が参加。</h3>
+          <p>顔出し不要・匿名で参加できる40〜80分のウェビナーで、AIの最新の使い方を届けてきました。Udemyでのオンライン講座にも取り組んでいます。</p>
+          <div class="badge-row">
+            <span class="tag tag--plain">Claude Code入門</span><span class="tag tag--plain">Codex入門</span><span class="tag tag--plain">Vibe Coding入門</span><span class="tag tag--plain">Google Opal入門</span><span class="tag tag--plain">Antigravity入門</span><span class="tag tag--plain">ChatGPTs・Gems作成</span><span class="tag tag--plain">AIでHP・LP</span><span class="tag tag--plain">AIで漫画</span><span class="tag tag--plain">AIで絵本</span><span class="tag tag--plain">AIで音楽</span><span class="tag tag--plain">AIでLINEスタンプ</span><span class="tag tag--plain">AI初心者向け</span>
+          </div>
+          <a class="work__more" href="https://www.tj-web3.com/#services" target="_blank" rel="noopener">ウェビナーの一覧 {{ext}}</a>
+        </div>
+      </div>
+      <a class="work reveal" data-cat="teach" data-d="1" href="/ai-salon/">
+        <div class="work__body">
+          <p class="work__cat">SALON · 月額9,800円</p>
+          <h3>AI学習サロン</h3>
+          <p>画像・音楽・アプリまで、手を動かして「できた」を積み上げるオンラインの学び場。Discordで質問できます。</p>
+          <span class="work__more">サロンを見る {{arr}}</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight" aria-labelledby="cta-title">
+  <div class="wrap">
+    <div class="cta on-dark">
+      <div class="cta__bits">{{bits}}</div>
+      <div>
+        <p class="eyebrow">CONTACT</p>
+        <h2 class="h2" id="cta-title">同じ作り方を、<br>あなたの仕事にも。</h2>
+        <p>「うちでも、こういうことはできる？」という聞き方で大丈夫です。できること・できないことを率直にお伝えします。</p>
+      </div>
+      <div class="cta__actions">
+        <a class="btn btn--aqua btn--lg" href="/contact?topic=build">制作・導入を相談する {{arr}}</a>
+        <a class="btn btn--line btn--lg" href="{{line}}" target="_blank" rel="noopener">{{icon:line}} LINEで気軽に聞く</a>
+        <p class="cta__mail">メール：<a href="mailto:{{mail}}">{{mail}}</a></p>
+      </div>
+    </div>
+  </div>
+</section>

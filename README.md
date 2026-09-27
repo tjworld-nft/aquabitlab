@@ -1,99 +1,66 @@
-# AquaBit LAB Website
+# AquaBit LAB Website — aquabit-lab.com
 
-AquaBit LABの公式ウェブサイトです。WordPressから静的HTMLサイトに移行しました。
+代表・吉田哲司（TJ）の個人屋号「AquaBit LAB」の公式サイト。
+**主役は個人・中小企業の「AI導入サポート」**。マリン事業（三浦 海の学校）はその実験場として位置づけ、
+「自分の店をAIで回してきた実践」を証拠として見せる構成（2026-09-27 全面リニューアル）。
 
-## 概要
+## ページ
 
-- **マリン事業**: ダイビングを中心とした海のアクティビティサービス
-- **AI事業**: AI技術の教育・指導およびソリューション開発
-- **教育コンテンツ**: Udemyコースと書籍の提供
+| URL | 原稿 | 役割 |
+|---|---|---|
+| `/` | `src/pages/index.html` | トップ。ヒーロー＝ロゴの「しずく→波紋→ビット」を自作WebGLで動かしたもの |
+| `/ai-service` | `src/pages/ai-service.html` | AI導入サポート（3つの進め方・用途・**3分診断**・自社事例・流れ・料金・FAQ） |
+| `/works` | `src/pages/works.html` | 実績・取り組み（種類で絞り込み。`/works#apps` `#media` `#web` `#create` `#teach`） |
+| `/ai-salon/` | `src/pages/ai-salon.html` | AI学習サロン（月額9,800円・Stripe） |
+| `/marine` | `src/pages/marine.html` | マリン事業 → miura-diving.com への橋渡し |
+| `/about` | `src/pages/about.html` | ABLとは・代表プロフィール・事業者情報 |
+| `/contact` | `src/pages/contact.html` | お問い合わせ（相談の種類つき・3分診断の結果を引き継ぐ） |
+| `/tokushoho` `/privacy-policy` `/404` | `src/pages/*.html` | 法務・エラー |
 
-## 技術スタック
+## 仕組み
 
-- **Frontend**: HTML5 + CSS3 + JavaScript（ビルド不要の静的サイト）
-- **ヒーロー描画**: three.js の WebGPURenderer（WebGPU / WebGL2 自動フォールバック）
-- **デプロイ**: GitHub Actions + FTP (Xserver)
+- **HTMLは組み立て式**。`src/pages/*.html`（先頭にJSONの前書き）に、共通の head・ヘッダー・フッター・構造化データを
+  `tools/build.py` が差し込んで、リポジトリ直下に書き出す。**書き出したHTMLもコミットする**（サーバーでは組み立てない）。
+  ```bash
+  python3 tools/build.py            # 全ページ
+  python3 tools/build.py works      # 1ページだけ
+  ```
+  直接 `*.html`（直下）を直しても、次の build で上書きされるので **必ず `src/pages/` を直す**。
+- デザインは `css/abl.css`（色・文字・部品すべて）。動きは `js/abl.js`（メニュー・出現・絞り込み・3分診断・フォーム）。
+- ヒーローの水面は `js/ripple.js`（WebGL1・依存ライブラリなし・約10KB）。
+  - 読み込みが落ち着いてから始め（requestIdleCallback）、対応ブラウザではシェーダーを並行コンパイル。
+  - 使えない端末・`prefers-reduced-motion` は静止画 `images/abl/hero-poster.webp` のまま／1枚だけ描く。
+  - `?ripple=off` で無効、`?still` で1枚だけ、`?q=low` で低解像度。
+  - 静止画の作り直し：`_dev/ripple-test?capture&still` を 1600×900 で撮って webp に。
+- 画像は `images/abl/`（すべてWebP・実物の写真とアプリ画面。AIの“それっぽい”イメージ画像は使わない）。
+- OGP画像は `images/abl/og-*.jpg`（1200×630）。作り直しは `_dev/og.html` ＋ `tools/og.mjs`。
+- AI検索向けの案内 `llms.txt`。料金・特典・実績の数字を変えたらここも直す。
 
-## ファイル構成
+## 決めごと
 
-```
-├── index.html            # トップページ（WebGPUヒーロー）
-├── about.html            # ABLとは？（WebGPUヒーロー）
-├── marine.html           # マリン事業
-├── ai-service.html       # AI事業
-├── ai-salon/index.html   # AI学習サロン LP
-├── contact.html          # お問い合わせ
-├── privacy-policy.html   # プライバシーポリシー
-├── tokushoho.html        # 特定商取引法に基づく表記
-├── css/aqua.css          # 共通デザインシステム（ダークテーマ／全ページ共通）
-├── js/site.js            # 共通UI（ナビ・スクロール出現・FAQ・お問い合わせ送信）
-├── js/hero.min.js        # ヒーロー描画のビルド済みバンドル（コミット対象）
-├── src/hero.js           # ↑のソース（three.js / TSL）
-├── src/ogp-card.html     # OGP画像の生成テンプレート
-├── tools/build-ogp.sh    # OGP画像の生成スクリプト
-├── robots.txt
-└── sitemap.xml
-```
+- **数字・実績を作らない**。使ってよいのは公開済みのもの（認定ダイバー1,500名+／ウェビナー50回+・参加500名+／
+  1997年〜・2001年PADIコースディレクター／App Store公開2本／まんが22話／「魚歌」19曲／Kindle12冊）。
+  お客さまの声は、実在・掲載許可のあるものだけ。
+- 旧住所・旧固定電話は、どのページにも出さない（このリポジトリは公開なので、ここにも書かない）。所在地は「神奈川県三浦市（詳細は請求時に開示）」。
+- トーンは「海とAI、二つの未来へ」。短く断定。ただし誇大表現（必ず・絶対・日本初・No.1）と恐怖で煽る書き方はしない。
+- 「人が決める／AIが作る」を分けて書く（`tag--human` と `tag--ai`）。送信・公開の最終判断は人。
 
-## ヒーロー描画について
+## キャッシュ（重要）
 
-トップページと ABL ページの背景は `src/hero.js` が描いています。
+`.htaccess` で CSS/JS を1か月キャッシュしている。`css/abl.css` `js/*.js` を変えたら
+`tools/build.py` の `V = "YYYYMMDD"` を上げて build し直す（全ページの `?v=` が変わる）。
+index.html の `ripple.js?v=` は前書き（head）に直書きなので一緒に上げる。
 
-- `WebGPURenderer` を使い、**WebGPU が使える環境では GPU コンピュートシェーダ**で
-  約3.6〜22万個の粒子を流体的に動かします（マウスに反応して渦を巻きます）。
-- WebGPU が無い環境では three.js が自動的に **WebGL2 にフォールバック**し、
-  粒子の位置を頂点シェーダ側の手続き計算に切り替えて同じ見た目を保ちます。
-- どちらも動かない場合は `images/aqua-hero.webp` の静止画が表示されます。
-- 端末性能に応じて粒子数・解像度を自動調整し、`prefers-reduced-motion` や
-  タブ非表示、ヒーローが画面外のときは描画を止めます。
-
-### ビルド
-
-`src/hero.js` を編集したら再ビルドしてください（`js/hero.min.js` はコミットします）。
-
-```bash
-npm install
-npm run build
-```
-
-### キャッシュ対策（重要）
-
-`.htaccess` で CSS / JS を1ヶ月キャッシュしているため、`css/aqua.css` `js/site.js`
-`js/hero.min.js` を変更したら、各HTMLの読み込みURLに付けている `?v=YYYYMMDD` を
-新しい日付に一括で書き換えてください。これを忘れると、再訪問者に古いCSSが当たって
-レイアウトが崩れます。
+## ローカル確認
 
 ```bash
-grep -rl 'v=20260731' *.html | xargs sed -i '' 's/v=20260731/v=YYYYMMDD/g'
+php -S 127.0.0.1:8983 -t . tools/router.php
 ```
+`tools/router.php` が本番の .htaccess と同じURLの動き（クリーンURL・.html→301・404）を再現する。
+`send-mail.php` はローカルでは `ABL_MAIL_DRYRUN=1` になり、**メールを実際には送らない**。
 
-### OGP画像の生成
+## デプロイ
 
-`src/ogp-card.html` から `images/ogp.png` / `ogp-marine.png` / `ogp-ai.png` を作り直します。
-
-```bash
-./tools/build-ogp.sh
-```
-
-## 開発・デプロイ
-
-### ローカル開発
-
-```bash
-python3 -m http.server 8000
-```
-
-ブラウザで http://localhost:8000 を開きます。
-`?renderer=webgl` を付けると WebGL フォールバックを、`?q=low` などで品質設定を確認できます。
-
-### 本番デプロイ
-
-- `main` ブランチへの push で自動デプロイ
-- GitHub Actions 経由で Xserver に FTP アップロード
-- `node_modules/` `src/` `tools/` はアップロード対象外
-
-## 注意事項
-
-- Web3事業セクションは削除済み
-- WordPress依存を完全に除去
-- 全ページでレスポンシブ対応・OGP設定済み
+- `main` へ push → GitHub Actions（`.github/workflows/deploy.yml`）が Xserver の `aquabit-lab.com/public_html/` へFTPで差分アップロード。
+- `src/` `tools/` `_dev/` `README.md` などはアップロード対象外。
+- 2026-09-27 に `dangerous-clean-slate`（毎回サーバーを全消しして再アップロード）を外した。以後は差分だけ。

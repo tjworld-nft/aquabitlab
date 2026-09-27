@@ -1,4 +1,23 @@
 User-agent: *
 Allow: /
+Disallow: /_dev/
+
+# AI検索・AIアシスタント向けの案内: https://aquabit-lab.com/llms.txt
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
 
 Sitemap: https://aquabit-lab.com/sitemap.xml

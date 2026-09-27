@@ -1,317 +1,287 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>ABLとは？ | AquaBit LAB</title>
-  <meta name="description" content="AquaBit LAB（ABL）は、マリン事業とAI事業を通じて、海の魅力と最新技術の可能性を探求する研究開発組織です。ミッション・事業内容・教育への取り組み・今後の展望をご紹介します。">
-  <meta name="theme-color" content="#04070d">
-  <link rel="canonical" href="https://aquabit-lab.com/about">
-
-  <!-- OGP -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="AquaBit LAB">
-  <meta property="og:locale" content="ja_JP">
-  <meta property="og:url" content="https://aquabit-lab.com/about">
-  <meta property="og:title" content="ABLとは？ | AquaBit LAB">
-  <meta property="og:description" content="マリン事業とAI事業を通じて、海の魅力と最新技術の可能性を探求する研究開発組織。AquaBit LABのミッションと事業内容をご紹介します。">
-  <meta property="og:image" content="https://aquabit-lab.com/images/ogp.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="AquaBit LAB - 海とAIの未来を創造する">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ABLとは？ | AquaBit LAB">
-  <meta name="twitter:description" content="マリン事業とAI事業を通じて、海の魅力と最新技術の可能性を探求する研究開発組織。AquaBit LABのミッションと事業内容をご紹介します。">
-  <meta name="twitter:image" content="https://aquabit-lab.com/images/ogp.png">
-
-  <!-- Icons -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/favicon.png">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/aqua.css?v=20260731">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "name": "ABLとは？ | AquaBit LAB",
-    "url": "https://aquabit-lab.com/about",
-    "inLanguage": "ja",
-    "about": {
-      "@type": "Organization",
-      "name": "AquaBit LAB",
-      "url": "https://aquabit-lab.com/"
-    }
-  }
-  </script>
-
-  <style>
-    /* --- このページ専用の調整 --- */
-    .page-hero {
-      position: relative;
-      min-height: 62svh;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-      isolation: isolate;
-      border-bottom: 1px solid var(--line);
-    }
-    .page-hero .hero-canvas,
-    .page-hero .hero-fallback { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -2; }
-    .page-hero .hero-fallback { background: #04070d url('/images/aqua-hero.webp') center/cover no-repeat; }
-    .page-hero::after {
-      content: "";
-      position: absolute; inset: 0; z-index: -1; pointer-events: none;
-      background:
-        radial-gradient(95% 80% at 20% 70%, rgba(4,7,13,0.88) 0%, rgba(4,7,13,0.45) 45%, rgba(4,7,13,0) 78%),
-        linear-gradient(180deg, rgba(4,7,13,0.8) 0%, rgba(4,7,13,0.05) 30%, rgba(4,7,13,0.6) 85%, var(--bg) 100%);
-    }
-    .page-hero .shell { padding-top: calc(var(--nav-h) + 90px); padding-bottom: 76px; }
-    .page-hero h1 {
-      margin: 14px 0 0;
-      font-size: clamp(32px, 5.6vw, 62px);
-      font-weight: 700;
-      line-height: 1.26;
-      letter-spacing: -0.02em;
-    }
-    .page-hero h1 .grad {
-      background: linear-gradient(100deg, #ffffff 8%, var(--cyan) 55%, var(--violet) 100%);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
-    }
-    .page-hero p { margin: 22px 0 0; max-width: 40em; color: rgba(224,238,255,0.82); font-size: clamp(15px, 1.7vw, 18px); }
-
-    .prose h3 {
-      margin: 0 0 14px;
-      font-size: clamp(20px, 2.4vw, 26px);
-      font-weight: 700;
-      line-height: 1.5;
-    }
-    .prose p { margin: 0; color: var(--muted); font-size: 15.5px; }
-
-    .rows { display: grid; gap: 22px; margin-top: 56px; }
-    .row {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 34px;
-      padding: 34px;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: var(--glass);
-      transition: border-color 0.4s ease, transform 0.5s cubic-bezier(.2,.7,.3,1);
-    }
-    .row:hover { border-color: rgba(79,216,255,0.28); transform: translateY(-4px); }
-    .row .no {
-      font-family: var(--font-en);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--cyan);
-    }
-    .row .no b {
-      display: block;
-      font-size: 46px;
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: -0.02em;
-      margin-bottom: 10px;
-      color: rgba(140, 190, 255, 0.22);
-    }
-
-    .pillar .card-link { font-size: 14px; }
-
-    @media (max-width: 780px) {
-      .row { grid-template-columns: 1fr; gap: 16px; padding: 28px 24px; }
-      .row .no b { font-size: 34px; }
-      .page-hero .shell { padding-top: calc(var(--nav-h) + 60px); padding-bottom: 54px; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ABLとは｜代表 吉田哲司のプロフィール｜AquaBit LAB</title>
+<meta name="description" content="AquaBit LAB（アクアビットラボ）は、代表・吉田哲司（TJ）の個人事業です。PADIコースディレクターとして1,500名以上のダイバーを育て、AIウェビナーを50回以上開いてきた経験から、ダイビングスクール「三浦 海の学校」と、個人・中小企業のAI導入サポートを営んでいます。">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://aquabit-lab.com/about">
+<meta name="theme-color" content="#03121f">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AquaBit LAB">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="海とAI、二つの未来へ。— ABLとは｜AquaBit LAB">
+<meta property="og:description" content="AquaBit LAB（アクアビットラボ）は、代表・吉田哲司（TJ）の個人事業です。PADIコースディレクターとして1,500名以上のダイバーを育て、AIウェビナーを50回以上開いてきた経験から、ダイビングスクール「三浦 海の学校」と、個人・中小企業のAI導入サポートを営んでいます。">
+<meta property="og:url" content="https://aquabit-lab.com/about">
+<meta property="og:image" content="https://aquabit-lab.com/images/abl/og-about.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@500;700;800&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="/css/abl.css?v=20260927">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"AboutPage","name":"ABLとは","url":"https://aquabit-lab.com/about","isPartOf":{"@id":"https://aquabit-lab.com/#site"},"about":{"@id":"https://aquabit-lab.com/#org"}},{"@type":"Person","@id":"https://aquabit-lab.com/about#founder","name":"吉田 哲司","alternateName":["TJ","ティージェー"],"jobTitle":"AquaBit LAB 代表","image":"https://aquabit-lab.com/images/abl/photo-founder.webp","hasCredential":{"@type":"EducationalOccupationalCredential","name":"PADIコースディレクター"},"worksFor":{"@id":"https://aquabit-lab.com/#org"},"url":"https://aquabit-lab.com/about","sameAs":["https://www.tj-web3.com/","https://miura-diving.com/instructor/"],"knowsAbout":["スキューバダイビング指導","生成AIの業務活用","Vibe Coding","AI検索対策","iOSアプリ開発"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://aquabit-lab.com/"},{"@type":"ListItem","position":2,"name":"ABLとは","item":"https://aquabit-lab.com/about"}]}]}</script>
 </head>
-<body>
+<body class="">
+<a class="skip" href="#main">本文へ移動</a>
+<header class="site-header" data-header>
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="AquaBit LAB ホーム">
+      <img src="/images/logo-mark.webp" alt="" width="38" height="38">
+      <span><b>AquaBit LAB</b><small>SEA × AI</small></span>
+    </a>
+    <nav class="gnav" aria-label="メインメニュー">
+      <a href="/ai-service">AI導入サポート</a><a href="/works">実績・取り組み</a><a href="/ai-salon/">AI学習サロン</a><a href="/marine">マリン事業</a><a href="/about" aria-current="page">ABLとは</a>
+      <a class="btn btn--sm" href="/contact?topic=ai">相談する</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-controls="mnav" aria-expanded="false" aria-label="メニューを開く" data-menu><span></span></button>
+  </div>
+</header>
+<div class="mnav" id="mnav" data-mnav hidden>
+  <a class="mnav__link" href="/">ホーム<small>HOME</small></a>
+  <a class="mnav__link" href="/ai-service">AI導入サポート<small>AI ADOPTION</small></a><a class="mnav__link" href="/works">実績・取り組み<small>WORKS</small></a><a class="mnav__link" href="/ai-salon/">AI学習サロン<small>SALON</small></a><a class="mnav__link" href="/marine">マリン事業<small>MARINE</small></a><a class="mnav__link" href="/about" aria-current="page">ABLとは<small>ABOUT</small></a>
+  <a class="mnav__link" href="/contact">お問い合わせ<small>CONTACT</small></a>
+  <div class="btn-row">
+    <a class="btn btn--aqua btn--lg" href="/contact?topic=ai">AI導入の相談をする <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+    <a class="btn btn--line btn--lg" href="https://lin.ee/obePsOF" target="_blank" rel="noopener">LINEで聞く</a>
+  </div>
+</div>
+<main id="main">
+<section class="phero on-dark" aria-labelledby="page-title">
+  <div class="phero__photo"><img src="/images/abl/photo-surface.webp" alt="" width="960" height="720"></div>
+  <div class="wrap">
+    <ol class="crumbs"><li><a href="/">ホーム</a></li><li aria-current="page">ABLとは</li></ol>
+    <p class="eyebrow">ABOUT — AquaBit LAB（ABL）</p>
+    <h1 class="h1" id="page-title">海とAI、<br>二つの未来へ。</h1>
+    <p class="lead">AquaBit LAB（アクアビットラボ）は、代表・吉田哲司の個人事業です。神奈川・三浦のダイビングスクール「三浦 海の学校」と、個人・中小企業のためのAI事業。見た目の違う二つの仕事を、ひとつの考え方で営んでいます。</p>
+  </div>
+</section>
 
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a class="brand" href="/">
-        <img src="/images/logo-mark.webp" width="34" height="34" alt="AquaBit LAB ロゴ">
-        <span>AquaBit LAB</span>
+<section class="section" aria-labelledby="mission-title">
+  <div class="wrap">
+    <div class="lab-intro">
+      <div>
+        <p class="eyebrow">MISSION — この屋号の仕事</p>
+        <h2 class="h2 lab-intro__big mt-s" id="mission-title"><span>「自分には無理」を、</span><span><span class="mark" style="display:inline">「できた」</span>に変える。</span></h2>
+      </div>
+      <div class="lab-intro__body lead reveal">
+        <p>泳げない人が、はじめて海の中で呼吸をする。パソコンが苦手な人が、AIに頼んで最初の書類を作る。どちらも、最初は「自分には無理」から始まります。</p>
+        <p>その壁を低くして、できる側へいっしょに渡る。それが、ダイビングでもAIでも変わらない、AquaBit LAB の仕事です。</p>
+        <p>わからないまま先へは進まない。専門用語でごまかさない。そして、最後は自分でできるようにして手を離す。海で25年以上続けてきた教え方を、AIにもそのまま使っています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--white" aria-labelledby="name-title">
+  <div class="wrap">
+    <div class="split">
+      <div class="split__media reveal" style="background:radial-gradient(70% 80% at 50% 30%,#0f4a63,#03121f);aspect-ratio:4/3;display:grid;place-items:center">
+        <img src="/images/aquabit-lab-logo.webp" alt="AquaBit LABのロゴ。しずくが水面に落ちて波紋が広がり、そこから四角いビットが立ちのぼる" width="512" height="512" loading="lazy" style="width:min(72%,340px);height:auto;border-radius:18px">
+      </div>
+      <div>
+        <p class="eyebrow">NAME — 名前とロゴ</p>
+        <h2 class="h2 mt-s" id="name-title">Aqua ＋ Bit ＋ LAB</h2>
+        <dl class="dl mt-m">
+          <div><dt>Aqua</dt><dd>海。水の中でしか味わえない静けさと、体ひとつで向き合う一次体験。</dd></div>
+          <div><dt>Bit</dt><dd>情報のいちばん小さな単位。AIとデジタルの力。</dd></div>
+          <div><dt>LAB</dt><dd>実験室。自分の店で試して、確かめたものだけを外に出す場所。</dd></div>
+        </dl>
+        <p class="mt-m muted">ロゴには、しずくが水面に落ちて波紋が広がり、そこから小さなビットが立ちのぼる姿を描いています。海での体験が、デジタルの力で広がっていく——このサイトのトップの水面も、そのロゴを動かしたものです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark grid-bg" aria-labelledby="biz-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">BUSINESS — 二つの事業</p>
+      <h2 class="h2" id="biz-title">海も、AIも。</h2>
+    </div>
+    <div class="twin">
+      <a class="twin__card twin__card--ai reveal" href="/ai-service">
+        <img src="/images/abl/hero-poster.webp" alt="" width="1600" height="900" loading="lazy">
+        <span class="twin__go"><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+        <p class="twin__label">AI — AI事業</p>
+        <h3 class="h3">AIを、使う側から<br>つくる側へ。</h3>
+        <p>個人・中小企業のAI導入サポート、AI学習サロン、Web・アプリ・映像の制作、AIウェビナー。</p>
+        <div class="twin__links"><span>AI導入サポート</span><span>AI学習サロン</span><span>制作</span></div>
       </a>
-      <button class="burger" id="burger" aria-label="メニューを開く" aria-expanded="false"><span></span></button>
-      <ul class="nav-links" id="navlinks">
-        <li><a href="/marine">マリン事業</a></li>
-        <li><a href="/ai-service">AI事業</a></li>
-        <li><a href="/about">ABLとは？</a></li>
-        <li><a href="/contact">お問い合わせ</a></li>
-        <li><a class="nav-cta" href="/ai-salon">AI学習サロン</a></li>
-      </ul>
+      <a class="twin__card reveal" data-d="1" href="/marine">
+        <img src="/images/abl/photo-license.webp" alt="三浦の青い海の中を、並んで泳ぐダイバー" width="1400" height="1050" loading="lazy">
+        <span class="twin__go"><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
+        <p class="twin__label">SEA — マリン事業</p>
+        <h3 class="h3">三浦 海の学校</h3>
+        <p>城ヶ島と宮川湾で、体験ダイビングからライセンス取得、ブランク明けのリフレッシュまで。少人数で教えています。</p>
+        <div class="twin__links"><span>体験ダイビング</span><span>ライセンス</span><span>ファンダイビング</span></div>
+      </a>
     </div>
-  </nav>
+  </div>
+</section>
 
-  <header class="page-hero">
-    <div class="hero-fallback" aria-hidden="true"></div>
-    <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
-    <div class="shell">
-      <p class="eyebrow">About ABL</p>
-      <h1><span class="grad">海とAIの、あいだにある未来。</span></h1>
-      <p>
-        AquaBit LAB（ABL）は、マリン事業とAI事業を通じて、海の魅力と最新技術の可能性を探求する研究開発組織です。
-      </p>
-    </div>
-  </header>
-
-  <section class="band">
-    <div class="shell">
-      <p class="eyebrow reveal">Mission</p>
-      <h2 class="title reveal d1">海の素晴らしさを伝え、<br>技術で未来をひらく。</h2>
-      <p class="lead reveal d2">
-        海の素晴らしさを多くの人に伝えるとともに、AI技術を活用したイノベーションを創出し、
-        持続可能な未来の実現に貢献することを目指しています。
-        まったく違う領域に見えるふたつは、私たちのなかでは「まだ誰も見たことのない景色へ人を連れていく」という同じ仕事です。
-      </p>
-
-      <div class="rows prose">
-        <div class="row reveal">
-          <div class="no"><b>01</b>Marine</div>
-          <div>
-            <h3>マリン事業</h3>
-            <p>
-              ダイビングを中心とした海のアクティビティを提供し、海の魅力を広く伝える活動を行っています。
-              初心者から上級者まで、それぞれのレベルに応じたサービスを展開しています。
-            </p>
-          </div>
-        </div>
-
-        <div class="row reveal">
-          <div class="no"><b>02</b>AI</div>
-          <div>
-            <h3>AI事業</h3>
-            <p>
-              最新のAI技術を活用したソリューションの開発・提供を行っています。
-              企業や個人のニーズに合わせたAIシステムの構築から、AI技術の教育・指導まで幅広くサポートしています。
-            </p>
-          </div>
-        </div>
-
-        <div class="row reveal">
-          <div class="no"><b>03</b>Education</div>
-          <div>
-            <h3>教育への取り組み</h3>
-            <p>
-              Udemyでのオンラインコース提供や書籍の出版を通じて、専門知識の普及と人材育成に力を入れています。
-              実践的なスキルを身につけられる教育コンテンツを継続的に開発しています。
-            </p>
-          </div>
-        </div>
-
-        <div class="row reveal">
-          <div class="no"><b>04</b>Future</div>
-          <div>
-            <h3>今後の展望</h3>
-            <p>
-              マリン事業とAI事業の融合により、海洋分野における新たな技術革新を目指しています。
-              持続可能な海洋利用と最先端技術の発展を両立させ、社会に貢献していきます。
-            </p>
-          </div>
+<section class="section section--white" aria-labelledby="founder-title" id="founder">
+  <div class="wrap">
+    <div class="person">
+      <figure class="person__photo reveal">
+        <img src="/images/abl/photo-founder.webp" alt="透明な水の中を泳ぐ、代表の吉田哲司" width="800" height="800" loading="lazy">
+        <figcaption>代表 吉田 哲司。水の中でも、画面の前でも、仕事は「教えること」。</figcaption>
+      </figure>
+      <div>
+        <p class="eyebrow">FOUNDER — 代表</p>
+        <p class="person__name"><b id="founder-title">吉田 哲司</b><span>TJ / ティージェー</span></p>
+        <p class="person__role">AquaBit LAB 代表 ／ PADIコースディレクター ／ AIデジタルクリエイター</p>
+        <p>1997年に海の仕事を始め、2001年にインストラクターを育てる資格・PADIコースディレクターを取得。国内外で1,500名を超える認定ダイバーを育ててきました。</p>
+        <p>2020年代からAIを使った制作と教育に取り組み、AIウェビナーを50回以上開催（のべ500名以上が参加）。絵本、音楽、まんが、Webサイト、iPhoneアプリまで、自分の手でAIと作りながら、その作り方を人に教えています。神奈川県在住、6人の子どもの父。</p>
+        <div class="stats">
+          <div class="stat"><b>1997</b><span>海の仕事を始めた年</span></div>
+          <div class="stat"><b>1,500<small>名+</small></b><span>育てた認定ダイバー</span></div>
+          <div class="stat"><b>50<small>回+</small></b><span>開いたAIウェビナー</span></div>
+          <div class="stat"><b>12<small>冊</small></b><span>Kindleの著書</span></div>
         </div>
       </div>
     </div>
-  </section>
 
-  <section class="band mission">
-    <div class="shell">
-      <p class="eyebrow reveal" style="justify-content:center;">Business</p>
-      <h2 class="title reveal d1">ふたつの入口から、<br>AquaBit LAB を見る。</h2>
-      <div class="pillars">
-        <div class="pillar reveal">
-          <i>🌊</i>
-          <b>マリン事業</b>
-          <p>重力から解放された水中世界へ。体験ダイビングからライセンス取得まで。</p>
-          <a class="card-link" href="/marine" style="margin-top:18px;">
-            詳しく見る
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
-          </a>
+    <div class="split split--top mt-l">
+      <div>
+        <h3 class="h3" style="margin-bottom:22px">あゆみ</h3>
+        <ol class="timeline">
+          <li><b>1997</b><span>プロダイバーとして、海の仕事を始める</span></li>
+          <li><b>1999</b><span>PADIインストラクター</span><p>本格的にダイバーの育成に携わる。</p></li>
+          <li><b>2001</b><span>PADIコースディレクター</span><p>インストラクターを育てる立場に。</p></li>
+          <li><b>2020s</b><span>AI・デジタルの制作と教育を始める</span><p>AI絵本の出版、AIウェビナーの開催。AquaBit LAB として活動を広げる。</p></li>
+          <li><b>2026</b><span>AIで、店を回す</span><p>三浦 海の学校の発信・案内・Webを、AIで回す仕組みに。iPhoneアプリを2本公開し、個人・中小企業のAI導入サポートを本格的に始める。</p></li>
+        </ol>
+      </div>
+      <div>
+        <h3 class="h3" style="margin-bottom:22px">著書（Kindle）</h3>
+        <div class="books">
+          <a class="book" href="https://www.amazon.co.jp/dp/B0F6MT4N14" target="_blank" rel="noopener"><span class="book__cover"><img src="/images/abl/book-ai.webp" alt="" width="320" height="511" loading="lazy"></span><b>AIは、あなたの「魔法の杖」</b><small>知識ゼロ・パソコン苦手でも大丈夫なAI入門</small></a>
+          <a class="book" href="https://www.amazon.co.jp/dp/B0CW1D9Y1Y" target="_blank" rel="noopener"><span class="book__cover"><img src="/images/abl/book-zen.webp" alt="" width="320" height="320" loading="lazy"></span><b>うみがめになったぜんくんの大冒険</b><small>AI絵本。AmazonのAI絵本ランキング2位</small></a>
+          <a class="book" href="https://www.tj-web3.com/#books" target="_blank" rel="noopener"><span class="book__cover"><img src="/images/abl/book-start-diving.webp" alt="" width="300" height="468" loading="lazy"></span><b>ダイビングのはじめ方</b><small>「私にはムリ・・」から「潜りたい」へ</small></a>
+          <a class="book" href="https://www.tj-web3.com/#books" target="_blank" rel="noopener"><span class="book__cover"><img src="/images/abl/book-brank-diver.webp" alt="" width="300" height="468" loading="lazy"></span><b>ブランクダイバー復活ガイド</b><small>半年以上潜っていない人のために</small></a>
         </div>
-        <div class="pillar reveal d1">
-          <i>⚡</i>
-          <b>AI事業</b>
-          <p>LINEスタンプ、音楽、アプリ、Web制作。生成AIで制作の時間を圧縮します。</p>
-          <a class="card-link" href="/ai-service" style="margin-top:18px;">
-            詳しく見る
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-        <div class="pillar reveal d2">
-          <i>🎓</i>
-          <b>AI学習サロン</b>
-          <p>25年の教育経験をもとに、AIの基本からVibe Codingまで実践で学べる場。</p>
-          <a class="card-link" href="/ai-salon" style="margin-top:18px;">
-            詳しく見る
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
+        <p class="mt-m"><a class="textlink" href="https://www.tj-web3.com/#books" target="_blank" rel="noopener">12冊すべてを見る <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a></p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="band final">
-    <div class="shell">
-      <p class="eyebrow reveal" style="justify-content:center;">Contact</p>
-      <h2 class="title reveal d1">気になることがあれば、<br>お気軽にどうぞ。</h2>
-      <div class="reveal d2">
-        <a class="btn" href="/contact">
-          お問い合わせはこちら
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg>
-        </a>
+<section class="section" aria-labelledby="links-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">LINKS — 関連サイト</p>
+      <h2 class="h2" id="links-title">AquaBit LAB の、ほかの入口。</h2>
+    </div>
+    <div class="works">
+      <a class="work reveal" href="https://miura-diving.com/" target="_blank" rel="noopener">
+        <div class="work__media"><img src="/images/abl/work-miura-site.webp" alt="三浦 海の学校のサイト" width="960" height="600" loading="lazy"></div>
+        <div class="work__body"><p class="work__cat">MARINE</p><h3>三浦 海の学校</h3><p>体験ダイビング・ライセンス・ファンダイビングの予約と情報。</p><span class="work__more">miura-diving.com <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div>
+      </a>
+      <a class="work reveal" data-d="1" href="https://www.tj-web3.com/" target="_blank" rel="noopener">
+        <div class="work__media" style="display:grid;place-items:center;background:radial-gradient(70% 80% at 50% 30%,#0f4a63,#03121f)"><span style="font-family:var(--f-disp);font-weight:800;font-size:3.4rem;color:#e9f2f5;letter-spacing:.02em">TJ</span></div>
+        <div class="work__body"><p class="work__cat">PERSONAL</p><h3>TJ — 代表の個人サイト</h3><p>これまでの実績、登壇、著書、ウェビナーの一覧。</p><span class="work__more">tj-web3.com <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div>
+      </a>
+      <a class="work reveal" data-d="2" href="https://tj-music.com/" target="_blank" rel="noopener">
+        <div class="work__media"><img src="/images/abl/work-music-site.webp" alt="アルバム「魚歌」の特設サイト" width="960" height="600" loading="lazy"></div>
+        <div class="work__body"><p class="work__cat">MUSIC</p><h3>TJ Music</h3><p>海の生き物を歌うアルバム「魚歌」。サビから試聴できます。</p><span class="work__more">tj-music.com <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--white" aria-labelledby="info-title" id="company">
+  <div class="wrap wrap--narrow">
+    <div class="sec-head">
+      <p class="eyebrow">INFORMATION — 事業者情報</p>
+      <h2 class="h2" id="info-title">事業者情報</h2>
+    </div>
+    <dl class="dl">
+      <div><dt>屋号</dt><dd>AquaBit LAB（アクアビットラボ）</dd></div>
+      <div><dt>代表</dt><dd>吉田 哲司</dd></div>
+      <div><dt>所在地</dt><dd>神奈川県三浦市<small>※所在地の詳細は、ご請求があった場合に遅滞なく開示いたします。ダイビングの開催場所・集合場所は、ご予約時にご案内します。</small></dd></div>
+      <div><dt>事業内容</dt><dd>個人・中小企業のAI導入サポート、AI研修・ウェビナー、AI学習サロンの運営、Web・アプリ・映像の制作<br>ダイビングスクール「三浦 海の学校」の運営</dd></div>
+      <div><dt>資格</dt><dd>PADIコースディレクター</dd></div>
+      <div><dt>お問い合わせ</dt><dd><a href="/contact">お問い合わせフォーム</a> ／ <a href="mailto:info@aquabit-lab.com">info@aquabit-lab.com</a></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section section--tight" aria-labelledby="cta-title">
+  <div class="wrap">
+    <div class="cta on-dark">
+      <div class="cta__bits"><svg viewBox="0 0 600 420" aria-hidden="true" focusable="false"><ellipse cx="300" cy="300" rx="38" ry="10.6" fill="none" stroke="#3fe3e6" stroke-width="2" opacity="0.9"/><ellipse cx="300" cy="300" rx="86" ry="24.1" fill="none" stroke="#3fe3e6" stroke-width="1.6" opacity="0.6"/><ellipse cx="300" cy="300" rx="148" ry="41.4" fill="none" stroke="#3fe3e6" stroke-width="1.3" opacity="0.38"/><ellipse cx="300" cy="300" rx="222" ry="62.2" fill="none" stroke="#3fe3e6" stroke-width="1" opacity="0.22"/><ellipse cx="300" cy="300" rx="296" ry="82.9" fill="none" stroke="#3fe3e6" stroke-width="1" opacity="0.12"/><path d="M300 262c-6 12-9 20-9 27a9 9 0 0 0 18 0c0-7-3-15-9-27z" fill="#3fe3e6"/><rect x="289.9" y="240.8" width="11.9" height="11.9" rx="1.4" fill="#3fe3e6" opacity="1.00"/><rect x="295.4" y="238.0" width="10.2" height="10.2" rx="1.4" fill="#3fe3e6" opacity="0.97"/><rect x="296.0" y="232.9" width="8.2" height="8.2" rx="1.4" fill="#3fe3e6" opacity="0.95"/><rect x="286.7" y="222.8" width="8.5" height="8.5" rx="1.4" fill="#3fe3e6" opacity="0.92"/><rect x="303.5" y="216.6" width="8.7" height="8.7" rx="1.4" fill="#3fe3e6" opacity="0.89"/><rect x="296.6" y="209.9" width="13.7" height="13.7" rx="1.4" fill="#3fe3e6" opacity="0.87"/><rect x="290.0" y="200.1" width="13.9" height="13.9" rx="1.4" fill="#3fe3e6" opacity="0.84"/><rect x="307.0" y="201.3" width="9.7" height="9.7" rx="1.4" fill="#3fe3e6" opacity="0.82"/><rect x="281.3" y="194.0" width="9.9" height="9.9" rx="1.4" fill="#3fe3e6" opacity="0.79"/><rect x="281.8" y="180.3" width="11.5" height="11.5" rx="1.4" fill="#3fe3e6" opacity="0.76"/><rect x="290.5" y="177.5" width="8.3" height="8.3" rx="1.4" fill="#3fe3e6" opacity="0.74"/><rect x="277.1" y="178.1" width="6.2" height="6.2" rx="1.4" fill="#3fe3e6" opacity="0.71"/><rect x="293.1" y="165.4" width="6.9" height="6.9" rx="1.4" fill="#3fe3e6" opacity="0.68"/><rect x="294.2" y="160.1" width="6.8" height="6.8" rx="1.4" fill="#3fe3e6" opacity="0.66"/><rect x="307.5" y="152.0" width="6.5" height="6.5" rx="1.4" fill="#3fe3e6" opacity="0.63"/><rect x="296.3" y="146.1" width="10.3" height="10.3" rx="1.4" fill="#3fe3e6" opacity="0.61"/><rect x="281.8" y="138.1" width="10.9" height="10.9" rx="1.4" fill="#3fe3e6" opacity="0.58"/><rect x="290.1" y="138.6" width="9.5" height="9.5" rx="1.4" fill="#3fe3e6" opacity="0.55"/><rect x="296.7" y="134.3" width="5.2" height="5.2" rx="1.4" fill="#3fe3e6" opacity="0.53"/><rect x="314.0" y="121.3" width="8.4" height="8.4" rx="1.4" fill="#3fe3e6" opacity="0.50"/><rect x="282.0" y="112.7" width="9.2" height="9.2" rx="1.4" fill="#3fe3e6" opacity="0.47"/><rect x="302.1" y="110.0" width="7.7" height="7.7" rx="1.4" fill="#3fe3e6" opacity="0.45"/><rect x="330.8" y="101.3" width="7.8" height="7.8" rx="1.4" fill="#3fe3e6" opacity="0.42"/><rect x="259.8" y="96.2" width="9.2" height="9.2" rx="1.4" fill="#3fe3e6" opacity="0.39"/><rect x="336.5" y="89.8" width="9.9" height="9.9" rx="1.4" fill="#3fe3e6" opacity="0.37"/><rect x="285.6" y="87.6" width="9.0" height="9.0" rx="1.4" fill="#3fe3e6" opacity="0.34"/><rect x="293.5" y="85.6" width="6.0" height="6.0" rx="1.4" fill="#3fe3e6" opacity="0.32"/><rect x="254.2" y="76.6" width="9.6" height="9.6" rx="1.4" fill="#3fe3e6" opacity="0.29"/><rect x="272.1" y="71.4" width="7.3" height="7.3" rx="1.4" fill="#3fe3e6" opacity="0.26"/><rect x="254.6" y="57.6" width="7.7" height="7.7" rx="1.4" fill="#3fe3e6" opacity="0.24"/><rect x="334.1" y="53.5" width="9.9" height="9.9" rx="1.4" fill="#3fe3e6" opacity="0.21"/><rect x="273.0" y="45.4" width="7.5" height="7.5" rx="1.4" fill="#3fe3e6" opacity="0.18"/><rect x="336.1" y="42.6" width="10.7" height="10.7" rx="1.4" fill="#3fe3e6" opacity="0.18"/><rect x="260.9" y="40.7" width="6.4" height="6.4" rx="1.4" fill="#3fe3e6" opacity="0.18"/></svg></div>
+      <div>
+        <p class="eyebrow">CONTACT</p>
+        <h2 class="h2" id="cta-title">海のことも、AIのことも。<br>お気軽にどうぞ。</h2>
+        <p>AI導入のご相談、制作・研修のご依頼、取材やコラボレーションのお話も歓迎です。</p>
+      </div>
+      <div class="cta__actions">
+        <a class="btn btn--aqua btn--lg" href="/contact">お問い合わせ <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--line btn--lg" href="https://lin.ee/obePsOF" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4C7 4 3 7.2 3 11.2c0 3.5 3.1 6.4 7.3 7l-.5 2.6c-.1.4.3.7.6.5L14 18c4.3-.5 7-3.4 7-6.8C21 7.2 17 4 12 4z"/></svg> LINEで気軽に聞く</a>
+        <p class="cta__mail">メール：<a href="mailto:info@aquabit-lab.com">info@aquabit-lab.com</a></p>
       </div>
     </div>
-  </section>
-
-  <footer>
-    <div class="shell">
-      <div class="foot-grid">
-        <div class="foot-brand">
-          <a class="brand" href="/">
-            <img src="/images/logo-mark.webp" width="34" height="34" alt="AquaBit LAB ロゴ">
-            <span>AquaBit LAB</span>
-          </a>
-          <p>海の魅力とAI技術の可能性を探求する研究開発組織。マリン事業とAI事業の二軸で、新しい体験と価値をつくっています。</p>
-        </div>
-        <div>
-          <h4>Business</h4>
-          <ul>
-            <li><a href="/marine">マリン事業</a></li>
-            <li><a href="/ai-service">AI事業</a></li>
-            <li><a href="/ai-salon">AI学習サロン</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>AquaBit LAB</h4>
-          <ul>
-            <li><a href="/about">ABLとは？</a></li>
-            <li><a href="/contact">お問い合わせ</a></li>
-            <li><a href="/privacy-policy">プライバシーポリシー</a></li>
-            <li><a href="/tokushoho">特定商取引法に基づく表記</a></li>
-          </ul>
-        </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a class="brand" href="/"><img src="/images/logo-mark.webp" alt="" width="38" height="38" loading="lazy"><span><b>AquaBit LAB</b><small>SEA × AI</small></span></a>
+        <p class="footer__tag">海とAI、<br>二つの未来へ。</p>
+        <p>個人・中小企業のAI導入サポートと、神奈川・三浦のダイビングスクール「三浦 海の学校」。「自分には無理」を「できた」に変える、二つの事業のラボです。</p>
       </div>
-      <div class="foot-legal">
-        <span>&copy; 2025 AquaBit LAB. All rights reserved.</span>
-        <span>Built with three.js &amp; WebGPU</span>
+      <div class="footer__col">
+        <h2 class="footer__h">AI事業</h2>
+        <ul>
+          <li><a href="/ai-service">AI導入サポート</a></li>
+          <li><a href="/ai-service#diagnosis">3分でわかる最初の一歩</a></li>
+          <li><a href="/works">実績・取り組み</a></li>
+          <li><a href="/ai-salon/">AI学習サロン</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h2 class="footer__h">マリン事業</h2>
+        <ul>
+          <li><a href="/marine">マリン事業について</a></li>
+          <li><a href="https://miura-diving.com/" target="_blank" rel="noopener">三浦 海の学校 <small>↗</small></a></li>
+          <li><a href="https://miura-diving.com/manga/" target="_blank" rel="noopener">まんがで読むダイビング <small>↗</small></a></li>
+          <li><a href="https://miura-diving.com/bluelogbook/" target="_blank" rel="noopener">Blue Logbook <small>↗</small></a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h2 class="footer__h">AquaBit LAB</h2>
+        <ul>
+          <li><a href="/about">ABLとは・代表</a></li>
+          <li><a href="/contact">お問い合わせ</a></li>
+          <li><a href="https://lin.ee/obePsOF" target="_blank" rel="noopener">公式LINE <small>↗</small></a></li>
+          <li><a href="https://www.tj-web3.com/" target="_blank" rel="noopener">TJ（代表の個人サイト） <small>↗</small></a></li>
+          <li><a href="https://tj-music.com/" target="_blank" rel="noopener">TJ Music <small>↗</small></a></li>
+        </ul>
       </div>
     </div>
-  </footer>
-
-  <script type="module">
-    import('/js/hero.min.js?v=20260731').catch((e) => {
-      console.warn('[AquaBit] hero module failed to load', e);
-    });
-  </script>
-  <script src="/js/site.js?v=20260731" defer></script>
+    <div class="ai-ask">
+      <div>
+        <h2 class="ai-ask__h">このラボのこと、あなたのAIに聞いてみる</h2>
+        <p>ボタンを押すと、お使いのAIがこのサイトの案内（llms.txt）を読んで、あなたの仕事に合うかどうかを一緒に考えてくれます。</p>
+      </div>
+      <div class="ai-ask__links"><a href="https://chatgpt.com/?q=AquaBit%20LAB%EF%BC%88https%3A//aquabit-lab.com/%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%81%AE%E5%80%8B%E4%BA%BA%E4%BA%8B%E6%A5%AD%E3%80%82%E5%80%8B%E4%BA%BA%E3%83%BB%E4%B8%AD%E5%B0%8F%E4%BC%81%E6%A5%AD%E3%81%AEAI%E5%B0%8E%E5%85%A5%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A8AI%E5%AD%A6%E7%BF%92%E3%82%B5%E3%83%AD%E3%83%B3%E3%80%81%E3%83%80%E3%82%A4%E3%83%93%E3%83%B3%E3%82%B0%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB%E3%80%8C%E4%B8%89%E6%B5%A6%20%E6%B5%B7%E3%81%AE%E5%AD%A6%E6%A0%A1%E3%80%8D%E3%82%92%E9%81%8B%E5%96%B6%EF%BC%89%E3%81%AB%E7%9B%B8%E8%AB%87%E3%81%99%E3%82%8B%E3%81%8B%E8%BF%B7%E3%81%A3%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%80%82%E3%81%BE%E3%81%9A%20https%3A//aquabit-lab.com/llms.txt%20%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A7%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E3%81%9D%E3%81%AE%E3%81%86%E3%81%88%E3%81%A7%E3%80%81%E7%A7%81%E3%81%AE%E4%BB%95%E4%BA%8B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E5%9B%B0%E3%82%8A%E3%81%94%E3%81%A8%E3%82%92%E8%B3%AA%E5%95%8F%E3%81%97%E3%81%A6%E3%81%8B%E3%82%89%E3%80%81AI%E3%81%A7%E3%81%A7%E3%81%8D%E3%81%9D%E3%81%86%E3%81%AA%E3%81%93%E3%81%A8%E3%81%A8%E3%80%81AquaBit%20LAB%E3%81%AB%E9%A0%BC%E3%82%80%E3%81%AE%E3%81%8C%E5%90%88%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E7%8E%87%E7%9B%B4%E3%81%AB%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E6%96%99%E9%87%91%E3%82%84%E6%9D%A1%E4%BB%B6%E3%81%AF%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E6%9C%80%E6%96%B0%E6%83%85%E5%A0%B1%E3%82%92%E5%84%AA%E5%85%88%E3%81%97%E3%80%81%E4%B8%8D%E7%A2%BA%E3%81%8B%E3%81%AA%E3%81%93%E3%81%A8%E3%81%AF%E6%96%AD%E5%AE%9A%E3%81%9B%E3%81%9A%E3%80%81%E6%AD%A3%E5%BC%8F%E3%81%AA%E7%9B%B8%E8%AB%87%E3%81%AF%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%EF%BC%88https%3A//aquabit-lab.com/contact%EF%BC%89%E3%82%92%E6%A1%88%E5%86%85%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82" target="_blank" rel="noopener noreferrer">ChatGPTで聞く</a><a href="https://claude.ai/new?q=AquaBit%20LAB%EF%BC%88https%3A//aquabit-lab.com/%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%81%AE%E5%80%8B%E4%BA%BA%E4%BA%8B%E6%A5%AD%E3%80%82%E5%80%8B%E4%BA%BA%E3%83%BB%E4%B8%AD%E5%B0%8F%E4%BC%81%E6%A5%AD%E3%81%AEAI%E5%B0%8E%E5%85%A5%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A8AI%E5%AD%A6%E7%BF%92%E3%82%B5%E3%83%AD%E3%83%B3%E3%80%81%E3%83%80%E3%82%A4%E3%83%93%E3%83%B3%E3%82%B0%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB%E3%80%8C%E4%B8%89%E6%B5%A6%20%E6%B5%B7%E3%81%AE%E5%AD%A6%E6%A0%A1%E3%80%8D%E3%82%92%E9%81%8B%E5%96%B6%EF%BC%89%E3%81%AB%E7%9B%B8%E8%AB%87%E3%81%99%E3%82%8B%E3%81%8B%E8%BF%B7%E3%81%A3%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%80%82%E3%81%BE%E3%81%9A%20https%3A//aquabit-lab.com/llms.txt%20%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A7%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E3%81%9D%E3%81%AE%E3%81%86%E3%81%88%E3%81%A7%E3%80%81%E7%A7%81%E3%81%AE%E4%BB%95%E4%BA%8B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E5%9B%B0%E3%82%8A%E3%81%94%E3%81%A8%E3%82%92%E8%B3%AA%E5%95%8F%E3%81%97%E3%81%A6%E3%81%8B%E3%82%89%E3%80%81AI%E3%81%A7%E3%81%A7%E3%81%8D%E3%81%9D%E3%81%86%E3%81%AA%E3%81%93%E3%81%A8%E3%81%A8%E3%80%81AquaBit%20LAB%E3%81%AB%E9%A0%BC%E3%82%80%E3%81%AE%E3%81%8C%E5%90%88%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E7%8E%87%E7%9B%B4%E3%81%AB%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E6%96%99%E9%87%91%E3%82%84%E6%9D%A1%E4%BB%B6%E3%81%AF%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E6%9C%80%E6%96%B0%E6%83%85%E5%A0%B1%E3%82%92%E5%84%AA%E5%85%88%E3%81%97%E3%80%81%E4%B8%8D%E7%A2%BA%E3%81%8B%E3%81%AA%E3%81%93%E3%81%A8%E3%81%AF%E6%96%AD%E5%AE%9A%E3%81%9B%E3%81%9A%E3%80%81%E6%AD%A3%E5%BC%8F%E3%81%AA%E7%9B%B8%E8%AB%87%E3%81%AF%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%EF%BC%88https%3A//aquabit-lab.com/contact%EF%BC%89%E3%82%92%E6%A1%88%E5%86%85%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82" target="_blank" rel="noopener noreferrer">Claudeで聞く</a><a href="https://www.perplexity.ai/search?q=AquaBit%20LAB%EF%BC%88https%3A//aquabit-lab.com/%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%81%AE%E5%80%8B%E4%BA%BA%E4%BA%8B%E6%A5%AD%E3%80%82%E5%80%8B%E4%BA%BA%E3%83%BB%E4%B8%AD%E5%B0%8F%E4%BC%81%E6%A5%AD%E3%81%AEAI%E5%B0%8E%E5%85%A5%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A8AI%E5%AD%A6%E7%BF%92%E3%82%B5%E3%83%AD%E3%83%B3%E3%80%81%E3%83%80%E3%82%A4%E3%83%93%E3%83%B3%E3%82%B0%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB%E3%80%8C%E4%B8%89%E6%B5%A6%20%E6%B5%B7%E3%81%AE%E5%AD%A6%E6%A0%A1%E3%80%8D%E3%82%92%E9%81%8B%E5%96%B6%EF%BC%89%E3%81%AB%E7%9B%B8%E8%AB%87%E3%81%99%E3%82%8B%E3%81%8B%E8%BF%B7%E3%81%A3%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%80%82%E3%81%BE%E3%81%9A%20https%3A//aquabit-lab.com/llms.txt%20%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A7%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E3%81%9D%E3%81%AE%E3%81%86%E3%81%88%E3%81%A7%E3%80%81%E7%A7%81%E3%81%AE%E4%BB%95%E4%BA%8B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E5%9B%B0%E3%82%8A%E3%81%94%E3%81%A8%E3%82%92%E8%B3%AA%E5%95%8F%E3%81%97%E3%81%A6%E3%81%8B%E3%82%89%E3%80%81AI%E3%81%A7%E3%81%A7%E3%81%8D%E3%81%9D%E3%81%86%E3%81%AA%E3%81%93%E3%81%A8%E3%81%A8%E3%80%81AquaBit%20LAB%E3%81%AB%E9%A0%BC%E3%82%80%E3%81%AE%E3%81%8C%E5%90%88%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E7%8E%87%E7%9B%B4%E3%81%AB%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E6%96%99%E9%87%91%E3%82%84%E6%9D%A1%E4%BB%B6%E3%81%AF%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E6%9C%80%E6%96%B0%E6%83%85%E5%A0%B1%E3%82%92%E5%84%AA%E5%85%88%E3%81%97%E3%80%81%E4%B8%8D%E7%A2%BA%E3%81%8B%E3%81%AA%E3%81%93%E3%81%A8%E3%81%AF%E6%96%AD%E5%AE%9A%E3%81%9B%E3%81%9A%E3%80%81%E6%AD%A3%E5%BC%8F%E3%81%AA%E7%9B%B8%E8%AB%87%E3%81%AF%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%EF%BC%88https%3A//aquabit-lab.com/contact%EF%BC%89%E3%82%92%E6%A1%88%E5%86%85%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82" target="_blank" rel="noopener noreferrer">Perplexityで聞く</a></div>
+      <small>※回答はAIによる案内です。最新の内容と正式なご相談は、<a href="/contact">お問い合わせ</a>からどうぞ。</small>
+    </div>
+    <div class="footer__bottom">
+      <nav aria-label="規約"><a href="/privacy-policy">プライバシーポリシー</a><a href="/tokushoho">特定商取引法に基づく表記</a><a href="mailto:info@aquabit-lab.com">info@aquabit-lab.com</a></nav>
+      <p class="footer__made">© 2026 AquaBit LAB — このサイトも、AIといっしょに作っています。</p>
+    </div>
+  </div>
+</footer>
+<script src="/js/abl.js?v=20260927" defer></script>
 </body>
 </html>

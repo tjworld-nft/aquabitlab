@@ -21,7 +21,6 @@ jobs:
         local-dir: ./
         server-dir: aquabit-lab.com/public_html/
         log-level: verbose
-        dangerous-clean-slate: true
         timeout: 600000
         exclude: |
           **/.git*
@@ -29,6 +28,10 @@ jobs:
           **/node_modules/**
           **/.claude/**
           **/src/**
+          **/_dev/**
+          **/AGENTS.md
+          **/CLAUDE.md
+          **/.server.pid
           **/tools/**
           **/package.json
           **/package-lock.json
@@ -37,6 +40,8 @@ jobs:
           **/README.md
           **/README-DEV.md
           **/pamphlet-print-instructions.md
+          **/ai-salon-pamphlet.html
+          **/ai-salon/img/**
           **/.github/**
           **/htaccess-backup.txt
           **/server.py
