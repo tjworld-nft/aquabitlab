@@ -1,0 +1,100 @@
+<!--@ {
+"title": "お問い合わせ・ご相談｜AquaBit LAB",
+"description": "AquaBit LABへのお問い合わせ。AI導入のご相談、Web・アプリ・映像の制作や研修のご依頼、AI学習サロン、マリン事業（三浦 海の学校）について。フォームかLINEでお気軽にどうぞ。通常2〜3営業日以内にお返事します。",
+"path": "/contact",
+"og": "og-home.jpg",
+"nav": "contact",
+"crumbs": [["お問い合わせ", "/contact"]],
+"jsonld": [
+  {"@type": "ContactPage", "name": "お問い合わせ・ご相談", "url": "https://aquabit-lab.com/contact", "isPartOf": {"@id": "https://aquabit-lab.com/#site"}}
+]
+} @-->
+<section class="phero on-dark" aria-labelledby="page-title" style="padding-bottom:clamp(40px,6vw,72px)">
+  <div class="phero__bits">{{bits}}</div>
+  <div class="wrap">
+    <ol class="crumbs"><li><a href="/">ホーム</a></li><li aria-current="page">お問い合わせ</li></ol>
+    <p class="eyebrow">CONTACT — お問い合わせ・ご相談</p>
+    <h1 class="h1" id="page-title">困っていることを、<br>1つだけ教えてください。</h1>
+    <p class="lead">まとまっていなくて大丈夫です。AI導入のご相談、制作・研修のご依頼、AI学習サロン、マリン事業のことまで。通常2〜3営業日以内にお返事します。</p>
+  </div>
+</section>
+
+<section class="section section--tight" aria-labelledby="form-title">
+  <div class="wrap">
+    <div class="contact-grid">
+      <form class="form" action="/send-mail.php" method="post" data-contact novalidate>
+        <h2 class="sr-only" id="form-title">お問い合わせフォーム</h2>
+        <fieldset class="field" style="border:0;margin:0;padding:0">
+          <legend class="label" style="font-weight:700;margin-bottom:10px;display:flex;gap:10px;align-items:center">ご相談の種類 <span class="req">必須</span></legend>
+          <div class="topics opts">
+            <label class="opt"><input type="radio" name="topic" value="ai" checked><span>AI導入の相談</span></label>
+            <label class="opt"><input type="radio" name="topic" value="build"><span>制作のご依頼（Web・アプリ・映像など）</span></label>
+            <label class="opt"><input type="radio" name="topic" value="training"><span>研修・講演・ウェビナーのご依頼</span></label>
+            <label class="opt"><input type="radio" name="topic" value="salon"><span>AI学習サロンについて</span></label>
+            <label class="opt"><input type="radio" name="topic" value="marine"><span>マリン事業（ダイビング）</span></label>
+            <label class="opt"><input type="radio" name="topic" value="other"><span>その他・取材・コラボ</span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="f-name">お名前 <span class="req">必須</span></label>
+          <input class="input" id="f-name" name="name" type="text" autocomplete="name" maxlength="100" required aria-describedby="e-name">
+          <p class="field__err" id="e-name" data-err-for="name" hidden></p>
+        </div>
+        <div class="field">
+          <label for="f-company">会社名・屋号 <span class="opt-tag">任意</span></label>
+          <input class="input" id="f-company" name="company" type="text" autocomplete="organization" maxlength="120">
+        </div>
+        <div class="field">
+          <label for="f-email">メールアドレス <span class="req">必須</span></label>
+          <input class="input" id="f-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="200" required aria-describedby="e-email">
+          <p class="field__err" id="e-email" data-err-for="email" hidden></p>
+        </div>
+        <div class="field">
+          <label for="f-phone">電話番号 <span class="opt-tag">任意</span></label>
+          <input class="input" id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="40">
+        </div>
+        <div class="field">
+          <label for="f-message">ご相談内容 <span class="req">必須</span></label>
+          <textarea class="textarea" id="f-message" name="message" maxlength="5000" required aria-describedby="h-message e-message"></textarea>
+          <p class="field__hint" id="h-message">例：「飲食店を2人でやっています。Instagramの更新が続かず、AIで楽にできないか相談したいです。」<br>お客さまの個人情報など、ここに書かなくてよい情報は書かないでください。</p>
+          <p class="field__err" id="e-message" data-err-for="message" hidden></p>
+        </div>
+        <div class="hp" aria-hidden="true"><label>この欄は空のままにしてください<input type="text" name="abl_hp" tabindex="-1" autocomplete="off"></label></div>
+        <input type="hidden" name="ts" value="" data-ts>
+        <div class="field">
+          <label class="consent"><input type="checkbox" name="agree" value="1" required><span><a href="/privacy-policy" target="_blank" rel="noopener">プライバシーポリシー</a>に同意して送信します。</span></label>
+          <p class="field__err" data-err-for="agree" hidden></p>
+        </div>
+        <div class="form__status" data-status role="status" tabindex="-1" hidden></div>
+        <div><button class="btn btn--lg" type="submit">送信する {{arr}}</button></div>
+      </form>
+
+      <aside>
+        <div class="aside-card">
+          <h3>{{icon:line}} LINEで気軽に</h3>
+          <p>ちょっとした質問なら、公式LINEがいちばん早くお返事できます。</p>
+          <p class="note mt-s">※「三浦 海の学校」と共通のアカウントです。友だち追加すると、ダイビングのお知らせも届きます。</p>
+          <div style="display:flex;gap:16px;align-items:center;margin-top:16px">
+            <img src="/images/abl/line-qr.webp" alt="公式LINEの友だち追加QRコード" width="124" height="124" loading="lazy" style="border-radius:10px;border:1px solid var(--line)">
+            <a class="btn btn--line btn--sm" href="{{line}}" target="_blank" rel="noopener">友だち追加</a>
+          </div>
+        </div>
+        <div class="aside-card">
+          <h3>{{icon:mail}} メールでも</h3>
+          <p><a href="mailto:{{mail}}" style="font-weight:700;color:var(--aqua-ink)">{{mail}}</a></p>
+          <p class="note mt-s">通常2〜3営業日以内にお返事します。数日たっても返事がない場合は、迷惑メールフォルダもご確認ください。</p>
+        </div>
+        <div class="aside-card">
+          <h3>{{icon:check}} 書いておくと早いこと</h3>
+          <ul class="checks" style="margin-top:8px;font-size:.9rem">
+            <li>お仕事の内容と、何人で回しているか</li>
+            <li>いちばん困っていること</li>
+            <li>いま使っているツール（あれば）</li>
+            <li>いつ頃までに・ご予算の目安（あれば）</li>
+          </ul>
+          <p class="note mt-s">迷ったら、<a href="/ai-service#diagnosis" style="color:var(--aqua-ink);font-weight:700">3分診断</a>の結果をそのまま送ってください。</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

@@ -1,1630 +1,284 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI学習サロン｜ゼロから最先端AIまで最短習得｜月額9,800円</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="../favicon.png">
-    <link rel="shortcut icon" href="../favicon.png">
-    <link rel="apple-touch-icon" href="../favicon.png">
-    
-    <!-- ★★★ セキュリティ強化 CSP Header -->
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;
-        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-        font-src https://fonts.gstatic.com;
-        img-src 'self' data: https:;
-    ">
-    <meta name="description" content="25年の教育経験を持つティージェーが直接指導。AIの基本からVibe Codingまで、実践重視で学習。LINEスタンプ・音楽・アプリ制作など、あなたのアイデアを形に。月額9,800円・Discord質問サポート付き。">
-    <!-- ★★★ デプロイ確認用タイムスタンプ: 2025-08-01 15:30 JST -->
-    
-    <link rel="canonical" href="https://aquabit-lab.com/ai-salon/">
-    <meta name="theme-color" content="#04070d">
-
-    <!-- OGP -->
-    <meta property="og:locale" content="ja_JP">
-    <meta property="og:image:width" content="1536">
-    <meta property="og:image:height" content="1024">
-    <meta property="og:title" content="AI学習サロン｜ゼロから最先端AIまで最短習得｜AquaBit LAB">
-    <meta property="og:description" content="25年の教育経験を持つティージェーが直接指導。AIの基本からVibe Codingまで、実践重視で学習。LINEスタンプ・音楽・アプリ制作など、あなたのアイデアを形に。月額9,800円・Discord質問サポート付き。">
-    <meta property="og:image" content="https://aquabit-lab.com/ai-salon/img/ai-ogp.png">
-    <meta property="og:url" content="https://aquabit-lab.com/ai-salon/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="AquaBit LAB">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AI学習サロン｜ゼロから最先端AIまで最短習得｜AquaBit LAB">
-    <meta name="twitter:description" content="25年の教育経験を持つティージェーが直接指導。AIの基本からVibe Codingまで、実践重視で学習。LINEスタンプ・音楽・アプリ制作など、あなたのアイデアを形に。月額9,800円・Discord質問サポート付き。">
-    <meta name="twitter:image" content="https://aquabit-lab.com/ai-salon/img/ai-ogp.png">
-    
-    <!-- ★★★ 削除済み: Stripe Buy Button Script (Payment Link使用のため不要) -->
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-    <!-- Tailwind CSS - Production Ready -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
-                        'mono': ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        'primary': '#ffffff',
-                        'secondary': '#f8fafc',
-                        'accent': '#2563eb',
-                        'accent-light': '#3b82f6',
-                        'success': '#059669',
-                        'warning': '#d97706',
-                    },
-                    animation: {
-                        'fadeInUp': 'fadeInUp 0.8s ease-out forwards',
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <style>
-        /* Custom CSS - Creator Style */
-        :root {
-            --primary: #ffffff;
-            --secondary: #f8fafc;
-            --accent: #2563eb;
-            --accent-light: #3b82f6;
-            --accent-warm: #4f46e5;
-            --success: #059669;
-            --text-primary: #1a1a2e;
-            --text-secondary: #64748b;
-            --text-muted: #94a3b8;
-            --border-soft: #e2e8f0;
-            --card-bg: #ffffff;
-            --bg-navy: #0f172a;
-        }
-
-        body {
-            background: var(--primary);
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(24px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Hero Background - Modern Professional */
-        .hero-bg {
-            background: linear-gradient(160deg, rgba(15,23,42,0.8) 0%, rgba(30,64,175,0.7) 50%, rgba(79,70,229,0.6) 100%),
-                        linear-gradient(160deg, #0f172a 0%, #1e3a5f 50%, #2d1b69 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-bg::before {
-            display: none;
-        }
-
-        .hero-bg::after {
-            display: none;
-        }
-
-        /* Clean card style */
-        .glass {
-            background: var(--card-bg);
-            border: 1px solid var(--border-soft);
-            border-radius: 16px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .glass::before {
-            display: none;
-        }
-
-        .glass:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-            border-color: #d0cdc4;
-        }
-
-        /* Gradient text - warm tones */
-        .gradient-text {
-            background: linear-gradient(135deg, #2563eb 0%, #6366f1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Button styles */
-        .btn-primary {
-            background: var(--accent);
-            border: none;
-            border-radius: 12px;
-            color: white;
-            font-weight: 600;
-            padding: 16px 32px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
-        }
-
-        /* Section styles */
-        .section-dark {
-            background: linear-gradient(160deg, #0f172a 0%, #1e293b 100%);
-            color: #f1f5f9;
-        }
-
-        .section-pattern {
-            background: var(--secondary);
-        }
-
-        /* Hide initially for animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(24px);
-        }
-
-        .fade-in.visible {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        /* Timeline */
-        .timeline-item {
-            position: relative;
-            padding-left: 60px;
-        }
-
-        .timeline-number {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 48px;
-            height: 48px;
-            background: var(--accent);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: white;
-            font-size: 18px;
-        }
-
-        /* Feature icons */
-        .feature-icon {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-warm) 100%);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            transition: all 0.3s ease;
-        }
-
-        .feature-icon:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
-        }
-
-        /* Pricing card */
-        .pricing-card {
-            background: var(--card-bg);
-            border: 2px solid var(--border-soft);
-            border-radius: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pricing-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-warm));
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI学習サロン｜月額9,800円・Discordで質問できる｜AquaBit LAB</title>
+<meta name="description" content="画像生成・音楽制作・Vibe Codingまで、手を動かして「できる」を積み上げるAI学習サロン。PADIコースディレクターとして1,500名以上を育て、AIウェビナーを50回以上開いてきたTJ（吉田哲司）が、Discordで質問に答えます。月額9,800円（税込）・最低利用期間なし・いつでも解約できます。">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://aquabit-lab.com/ai-salon/">
+<meta name="theme-color" content="#03121f">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AquaBit LAB">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="AIを“使う”から“創る”へ。— AI学習サロン｜AquaBit LAB">
+<meta property="og:description" content="画像生成・音楽制作・Vibe Codingまで、手を動かして「できる」を積み上げるAI学習サロン。PADIコースディレクターとして1,500名以上を育て、AIウェビナーを50回以上開いてきたTJ（吉田哲司）が、Discordで質問に答えます。月額9,800円（税込）・最低利用期間なし・いつでも解約できます。">
+<meta property="og:url" content="https://aquabit-lab.com/ai-salon/">
+<meta property="og:image" content="https://aquabit-lab.com/images/abl/og-salon.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@500;700;800&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="/css/abl.css?v=20260927">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","name":"AI学習サロン","serviceType":"オンラインのAI学習コミュニティ","url":"https://aquabit-lab.com/ai-salon/","provider":{"@type":"Organization","@id":"https://aquabit-lab.com/#org","name":"AquaBit LAB"},"offers":{"@type":"Offer","price":"9800","priceCurrency":"JPY","url":"https://buy.stripe.com/28EeVdfpzbkGeFu6QX18c00","priceSpecification":{"@type":"UnitPriceSpecification","price":"9800","priceCurrency":"JPY","billingDuration":"P1M","unitText":"月額（税込）"}}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"完全な初心者でも大丈夫ですか？","acceptedAnswer":{"@type":"Answer","text":"はい。AIの基礎知識がない方でも進められるよう、段階的に学べる内容を用意しています。わからないところはDiscordで質問できます。"}},{"@type":"Question","name":"どのくらいの時間が必要ですか？","acceptedAnswer":{"@type":"Answer","text":"1日30分〜1時間ほどを想定していますが、自分のペースで進められます。週末にまとめて学ぶこともできます。"}},{"@type":"Question","name":"退会はいつでもできますか？","acceptedAnswer":{"@type":"Answer","text":"はい、いつでも退会できます。最低利用期間の縛りはありません。"}},{"@type":"Question","name":"質問の回答はどのくらいで返ってきますか？","acceptedAnswer":{"@type":"Answer","text":"できる限り早くお答えしますが、内容や時間帯によって数時間〜1日ほどいただく場合があります。サポートは平日夜・土日が中心です。"}},{"@type":"Question","name":"プログラミングの知識は必要ですか？","acceptedAnswer":{"@type":"Answer","text":"基本的には不要です。AIツールの使い方から始め、必要に応じて簡単なプログラミングも学べます。"}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://aquabit-lab.com/"},{"@type":"ListItem","position":2,"name":"AI学習サロン","item":"https://aquabit-lab.com/ai-salon/"}]}]}</script>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <a href="/" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
-                    <img src="https://aquabit-lab.com/images/aquabit-lab-logo.png" alt="AquaBit LAB" class="h-8 w-auto">
-                    <span class="text-gray-800 font-semibold text-lg">AquaBit LAB</span>
-                </a>
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="/marine" class="text-gray-500 hover:text-blue-600 transition-colors text-sm tracking-wide">マリン事業</a>
-                    <a href="/ai-service" class="text-gray-500 hover:text-blue-600 transition-colors text-sm tracking-wide">AI事業</a>
-                    <a href="/about" class="text-gray-500 hover:text-blue-600 transition-colors text-sm tracking-wide">ABLとは？</a>
-                    <a href="/contact" class="text-gray-500 hover:text-blue-600 transition-colors text-sm tracking-wide">お問い合わせ</a>
-                </div>
-                
-                <!-- Mobile menu button -->
-                <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white/97 backdrop-blur-sm border-t border-slate-200">
-            <div class="container mx-auto px-6 py-4 space-y-4">
-                <a href="/marine" class="block text-gray-600 hover:text-blue-600 transition-colors text-sm tracking-wide">マリン事業</a>
-                <a href="/ai-service" class="block text-gray-600 hover:text-blue-600 transition-colors text-sm tracking-wide">AI事業</a>
-                <a href="/about" class="block text-gray-600 hover:text-blue-600 transition-colors text-sm tracking-wide">ABLとは？</a>
-                <a href="/contact" class="block text-gray-600 hover:text-blue-600 transition-colors text-sm tracking-wide">お問い合わせ</a>
-            </div>
-        </div>
+<body class="">
+<a class="skip" href="#main">本文へ移動</a>
+<header class="site-header" data-header>
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="AquaBit LAB ホーム">
+      <img src="/images/logo-mark.webp" alt="" width="38" height="38">
+      <span><b>AquaBit LAB</b><small>SEA × AI</small></span>
+    </a>
+    <nav class="gnav" aria-label="メインメニュー">
+      <a href="/ai-service">AI導入サポート</a><a href="/works">実績・取り組み</a><a href="/ai-salon/" aria-current="page">AI学習サロン</a><a href="/marine">マリン事業</a><a href="/about">ABLとは</a>
+      <a class="btn btn--sm" href="/contact?topic=ai">相談する</a>
     </nav>
+    <button class="menu-btn" type="button" aria-controls="mnav" aria-expanded="false" aria-label="メニューを開く" data-menu><span></span></button>
+  </div>
+</header>
+<div class="mnav" id="mnav" data-mnav hidden>
+  <a class="mnav__link" href="/">ホーム<small>HOME</small></a>
+  <a class="mnav__link" href="/ai-service">AI導入サポート<small>AI ADOPTION</small></a><a class="mnav__link" href="/works">実績・取り組み<small>WORKS</small></a><a class="mnav__link" href="/ai-salon/" aria-current="page">AI学習サロン<small>SALON</small></a><a class="mnav__link" href="/marine">マリン事業<small>MARINE</small></a><a class="mnav__link" href="/about">ABLとは<small>ABOUT</small></a>
+  <a class="mnav__link" href="/contact">お問い合わせ<small>CONTACT</small></a>
+  <div class="btn-row">
+    <a class="btn btn--aqua btn--lg" href="/contact?topic=ai">AI導入の相談をする <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+    <a class="btn btn--line btn--lg" href="https://lin.ee/obePsOF" target="_blank" rel="noopener">LINEで聞く</a>
+  </div>
+</div>
+<main id="main">
+<section class="phero on-dark" aria-labelledby="page-title">
+  <div class="phero__bits"><svg viewBox="0 0 600 420" aria-hidden="true" focusable="false"><ellipse cx="300" cy="300" rx="38" ry="10.6" fill="none" stroke="#3fe3e6" stroke-width="2" opacity="0.9"/><ellipse cx="300" cy="300" rx="86" ry="24.1" fill="none" stroke="#3fe3e6" stroke-width="1.6" opacity="0.6"/><ellipse cx="300" cy="300" rx="148" ry="41.4" fill="none" stroke="#3fe3e6" stroke-width="1.3" opacity="0.38"/><ellipse cx="300" cy="300" rx="222" ry="62.2" fill="none" stroke="#3fe3e6" stroke-width="1" opacity="0.22"/><ellipse cx="300" cy="300" rx="296" ry="82.9" fill="none" stroke="#3fe3e6" stroke-width="1" opacity="0.12"/><path d="M300 262c-6 12-9 20-9 27a9 9 0 0 0 18 0c0-7-3-15-9-27z" fill="#3fe3e6"/><rect x="289.9" y="240.8" width="11.9" height="11.9" rx="1.4" fill="#3fe3e6" opacity="1.00"/><rect x="295.4" y="238.0" width="10.2" height="10.2" rx="1.4" fill="#3fe3e6" opacity="0.97"/><rect x="296.0" y="232.9" width="8.2" height="8.2" rx="1.4" fill="#3fe3e6" opacity="0.95"/><rect x="286.7" y="222.8" width="8.5" height="8.5" rx="1.4" fill="#3fe3e6" opacity="0.92"/><rect x="303.5" y="216.6" width="8.7" height="8.7" rx="1.4" fill="#3fe3e6" opacity="0.89"/><rect x="296.6" y="209.9" width="13.7" height="13.7" rx="1.4" fill="#3fe3e6" opacity="0.87"/><rect x="290.0" y="200.1" width="13.9" height="13.9" rx="1.4" fill="#3fe3e6" opacity="0.84"/><rect x="307.0" y="201.3" width="9.7" height="9.7" rx="1.4" fill="#3fe3e6" opacity="0.82"/><rect x="281.3" y="194.0" width="9.9" height="9.9" rx="1.4" fill="#3fe3e6" opacity="0.79"/><rect x="281.8" y="180.3" width="11.5" height="11.5" rx="1.4" fill="#3fe3e6" opacity="0.76"/><rect x="290.5" y="177.5" width="8.3" height="8.3" rx="1.4" fill="#3fe3e6" opacity="0.74"/><rect x="277.1" y="178.1" width="6.2" height="6.2" rx="1.4" fill="#3fe3e6" opacity="0.71"/><rect x="293.1" y="165.4" width="6.9" height="6.9" rx="1.4" fill="#3fe3e6" opacity="0.68"/><rect x="294.2" y="160.1" width="6.8" height="6.8" rx="1.4" fill="#3fe3e6" opacity="0.66"/><rect x="307.5" y="152.0" width="6.5" height="6.5" rx="1.4" fill="#3fe3e6" opacity="0.63"/><rect x="296.3" y="146.1" width="10.3" height="10.3" rx="1.4" fill="#3fe3e6" opacity="0.61"/><rect x="281.8" y="138.1" width="10.9" height="10.9" rx="1.4" fill="#3fe3e6" opacity="0.58"/><rect x="290.1" y="138.6" width="9.5" height="9.5" rx="1.4" fill="#3fe3e6" opacity="0.55"/><rect x="296.7" y="134.3" width="5.2" height="5.2" rx="1.4" fill="#3fe3e6" opacity="0.53"/><rect x="314.0" y="121.3" width="8.4" height="8.4" rx="1.4" fill="#3fe3e6" opacity="0.50"/><rect x="282.0" y="112.7" width="9.2" height="9.2" rx="1.4" fill="#3fe3e6" opacity="0.47"/><rect x="302.1" y="110.0" width="7.7" height="7.7" rx="1.4" fill="#3fe3e6" opacity="0.45"/><rect x="330.8" y="101.3" width="7.8" height="7.8" rx="1.4" fill="#3fe3e6" opacity="0.42"/><rect x="259.8" y="96.2" width="9.2" height="9.2" rx="1.4" fill="#3fe3e6" opacity="0.39"/><rect x="336.5" y="89.8" width="9.9" height="9.9" rx="1.4" fill="#3fe3e6" opacity="0.37"/><rect x="285.6" y="87.6" width="9.0" height="9.0" rx="1.4" fill="#3fe3e6" opacity="0.34"/><rect x="293.5" y="85.6" width="6.0" height="6.0" rx="1.4" fill="#3fe3e6" opacity="0.32"/><rect x="254.2" y="76.6" width="9.6" height="9.6" rx="1.4" fill="#3fe3e6" opacity="0.29"/><rect x="272.1" y="71.4" width="7.3" height="7.3" rx="1.4" fill="#3fe3e6" opacity="0.26"/><rect x="254.6" y="57.6" width="7.7" height="7.7" rx="1.4" fill="#3fe3e6" opacity="0.24"/><rect x="334.1" y="53.5" width="9.9" height="9.9" rx="1.4" fill="#3fe3e6" opacity="0.21"/><rect x="273.0" y="45.4" width="7.5" height="7.5" rx="1.4" fill="#3fe3e6" opacity="0.18"/><rect x="336.1" y="42.6" width="10.7" height="10.7" rx="1.4" fill="#3fe3e6" opacity="0.18"/><rect x="260.9" y="40.7" width="6.4" height="6.4" rx="1.4" fill="#3fe3e6" opacity="0.18"/></svg></div>
+  <div class="wrap">
+    <ol class="crumbs"><li><a href="/">ホーム</a></li><li aria-current="page">AI学習サロン</li></ol>
+    <p class="eyebrow">AI LEARNING SALON — 月額9,800円（税込）</p>
+    <h1 class="h1" id="page-title">AIを“使う”から、<br>“創る”へ。</h1>
+    <p class="lead">「知ってる」と「できる」は、まったく違う。画像・音楽・Webサイト・アプリまで、実際に手を動かして“できた”を積み上げる、実践型のAI学習サロンです。わからないことは、Discordでいつでも質問できます。</p>
+    <div class="btn-row">
+      <a class="btn btn--aqua btn--lg" href="https://buy.stripe.com/28EeVdfpzbkGeFu6QX18c00" target="_blank" rel="noopener">サロンに参加する <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a class="btn btn--ghost btn--lg" href="#price">料金と内容を見る</a>
+    </div>
+    <p class="hero__note"><span>最低利用期間なし</span><span>いつでも解約できる</span><span>Stripeの安全な決済</span></p>
+  </div>
+</section>
 
-    <!-- Hero Section -->
-    <section class="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div class="container mx-auto px-6 text-center relative z-10 max-w-6xl pt-20">
-            <!-- Main Title -->
-            <div class="mb-8">
-                <h1 class="text-5xl md:text-8xl font-bold mb-6 fade-in leading-tight">
-                    <span class="text-white block mb-2">「知ってる」と「できる」</span>
-                    <div class="text-4xl md:text-6xl text-blue-200 mt-2">は、まったく違う</div>
-                </h1>
-            </div>
+<section class="section" aria-labelledby="myth-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">MYTH — よくある勘違い</p>
+      <h2 class="h2" id="myth-title">AI学習の、<br>3つのよくある勘違い。</h2>
+    </div>
+    <div class="principles">
+      <div class="principle reveal"><span class="principle__no">01</span><div><h3>「理論を学べば、使えるようになる」</h3><p>動画や記事で情報を集めても、手を動かさなければ「できる」にはなりません。このサロンは、作って確かめることが中心です。</p></div></div>
+      <div class="principle reveal" data-d="1"><span class="principle__no">02</span><div><h3>「1つのAIをマスターすれば十分」</h3><p>文章・画像・音楽・コード。用途に合わせて複数のAIを使い分けると、できることが一気に広がります。</p></div></div>
+      <div class="principle reveal"><span class="principle__no">03</span><div><h3>「最新のAIを追いかければいい」</h3><p>新しいツールを追うだけでは、身につきません。基本の頼み方と組み合わせ方を覚えれば、新しいAIにもすぐなじめます。</p></div></div>
+      <div class="principle reveal" data-d="1"><span class="principle__no">04</span><div><h3>だから、「作る」ことから。</h3><p>自分の作品・自分の仕事の道具を1つ完成させる。その繰り返しで、AIが自分のものになります。</p></div></div>
+    </div>
+  </div>
+</section>
 
-            <!-- Subtitle -->
-            <div class="mb-12 fade-in" style="animation-delay: 0.2s;">
-                <p class="text-xl md:text-3xl mb-6 text-blue-100 max-w-5xl mx-auto leading-relaxed">
-                    <span class="text-white font-bold text-2xl md:text-4xl block mb-4">AIを使って、アイデアを形にする力を身につける</span>
-                    <span class="text-blue-200">画像生成・音楽制作・Vibe Codingまで</span><br>
-                    <span class="text-white/90 font-semibold text-xl md:text-2xl">実践で「できる」を積み上げるAI学習サロン</span>
-                </p>
+<section class="section section--white" aria-labelledby="who-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">FOR YOU — こんな方に</p>
+      <h2 class="h2" id="who-title">一つでも当てはまれば、<br>ちょうどいい場所です。</h2>
+    </div>
+    <div class="uses">
+      <div class="use reveal"><svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.4 2.4c-.6.3-1 .8-1 1.5v.6M12 17h.01"/></svg><h3>何から始めればいいかわからない</h3><p>ChatGPTは使ったことがあるけれど、ほかのAIは知らない。何ができるのか具体的にイメージできない。</p></div>
+      <div class="use reveal" data-d="1"><svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6.5a4 4 0 0 0-5.3 5.3L4 17l3 3 5.2-5.2a4 4 0 0 0 5.3-5.3l-2.4 2.4-2.6-.6-.6-2.6z"/></svg><h3>仕事にAIを活かしたい</h3><p>会社でAI活用を求められている。副業や起業に使いたい。業務を楽にしたいが、どのツールを選べばいいかわからない。</p></div>
+      <div class="use reveal" data-d="2"><svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8.5" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><circle cx="17" cy="9.5" r="2.4"/><path d="M16 14.2c2.3.2 3.9 1.8 4.5 4.3"/></svg><h3>独学だと続かない</h3><p>質問できる相手がほしい。高額なスクールには通えないけれど、しっかり学びたい。自分のペースで進めたい。</p></div>
+      <div class="use reveal"><svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/></svg><h3>創作・趣味に使いたい</h3><p>絵が描けなくてもイラストを、楽器ができなくても曲を、プログラミングできなくてもアプリを作ってみたい。</p></div>
+      <div class="use reveal" data-d="1"><svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-4.5L21 9l-9 4.5z"/><path d="M7 11v4.5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V11"/><path d="M21 9v5"/></svg><h3>時代の変化についていきたい</h3><p>AIを不安に思うより、味方にしたい。新しいスキルを身につけて、できることを増やしたい。</p></div>
+      <div class="use reveal" data-d="2"><svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 4l5 5L9 20H4v-5z"/><path d="M13 6l5 5"/></svg><h3>自分の発信にAIを使いたい</h3><p>SNSやブログ、画像や短い動画。毎日の発信を、AIといっしょに楽に続けられるようになりたい。</p></div>
+    </div>
+  </div>
+</section>
 
-                <!-- Achievement Stats -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-8">
-                    <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-4 rounded-xl">
-                        <div class="text-2xl md:text-3xl font-bold text-white">25年+</div>
-                        <div class="text-sm text-blue-200">教育経験</div>
-                    </div>
-                    <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-4 rounded-xl">
-                        <div class="text-2xl md:text-3xl font-bold text-white">1,500+</div>
-                        <div class="text-sm text-blue-200">指導実績</div>
-                    </div>
-                    <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-4 rounded-xl">
-                        <div class="text-2xl md:text-3xl font-bold text-white">500+</div>
-                        <div class="text-sm text-blue-200">ウェビナー参加者</div>
-                    </div>
-                    <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-4 rounded-xl">
-                        <div class="text-2xl md:text-3xl font-bold text-white">24/7</div>
-                        <div class="text-sm text-blue-200">サポート対応</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Pricing Card -->
-            <div class="mb-12 fade-in bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-10 max-w-lg mx-auto relative" style="animation-delay: 0.4s;">
+<section class="section" aria-labelledby="step-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">STEPS — 学び方</p>
+      <h2 class="h2" id="step-title">実践で身につける、<br>4つのステップ。</h2>
+    </div>
+    <ol class="steps steps--4">
+      <li class="step reveal"><span class="step__no">STEP 01</span><h3>基本のAIを、実際に使う</h3><p>ChatGPT・Claudeなどで文章を作り、自分で頼み方（プロンプト）を書いて、「こんなことができるんだ」を体験します。</p></li>
+      <li class="step reveal" data-d="1"><span class="step__no">STEP 02</span><h3>用途ごとに使い分ける</h3><p>画像生成AIでLINEスタンプを、音楽生成AIでオリジナル曲を。それぞれのAIの得意分野を、作りながら覚えます。</p></li>
+      <li class="step reveal" data-d="2"><span class="step__no">STEP 03</span><h3>組み合わせて完成させる</h3><p>文章→画像→動画のように、複数のAIをつないで1つの作品を最後まで仕上げます。</p></li>
+      <li class="step reveal" data-d="3"><span class="step__no">STEP 04</span><h3>自分のアイデアを形に</h3><p>身につけたことで、自分の仕事や趣味のプロジェクトを実現。続けてAIを使える状態へ。</p></li>
+    </ol>
+  </div>
+</section>
 
-                <div class="text-lg text-blue-200 mb-2">月額料金</div>
-                <div class="text-6xl md:text-7xl font-bold text-white mb-4">¥9,800</div>
-                <div class="text-xl text-blue-200 mb-6">（税込）</div>
+<section class="section section--dark grid-bg" aria-labelledby="make-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">WHAT YOU CAN MAKE — 作れるもの</p>
+      <h2 class="h2" id="make-title">講師が実際に作ったものが、<br>そのまま教材です。</h2>
+      <p class="lead">どれも講師がAIといっしょに作り、公開・販売しているものです。</p>
+    </div>
+    <div class="works">
+      <a class="work reveal" href="https://store.line.me/stickershop/author/4627048/ja" target="_blank" rel="noopener"><div class="work__body"><p class="work__cat">LINE STICKERS</p><h3>LINEスタンプ</h3><p>画像生成AIでキャラクターを描き、LINEスタンプとして販売。</p><span class="work__more">LINE STORE <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div></a>
+      <a class="work reveal" data-d="1" href="https://www.amazon.co.jp/dp/B0CW1D9Y1Y" target="_blank" rel="noopener"><div class="work__body"><p class="work__cat">KINDLE</p><h3>AI絵本・Kindle本</h3><p>AIで文章と絵を作り、Amazonで出版。『うみがめになったぜんくんの大冒険』はAmazonのAI絵本ランキング2位に。</p><span class="work__more">Amazonで見る <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div></a>
+      <a class="work reveal" data-d="2" href="https://tj-music.com/" target="_blank" rel="noopener"><div class="work__body"><p class="work__cat">MUSIC</p><h3>オリジナル音楽</h3><p>AIの音楽制作ツールで作ったアルバム「魚歌」（全19曲）を配信中。</p><span class="work__more">試聴する <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div></a>
+      <a class="work reveal" href="https://miura-diving.com/" target="_blank" rel="noopener"><div class="work__body"><p class="work__cat">WEB</p><h3>ホームページ・LP</h3><p>Vibe Codingで、コードを書かずにサイトを。三浦 海の学校のサイトもAIといっしょに作っています。</p><span class="work__more">サイトを見る <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div></a>
+      <a class="work reveal" data-d="1" href="/works#apps"><div class="work__body"><p class="work__cat">APPS</p><h3>iPhoneアプリ</h3><p>ダイビングのログブック「Blue Logbook」と、旅先の食事処探し「いまメシ」をApp Storeで公開。</p><span class="work__more">アプリを見る <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></div></a>
+      <a class="work reveal" data-d="2" href="https://miura-diving.com/manga/" target="_blank" rel="noopener"><div class="work__body"><p class="work__cat">MANGA</p><h3>解説まんが・短い動画</h3><p>よくある質問を1話ずつまんがに。22話と動画版を、AIといっしょに作って公開中。</p><span class="work__more">読んでみる <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div></a>
+    </div>
+  </div>
+</section>
 
-                <div class="grid grid-cols-2 gap-4 text-sm text-blue-100 mb-6">
-                    <div class="flex items-center">
-                        <span class="text-blue-300 font-bold mr-2">✓</span>
-                        いつでも解約可能
-                    </div>
-                    <div class="flex items-center">
-                        <span class="text-blue-300 font-bold mr-2">✓</span>
-                        最低利用期間なし
-                    </div>
-                    <div class="flex items-center">
-                        <span class="text-blue-300 font-bold mr-2">✓</span>
-                        Discord質問サポート
-                    </div>
-                    <div class="flex items-center">
-                        <span class="text-blue-300 font-bold mr-2">✓</span>
-                        全カリキュラム利用
-                    </div>
-                </div>
-
-                <div class="text-xs text-blue-200/70">
-                    質の高い学習環境を提供するため、人数に限りがあります
-                </div>
-            </div>
-            
-            <!-- CTA Button -->
-            <div class="text-center mb-8">
-                <a href="https://buy.stripe.com/28EeVdfpzbkGeFu6QX18c00"
-                   target="_blank"
-                   class="inline-block bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-bold py-6 px-12 rounded-2xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-blue-500/25 text-xl md:text-2xl">
-                    今すぐAI学習を始める
-                </a>
-
-                <div class="mt-6 flex flex-col md:flex-row items-center justify-center gap-4 text-sm text-blue-200">
-                    <div class="flex items-center">
-                        <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                        </svg>
-                        安全なStripe決済
-                    </div>
-                    <div class="flex items-center">
-                        <svg class="w-5 h-5 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
-                        </svg>
-                        いつでも解約可能
-                    </div>
-                    <div class="flex items-center">
-                        <svg class="w-5 h-5 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
-                        </svg>
-                        質問サポート充実
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Success Stories Teaser -->
-            <div class="text-center fade-in" style="animation-delay: 0.8s;">
-                <p class="text-lg text-blue-200 mb-4">
-                    <span class="text-white font-semibold">実際の受講生の声</span>
-                </p>
-                <div class="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto text-sm">
-                    <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-4 rounded-lg">
-                        <div class="text-amber-400 mb-2">⭐⭐⭐⭐⭐</div>
-                        <p class="text-white">"AIで初めてLINEスタンプを作って販売できました！"</p>
-                        <p class="text-blue-200 mt-2">- Aさん（会社員）</p>
-                    </div>
-                    <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-4 rounded-lg">
-                        <div class="text-amber-400 mb-2">⭐⭐⭐⭐⭐</div>
-                        <p class="text-white">"Vibe Codingでホームページが作れるように！"</p>
-                        <p class="text-blue-200 mt-2">- Bさん（フリーランス）</p>
-                    </div>
-                    <div class="bg-white/10 backdrop-blur-sm border border-white/20 p-4 rounded-lg">
-                        <div class="text-amber-400 mb-2">⭐⭐⭐⭐⭐</div>
-                        <p class="text-white">"AIで音楽制作の幅が一気に広がりました"</p>
-                        <p class="text-blue-200 mt-2">- Cさん（音楽制作者）</p>
-                    </div>
-                </div>
-            </div>
+<section class="section section--white" aria-labelledby="mentor-title">
+  <div class="wrap">
+    <div class="person">
+      <figure class="person__photo reveal">
+        <img src="/images/abl/photo-founder.webp" alt="透明な水の中を泳ぐ、講師の吉田哲司（TJ）" width="800" height="800" loading="lazy">
+        <figcaption>講師 TJ（吉田哲司）。本業は、人に教えること。</figcaption>
+      </figure>
+      <div>
+        <p class="eyebrow">MENTOR — 講師</p>
+        <p class="person__name"><b id="mentor-title">TJ（吉田 哲司）</b><span>ティージェー</span></p>
+        <p class="person__role">AIデジタルクリエイター ／ PADIコースディレクター</p>
+        <p>インストラクターを育てる立場で、1,500名以上のダイバーを育ててきました。「できない」を「できる」にする教え方は、AIでも同じです。</p>
+        <p>AIウェビナーを50回以上開き、のべ500名以上が参加。ChatGPT・Claude・Gemini・Claude Code・Codexなどを毎日の仕事で使い、絵本・音楽・Webサイト・アプリを自分で作っています。</p>
+        <div class="stats">
+          <div class="stat"><b>1,500<small>名+</small></b><span>育てた認定ダイバー</span></div>
+          <div class="stat"><b>50<small>回+</small></b><span>AIウェビナー</span></div>
+          <div class="stat"><b>500<small>名+</small></b><span>ウェビナーの参加者</span></div>
+          <div class="stat"><b>12<small>冊</small></b><span>Kindleの著書</span></div>
         </div>
-    </section>
+        <p class="mt-m"><a class="textlink" href="/about#founder">プロフィールをくわしく <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- 課題提起セクション -->
-    <section class="py-20" style="background: #f8fafc;">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 fade-in text-gray-800">
-                AI学習の<span class="gradient-text">よくある勘違い</span>
-            </h2>
-
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="glass p-8 text-center fade-in">
-                    <div class="feature-icon">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4 text-gray-800">「理論を学べば使えるようになる」</h3>
-                    <p class="text-gray-600">YouTubeや記事で情報収集しても、実際に手を動かさなければ「できる」ようにはなりません</p>
-                </div>
-
-                <div class="glass p-8 text-center fade-in" style="animation-delay: 0.2s;">
-                    <div class="feature-icon">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4 text-gray-800">「一つのAIをマスターすれば十分」</h3>
-                    <p class="text-gray-600">実は、用途に応じて複数のAIツールを使い分けることで、より効果的な成果を生み出せます</p>
-                </div>
-
-                <div class="glass p-8 text-center fade-in" style="animation-delay: 0.4s;">
-                    <div class="feature-icon">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4 text-gray-800">「最新AIを追いかけ続ければいい」</h3>
-                    <p class="text-gray-600">新しいツールばかり追いかけても、基礎的な使い方を身につけなければ宝の持ち腐れになります</p>
-                </div>
-            </div>
+<section class="section" aria-labelledby="price-title" id="price">
+  <div class="wrap">
+    <div class="split split--top">
+      <div>
+        <p class="eyebrow">INCLUDED — 含まれるもの</p>
+        <h2 class="h2 mt-s" id="price-title">サロンの内容は、<br>月額9,800円で。</h2>
+        <ul class="checks">
+          <li><b>Discordで質問サポート</b> — 平日夜・土日を中心に、講師が直接お答えします</li>
+          <li><b>段階的に学べる内容</b> — まったくの初心者から、作品づくりまで</li>
+          <li><b>手を動かすハンズオン</b> — 実際にAIを操作しながら学びます</li>
+          <li><b>AIの最新情報の共有</b> — 変化の速い道具の、今の使い方</li>
+          <li><b>作品づくりの伴走</b> — アイデアから完成まで相談できます</li>
+        </ul>
+        <div class="aside-card mt-m">
+          <h3><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/></svg> 有料版AIのすすめ</h3>
+          <p>本格的に学ぶなら、ChatGPTやClaudeなどの有料プラン（個人向けは月額数千円程度・2026年9月時点）の利用をおすすめします。回数制限を気にせず、より高性能なモデルで学べます。サロン料金には含まれません。</p>
         </div>
-    </section>
+      </div>
+      <div class="plan-card on-dark reveal">
+        <p class="eyebrow">AI LEARNING SALON</p>
+        <div class="plan-card__price"><b>¥9,800</b><span>／月（税込）</span></div>
+        <p style="color:var(--on-dark-2)">最低利用期間なし。いつでも解約できます。無料体験はありません。</p>
+        <ul class="checks">
+          <li>Discordで質問し放題</li>
+          <li>すべての学習内容を利用可能</li>
+          <li>作品づくりの相談</li>
+          <li>AIの最新情報の共有</li>
+        </ul>
+        <a class="btn btn--aqua btn--lg" style="width:100%" href="https://buy.stripe.com/28EeVdfpzbkGeFu6QX18c00" target="_blank" rel="noopener">サロンに参加する <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <p class="fine">お支払いはStripeの安全な決済ページで行います。お申し込み日を起算日として毎月自動で更新されます。解約・返金の条件は<a href="/tokushoho" style="color:var(--aqua)">特定商取引法に基づく表記</a>をご確認ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- ターゲット層明確化セクション -->
-    <section class="py-20 bg-white relative overflow-hidden">
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl md:text-6xl font-bold mb-8 fade-in text-gray-800">
-                    <span class="gradient-text">こんな人に</span>参加してほしい
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in" style="animation-delay: 0.2s;">
-                    一つでも当てはまる方は、このサロンで確実に<br>
-                    <span class="text-blue-600 font-semibold">「できる」ようになります</span>
-                </p>
-            </div>
-            
-            <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
-                
-                <!-- Left Column -->
-                <div class="space-y-8">
-                    <!-- AI初心者 -->
-                    <div class="glass p-8 fade-in relative">
-                        <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-full blur-xl"></div>
-                        <h3 class="text-2xl font-bold gradient-text mb-6">
-                            AIに興味があるけど何から始めればいいかわからない
-                        </h3>
-                        <div class="space-y-4 text-gray-600">
-                            <div class="flex items-start">
-                                <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                                <p>「ChatGPTは使ったことがあるけど、他のAIツールは知らない」</p>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                                <p>「AIで何ができるのか具体的にイメージできない」</p>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                                <p>「YouTube見たり記事読んだりしてるけど、実際にできるようにならない」</p>
-                            </div>
-                        </div>
-                        <div class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-                            <p class="text-blue-600 font-semibold text-sm">
-                                → 基礎から体系的に学べて、実際に手を動かしながら覚えられます
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <!-- ビジネス活用 -->
-                    <div class="glass p-8 fade-in relative" style="animation-delay: 0.2s;">
-                        <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-full blur-xl"></div>
-                        <h3 class="text-2xl font-bold gradient-text mb-6">
-                            自分のビジネス・仕事にAIを活用したい
-                        </h3>
-                        <div class="space-y-4 text-gray-600">
-                            <div class="flex items-start">
-                                <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                                <p>「会社でAI活用を求められているけど、どう進めればいいかわからない」</p>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                                <p>「副業や起業でAIを使って収益化したい」</p>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                                <p>「業務効率化したいけど、どのAIツールを選べばいいかわからない」</p>
-                            </div>
-                        </div>
-                        <div class="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
-                            <p class="text-green-600 font-semibold text-sm">
-                                → 実際のビジネス事例と収益化方法を具体的に学べます
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <!-- 学習環境 -->
-                    <div class="glass p-8 fade-in relative" style="animation-delay: 0.4s;">
-                        <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-full blur-xl"></div>
-                        <h3 class="text-2xl font-bold gradient-text mb-6">
-                            学習意欲はあるけど環境が整わない
-                        </h3>
-                        <div class="space-y-4 text-gray-600">
-                            <div class="flex items-start">
-                                <div class="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                                <p>「独学だと挫折してしまう、質問できる相手がほしい」</p>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                                <p>「高額なスクールには通えないけど、しっかり学びたい」</p>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                                <p>「自分のペースで学習したい、でもサポートも欲しい」</p>
-                            </div>
-                        </div>
-                        <div class="mt-6 p-4 bg-orange-50 rounded-lg border border-orange-200">
-                            <p class="text-orange-600 font-semibold text-sm">
-                                → いつでも質問投稿可能で、自分のペースでしっかり学習できます
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Right Column -->
-                <div class="space-y-8">
-                    <!-- 創作活動 -->
-                    <div class="glass p-8 fade-in relative" style="animation-delay: 0.1s;">
-                        <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-xl"></div>
-                        <h3 class="text-2xl font-bold gradient-text mb-6">
-                            創作活動・趣味でAIを使いたい
-                        </h3>
-                        <div class="space-y-4 text-gray-600">
-                            <div class="flex items-start">
-                                <div class="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                                <p>「絵は描けないけど、AIでイラストや画像を作ってみたい」</p>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                                <p>「音楽経験はないけど、AIで曲を作ってみたい」</p>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="w-2 h-2 bg-purple-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                                <p>「プログラミングできないけど、アプリやWebサイトを作ってみたい」</p>
-                            </div>
-                        </div>
-                        <div class="mt-6 p-4 bg-purple-50 rounded-lg border border-purple-200">
-                            <p class="text-indigo-600 font-semibold text-sm">
-                                → 技術スキル不要で、アイデアを形にする方法を習得できます
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <!-- 将来への不安 -->
-                    <div class="glass p-8 fade-in relative" style="animation-delay: 0.3s;">
-                        <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-yellow-500/20 to-amber-500/20 rounded-full blur-xl"></div>
-                        <h3 class="text-2xl font-bold gradient-text mb-6">
-                            将来への不安を感じている
-                        </h3>
-                        <div class="space-y-4 text-gray-600">
-                            <div class="flex items-start">
-                                <div class="w-2 h-2 bg-yellow-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                                <p>「AIに仕事を奪われる不安がある、むしろ活用できるようになりたい」</p>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="w-2 h-2 bg-yellow-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                                <p>「時代の変化についていけているか不安」</p>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="w-2 h-2 bg-yellow-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
-                                <p>「新しいスキルを身につけて市場価値を上げたい」</p>
-                            </div>
-                        </div>
-                        <div class="mt-6 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
-                            <p class="text-blue-700 font-semibold text-sm">
-                                → AIを味方につけて、時代の変化を武器にできるようになります
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <!-- まとめカード -->
-                    <div class="glass p-8 fade-in relative border-2 border-blue-200" style="animation-delay: 0.5s;">
-                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 rounded-2xl"></div>
-                        <div class="relative z-10 text-center">
-                            <h3 class="text-2xl font-bold gradient-text mb-4">
-                                一つでも当てはまりましたか？
-                            </h3>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                上記のような悩みや願望をお持ちの方こそ、<br>
-                                <span class="text-blue-600 font-semibold">AI学習サロンで確実に成長</span>できます。<br>
-                                <span class="text-indigo-600 font-semibold">あなたの「できない」を「できる」に変えましょう</span>
-                            </p>
-                            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-4 border border-blue-200">
-                                <p class="text-sm text-gray-600">
-                                    <span class="text-blue-600 font-semibold">無料体験</span>はありませんが、<br>
-                                    <span class="text-indigo-600 font-semibold">月額制でいつでも解約可能</span>なので安心して始められます
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="section section--white" aria-labelledby="faq-title">
+  <div class="wrap wrap--narrow">
+    <div class="sec-head">
+      <p class="eyebrow">FAQ — よくあるご質問</p>
+      <h2 class="h2" id="faq-title">よくあるご質問</h2>
+    </div>
+    <div class="faq">
+      <details><summary>完全な初心者でも大丈夫ですか？</summary><div class="a"><p>はい。AIの基礎知識がない方でも進められるよう、段階的に学べる内容を用意しています。わからないところはDiscordで質問できます。</p></div></details>
+      <details><summary>どのくらいの時間が必要ですか？</summary><div class="a"><p>1日30分〜1時間ほどを想定していますが、自分のペースで進められます。忙しい方は、週末にまとめて学ぶこともできます。</p></div></details>
+      <details><summary>退会はいつでもできますか？</summary><div class="a"><p>はい、いつでも退会できます。最低利用期間の縛りはありません。</p></div></details>
+      <details><summary>質問の回答はどのくらいで返ってきますか？</summary><div class="a"><p>できる限り早くお答えしますが、内容や時間帯によって数時間〜1日ほどいただく場合があります。サポートは平日夜・土日が中心です。</p></div></details>
+      <details><summary>AIツールは無料でも使えるのに、なぜ有料版をすすめるのですか？</summary><div class="a"><p>無料版は1日の利用回数に制限があり、学習の途中で止まってしまうことがあるからです。有料版なら、より高性能なモデルや高品質な画像・音楽の生成を、待ち時間を気にせず使えます。</p></div></details>
+      <details><summary>プログラミングの知識は必要ですか？</summary><div class="a"><p>基本的には不要です。AIツールの使い方から始め、必要に応じて簡単なプログラミングも学べます。</p></div></details>
+      <details><summary>会社やチームで学びたいのですが。</summary><div class="a"><p>社内研修・勉強会として承ることもできます。<a href="/contact?topic=training">お問い合わせ</a>からご相談ください。</p></div></details>
+    </div>
+  </div>
+</section>
 
-    <!-- ソリューションセクション -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 fade-in text-gray-800">
-                <span class="gradient-text">実践重視</span>のAI初心者サロン
-            </h2>
-            
-            <div class="max-w-4xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
-                    <div class="fade-in">
-                        <img src="img/discord-learning.png" alt="Discord学習環境" class="rounded-2xl shadow-2xl">
-                        <!-- 推奨サイズ: 600x400px -->
-                    </div>
-                    <div class="fade-in">
-                        <h3 class="text-3xl font-bold mb-6">「実際に手を動かす」環境</h3>
-                        <ul class="space-y-4 text-lg">
-                            <li class="flex items-start">
-                                <span class="gradient-text font-bold mr-3">✓</span>
-                                様々なAIツールを実際に操作
-                            </li>
-                            <li class="flex items-start">
-                                <span class="gradient-text font-bold mr-3">✓</span>
-                                一つずつ「できること」を確実に増やす
-                            </li>
-                            <li class="flex items-start">
-                                <span class="gradient-text font-bold mr-3">✓</span>
-                                Discord質問サポート（平日夜・土日対応）
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div class="fade-in order-2 md:order-1">
-                        <h3 class="text-3xl font-bold mb-6">AI初心者のための段階的学習</h3>
-                        <ul class="space-y-4 text-lg">
-                            <li class="flex items-start">
-                                <span class="gradient-text font-bold mr-3">✓</span>
-                                完全初心者でも安心のスタート地点
-                            </li>
-                            <li class="flex items-start">
-                                <span class="gradient-text font-bold mr-3">✓</span>
-                                各AIツールの特徴と使い分けを習得
-                            </li>
-                            <li class="flex items-start">
-                                <span class="gradient-text font-bold mr-3">✓</span>
-                                成果物を「形にする」まで完全サポート
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="fade-in order-1 md:order-2">
-                        <img src="img/ai-curriculum.jpg.png" alt="AI学習カリキュラム" class="rounded-2xl shadow-2xl">
-                        <!-- 推奨サイズ: 600x400px -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- カリキュラムセクション -->
-    <section class="py-20" style="background: #f8fafc;">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 fade-in text-gray-800">
-                <span class="gradient-text">実践で身につける</span>4つのステップ
-            </h2>
-            
-            <div class="max-w-4xl mx-auto">
-                <div class="relative">
-                    <div class="absolute left-6 top-0 bottom-0 w-px bg-accent opacity-30"></div>
-                    
-                    <div class="space-y-12">
-                        <div class="timeline-item fade-in">
-                            <div class="timeline-number">1</div>
-                            <div class="glass p-8">
-                                <h3 class="text-2xl font-bold mb-4">基本AIツールを実際に使う</h3>
-                                <p class="text-gray-600 mb-4">まずは代表的なAIを触って「できる」を体験</p>
-                                <ul class="text-gray-500 space-y-2">
-                                    <li>• ChatGPT・Claude等で文章作成を実践</li>
-                                    <li>• 実際にプロンプトを書いて成果物を作る</li>
-                                    <li>• 「こんなことができるんだ」を実感</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item fade-in" style="animation-delay: 0.2s;">
-                            <div class="timeline-number">2</div>
-                            <div class="glass p-8">
-                                <h3 class="text-2xl font-bold mb-4">複数のAIツールを使い分ける</h3>
-                                <p class="text-gray-600 mb-4">用途別にAIを選択し、実際に成果物を制作</p>
-                                <ul class="text-gray-500 space-y-2">
-                                    <li>• 画像生成AI（Midjourney、DALL-E、Flux等）でLINEスタンプ作成</li>
-                                    <li>• 音楽生成AIでオリジナル楽曲制作</li>
-                                    <li>• 各AIツールの得意分野と使い分けを実践で習得</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item fade-in" style="animation-delay: 0.4s;">
-                            <div class="timeline-number">3</div>
-                            <div class="glass p-8">
-                                <h3 class="text-2xl font-bold mb-4">AIを組み合わせて作品を完成させる</h3>
-                                <p class="text-gray-600 mb-4">複数のAIツールを連携して、完成品を作り上げる</p>
-                                <ul class="text-gray-500 space-y-2">
-                                    <li>• 文章生成→画像生成→動画生成の流れを実践</li>
-                                    <li>• 一つのプロジェクトを最後まで完成させる</li>
-                                    <li>• 自分の作品として「形にする」体験</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item fade-in" style="animation-delay: 0.6s;">
-                            <div class="timeline-number">4</div>
-                            <div class="glass p-8">
-                                <h3 class="text-2xl font-bold mb-4">自分のアイデアを実現する</h3>
-                                <p class="text-gray-600 mb-4">習得したスキルで、自分だけのプロジェクトを実現</p>
-                                <ul class="text-gray-500 space-y-2">
-                                    <li>• 自分のビジネスや趣味に活用する</li>
-                                    <li>• オリジナルの作品・サービスを作る</li>
-                                    <li>• 継続的にAIを活用できる状態になる</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 新時代のメッセージセクション -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-6xl font-bold mb-12 fade-in text-gray-800">
-                新しい時代の<span class="gradient-text">創造者</span>になる
-            </h2>
-            
-            <div class="max-w-4xl mx-auto space-y-8">
-                <p class="text-xl md:text-2xl text-gray-600 fade-in" style="animation-delay: 0.1s;">
-                    <span class="text-blue-700 font-bold">技術的な壁はもう存在しない</span>
-                </p>
-                
-                <p class="text-lg md:text-xl text-gray-500 leading-relaxed fade-in" style="animation-delay: 0.2s;">
-                    プログラミングができなくても、デザインスキルがなくても、音楽理論を知らなくても<br>
-                    AIがあなたの<span class="text-gray-800 font-semibold">創造性とアイデアを形にしてくれます</span>
-                </p>
-                
-                <div class="grid md:grid-cols-3 gap-8 mt-12">
-                    <div class="glass p-6 fade-in" style="animation-delay: 0.3s;">
-                        <div class="text-3xl mb-4">💡</div>
-                        <h3 class="text-xl font-semibold mb-3 text-blue-700">アイデアを形に</h3>
-                        <p class="text-gray-600 text-sm">頭の中の想像を、具体的な成果物として実現</p>
-                    </div>
-                    
-                    <div class="glass p-6 fade-in" style="animation-delay: 0.4s;">
-                        <div class="text-3xl mb-4">🚀</div>
-                        <h3 class="text-xl font-semibold mb-3 text-blue-600">限界を突破</h3>
-                        <p class="text-gray-600 text-sm">今まで「無理」だと思っていたことが「可能」になる</p>
-                    </div>
-                    
-                    <div class="glass p-6 fade-in" style="animation-delay: 0.5s;">
-                        <div class="text-3xl mb-4">🎨</div>
-                        <h3 class="text-xl font-semibold mb-3 text-indigo-600">創造力を解放</h3>
-                        <p class="text-gray-600 text-sm">技術的制約から解放され、純粋な創造に集中</p>
-                    </div>
-                </div>
-                
-                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8 mt-12 border border-blue-200 fade-in" style="animation-delay: 0.6s;">
-                    <h3 class="text-2xl md:text-3xl font-bold text-blue-700 mb-4">
-                        今、始めることで圧倒的な差がつく
-                    </h3>
-                    <p class="text-lg text-gray-600 mb-4">
-                        AIの進化はますます加速中。<span class="text-blue-700 font-bold">今使いこなせるようになれば、周りと圧倒的な差がつきます</span>
-                    </p>
-                    <div class="grid md:grid-cols-2 gap-6 text-sm text-gray-600">
-                        <div>
-                            <span class="text-red-500 font-semibold">後から始める人</span><br>
-                            • AIに置き換えられる不安<br>
-                            • 遅れを取り戻すのに苦労<br>
-                            • 基礎知識不足で効率が悪い
-                        </div>
-                        <div>
-                            <span class="text-green-600 font-semibold">今始める人</span><br>
-                            • AIを使いこなして生産性向上<br>
-                            • 新たな収入源を創出<br>
-                            • 市場価値の高い人材になる
-                        </div>
-                    </div>
-                </div>
-                
-                <p class="text-lg text-gray-600 mt-8 fade-in" style="animation-delay: 0.7s;">
-                    これからの時代は<span class="gradient-text font-bold">「できるかできないか」ではなく「やるかやらないか」</span>だけです
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 実際に作れる成果物セクション -->
-    <section class="py-20 bg-white relative overflow-hidden">
-        
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl md:text-6xl font-bold mb-8 fade-in">
-                    実際に<span class="gradient-text">こんなものが作れる</span>ようになります
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in" style="animation-delay: 0.2s;">
-                    <span class="gradient-text font-semibold">ティージェーが実際に制作した作品例</span>を参考に、<br>
-                    あなたも同レベルの成果物を作れるようになります
-                </p>
-            </div>
-            
-            <!-- Enhanced Portfolio Grid -->
-            <div class="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto mb-20">
-                
-                <!-- LINEスタンプ & 書籍 -->
-                <div class="glass p-8 fade-in relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/20 to-blue-500/20 rounded-full blur-2xl"></div>
-                    <h3 class="text-3xl font-bold gradient-text mb-8">
-                        クリエイティブ作品
-                    </h3>
-                    
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-secondary/50 rounded-xl p-6 border border-green-200">
-                            <div class="mb-6">
-                                <img src="img/line-stamp.png" alt="LINEスタンプ作成" class="w-32 h-32 mx-auto rounded-lg shadow-lg">
-                            </div>
-                            <h4 class="text-xl font-bold gradient-text mb-3">LINEスタンプ</h4>
-                            <p class="text-gray-600 text-sm mb-4">画像生成AIを使って、オリジナルLINEスタンプを作成・販売</p>
-                            <div class="flex items-center justify-between">
-                                <span class="text-green-600 font-semibold text-sm">💰 収益化可能</span>
-                                <span class="text-blue-600 font-semibold text-sm">⏱️ 2-3時間で完成</span>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-secondary/50 rounded-xl p-6 border border-purple-200">
-                            <div class="mb-6">
-                                <img src="img/amazon-kindle.png" alt="Kindle書籍作成" class="w-32 h-32 mx-auto rounded-lg shadow-lg">
-                            </div>
-                            <h4 class="text-xl font-bold gradient-text mb-3">Kindle書籍</h4>
-                            <p class="text-gray-600 text-sm mb-4">ChatGPT執筆 + AI表紙作成でAmazon出版</p>
-                            <div class="flex items-center justify-between">
-                                <span class="text-indigo-600 font-semibold text-sm">🏆 Amazon 2位獲得</span>
-                                <span class="text-blue-700 font-semibold text-sm">📈 印税収入</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- WEB・アプリ開発 -->
-                <div class="glass p-8 fade-in relative overflow-hidden" style="animation-delay: 0.2s;">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-2xl"></div>
-                    <h3 class="text-3xl font-bold gradient-text mb-8">
-                        WEB・アプリ開発
-                    </h3>
-                    
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-secondary/50 rounded-xl p-6 border border-blue-200">
-                            <div class="mb-6">
-                                <img src="img/hp.png" alt="ホームページ作成" class="w-32 h-32 mx-auto rounded-lg shadow-lg">
-                            </div>
-                            <h4 class="text-xl font-bold gradient-text mb-3">HP・LP制作</h4>
-                            <p class="text-gray-600 text-sm mb-4">Vibe Coding等でコード不要のプロレベルサイト</p>
-                            <div class="flex items-center justify-between">
-                                <span class="text-blue-600 font-semibold text-sm">🚀 最新技術</span>
-                                <span class="text-blue-600 font-semibold text-sm">📱 レスポンシブ対応</span>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-secondary/50 rounded-xl p-6 border border-indigo-200">
-                            <div class="mb-6">
-                                <div class="w-32 h-32 mx-auto rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
-                                    <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                            </div>
-                            <h4 class="text-xl font-bold gradient-text mb-3">実用アプリ</h4>
-                            <p class="text-gray-600 text-sm mb-4">文字起こし、タイマー等の業務効率化アプリ</p>
-                            <div class="flex items-center justify-between">
-                                <span class="text-indigo-600 font-semibold text-sm">⚡ 業務効率化</span>
-                                <span class="text-indigo-600 font-semibold text-sm">🎯 実用性重視</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 音楽・ゲーム制作 -->
-                <div class="glass p-8 fade-in relative overflow-hidden" style="animation-delay: 0.4s;">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-pink-500/20 to-yellow-500/20 rounded-full blur-2xl"></div>
-                    <h3 class="text-3xl font-bold gradient-text mb-8">
-                        エンターテインメント
-                    </h3>
-                    
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-secondary/50 rounded-xl p-6 border border-pink-200">
-                            <div class="mb-6">
-                                <img src="img/music.png" alt="音楽作成" class="w-32 h-32 mx-auto rounded-lg shadow-lg">
-                            </div>
-                            <h4 class="text-xl font-bold gradient-text mb-3">オリジナル音楽</h4>
-                            <p class="text-gray-600 text-sm mb-4">AIで作詞・作曲・編集まで一貫制作</p>
-                            <div class="flex items-center justify-between">
-                                <span class="text-indigo-600 font-semibold text-sm">🎼 14曲アルバム</span>
-                                <a href="https://tj-music.com/" target="_blank" class="text-accent hover:text-accent-light text-sm">
-                                    試聴可能 →
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-secondary/50 rounded-xl p-6 border border-orange-200">
-                            <div class="mb-6">
-                                <div class="w-32 h-32 mx-auto rounded-lg bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center shadow-lg">
-                                    <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
-                                    </svg>
-                                </div>
-                            </div>
-                            <h4 class="text-xl font-bold gradient-text mb-3">教育ゲーム</h4>
-                            <p class="text-gray-600 text-sm mb-4">3Dマリンメイズ等、学習×エンタメの融合</p>
-                            <div class="flex items-center justify-between">
-                                <span class="text-orange-600 font-semibold text-sm">🎮 5種類制作</span>
-                                <a href="https://miura-diving.com/games/" target="_blank" class="text-accent hover:text-accent-light text-sm">
-                                    体験可能 →
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- あなたの可能性 -->
-                <div class="glass p-8 fade-in relative overflow-hidden" style="animation-delay: 0.6s;">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-500/20 to-green-500/20 rounded-full blur-2xl"></div>
-                    <h3 class="text-3xl font-bold gradient-text mb-8">
-                        あなたの可能性
-                    </h3>
-                    
-                    <div class="text-center">
-                        <div class="mb-8">
-                            <div class="w-40 h-40 mx-auto rounded-full bg-gradient-to-br from-yellow-500 via-pink-500 to-blue-500 shadow-2xl"></div>
-                        </div>
-                        <h4 class="text-2xl font-bold gradient-text mb-6">アイデア次第で無限大</h4>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            上記の例はほんの一部です。<br>
-                            <span class="text-blue-700 font-semibold">あなたの想像力とアイデア</span>があれば、<br>
-                            どんなものでも形にできる時代になりました
-                        </p>
-                        
-                        <div class="grid grid-cols-2 gap-4 text-sm">
-                            <div class="bg-secondary/30 rounded-lg p-4">
-                                <div class="font-semibold text-green-600 mb-2">収益化も可能</div>
-                                <div class="text-gray-500">副業・起業に活用</div>
-                            </div>
-                            <div class="bg-secondary/30 rounded-lg p-4">
-                                <div class="font-semibold text-blue-600 mb-2">圧倒的時短</div>
-                                <div class="text-gray-500">従来の1/10の時間</div>
-                            </div>
-                            <div class="bg-secondary/30 rounded-lg p-4">
-                                <div class="font-semibold text-indigo-600 mb-2">プロ品質</div>
-                                <div class="text-gray-500">技術不要で高品質</div>
-                            </div>
-                            <div class="bg-secondary/30 rounded-lg p-4">
-                                <div class="font-semibold text-indigo-600 mb-2">無限の可能性</div>
-                                <div class="text-gray-500">想像が現実になる</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Enhanced Bottom Message -->
-            <div class="text-center fade-in bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-200">
-                <h3 class="text-2xl md:text-3xl font-bold gradient-text mb-6">
-                    すべてコードの知識は一切不要
-                </h3>
-                <p class="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
-                    最新のAI技術を使って、プログラミング経験がなくても<br>
-                    <span class="text-blue-700 font-semibold">プロレベルの成果物</span>を作ることができる時代です
-                </p>
-
-                <div class="bg-amber-50 rounded-xl p-6 border border-amber-200 max-w-2xl mx-auto">
-                    <div class="flex items-start">
-                        <div class="text-2xl mr-4">💡</div>
-                        <div class="text-left">
-                            <h4 class="font-semibold text-blue-700 mb-2">推奨：AI有料版の活用</h4>
-                            <p class="text-sm text-gray-600">
-                                より高品質な成果物を効率的に作るため、ChatGPT PlusやClaude Pro等の有料版AIツール（月額2,000-3,000円程度）の利用をお勧めします。学習・制作効率が大幅にアップします。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 講師紹介セクション -->
-    <section class="py-20 bg-white relative overflow-hidden">
-        
-        <div class="container mx-auto px-6 relative z-10">
-            <h2 class="text-4xl md:text-6xl font-bold text-center mb-20 fade-in">
-                あなたの<span class="gradient-text">メンター</span>を紹介
-            </h2>
-            
-            <div class="max-w-6xl mx-auto">
-                <!-- Enhanced Profile Card -->
-                <div class="glass p-12 mb-16 fade-in relative overflow-hidden">
-                    <!-- Decorative Elements -->
-                    <div class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-full blur-3xl"></div>
-                    <div class="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-pink-500/20 to-yellow-500/20 rounded-full blur-2xl"></div>
-                    
-                    <div class="grid md:grid-cols-3 gap-12 items-center relative z-10">
-                        <!-- Profile Image and Basic Info -->
-                        <div class="text-center">
-                            <div class="w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-4 border-blue-300 p-1">
-                                <div class="w-full h-full rounded-full overflow-hidden">
-                                    <img src="img/kuragejyoshi-toka.png" alt="ティージェー プロフィール" class="w-full h-full object-cover">
-                                </div>
-                            </div>
-                            <h3 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">ティージェー</h3>
-                            <p class="text-xl text-gray-600 mb-6">AIデジタルクリエイター<br>PADIコースディレクター</p>
-                            
-                            <!-- Achievement Badges -->
-                            <div class="flex flex-wrap justify-center gap-3 mb-6">
-                                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 text-black px-4 py-2 rounded-full text-sm font-bold">
-                                    🏆 25年+ 教育経験
-                                </div>
-                                <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold">
-                                    📈 1,500+ 指導実績
-                                </div>
-                                <div class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-bold">
-                                    📖 複数著書出版
-                                </div>
-                            </div>
-                            
-                            <!-- Quote -->
-                            <div class="bg-secondary/50 rounded-xl p-6 relative">
-                                <div class="text-4xl text-gradient-to-r from-blue-400 to-purple-400 mb-4">"</div>
-                                <p class="text-gray-600 italic leading-relaxed">
-                                    AIとデジタルスキル普及を通じて、<br>
-                                    一人ひとりの創造性と可能性を<br>
-                                    最大限に引き出すことが私の使命です
-                                </p>
-                                <div class="text-4xl text-gradient-to-r from-blue-400 to-purple-400 text-right mt-4">"</div>
-                            </div>
-                        </div>
-                        
-                        <!-- AI & Digital Skills -->
-                        <div>
-                            <h4 class="text-2xl font-bold mb-6 gradient-text">
-                                AI・デジタル実績
-                            </h4>
-                            <div class="space-y-4">
-                                <div class="bg-secondary/30 rounded-lg p-4 border-l-4 border-blue-500">
-                                    <div class="font-semibold text-blue-600 mb-2">ウェビナー開催実績</div>
-                                    <div class="text-gray-600 text-sm">累計500名以上参加・15回以上開催</div>
-                                </div>
-                                <div class="bg-secondary/30 rounded-lg p-4 border-l-4 border-purple-500">
-                                    <div class="font-semibold text-indigo-600 mb-2">AI技術エキスパート</div>
-                                    <div class="text-gray-600 text-sm">ChatGPT・Claude・Gemini・Cursor等最先端AI</div>
-                                </div>
-                                <div class="bg-secondary/30 rounded-lg p-4 border-l-4 border-green-500">
-                                    <div class="font-semibold text-green-600 mb-2">AI絵本Amazon2位獲得</div>
-                                    <div class="text-gray-600 text-sm">「うみがめになったぜん君の大冒険」</div>
-                                    <a href="https://amzn.to/4ny1P6k" target="_blank" class="text-accent hover:text-accent-light text-sm">
-                                        Amazon で見る →
-                                    </a>
-                                </div>
-                                <div class="bg-secondary/30 rounded-lg p-4 border-l-4 border-pink-500">
-                                    <div class="font-semibold text-indigo-500 mb-2">AIバーチャルミュージシャン</div>
-                                    <div class="text-gray-600 text-sm">「TJ」プロデュース・14曲アルバムリリース</div>
-                                    <a href="https://tj-music.com/" target="_blank" class="text-accent hover:text-accent-light text-sm">
-                                        TJ Music 公式サイト →
-                                    </a>
-                                </div>
-                                <div class="bg-secondary/30 rounded-lg p-4 border-l-4 border-yellow-500">
-                                    <div class="font-semibold text-blue-700 mb-2">AI活用ゲーム開発</div>
-                                    <div class="text-gray-600 text-sm">3Dマリンメイズ等5種類制作</div>
-                                    <a href="https://miura-diving.com/games/" target="_blank" class="text-accent hover:text-accent-light text-sm">
-                                        ゲーム体験サイト →
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Education Experience -->
-                        <div>
-                            <h4 class="text-2xl font-bold mb-6 gradient-text">
-                                教育・指導経験
-                            </h4>
-                            <div class="space-y-4">
-                                <div class="bg-secondary/30 rounded-lg p-4 border-l-4 border-cyan-500">
-                                    <div class="font-semibold text-blue-600 mb-2">最高峰資格保持</div>
-                                    <div class="text-gray-600 text-sm">PADIコースディレクター認定</div>
-                                </div>
-                                <div class="bg-secondary/30 rounded-lg p-4 border-l-4 border-indigo-500">
-                                    <div class="font-semibold text-indigo-600 mb-2">1,500名+ 指導実績</div>
-                                    <div class="text-gray-600 text-sm">25年以上のプロフェッショナル経験</div>
-                                </div>
-                                <div class="bg-secondary/30 rounded-lg p-4 border-l-4 border-teal-500">
-                                    <div class="font-semibold text-teal-600 mb-2">教育拠点運営</div>
-                                    <div class="text-gray-600 text-sm">神奈川県三浦海の学校</div>
-                                </div>
-                                <div class="bg-secondary/30 rounded-lg p-4 border-l-4 border-orange-500">
-                                    <div class="font-semibold text-orange-600 mb-2">次世代教育への情熱</div>
-                                    <div class="text-gray-600 text-sm">6人の子どもの父として活動</div>
-                                </div>
-                                <div class="bg-secondary/30 rounded-lg p-4 border-l-4 border-red-500">
-                                    <div class="font-semibold text-red-600 mb-2">Udemy講師活動</div>
-                                    <div class="text-gray-600 text-sm">オンライン教育にも積極参画</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Success Philosophy -->
-                <div class="text-center mb-16 fade-in">
-                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-200">
-                        <h3 class="text-2xl md:text-3xl font-bold gradient-text mb-6">
-                            ティージェーの教育フィロソフィー
-                        </h3>
-                        <div class="grid md:grid-cols-3 gap-6 text-center">
-                            <div class="glass p-6 rounded-xl">
-                                <h4 class="text-xl font-bold gradient-text mb-3">実践重視</h4>
-                                <p class="text-gray-600 text-sm">理論だけでなく、実際に手を動かして「できる」ようになることを最重視</p>
-                            </div>
-                            <div class="glass p-6 rounded-xl">
-                                <h4 class="text-xl font-bold gradient-text mb-3">個別サポート</h4>
-                                <p class="text-gray-600 text-sm">一人ひとりのペースに合わせた丁寧な指導とサポート</p>
-                            </div>
-                            <div class="glass p-6 rounded-xl">
-                                <h4 class="text-xl font-bold gradient-text mb-3">最新技術</h4>
-                                <p class="text-gray-600 text-sm">常に最先端のAI技術を学び、それを分かりやすく伝達</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 fade-in">
-                充実の<span class="gradient-text">学習環境</span>
-            </h2>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="glass p-8 text-center fade-in">
-                    <div class="feature-icon">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z" clip-rule="evenodd"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">Discord質問対応</h3>
-                    <p class="text-gray-600">Discord上で質問・相談可能。ティージェーが直接丁寧にサポート</p>
-                </div>
-                
-                <div class="glass p-8 text-center fade-in" style="animation-delay: 0.1s;">
-                    <div class="feature-icon">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">体系的カリキュラム</h3>
-                    <p class="text-gray-600">初心者から上級者まで段階的に学習できる体系的なコンテンツ</p>
-                </div>
-                
-                <div class="glass p-8 text-center fade-in" style="animation-delay: 0.2s;">
-                    <div class="feature-icon">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" clip-rule="evenodd"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">実践重視</h3>
-                    <p class="text-gray-600">理論だけでなく、実際にAIツールを使った実践的な学習</p>
-                </div>
-                
-                <div class="glass p-8 text-center fade-in" style="animation-delay: 0.3s;">
-                    <div class="feature-icon">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">最新情報</h3>
-                    <p class="text-gray-600">急速に進歩するAI技術の最新情報を常にアップデート</p>
-                </div>
-                
-                <div class="glass p-8 text-center fade-in" style="animation-delay: 0.4s;">
-                    <div class="feature-icon">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h4c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">自分のペース</h3>
-                    <p class="text-gray-600">忙しい人でも空いた時間に自分のペースで学習できる</p>
-                </div>
-                
-                <div class="glass p-8 text-center fade-in" style="animation-delay: 0.5s;">
-                    <div class="feature-icon">
-                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4">個別指導</h3>
-                    <p class="text-gray-600">一人ひとりのレベルに合わせた個別学習サポート</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 料金セクション -->
-    <section class="py-20 relative overflow-hidden" style="background: #f8fafc;">
-
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl md:text-6xl font-bold mb-8 fade-in text-gray-800">
-                    <span class="gradient-text">破格の価値</span>を提供
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto fade-in" style="animation-delay: 0.2s;">
-                    通常なら数十万円かかるAI学習を、<br>
-                    <span class="text-blue-700 font-semibold">月額1万円以下</span>で完全習得できます
-                </p>
-            </div>
-            
-            <!-- Value Comparison -->
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
-                <div class="glass p-8 text-center fade-in">
-                    <h3 class="text-xl font-bold gradient-text mb-4">一般的なAIスクール</h3>
-                    <div class="text-3xl font-bold text-red-400 mb-4">¥300,000〜</div>
-                    <ul class="text-sm text-gray-500 space-y-2">
-                        <li>• 固定カリキュラムのみ</li>
-                        <li>• 質問回数制限あり</li>
-                        <li>• 最新技術に追いつかない</li>
-                        <li>• 高額な受講料</li>
-                    </ul>
-                </div>
-                
-                <div class="glass p-8 text-center fade-in border-2 border-blue-200 relative" style="animation-delay: 0.2s;">
-                    <h3 class="text-xl font-bold gradient-text mb-4">AI学習サロン</h3>
-                    <div class="text-4xl font-bold gradient-text mb-4">¥9,800</div>
-                    <div class="text-sm text-gray-500 mb-4">（月額税込）</div>
-                    <ul class="text-sm text-gray-600 space-y-2">
-                        <li>• Discord質問サポート</li>
-                        <li>• 最新AI技術を即座に共有</li>
-                        <li>• 実践重視のハンズオン</li>
-                        <li>• いつでも解約可能</li>
-                        <li>• 25年の教育経験サポート</li>
-                    </ul>
-                </div>
-                
-                <div class="glass p-8 text-center fade-in" style="animation-delay: 0.4s;">
-                    <h3 class="text-xl font-bold gradient-text mb-4">独学・書籍学習</h3>
-                    <div class="text-3xl font-bold text-gray-500 mb-4">¥0〜5,000</div>
-                    <ul class="text-sm text-gray-500 space-y-2">
-                        <li>• 情報が古くなりがち</li>
-                        <li>• 質問できる相手がいない</li>
-                        <li>• 実践的スキルが身につかない</li>
-                        <li>• 挫折率が高い</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Main Pricing Card -->
-            <div class="max-w-2xl mx-auto">
-                <div class="pricing-card p-12 text-center fade-in relative overflow-hidden">
-                    <!-- Decorative Elements -->
-                    <div class="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-3xl"></div>
-                    <div class="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-blue-500/20 to-cyan-500/20 rounded-full blur-2xl"></div>
-                    
-                    
-                    <div class="relative z-10">
-                        <h3 class="text-3xl md:text-4xl font-bold mb-8 gradient-text">AI学習サロン</h3>
-                        
-                        <!-- Price Display -->
-                        <div class="mb-8">
-                            <div class="text-center mb-4">
-                                <div class="text-7xl md:text-8xl font-bold gradient-text ">¥9,800</div>
-                            </div>
-                            <div class="text-xl text-gray-500 mb-2">月額（税込）</div>
-                            <div class="text-sm text-gray-600">
-                                💎 高品質な学習環境をお手頃価格で
-                            </div>
-                        </div>
-                        
-                        <!-- What's Included -->
-                        <div class="bg-secondary/50 rounded-2xl p-8 mb-8">
-                            <h4 class="text-2xl font-bold gradient-text mb-6">含まれるサービス</h4>
-                            <div class="grid md:grid-cols-2 gap-4 text-left">
-                                <div class="flex items-start">
-                                    <span class="gradient-text font-bold mr-3 text-lg">✓</span>
-                                    <div>
-                                        <div class="font-semibold text-gray-800">Discord質問サポート</div>
-                                        <div class="text-sm text-gray-500">平日夜・土日を中心に丁寧にサポート</div>
-                                    </div>
-                                </div>
-                                <div class="flex items-start">
-                                    <span class="gradient-text font-bold mr-3 text-lg">✓</span>
-                                    <div>
-                                        <div class="font-semibold text-gray-800">体系的AI学習カリキュラム</div>
-                                        <div class="text-sm text-gray-500">初心者から上級者まで対応</div>
-                                    </div>
-                                </div>
-                                <div class="flex items-start">
-                                    <span class="gradient-text font-bold mr-3 text-lg">✓</span>
-                                    <div>
-                                        <div class="font-semibold text-gray-800">実践的ハンズオン学習</div>
-                                        <div class="text-sm text-gray-500">実際に手を動かして学ぶ</div>
-                                    </div>
-                                </div>
-                                <div class="flex items-start">
-                                    <span class="gradient-text font-bold mr-3 text-lg">✓</span>
-                                    <div>
-                                        <div class="font-semibold text-gray-800">最新AI技術情報共有</div>
-                                        <div class="text-sm text-gray-500">常に最新の情報をキャッチアップ</div>
-                                    </div>
-                                </div>
-                                <div class="flex items-start">
-                                    <span class="gradient-text font-bold mr-3 text-lg">✓</span>
-                                    <div>
-                                        <div class="font-semibold text-gray-800">専門メンターサポート</div>
-                                        <div class="text-sm text-gray-500">25年の教育経験による指導</div>
-                                    </div>
-                                </div>
-                                <div class="flex items-start">
-                                    <span class="gradient-text font-bold mr-3 text-lg">✓</span>
-                                    <div>
-                                        <div class="font-semibold text-gray-800">作品制作完全サポート</div>
-                                        <div class="text-sm text-gray-500">アイデアから完成まで伴走</div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="mt-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200">
-                                <div class="text-center">
-                                    <div class="text-lg font-semibold text-blue-600">充実のサポート内容</div>
-                                    <div class="text-xl font-bold gradient-text">すべて込みで</div>
-                                    <div class="text-2xl font-bold text-blue-600">月額¥9,800</div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- CTA Button -->
-                        <div class="mb-8">
-                            <a href="https://buy.stripe.com/28EeVdfpzbkGeFu6QX18c00"
-                               target="_blank"
-                               class="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-6 px-12 rounded-2xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-blue-500/25 text-xl md:text-2xl w-full max-w-md mx-auto">
-                                今すぐ始める
-                            </a>
-                        </div>
-                        
-                        <!-- Guarantees -->
-                        <div class="grid md:grid-cols-3 gap-4 text-sm">
-                            <div class="flex items-center justify-center">
-                                <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-gray-600">安全なStripe決済</span>
-                            </div>
-                            <div class="flex items-center justify-center">
-                                <svg class="w-5 h-5 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-gray-600">いつでも解約可能</span>
-                            </div>
-                            <div class="flex items-center justify-center">
-                                <svg class="w-5 h-5 text-purple-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
-                                </svg>
-                                <span class="text-gray-600">最低利用期間なし</span>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-6 p-4 bg-blue-50 rounded-xl border border-blue-200">
-                            <div class="text-center">
-                                <div class="text-blue-600 font-semibold mb-2">💡 学習環境について</div>
-                                <div class="text-sm text-gray-600">
-                                    質の高い学習環境を維持するため、<span class="text-blue-600 font-semibold">人数制限</span>を設けています。<br>
-                                    充実したサポートを提供し続けるための運営方針です。
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQセクション -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 fade-in">
-                よくある<span class="gradient-text">質問</span>
-            </h2>
-            
-            <div class="max-w-3xl mx-auto space-y-6">
-                <div class="glass p-6 fade-in">
-                    <h3 class="text-xl font-semibold mb-3">完全初心者でも大丈夫ですか？</h3>
-                    <p class="text-gray-600">はい、問題ありません。AIの基礎知識がない方でも理解できるよう、段階的なカリキュラムを用意しています。専門メンターが丁寧にサポートします。</p>
-                </div>
-                
-                <div class="glass p-6 fade-in" style="animation-delay: 0.1s;">
-                    <h3 class="text-xl font-semibold mb-3">どのくらいの時間が必要ですか？</h3>
-                    <p class="text-gray-600">1日30分〜1時間程度の学習時間を想定していますが、自分のペースで学習できます。忙しい方は週末にまとめて学習することも可能です。</p>
-                </div>
-                
-                <div class="glass p-6 fade-in" style="animation-delay: 0.2s;">
-                    <h3 class="text-xl font-semibold mb-3">退会はいつでもできますか？</h3>
-                    <p class="text-gray-600">はい、いつでも退会可能です。最低利用期間の縛りはありません。Stripe決済システムからいつでもキャンセルできます。</p>
-                </div>
-                
-                <div class="glass p-6 fade-in" style="animation-delay: 0.3s;">
-                    <h3 class="text-xl font-semibold mb-3">質問の回答はどのくらいで返ってきますか？</h3>
-                    <p class="text-gray-600">Discord上での質問は、できる限り迅速に回答するよう努めていますが、内容の複雑さや時間帯により数時間〜1日程度お時間をいただく場合があります。丁寧で的確な回答を心がけています。</p>
-                </div>
-                
-                <div class="glass p-6 fade-in" style="animation-delay: 0.4s;">
-                    <h3 class="text-xl font-semibold mb-3">AIツールは無料でも使えるのに、なぜ有料版をおすすめするのですか？</h3>
-                    <p class="text-gray-600 mb-3">確かにChatGPTやClaude、Geminiなど多くのAIツールに無料版がありますが、<span class="text-blue-700 font-semibold">本格的に学習・制作するなら有料版の利用を強くお勧めします</span>。</p>
-                    <ul class="text-gray-600 space-y-2 text-sm">
-                        <li>• <span class="text-blue-600">回数制限なし</span>：無料版は1日の利用回数に制限があり、学習が途中で止まってしまいます</li>
-                        <li>• <span class="text-green-600">高性能モデル</span>：GPT-4oやClaude等の最新高性能モデルが使用可能</li>
-                        <li>• <span class="text-indigo-600">高画質・高品質</span>：画像生成や音楽生成で商用レベルの品質を実現</li>
-                        <li>• <span class="text-indigo-500">時間効率</span>：処理速度が速く、待ち時間なしで集中して学習できます</li>
-                    </ul>
-                    <p class="text-gray-600 mt-3 text-sm">月額2,000-3,000円の投資で学習効率が格段に向上し、作れる成果物のクオリティも大幅にアップします。</p>
-                </div>
-                
-                <div class="glass p-6 fade-in" style="animation-delay: 0.4s;">
-                    <h3 class="text-xl font-semibold mb-3">プログラミング知識は必要ですか？</h3>
-                    <p class="text-gray-600">基本的には不要です。AIツールの使い方から始めて、必要に応じて簡単なプログラミングも学べます。段階的に進めるので安心してください。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTAセクション -->
-    <section class="py-20 relative" style="background: linear-gradient(160deg, #0f172a 0%, #1e293b 100%);">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-8 fade-in text-white">
-                <span class="text-blue-400">「できる」</span>を増やす<br>第一歩を踏み出そう
-            </h2>
-
-            <p class="text-xl mb-10 text-slate-300 max-w-2xl mx-auto fade-in" style="animation-delay: 0.2s;">
-                「知ってる」だけでは終わらない。<br>
-                実際に「できる」ようになって、AIを自分のものにしませんか？
-            </p>
-
-            <!-- Stripe Payment Link (Final CTA) -->
-            <div class="text-center">
-                <a href="https://buy.stripe.com/28EeVdfpzbkGeFu6QX18c00"
-                   target="_blank"
-                   class="inline-block bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-bold py-5 px-10 rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-blue-500/25 text-xl fade-in"
-                   style="animation-delay: 0.4s;">
-                    今すぐ参加する
-                </a>
-            </div>
-
-            <p class="text-sm text-slate-400 mt-6 fade-in" style="animation-delay: 0.6s;">
-                月額9,800円・いつでもキャンセル可能
-            </p>
-            <p class="text-xs text-slate-500 mt-4">
-                <!-- デプロイ確認: 2025-08-01 15:30 JST - Payment Links Active -->
-            </p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-12 border-t" style="background: #0f172a; border-color: #1e293b;">
-        <div class="container mx-auto px-6">
-            <div class="text-center">
-                <h3 class="text-2xl font-bold mb-4 text-white">AI学習サロン</h3>
-                <p class="text-slate-400 mb-6">ゼロから最先端AIまで、最短で習得</p>
-                <p class="text-sm text-slate-500">© 2025 AquaBit LAB. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script>
-        // ★★★ 削除 不要になったStripe決済処理（Stripe Buy Buttonに置き換えのため）
-
-        // スクロールアニメーション
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        // ページ読み込み時にアニメーション対象を観察
-        document.addEventListener('DOMContentLoaded', function() {
-            const animationTargets = document.querySelectorAll('.fade-in');
-            animationTargets.forEach(target => {
-                observer.observe(target);
-            });
-        });
-
-        // Enhanced particle system
-        document.addEventListener('DOMContentLoaded', function() {
-            const particles = document.querySelectorAll('.particle');
-            particles.forEach((particle, index) => {
-                const randomLeft = Math.random() * 100;
-                const randomDelay = Math.random() * 20;
-                const randomDuration = 15 + Math.random() * 10;
-                
-                particle.style.left = randomLeft + '%';
-                particle.style.animationDelay = randomDelay + 's';
-                particle.style.animationDuration = randomDuration + 's';
-                
-                // Random colors for particles
-                const colors = ['#00ffff', '#ff00ff', '#00ff80', '#ff1493', '#ffff00'];
-                particle.style.color = colors[index % colors.length];
-            });
-        });
-        
-        // Interactive hover effects for cards
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.glass, .pricing-card');
-            
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', function(e) {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    
-                    // Create ripple effect
-                    const ripple = document.createElement('div');
-                    ripple.style.position = 'absolute';
-                    ripple.style.borderRadius = '50%';
-                    ripple.style.transform = 'scale(0)';
-                    ripple.style.animation = 'ripple 0.6s linear';
-                    ripple.style.backgroundColor = 'rgba(59, 130, 246, 0.3)';
-                    ripple.style.left = x + 'px';
-                    ripple.style.top = y + 'px';
-                    ripple.style.width = '20px';
-                    ripple.style.height = '20px';
-                    ripple.style.marginLeft = '-10px';
-                    ripple.style.marginTop = '-10px';
-                    ripple.style.pointerEvents = 'none';
-                    
-                    card.style.position = 'relative';
-                    card.appendChild(ripple);
-                    
-                    setTimeout(() => {
-                        if (ripple.parentNode) {
-                            ripple.parentNode.removeChild(ripple);
-                        }
-                    }, 600);
-                });
-            });
-        });
-        
-        // Add ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-        
-        // Smooth scroll for anchor links
-        document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('a[href^="#"]');
-            links.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-        });
-
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        if (mobileMenuButton && mobileMenu) {
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-    </script>
+<section class="section section--tight" aria-labelledby="cta-title">
+  <div class="wrap">
+    <div class="cta on-dark">
+      <div class="cta__bits"><svg viewBox="0 0 600 420" aria-hidden="true" focusable="false"><ellipse cx="300" cy="300" rx="38" ry="10.6" fill="none" stroke="#3fe3e6" stroke-width="2" opacity="0.9"/><ellipse cx="300" cy="300" rx="86" ry="24.1" fill="none" stroke="#3fe3e6" stroke-width="1.6" opacity="0.6"/><ellipse cx="300" cy="300" rx="148" ry="41.4" fill="none" stroke="#3fe3e6" stroke-width="1.3" opacity="0.38"/><ellipse cx="300" cy="300" rx="222" ry="62.2" fill="none" stroke="#3fe3e6" stroke-width="1" opacity="0.22"/><ellipse cx="300" cy="300" rx="296" ry="82.9" fill="none" stroke="#3fe3e6" stroke-width="1" opacity="0.12"/><path d="M300 262c-6 12-9 20-9 27a9 9 0 0 0 18 0c0-7-3-15-9-27z" fill="#3fe3e6"/><rect x="289.9" y="240.8" width="11.9" height="11.9" rx="1.4" fill="#3fe3e6" opacity="1.00"/><rect x="295.4" y="238.0" width="10.2" height="10.2" rx="1.4" fill="#3fe3e6" opacity="0.97"/><rect x="296.0" y="232.9" width="8.2" height="8.2" rx="1.4" fill="#3fe3e6" opacity="0.95"/><rect x="286.7" y="222.8" width="8.5" height="8.5" rx="1.4" fill="#3fe3e6" opacity="0.92"/><rect x="303.5" y="216.6" width="8.7" height="8.7" rx="1.4" fill="#3fe3e6" opacity="0.89"/><rect x="296.6" y="209.9" width="13.7" height="13.7" rx="1.4" fill="#3fe3e6" opacity="0.87"/><rect x="290.0" y="200.1" width="13.9" height="13.9" rx="1.4" fill="#3fe3e6" opacity="0.84"/><rect x="307.0" y="201.3" width="9.7" height="9.7" rx="1.4" fill="#3fe3e6" opacity="0.82"/><rect x="281.3" y="194.0" width="9.9" height="9.9" rx="1.4" fill="#3fe3e6" opacity="0.79"/><rect x="281.8" y="180.3" width="11.5" height="11.5" rx="1.4" fill="#3fe3e6" opacity="0.76"/><rect x="290.5" y="177.5" width="8.3" height="8.3" rx="1.4" fill="#3fe3e6" opacity="0.74"/><rect x="277.1" y="178.1" width="6.2" height="6.2" rx="1.4" fill="#3fe3e6" opacity="0.71"/><rect x="293.1" y="165.4" width="6.9" height="6.9" rx="1.4" fill="#3fe3e6" opacity="0.68"/><rect x="294.2" y="160.1" width="6.8" height="6.8" rx="1.4" fill="#3fe3e6" opacity="0.66"/><rect x="307.5" y="152.0" width="6.5" height="6.5" rx="1.4" fill="#3fe3e6" opacity="0.63"/><rect x="296.3" y="146.1" width="10.3" height="10.3" rx="1.4" fill="#3fe3e6" opacity="0.61"/><rect x="281.8" y="138.1" width="10.9" height="10.9" rx="1.4" fill="#3fe3e6" opacity="0.58"/><rect x="290.1" y="138.6" width="9.5" height="9.5" rx="1.4" fill="#3fe3e6" opacity="0.55"/><rect x="296.7" y="134.3" width="5.2" height="5.2" rx="1.4" fill="#3fe3e6" opacity="0.53"/><rect x="314.0" y="121.3" width="8.4" height="8.4" rx="1.4" fill="#3fe3e6" opacity="0.50"/><rect x="282.0" y="112.7" width="9.2" height="9.2" rx="1.4" fill="#3fe3e6" opacity="0.47"/><rect x="302.1" y="110.0" width="7.7" height="7.7" rx="1.4" fill="#3fe3e6" opacity="0.45"/><rect x="330.8" y="101.3" width="7.8" height="7.8" rx="1.4" fill="#3fe3e6" opacity="0.42"/><rect x="259.8" y="96.2" width="9.2" height="9.2" rx="1.4" fill="#3fe3e6" opacity="0.39"/><rect x="336.5" y="89.8" width="9.9" height="9.9" rx="1.4" fill="#3fe3e6" opacity="0.37"/><rect x="285.6" y="87.6" width="9.0" height="9.0" rx="1.4" fill="#3fe3e6" opacity="0.34"/><rect x="293.5" y="85.6" width="6.0" height="6.0" rx="1.4" fill="#3fe3e6" opacity="0.32"/><rect x="254.2" y="76.6" width="9.6" height="9.6" rx="1.4" fill="#3fe3e6" opacity="0.29"/><rect x="272.1" y="71.4" width="7.3" height="7.3" rx="1.4" fill="#3fe3e6" opacity="0.26"/><rect x="254.6" y="57.6" width="7.7" height="7.7" rx="1.4" fill="#3fe3e6" opacity="0.24"/><rect x="334.1" y="53.5" width="9.9" height="9.9" rx="1.4" fill="#3fe3e6" opacity="0.21"/><rect x="273.0" y="45.4" width="7.5" height="7.5" rx="1.4" fill="#3fe3e6" opacity="0.18"/><rect x="336.1" y="42.6" width="10.7" height="10.7" rx="1.4" fill="#3fe3e6" opacity="0.18"/><rect x="260.9" y="40.7" width="6.4" height="6.4" rx="1.4" fill="#3fe3e6" opacity="0.18"/></svg></div>
+      <div>
+        <p class="eyebrow">JOIN</p>
+        <h2 class="h2" id="cta-title">「知ってる」で終わらせない。<br>今日、1つ作ってみよう。</h2>
+        <p>月額9,800円（税込）・最低利用期間なし。まずは1か月、手を動かしてみてください。</p>
+      </div>
+      <div class="cta__actions">
+        <a class="btn btn--aqua btn--lg" href="https://buy.stripe.com/28EeVdfpzbkGeFu6QX18c00" target="_blank" rel="noopener">サロンに参加する <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a class="btn btn--ghost btn--lg" href="/contact?topic=salon">参加前に質問する</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a class="brand" href="/"><img src="/images/logo-mark.webp" alt="" width="38" height="38" loading="lazy"><span><b>AquaBit LAB</b><small>SEA × AI</small></span></a>
+        <p class="footer__tag">海とAI、<br>二つの未来へ。</p>
+        <p>個人・中小企業のAI導入サポートと、神奈川・三浦のダイビングスクール「三浦 海の学校」。「自分には無理」を「できた」に変える、二つの事業のラボです。</p>
+      </div>
+      <div class="footer__col">
+        <h2 class="footer__h">AI事業</h2>
+        <ul>
+          <li><a href="/ai-service">AI導入サポート</a></li>
+          <li><a href="/ai-service#diagnosis">3分でわかる最初の一歩</a></li>
+          <li><a href="/works">実績・取り組み</a></li>
+          <li><a href="/ai-salon/">AI学習サロン</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h2 class="footer__h">マリン事業</h2>
+        <ul>
+          <li><a href="/marine">マリン事業について</a></li>
+          <li><a href="https://miura-diving.com/" target="_blank" rel="noopener">三浦 海の学校 <small>↗</small></a></li>
+          <li><a href="https://miura-diving.com/manga/" target="_blank" rel="noopener">まんがで読むダイビング <small>↗</small></a></li>
+          <li><a href="https://miura-diving.com/bluelogbook/" target="_blank" rel="noopener">Blue Logbook <small>↗</small></a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h2 class="footer__h">AquaBit LAB</h2>
+        <ul>
+          <li><a href="/about">ABLとは・代表</a></li>
+          <li><a href="/contact">お問い合わせ</a></li>
+          <li><a href="https://lin.ee/obePsOF" target="_blank" rel="noopener">公式LINE <small>↗</small></a></li>
+          <li><a href="https://www.tj-web3.com/" target="_blank" rel="noopener">TJ（代表の個人サイト） <small>↗</small></a></li>
+          <li><a href="https://tj-music.com/" target="_blank" rel="noopener">TJ Music <small>↗</small></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ai-ask">
+      <div>
+        <h2 class="ai-ask__h">このラボのこと、あなたのAIに聞いてみる</h2>
+        <p>ボタンを押すと、お使いのAIがこのサイトの案内（llms.txt）を読んで、あなたの仕事に合うかどうかを一緒に考えてくれます。</p>
+      </div>
+      <div class="ai-ask__links"><a href="https://chatgpt.com/?q=AquaBit%20LAB%EF%BC%88https%3A//aquabit-lab.com/%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%81%AE%E5%80%8B%E4%BA%BA%E4%BA%8B%E6%A5%AD%E3%80%82%E5%80%8B%E4%BA%BA%E3%83%BB%E4%B8%AD%E5%B0%8F%E4%BC%81%E6%A5%AD%E3%81%AEAI%E5%B0%8E%E5%85%A5%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A8AI%E5%AD%A6%E7%BF%92%E3%82%B5%E3%83%AD%E3%83%B3%E3%80%81%E3%83%80%E3%82%A4%E3%83%93%E3%83%B3%E3%82%B0%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB%E3%80%8C%E4%B8%89%E6%B5%A6%20%E6%B5%B7%E3%81%AE%E5%AD%A6%E6%A0%A1%E3%80%8D%E3%82%92%E9%81%8B%E5%96%B6%EF%BC%89%E3%81%AB%E7%9B%B8%E8%AB%87%E3%81%99%E3%82%8B%E3%81%8B%E8%BF%B7%E3%81%A3%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%80%82%E3%81%BE%E3%81%9A%20https%3A//aquabit-lab.com/llms.txt%20%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A7%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E3%81%9D%E3%81%AE%E3%81%86%E3%81%88%E3%81%A7%E3%80%81%E7%A7%81%E3%81%AE%E4%BB%95%E4%BA%8B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E5%9B%B0%E3%82%8A%E3%81%94%E3%81%A8%E3%82%92%E8%B3%AA%E5%95%8F%E3%81%97%E3%81%A6%E3%81%8B%E3%82%89%E3%80%81AI%E3%81%A7%E3%81%A7%E3%81%8D%E3%81%9D%E3%81%86%E3%81%AA%E3%81%93%E3%81%A8%E3%81%A8%E3%80%81AquaBit%20LAB%E3%81%AB%E9%A0%BC%E3%82%80%E3%81%AE%E3%81%8C%E5%90%88%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E7%8E%87%E7%9B%B4%E3%81%AB%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E6%96%99%E9%87%91%E3%82%84%E6%9D%A1%E4%BB%B6%E3%81%AF%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E6%9C%80%E6%96%B0%E6%83%85%E5%A0%B1%E3%82%92%E5%84%AA%E5%85%88%E3%81%97%E3%80%81%E4%B8%8D%E7%A2%BA%E3%81%8B%E3%81%AA%E3%81%93%E3%81%A8%E3%81%AF%E6%96%AD%E5%AE%9A%E3%81%9B%E3%81%9A%E3%80%81%E6%AD%A3%E5%BC%8F%E3%81%AA%E7%9B%B8%E8%AB%87%E3%81%AF%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%EF%BC%88https%3A//aquabit-lab.com/contact%EF%BC%89%E3%82%92%E6%A1%88%E5%86%85%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82" target="_blank" rel="noopener noreferrer">ChatGPTで聞く</a><a href="https://claude.ai/new?q=AquaBit%20LAB%EF%BC%88https%3A//aquabit-lab.com/%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%81%AE%E5%80%8B%E4%BA%BA%E4%BA%8B%E6%A5%AD%E3%80%82%E5%80%8B%E4%BA%BA%E3%83%BB%E4%B8%AD%E5%B0%8F%E4%BC%81%E6%A5%AD%E3%81%AEAI%E5%B0%8E%E5%85%A5%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A8AI%E5%AD%A6%E7%BF%92%E3%82%B5%E3%83%AD%E3%83%B3%E3%80%81%E3%83%80%E3%82%A4%E3%83%93%E3%83%B3%E3%82%B0%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB%E3%80%8C%E4%B8%89%E6%B5%A6%20%E6%B5%B7%E3%81%AE%E5%AD%A6%E6%A0%A1%E3%80%8D%E3%82%92%E9%81%8B%E5%96%B6%EF%BC%89%E3%81%AB%E7%9B%B8%E8%AB%87%E3%81%99%E3%82%8B%E3%81%8B%E8%BF%B7%E3%81%A3%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%80%82%E3%81%BE%E3%81%9A%20https%3A//aquabit-lab.com/llms.txt%20%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A7%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E3%81%9D%E3%81%AE%E3%81%86%E3%81%88%E3%81%A7%E3%80%81%E7%A7%81%E3%81%AE%E4%BB%95%E4%BA%8B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E5%9B%B0%E3%82%8A%E3%81%94%E3%81%A8%E3%82%92%E8%B3%AA%E5%95%8F%E3%81%97%E3%81%A6%E3%81%8B%E3%82%89%E3%80%81AI%E3%81%A7%E3%81%A7%E3%81%8D%E3%81%9D%E3%81%86%E3%81%AA%E3%81%93%E3%81%A8%E3%81%A8%E3%80%81AquaBit%20LAB%E3%81%AB%E9%A0%BC%E3%82%80%E3%81%AE%E3%81%8C%E5%90%88%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E7%8E%87%E7%9B%B4%E3%81%AB%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E6%96%99%E9%87%91%E3%82%84%E6%9D%A1%E4%BB%B6%E3%81%AF%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E6%9C%80%E6%96%B0%E6%83%85%E5%A0%B1%E3%82%92%E5%84%AA%E5%85%88%E3%81%97%E3%80%81%E4%B8%8D%E7%A2%BA%E3%81%8B%E3%81%AA%E3%81%93%E3%81%A8%E3%81%AF%E6%96%AD%E5%AE%9A%E3%81%9B%E3%81%9A%E3%80%81%E6%AD%A3%E5%BC%8F%E3%81%AA%E7%9B%B8%E8%AB%87%E3%81%AF%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%EF%BC%88https%3A//aquabit-lab.com/contact%EF%BC%89%E3%82%92%E6%A1%88%E5%86%85%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82" target="_blank" rel="noopener noreferrer">Claudeで聞く</a><a href="https://www.perplexity.ai/search?q=AquaBit%20LAB%EF%BC%88https%3A//aquabit-lab.com/%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%81%AE%E5%80%8B%E4%BA%BA%E4%BA%8B%E6%A5%AD%E3%80%82%E5%80%8B%E4%BA%BA%E3%83%BB%E4%B8%AD%E5%B0%8F%E4%BC%81%E6%A5%AD%E3%81%AEAI%E5%B0%8E%E5%85%A5%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A8AI%E5%AD%A6%E7%BF%92%E3%82%B5%E3%83%AD%E3%83%B3%E3%80%81%E3%83%80%E3%82%A4%E3%83%93%E3%83%B3%E3%82%B0%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB%E3%80%8C%E4%B8%89%E6%B5%A6%20%E6%B5%B7%E3%81%AE%E5%AD%A6%E6%A0%A1%E3%80%8D%E3%82%92%E9%81%8B%E5%96%B6%EF%BC%89%E3%81%AB%E7%9B%B8%E8%AB%87%E3%81%99%E3%82%8B%E3%81%8B%E8%BF%B7%E3%81%A3%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%80%82%E3%81%BE%E3%81%9A%20https%3A//aquabit-lab.com/llms.txt%20%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A7%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E3%81%9D%E3%81%AE%E3%81%86%E3%81%88%E3%81%A7%E3%80%81%E7%A7%81%E3%81%AE%E4%BB%95%E4%BA%8B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E5%9B%B0%E3%82%8A%E3%81%94%E3%81%A8%E3%82%92%E8%B3%AA%E5%95%8F%E3%81%97%E3%81%A6%E3%81%8B%E3%82%89%E3%80%81AI%E3%81%A7%E3%81%A7%E3%81%8D%E3%81%9D%E3%81%86%E3%81%AA%E3%81%93%E3%81%A8%E3%81%A8%E3%80%81AquaBit%20LAB%E3%81%AB%E9%A0%BC%E3%82%80%E3%81%AE%E3%81%8C%E5%90%88%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E7%8E%87%E7%9B%B4%E3%81%AB%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E6%96%99%E9%87%91%E3%82%84%E6%9D%A1%E4%BB%B6%E3%81%AF%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E6%9C%80%E6%96%B0%E6%83%85%E5%A0%B1%E3%82%92%E5%84%AA%E5%85%88%E3%81%97%E3%80%81%E4%B8%8D%E7%A2%BA%E3%81%8B%E3%81%AA%E3%81%93%E3%81%A8%E3%81%AF%E6%96%AD%E5%AE%9A%E3%81%9B%E3%81%9A%E3%80%81%E6%AD%A3%E5%BC%8F%E3%81%AA%E7%9B%B8%E8%AB%87%E3%81%AF%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%EF%BC%88https%3A//aquabit-lab.com/contact%EF%BC%89%E3%82%92%E6%A1%88%E5%86%85%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82" target="_blank" rel="noopener noreferrer">Perplexityで聞く</a></div>
+      <small>※回答はAIによる案内です。最新の内容と正式なご相談は、<a href="/contact">お問い合わせ</a>からどうぞ。</small>
+    </div>
+    <div class="footer__bottom">
+      <nav aria-label="規約"><a href="/privacy-policy">プライバシーポリシー</a><a href="/tokushoho">特定商取引法に基づく表記</a><a href="mailto:info@aquabit-lab.com">info@aquabit-lab.com</a></nav>
+      <p class="footer__made">© 2026 AquaBit LAB — このサイトも、AIといっしょに作っています。</p>
+    </div>
+  </div>
+</footer>
+<script src="/js/abl.js?v=20260927" defer></script>
 </body>
 </html>

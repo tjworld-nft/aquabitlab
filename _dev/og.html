@@ -1,0 +1,28 @@
+<!doctype html><html lang="ja"><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Outfit:wght@700;800&display=swap">
+<style>
+html,body{margin:0}
+body{width:1200px;height:630px;overflow:hidden;background:#03121f;font-family:"Outfit","Hiragino Sans","Hiragino Kaku Gothic ProN",sans-serif;color:#e9f2f5}
+.c{position:relative;width:1200px;height:630px;overflow:hidden}
+.bg{position:absolute;inset:0;background-size:cover;background-position:70% 50%}
+.bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,18,31,.96) 0%,rgba(3,18,31,.82) 42%,rgba(3,18,31,.2) 78%)}
+.in{position:absolute;left:76px;top:70px;right:76px;bottom:64px;display:flex;flex-direction:column}
+.brand{display:flex;align-items:center;gap:16px;font-weight:700;font-size:28px}
+.brand img{width:54px;height:54px;border-radius:12px}
+.k{margin-top:auto;font-family:"JetBrains Mono",monospace;font-size:21px;letter-spacing:.08em;color:#3fe3e6;display:flex;align-items:center;gap:14px}
+.k::before{content:"";width:12px;height:12px;background:#3fe3e6;border-radius:2px;box-shadow:18px 0 0 rgba(63,227,230,.35);margin-right:18px}
+h1{margin:18px 0 18px;font-size:76px;line-height:1.18;font-weight:800;letter-spacing:.005em;font-feature-settings:"palt" 1}
+h1 em{font-style:normal;color:#3fe3e6}
+p{margin:0;font-size:26px;color:#b8cbd5;line-height:1.6;font-weight:600}
+.url{position:absolute;right:76px;top:84px;font-family:"JetBrains Mono",monospace;font-size:19px;color:#a9bcc7;letter-spacing:.06em}
+</style>
+<div class="c" id="card"><div class="bg" id="bg"></div><div class="in">
+<div class="brand"><img src="/images/logo-mark.webp" alt="">AquaBit LAB</div>
+<div class="k" id="k"></div><h1 id="t"></h1><p id="s"></p></div><div class="url">aquabit-lab.com</div></div>
+<script>
+const q=new URLSearchParams(location.search);
+document.getElementById('bg').style.backgroundImage=`url(${q.get('img')||'/images/abl/hero-poster.webp'})`;
+document.getElementById('k').textContent=q.get('k')||'';
+document.getElementById('t').innerHTML=(q.get('t')||'').replace(/\|/g,'<br>').replace(/\*(.+?)\*/g,'<em>$1</em>');
+document.getElementById('s').textContent=q.get('s')||'';
+</script></html>

@@ -1,44 +1,84 @@
 DirectoryIndex index.html index.php
+ErrorDocument 404 /404.html
 
-# Remove .html from URLs for cleaner appearance (optional)
+# FTPデプロイの同期記録を外部から読めなくする（ファイル自体は消さない）
+<Files ".ftp-deploy-sync-state.json">
+  Require all denied
+</Files>
+
 RewriteEngine On
 
-# AI salon specific rule
-RewriteRule ^ai-salon/?$ ai-salon/index.html [NC,L]
+# ── URLの正規化（2026-09-27） ─────────────────────────────
+# http→https ／ www→wwwなし。ホスト条件はこのドメインに限定する
+# （サブドメインのドキュメントルートがこの下にあってもルールを継承させないため）
+RewriteCond %{HTTP_HOST} ^(www\.)?aquabit-lab\.com$ [NC]
+RewriteCond %{HTTPS} !on [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^(.*)$ https://aquabit-lab.com/$1 [R=301,L]
 
-# Clean URL rules
+# /index.html → / 、 /ai-salon/index.html → /ai-salon/
+RewriteCond %{HTTP_HOST} ^aquabit-lab\.com$ [NC]
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.html[\s?] [NC]
+RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L]
+
+# /about.html → /about（.html付きの旧URL・重複をクリーンURLへ）
+# （ErrorDocument の内部リダイレクトでは動かさない＝REDIRECT_STATUS が空のときだけ）
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteCond %{HTTP_HOST} ^aquabit-lab\.com$ [NC]
+RewriteCond %{THE_REQUEST} \s/+([^.?\s]+)\.html[\s?] [NC]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^([^.]+)\.html$ /$1 [R=301,L]
+
+# エラーページそのものは 404 を返す（/404 が 200 で見えるのを防ぐ）
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^404$ - [R=404,L]
+
+# /ai-salon → /ai-salon/
+RewriteRule ^ai-salon$ /ai-salon/ [R=301,L]
+
+# /about/ → /about（末尾スラッシュ付きで来たページを揃える。実在するディレクトリは除く）
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^./]+)/$ /$1 [R=301,L]
+
+# クリーンURL：/about → about.html を返す
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !\.(css|js|png|jpg|gif|ico|svg)$
-RewriteRule ^([^\.]+)/?$ $1.html [NC,L]
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^./]+)$ $1.html [L]
 
-# MIME types
+# ── 型 ────────────────────────────────────────────
 <IfModule mod_mime.c>
   AddType image/webp .webp
   AddType application/javascript .js
+  AddType text/plain .txt
+  AddCharset UTF-8 .html .css .js .txt .xml
 </IfModule>
 
-# Compression (three.js のバンドルは gzip 必須)
+# ── 圧縮 ──────────────────────────────────────────
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
   AddOutputFilterByType DEFLATE application/javascript application/x-javascript
   AddOutputFilterByType DEFLATE application/json application/xml image/svg+xml
 </IfModule>
 
-# Cache Control Settings - Force refresh for images
+# ── キャッシュ ─────────────────────────────────────
+# CSS/JS は1か月。変えたら各HTMLの ?v=YYYYMMDD を上げる（tools/build.py の V）
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/html "access plus 1 minute"
   ExpiresByType text/css "access plus 1 month"
   ExpiresByType application/javascript "access plus 1 month"
-  ExpiresByType image/png "access plus 1 minute"
-  ExpiresByType image/jpg "access plus 1 minute"
-  ExpiresByType image/jpeg "access plus 1 minute"
-  ExpiresByType image/webp "access plus 7 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/png "access plus 7 days"
+  ExpiresByType image/jpeg "access plus 7 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType image/x-icon "access plus 30 days"
 </IfModule>
 
-# Security Headers
+# ── セキュリティ ────────────────────────────────────
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options nosniff
   Header always set X-Frame-Options DENY
+  Header always set Referrer-Policy strict-origin-when-cross-origin
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), interest-cohort=()"
 </IfModule>
