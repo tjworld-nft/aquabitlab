@@ -42,7 +42,7 @@ function rate_limited($limit = 3, $window = 600) {
     $file = rtrim(sys_get_temp_dir(), '/') . '/abl-contact-' . substr(hash('sha256', 'abl' . $ip), 0, 24);
     $now = time();
     $hits = [];
-    if (is_file($file)) {
+    if (@is_file($file)) {
         foreach (explode("\n", (string)@file_get_contents($file)) as $t) {
             if ($t !== '' && ctype_digit($t) && $now - (int)$t < $window) { $hits[] = (int)$t; }
         }
