@@ -26,7 +26,7 @@ from urllib.parse import quote
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "src"
 SITE = "https://aquabit-lab.com"
-V = "20260927"          # css/js を変えたら上げる（.htaccess で1か月キャッシュしている）
+V = "20261013"          # css/js を変えたら上げる（.htaccess で1か月キャッシュしている）
 LINE_URL = "https://lin.ee/obePsOF"
 MAIL = "info@aquabit-lab.com"
 

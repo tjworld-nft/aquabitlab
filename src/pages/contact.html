@@ -60,13 +60,15 @@
           <p class="field__err" id="e-message" data-err-for="message" hidden></p>
         </div>
         <div class="hp" aria-hidden="true"><label>この欄は空のままにしてください<input type="text" name="abl_hp" tabindex="-1" autocomplete="off"></label></div>
-        <input type="hidden" name="ts" value="" data-ts>
+        <input type="hidden" name="form_token" value="">
         <div class="field">
           <label class="consent"><input type="checkbox" name="agree" value="1" required><span><a href="/privacy-policy" target="_blank" rel="noopener">プライバシーポリシー</a>に同意して送信します。</span></label>
           <p class="field__err" data-err-for="agree" hidden></p>
         </div>
         <div class="form__status" data-status role="status" tabindex="-1" hidden></div>
         <div><button class="btn btn--lg" type="submit">送信する {{arr}}</button></div>
+        <p class="field__hint">迷惑メール対策のため、フォームの送信にはJavaScriptとCookieを使用します。送信できない場合は、<a href="mailto:{{mail}}">{{mail}}</a>へご連絡ください。</p>
+        <noscript><p class="form__status is-err">JavaScriptが無効になっています。<a href="mailto:{{mail}}">{{mail}}</a>へ直接メールでお問い合わせください。</p></noscript>
       </form>
 
       <aside>

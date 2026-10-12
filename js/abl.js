@@ -289,10 +289,54 @@
     if (params.get('from') === 'diagnosis' && msg && !msg.value) {
       try { const s = sessionStorage.getItem('abl-diag'); if (s) msg.value = s; } catch (e) { /* noop */ }
     }
-    const ts = $('[data-ts]', f);
-    if (ts) ts.value = String(Date.now());
+    let tokenField = $('[name="form_token"]', f);
+    // 更新直後に古いHTMLが残っている場合も、送信に必要な欄を補う。
+    if (!tokenField) {
+      tokenField = document.createElement('input');
+      tokenField.type = 'hidden';
+      tokenField.name = 'form_token';
+      f.appendChild(tokenField);
+    }
     const status = $('[data-status]', f);
     const btn = f.querySelector('button[type="submit"]');
+    let tokenReadyAt = 0;
+    let tokenExpiresAt = 0;
+    let tokenRequest = null;
+    let submitting = false;
+
+    const clearToken = () => {
+      tokenField.value = '';
+      tokenReadyAt = 0;
+      tokenExpiresAt = 0;
+    };
+    const loadToken = () => {
+      if (tokenRequest) return tokenRequest;
+      clearToken();
+      tokenRequest = (async () => {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 15000);
+        try {
+          const url = new URL(f.action, location.href);
+          url.searchParams.set('action', 'token');
+          const res = await fetch(url, {
+            credentials: 'same-origin', cache: 'no-store',
+            headers: { Accept: 'application/json' }, signal: controller.signal,
+          });
+          const data = await res.json();
+          if (!res.ok || data.success !== true || !/^[a-f0-9]{64}$/i.test(data.token || '')) {
+            throw new Error('Token unavailable');
+          }
+          tokenField.value = data.token;
+          tokenReadyAt = Date.now() + Math.max(3, Number(data.min_wait) || 3) * 1000;
+          tokenExpiresAt = Date.now() + Math.max(0, (Number(data.expires_in) || 7200) - 10) * 1000;
+        } finally {
+          clearTimeout(timeout);
+        }
+      })().finally(() => { tokenRequest = null; });
+      return tokenRequest;
+    };
+    // 入力中に送信の準備を済ませる。失敗時は送信ボタンを押したときに再試行する。
+    loadToken().catch(() => {});
 
     const setErr = (el, text) => {
       const box = f.querySelector(`[data-err-for="${el.name}"]`);
@@ -317,20 +361,38 @@
 
     f.addEventListener('submit', async (e) => {
       e.preventDefault();
+      if (submitting) return;
       const bad = check();
       if (bad) { bad.focus(); return; }
+      submitting = true;
       btn.disabled = true;
       const label = btn.innerHTML;
-      btn.textContent = '送信しています…';
+      btn.textContent = '送信の準備をしています…';
       status.hidden = true;
+      let postStarted = false;
       try {
-        const res = await fetch(f.action, { method: 'POST', body: new FormData(f), headers: { Accept: 'application/json' } });
-        const data = await res.json().catch(() => ({}));
+        if (!tokenField.value || Date.now() >= tokenExpiresAt) await loadToken();
+        const wait = tokenReadyAt - Date.now();
+        if (wait > 0) await new Promise((resolve) => setTimeout(resolve, wait));
+        btn.textContent = '送信しています…';
+        postStarted = true;
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 30000);
+        let res;
+        let data;
+        try {
+          res = await fetch(f.action, {
+            method: 'POST', body: new FormData(f), credentials: 'same-origin',
+            headers: { Accept: 'application/json' }, signal: controller.signal,
+          });
+          data = await res.json().catch(() => ({}));
+        } finally {
+          clearTimeout(timeout);
+        }
         if (res.ok && data.success) {
           status.className = 'form__status is-ok';
           status.textContent = data.message || '送信しました。確認メールをお送りしました。';
           f.reset();
-          if (ts) ts.value = String(Date.now());
           try { sessionStorage.removeItem('abl-diag'); } catch (err) { /* noop */ }
         } else {
           status.className = 'form__status is-err';
@@ -338,12 +400,18 @@
         }
       } catch (err) {
         status.className = 'form__status is-err';
-        status.textContent = '通信できませんでした。時間をおいてお試しいただくか、info@aquabit-lab.com へメールでご連絡ください。';
+        status.textContent = postStarted
+          ? '送信結果を確認できませんでした。確認メールが届いていない場合は、時間をおいて再度お試しいただくか、info@aquabit-lab.com へメールでご連絡ください。'
+          : '送信の準備ができませんでした。Cookieを有効にして再度お試しいただくか、info@aquabit-lab.com へメールでご連絡ください。';
+      } finally {
+        // 送信結果が不明な場合も古いトークンを再使用しない。入力内容の自動再送はしない。
+        if (postStarted) loadToken().catch(() => {});
+        status.hidden = false;
+        status.focus();
+        submitting = false;
+        btn.disabled = false;
+        btn.innerHTML = label;
       }
-      status.hidden = false;
-      status.focus();
-      btn.disabled = false;
-      btn.innerHTML = label;
     });
     ['name', 'email', 'message'].forEach((n) => {
       const el = f.querySelector(`[name="${n}"]`);
