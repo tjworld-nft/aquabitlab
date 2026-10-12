@@ -1,6 +1,7 @@
 # PHP files (original WordPress templates)
 *.php
 !send-mail.php
+!contact-guard.php
 !tools/router.php
 
 # macOS
