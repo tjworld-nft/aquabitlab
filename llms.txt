@@ -23,7 +23,7 @@
 - 公式LINEの配信：配信文の下書き・送る相手の絞り込み。送信は必ず人が確認
 - AI検索対策：llms.txt・構造化データ、全ページに「AIに相談する」ボタン
 - Webサイト全面リニューアル（2026年9月）：トップページのスマホ表示速度スコア 55→93（Lighthouse・自社計測）
-- iOSアプリを2本、App Storeで公開（2026年9月）：Blue Logbook（ダイビングのログブック）、いまメシ（旅先で今どこで食べるか決める。端末内AIで話し言葉検索）
+- iOSアプリを4本、App Storeで公開（無料）：Blue Logbook（ダイビングのログブック・2026年9月）、いまメシ（旅先で今どこで食べるか決める。端末内AIで話し言葉検索・2026年9月）、海学（三浦 海の学校の公式アプリ。歩数と海の相棒・海のタロット・海のなかま図鑑・2026年9月）、龍脈マップ（全国の神社・お寺・自然の場所 約10万か所と、標高から計算した尾根のつながり「龍脈」、暦と方位を見る地図・2026年11月）
 
 ## AI学習サロン
 
@@ -52,6 +52,7 @@
 - [実績・取り組み](https://aquabit-lab.com/works)
 - [AI学習サロン](https://aquabit-lab.com/ai-salon/)
 - [マリン事業](https://aquabit-lab.com/marine)
+- [龍脈マップ（iPhoneアプリの案内とサポート）](https://aquabit-lab.com/ryumyaku/)
 - [ABLとは・代表プロフィール](https://aquabit-lab.com/about)
 - [お問い合わせ](https://aquabit-lab.com/contact)
 - [特定商取引法に基づく表記](https://aquabit-lab.com/tokushoho)
