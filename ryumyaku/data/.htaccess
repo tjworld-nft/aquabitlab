@@ -1,0 +1,16 @@
+# 龍脈マップの公開データ（/ryumyaku/data/）
+# .gz を「圧縮して送った普通のファイル」と扱わせず、ダウンロードしたそのままの形で渡す
+# （サーバーの設定によっては .gz に Content-Encoding が付き、ブラウザが勝手に展開してしまうため）
+# ※サーバー全体の設定（httpd.conf の最上位）で付けられた Content-Encoding は、ここでは消えないことがある
+#   （ローカルの Apache 2.4.66 で確認）。公開後に curl -sI で Content-Encoding が付いていないかを確かめる。
+<IfModule mod_mime.c>
+  # RemoveType は AddType より後に効くので、同じ所に書かない
+  RemoveEncoding .gz
+  AddType application/gzip .gz
+  AddType application/zip .zip
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch "\.(gz|zip)$">
+    Header set Content-Disposition attachment
+  </FilesMatch>
+</IfModule>
