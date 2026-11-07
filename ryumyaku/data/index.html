@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>龍脈マップの場所のデータと作り方（ODbL）｜AquaBit LAB</title>
+<meta name="description" content="iPhone アプリ「龍脈マップ」に入れている神社・お寺・自然の場所 99,783 か所のデータと、その作り方を公開しています。OpenStreetMap 由来のため Open Database License（ODbL）1.0。© OpenStreetMap contributors。Wikidata（CC0）から集めた、まつる神さま・創建などの補足つき。">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://aquabit-lab.com/ryumyaku/data/">
+<meta name="theme-color" content="#03121f">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AquaBit LAB">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="龍脈マップの場所のデータと作り方（ODbL）｜AquaBit LAB">
+<meta property="og:description" content="iPhone アプリ「龍脈マップ」に入れている神社・お寺・自然の場所 99,783 か所のデータと、その作り方を公開しています。OpenStreetMap 由来のため Open Database License（ODbL）1.0。© OpenStreetMap contributors。Wikidata（CC0）から集めた、まつる神さま・創建などの補足つき。">
+<meta property="og:url" content="https://aquabit-lab.com/ryumyaku/data/">
+<meta property="og:image" content="https://aquabit-lab.com/images/abl/og-home.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@500;700;800&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="/css/abl.css?v=20261013">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Dataset","name":"龍脈マップ 場所のデータ（2026年11月7日版）","description":"iPhone アプリ「龍脈マップ」に入れている、日本の神社・お寺・自然の場所（滝・巨樹・湧き水・岩・山・洞窟）99,783 か所の名前・読み・位置・種類。OpenStreetMap（© OpenStreetMap contributors）から取り出して整え、OpenStreetMap に無い場所を Wikidata（CC0）から加えたもの。Wikidata から集めた、まつる神さま・ご本尊・創建の年・文化財の区分の補足と、作り方のスクリプトもあわせて公開しています。","url":"https://aquabit-lab.com/ryumyaku/data/","inLanguage":"ja","dateModified":"2026-11-07","license":"https://opendatacommons.org/licenses/odbl/1-0/","creditText":"© OpenStreetMap contributors","isBasedOn":["https://www.openstreetmap.org/","https://www.wikidata.org/"],"spatialCoverage":{"@type":"Place","name":"日本"},"keywords":["神社","寺院","滝","巨樹","湧き水","OpenStreetMap","Wikidata"],"creator":{"@id":"https://aquabit-lab.com/#org"},"distribution":[{"@type":"DataDownload","name":"場所のデータ（CSV・gzip）","encodingFormat":"application/gzip","contentUrl":"https://aquabit-lab.com/ryumyaku/data/ryumyaku-places-20261107.csv.gz"},{"@type":"DataDownload","name":"Wikidata の補足（TSV・gzip）","encodingFormat":"application/gzip","contentUrl":"https://aquabit-lab.com/ryumyaku/data/ryumyaku-facts-20261107.tsv.gz"},{"@type":"DataDownload","name":"作り方のスクリプト（ZIP）","encodingFormat":"application/zip","contentUrl":"https://aquabit-lab.com/ryumyaku/data/ryumyaku-data-method-20261107.zip"}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://aquabit-lab.com/"},{"@type":"ListItem","position":2,"name":"龍脈マップ","item":"https://aquabit-lab.com/ryumyaku/"},{"@type":"ListItem","position":3,"name":"場所のデータと作り方","item":"https://aquabit-lab.com/ryumyaku/data/"}]}]}</script>
+</head>
+<body class="">
+<a class="skip" href="#main">本文へ移動</a>
+<header class="site-header" data-header>
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="AquaBit LAB ホーム">
+      <img src="/images/logo-mark.webp" alt="" width="38" height="38">
+      <span><b>AquaBit LAB</b><small>SEA × AI</small></span>
+    </a>
+    <nav class="gnav" aria-label="メインメニュー">
+      <a href="/ai-service">AI導入サポート</a><a href="/works">実績・取り組み</a><a href="/ai-salon/">AI学習サロン</a><a href="/marine">マリン事業</a><a href="/about">ABLとは</a>
+      <a class="btn btn--sm" href="/contact?topic=ai">相談する</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-controls="mnav" aria-expanded="false" aria-label="メニューを開く" data-menu><span></span></button>
+  </div>
+</header>
+<div class="mnav" id="mnav" data-mnav hidden>
+  <a class="mnav__link" href="/">ホーム<small>HOME</small></a>
+  <a class="mnav__link" href="/ai-service">AI導入サポート<small>AI ADOPTION</small></a><a class="mnav__link" href="/works">実績・取り組み<small>WORKS</small></a><a class="mnav__link" href="/ai-salon/">AI学習サロン<small>SALON</small></a><a class="mnav__link" href="/marine">マリン事業<small>MARINE</small></a><a class="mnav__link" href="/about">ABLとは<small>ABOUT</small></a>
+  <a class="mnav__link" href="/contact">お問い合わせ<small>CONTACT</small></a>
+  <div class="btn-row">
+    <a class="btn btn--aqua btn--lg" href="/contact?topic=ai">AI導入の相談をする <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+    <a class="btn btn--line btn--lg" href="https://lin.ee/obePsOF" target="_blank" rel="noopener">LINEで聞く</a>
+  </div>
+</div>
+<main id="main">
+<section class="phero on-dark" aria-labelledby="page-title">
+  <div class="phero__bits"><svg viewBox="0 0 600 420" aria-hidden="true" focusable="false"><ellipse cx="300" cy="300" rx="38" ry="10.6" fill="none" stroke="#3fe3e6" stroke-width="2" opacity="0.9"/><ellipse cx="300" cy="300" rx="86" ry="24.1" fill="none" stroke="#3fe3e6" stroke-width="1.6" opacity="0.6"/><ellipse cx="300" cy="300" rx="148" ry="41.4" fill="none" stroke="#3fe3e6" stroke-width="1.3" opacity="0.38"/><ellipse cx="300" cy="300" rx="222" ry="62.2" fill="none" stroke="#3fe3e6" stroke-width="1" opacity="0.22"/><ellipse cx="300" cy="300" rx="296" ry="82.9" fill="none" stroke="#3fe3e6" stroke-width="1" opacity="0.12"/><path d="M300 262c-6 12-9 20-9 27a9 9 0 0 0 18 0c0-7-3-15-9-27z" fill="#3fe3e6"/><rect x="289.9" y="240.8" width="11.9" height="11.9" rx="1.4" fill="#3fe3e6" opacity="1.00"/><rect x="295.4" y="238.0" width="10.2" height="10.2" rx="1.4" fill="#3fe3e6" opacity="0.97"/><rect x="296.0" y="232.9" width="8.2" height="8.2" rx="1.4" fill="#3fe3e6" opacity="0.95"/><rect x="286.7" y="222.8" width="8.5" height="8.5" rx="1.4" fill="#3fe3e6" opacity="0.92"/><rect x="303.5" y="216.6" width="8.7" height="8.7" rx="1.4" fill="#3fe3e6" opacity="0.89"/><rect x="296.6" y="209.9" width="13.7" height="13.7" rx="1.4" fill="#3fe3e6" opacity="0.87"/><rect x="290.0" y="200.1" width="13.9" height="13.9" rx="1.4" fill="#3fe3e6" opacity="0.84"/><rect x="307.0" y="201.3" width="9.7" height="9.7" rx="1.4" fill="#3fe3e6" opacity="0.82"/><rect x="281.3" y="194.0" width="9.9" height="9.9" rx="1.4" fill="#3fe3e6" opacity="0.79"/><rect x="281.8" y="180.3" width="11.5" height="11.5" rx="1.4" fill="#3fe3e6" opacity="0.76"/><rect x="290.5" y="177.5" width="8.3" height="8.3" rx="1.4" fill="#3fe3e6" opacity="0.74"/><rect x="277.1" y="178.1" width="6.2" height="6.2" rx="1.4" fill="#3fe3e6" opacity="0.71"/><rect x="293.1" y="165.4" width="6.9" height="6.9" rx="1.4" fill="#3fe3e6" opacity="0.68"/><rect x="294.2" y="160.1" width="6.8" height="6.8" rx="1.4" fill="#3fe3e6" opacity="0.66"/><rect x="307.5" y="152.0" width="6.5" height="6.5" rx="1.4" fill="#3fe3e6" opacity="0.63"/><rect x="296.3" y="146.1" width="10.3" height="10.3" rx="1.4" fill="#3fe3e6" opacity="0.61"/><rect x="281.8" y="138.1" width="10.9" height="10.9" rx="1.4" fill="#3fe3e6" opacity="0.58"/><rect x="290.1" y="138.6" width="9.5" height="9.5" rx="1.4" fill="#3fe3e6" opacity="0.55"/><rect x="296.7" y="134.3" width="5.2" height="5.2" rx="1.4" fill="#3fe3e6" opacity="0.53"/><rect x="314.0" y="121.3" width="8.4" height="8.4" rx="1.4" fill="#3fe3e6" opacity="0.50"/><rect x="282.0" y="112.7" width="9.2" height="9.2" rx="1.4" fill="#3fe3e6" opacity="0.47"/><rect x="302.1" y="110.0" width="7.7" height="7.7" rx="1.4" fill="#3fe3e6" opacity="0.45"/><rect x="330.8" y="101.3" width="7.8" height="7.8" rx="1.4" fill="#3fe3e6" opacity="0.42"/><rect x="259.8" y="96.2" width="9.2" height="9.2" rx="1.4" fill="#3fe3e6" opacity="0.39"/><rect x="336.5" y="89.8" width="9.9" height="9.9" rx="1.4" fill="#3fe3e6" opacity="0.37"/><rect x="285.6" y="87.6" width="9.0" height="9.0" rx="1.4" fill="#3fe3e6" opacity="0.34"/><rect x="293.5" y="85.6" width="6.0" height="6.0" rx="1.4" fill="#3fe3e6" opacity="0.32"/><rect x="254.2" y="76.6" width="9.6" height="9.6" rx="1.4" fill="#3fe3e6" opacity="0.29"/><rect x="272.1" y="71.4" width="7.3" height="7.3" rx="1.4" fill="#3fe3e6" opacity="0.26"/><rect x="254.6" y="57.6" width="7.7" height="7.7" rx="1.4" fill="#3fe3e6" opacity="0.24"/><rect x="334.1" y="53.5" width="9.9" height="9.9" rx="1.4" fill="#3fe3e6" opacity="0.21"/><rect x="273.0" y="45.4" width="7.5" height="7.5" rx="1.4" fill="#3fe3e6" opacity="0.18"/><rect x="336.1" y="42.6" width="10.7" height="10.7" rx="1.4" fill="#3fe3e6" opacity="0.18"/><rect x="260.9" y="40.7" width="6.4" height="6.4" rx="1.4" fill="#3fe3e6" opacity="0.18"/></svg></div>
+  <div class="wrap">
+    <ol class="crumbs"><li><a href="/">ホーム</a></li><li><a href="/ryumyaku/">龍脈マップ</a></li><li aria-current="page">場所のデータと作り方</li></ol>
+    <p class="eyebrow">OPEN DATA — 龍脈マップ</p>
+    <h1 class="h1" id="page-title">場所のデータと、<br>その作り方。</h1>
+    <p class="lead">iPhone アプリ「龍脈マップ」に入れている、神社・お寺・自然の場所のデータです。全国の有志がつくる地図 OpenStreetMap から取り出して整えたものなので、同じオープンなライセンスで、データそのものと作り方を公開しています。</p>
+    <p class="hero__note">© OpenStreetMap contributors ／ Open Database License 1.0 ／ 2026年11月7日版</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="dl-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">DOWNLOAD — ダウンロード</p>
+      <h2 class="h2" id="dl-title">3つのファイル。</h2>
+      <p class="lead">文字はすべて UTF-8 です。.gz は gzip で圧縮しています（ふつうの解凍ソフトで開けます）。</p>
+    </div>
+    <div class="uses">
+      <div class="use"><svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6.5l6-2.5 6 2.5 6-2.5v13.5l-6 2.5-6-2.5-6 2.5z"/><path d="M9 4v13.5M15 6.5V20"/></svg><h3>場所のデータ（CSV）</h3>
+        <p>神社・お寺・自然の場所 99,783 か所の名前・読み・位置・種類。見出しの行つき。</p>
+        <p class="note" style="overflow-wrap:anywhere">ryumyaku-places-20261107.csv.gz<br>約2.4MB（展開すると約10MB）／ Open Database License 1.0</p>
+        <p class="use__proof"><a href="/ryumyaku/data/ryumyaku-places-20261107.csv.gz" download>ダウンロード</a></p></div>
+      <div class="use"><svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></svg><h3>Wikidata の補足（TSV）</h3>
+        <p>まつる神さま・ご本尊、古社などの印、創建の年、文化財の区分。アプリの「さらに知る」に出しているもの。18,436 行。</p>
+        <p class="note" style="overflow-wrap:anywhere">ryumyaku-facts-20261107.tsv.gz<br>約120KB ／ Wikidata（CC0）から</p>
+        <p class="use__proof"><a href="/ryumyaku/data/ryumyaku-facts-20261107.tsv.gz" download>ダウンロード</a></p></div>
+      <div class="use"><svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6.5a4 4 0 0 0-5.3 5.3L4 17l3 3 5.2-5.2a4 4 0 0 0 5.3-5.3l-2.4 2.4-2.6-.6-.6-2.6z"/></svg><h3>作り方（スクリプト）</h3>
+        <p>OpenStreetMap から取り出す → Wikidata と照らし合わせる → まとめる、の Python のスクリプトと説明書き。</p>
+        <p class="note" style="overflow-wrap:anywhere">ryumyaku-data-method-20261107.zip<br>約20KB</p>
+        <p class="use__proof"><a href="/ryumyaku/data/ryumyaku-data-method-20261107.zip" download>ダウンロード</a></p></div>
+    </div>
+
+    <div class="stats mt-l">
+      <div class="stat"><b>99,783<small>か所</small></b><span>ぜんぶ</span></div>
+      <div class="stat"><b>54,018<small>社</small></b><span>神社</span></div>
+      <div class="stat"><b>37,555<small>か所</small></b><span>お寺</span></div>
+      <div class="stat"><b>8,210<small>か所</small></b><span>山・巨樹・滝・岩・湧き水・洞窟</span></div>
+    </div>
+    <p class="note mt-s">内訳：OpenStreetMap から 80,395 か所、Wikidata から 19,388 か所。自然の場所は、山 2,793・巨樹 2,343・滝 1,433・岩 713・湧き水 705・洞窟 223。</p>
+  </div>
+</section>
+
+<section class="section section--white" aria-labelledby="license-title">
+  <div class="wrap wrap--narrow">
+    <div class="prose">
+      <h2 id="license-title">ライセンス</h2>
+      <p><b>場所のデータ（ryumyaku-places）</b>は、OpenStreetMap のデータから取り出して整えた部分を含むため、<a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener">Open Database License（ODbL）1.0</a> で提供します。</p>
+      <p>© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a></p>
+      <p>source 列が「Wikidata (CC0)」の行は、OpenStreetMap に無く、Wikidata（CC0）から加えた場所です。</p>
+      <p>このデータを使って地図やアプリなどを公開するときは、「© OpenStreetMap contributors」と、ODbL のデータであることを示してください。このデータに手を加えたデータベースを公開・配布するときは、同じ ODbL で提供してください。くわしくは <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener">ODbL の本文</a>と、<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap の著作権とライセンスのページ</a>をご覧ください。</p>
+      <p><b>Wikidata の補足（ryumyaku-facts）</b>は、<a href="https://www.wikidata.org/" target="_blank" rel="noopener">Wikidata</a>（CC0）から集めた情報です。</p>
+      <p>龍脈マップはこのデータベースをアプリに入れて配っているため、ODbL（4.6）にしたがって、データベースそのものと、その作り方をここで公開しています。アプリのデータを作り直したときは、新しい版をここに足します。</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="cols-title">
+  <div class="wrap wrap--narrow">
+    <div class="sec-head">
+      <p class="eyebrow">COLUMNS — 中身</p>
+      <h2 class="h2" id="cols-title">列の説明。</h2>
+    </div>
+    <h3 class="h3" style="margin-bottom:16px">場所のデータ（CSV・見出しの行つき）</h3>
+    <dl class="dl">
+      <div><dt>id</dt><dd>osm:node/番号・osm:way/番号（OpenStreetMap）、wikidata:Q番号（Wikidata）</dd></div>
+      <div><dt>source</dt><dd>OpenStreetMap (ODbL) ／ Wikidata (CC0)</dd></div>
+      <div><dt>kind</dt><dd>神社・お寺・滝・巨樹・湧き水・岩・山・洞窟</dd></div>
+      <div><dt>name, yomi</dt><dd>名前と読み（読みは分かるものだけ）</dd></div>
+      <div><dt>lat, lon</dt><dd>緯度・経度（世界測地系）</dd></div>
+      <div><dt>lineage</dt><dd>神社の名前から読み取った「系統」（例：お稲荷さん）<small>名前からの推定で、由緒を示すものではありません。</small></dd></div>
+      <div><dt>notable</dt><dd>Wikipedia・Wikidata の項目があるなど、よく知られた場所なら 1</dd></div>
+      <div><dt>unnamed</dt><dd>名前の登録がない場所なら 1</dd></div>
+      <div><dt>approx_position</dt><dd>Wikidata だけにある場所なら 1<small>位置が数百mずれていることがあります（アプリでは「位置は目安」と出します）。</small></dd></div>
+      <div><dt>wikipedia_ja</dt><dd>日本語版ウィキペディアの項目名（分かるものだけ）</dd></div>
+    </dl>
+
+    <h3 class="h3" style="margin:48px 0 16px">Wikidata の補足（TSV・タブ区切り・見出しの行なし）</h3>
+    <dl class="dl">
+      <div><dt>1列目</dt><dd>場所のデータの何行目か<small>0 から数えます。見出しの行は数えません（0 ＝ 見出しのすぐ下の行）。</small></dd></div>
+      <div><dt>2列目</dt><dd>まつる神さま・ご本尊（「・」区切り）</dd></div>
+      <div><dt>3列目</dt><dd>古社などの印（カンマ区切り）<small>S＝式内社、R＝論社、K1＝官幣社、K2＝国幣社（旧社格）、H＝国史見在社、E＝勅祭社、C＝勅願寺、J＝霊場</small></dd></div>
+      <div><dt>4列目</dt><dd>創建の年（西暦・分かるものだけ）</dd></div>
+      <div><dt>5列目</dt><dd>文化財などの区分（国宝・重要文化財・世界遺産の構成資産・国の史跡など。「・」区切り）</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section section--white" aria-labelledby="how-title">
+  <div class="wrap wrap--narrow">
+    <div class="prose">
+      <h2 id="how-title">作り方</h2>
+      <ol>
+        <li><b>取り出す：</b>OpenStreetMap の日本の抽出（<a href="https://download.geofabrik.de/asia/japan.html" target="_blank" rel="noopener">Geofabrik</a>）から、神社・お寺・滝・巨樹・湧き水・岩・山・洞窟の印がついたものを取り出します。</li>
+        <li><b>分けて、まとめる：</b>種類に分け、社殿や堂の一部として登録されたものを外し、点と輪郭の二重登録をまとめます。お寺は名前のあるもの（道ばたの地蔵や石仏などの小さなものは入れていません）、山は名の知られたもの（Wikipedia・Wikidata の項目があるもの）を入れています。</li>
+        <li><b>照らし合わせる：</b>Wikidata の社寺・名所と重ね、OpenStreetMap にある場所には読みとウィキペディアの項目名を足します。OpenStreetMap に無い場所は、「位置は目安」の印をつけて加えます。</li>
+        <li><b>読み取る：</b>神社の名前から「系統」（お稲荷さん・八幡さま など）を読み取ります。</li>
+        <li><b>書き出す：</b>アプリに入れる形にまとめ、同じ中身を、このページの CSV と TSV に書き出します。</li>
+      </ol>
+      <p>スクリプトを動かすには、Geofabrik の日本の抽出（japan-latest.osm.pbf）と、Python のライブラリ（pyosmium）が要ります。くわしくは ZIP の中の説明書きをご覧ください。</p>
+
+      <h2>そのほかの出どころ</h2>
+      <p>次のものは、アプリの中で使っていますが、このページの公開データには入っていません。</p>
+      <ul>
+        <li><b>地図と地形：</b>国土地理院の<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">地理院タイル</a>（標高タイル・淡色地図）を加工して作成しています。アプリが、見ている範囲だけその場で読み込みます。龍脈の線は、この標高から計算しています。</li>
+        <li><b>ウィキペディア：</b>「ここの読み方」で読める冒頭の文は、押したときにその場で日本語版ウィキペディアから読み込み、出典とライセンス（<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja" target="_blank" rel="noopener">CC BY-SA 4.0</a>）を添えて出しています。公開データには、項目名（wikipedia_ja 列）だけが入っています。</li>
+      </ul>
+
+      <h2>ご注意</h2>
+      <ul>
+        <li>位置や名前は、もとのデータのとおりです。まちがいを見つけたら、<a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap</a> で直していただくと、次の版に入ります。</li>
+        <li>系統は名前からの推定です。まつる神さまやご利益は、神社ごとに異なります。</li>
+        <li>このデータは、場所を探す手がかりとして作ったものです。境内や自然の場所を訪ねるときは、それぞれの決まりと安全にご注意ください。</li>
+      </ul>
+      <p>データについてのお問い合わせは、<a href="/contact?topic=other">お問い合わせフォーム</a>（「その他・取材・コラボ」）から、本文のはじめに「龍脈マップ」とお書きください。</p>
+      <p><a href="/ryumyaku/">龍脈マップの案内とサポート</a> ／ <a href="/ryumyaku/privacy/">プライバシーポリシー（龍脈マップ）</a></p>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a class="brand" href="/"><img src="/images/logo-mark.webp" alt="" width="38" height="38" loading="lazy"><span><b>AquaBit LAB</b><small>SEA × AI</small></span></a>
+        <p class="footer__tag">海とAI、<br>二つの未来へ。</p>
+        <p>個人・中小企業のAI導入サポートと、神奈川・三浦のダイビングスクール「三浦 海の学校」。「自分には無理」を「できた」に変える、二つの事業のラボです。</p>
+      </div>
+      <div class="footer__col">
+        <h2 class="footer__h">AI事業</h2>
+        <ul>
+          <li><a href="/ai-service">AI導入サポート</a></li>
+          <li><a href="/ai-service#diagnosis">3分でわかる最初の一歩</a></li>
+          <li><a href="/works">実績・取り組み</a></li>
+          <li><a href="/ai-salon/">AI学習サロン</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h2 class="footer__h">マリン事業</h2>
+        <ul>
+          <li><a href="/marine">マリン事業について</a></li>
+          <li><a href="https://miura-diving.com/" target="_blank" rel="noopener">三浦 海の学校 <small>↗</small></a></li>
+          <li><a href="https://miura-diving.com/manga/" target="_blank" rel="noopener">まんがで読むダイビング <small>↗</small></a></li>
+          <li><a href="https://miura-diving.com/bluelogbook/" target="_blank" rel="noopener">Blue Logbook <small>↗</small></a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h2 class="footer__h">AquaBit LAB</h2>
+        <ul>
+          <li><a href="/about">ABLとは・代表</a></li>
+          <li><a href="/contact">お問い合わせ</a></li>
+          <li><a href="https://lin.ee/obePsOF" target="_blank" rel="noopener">公式LINE <small>↗</small></a></li>
+          <li><a href="https://www.tj-web3.com/" target="_blank" rel="noopener">TJ（代表の個人サイト） <small>↗</small></a></li>
+          <li><a href="https://tj-music.com/" target="_blank" rel="noopener">TJ Music <small>↗</small></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ai-ask">
+      <div>
+        <h2 class="ai-ask__h">このラボのこと、あなたのAIに聞いてみる</h2>
+        <p>ボタンを押すと、お使いのAIがこのサイトの案内（llms.txt）を読んで、あなたの仕事に合うかどうかを一緒に考えてくれます。</p>
+      </div>
+      <div class="ai-ask__links"><a href="https://chatgpt.com/?q=AquaBit%20LAB%EF%BC%88https%3A//aquabit-lab.com/%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%81%AE%E5%80%8B%E4%BA%BA%E4%BA%8B%E6%A5%AD%E3%80%82%E5%80%8B%E4%BA%BA%E3%83%BB%E4%B8%AD%E5%B0%8F%E4%BC%81%E6%A5%AD%E3%81%AEAI%E5%B0%8E%E5%85%A5%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A8AI%E5%AD%A6%E7%BF%92%E3%82%B5%E3%83%AD%E3%83%B3%E3%80%81%E3%83%80%E3%82%A4%E3%83%93%E3%83%B3%E3%82%B0%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB%E3%80%8C%E4%B8%89%E6%B5%A6%20%E6%B5%B7%E3%81%AE%E5%AD%A6%E6%A0%A1%E3%80%8D%E3%82%92%E9%81%8B%E5%96%B6%EF%BC%89%E3%81%AB%E7%9B%B8%E8%AB%87%E3%81%99%E3%82%8B%E3%81%8B%E8%BF%B7%E3%81%A3%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%80%82%E3%81%BE%E3%81%9A%20https%3A//aquabit-lab.com/llms.txt%20%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A7%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E3%81%9D%E3%81%AE%E3%81%86%E3%81%88%E3%81%A7%E3%80%81%E7%A7%81%E3%81%AE%E4%BB%95%E4%BA%8B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E5%9B%B0%E3%82%8A%E3%81%94%E3%81%A8%E3%82%92%E8%B3%AA%E5%95%8F%E3%81%97%E3%81%A6%E3%81%8B%E3%82%89%E3%80%81AI%E3%81%A7%E3%81%A7%E3%81%8D%E3%81%9D%E3%81%86%E3%81%AA%E3%81%93%E3%81%A8%E3%81%A8%E3%80%81AquaBit%20LAB%E3%81%AB%E9%A0%BC%E3%82%80%E3%81%AE%E3%81%8C%E5%90%88%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E7%8E%87%E7%9B%B4%E3%81%AB%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E6%96%99%E9%87%91%E3%82%84%E6%9D%A1%E4%BB%B6%E3%81%AF%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E6%9C%80%E6%96%B0%E6%83%85%E5%A0%B1%E3%82%92%E5%84%AA%E5%85%88%E3%81%97%E3%80%81%E4%B8%8D%E7%A2%BA%E3%81%8B%E3%81%AA%E3%81%93%E3%81%A8%E3%81%AF%E6%96%AD%E5%AE%9A%E3%81%9B%E3%81%9A%E3%80%81%E6%AD%A3%E5%BC%8F%E3%81%AA%E7%9B%B8%E8%AB%87%E3%81%AF%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%EF%BC%88https%3A//aquabit-lab.com/contact%EF%BC%89%E3%82%92%E6%A1%88%E5%86%85%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82" target="_blank" rel="noopener noreferrer">ChatGPTで聞く</a><a href="https://claude.ai/new?q=AquaBit%20LAB%EF%BC%88https%3A//aquabit-lab.com/%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%81%AE%E5%80%8B%E4%BA%BA%E4%BA%8B%E6%A5%AD%E3%80%82%E5%80%8B%E4%BA%BA%E3%83%BB%E4%B8%AD%E5%B0%8F%E4%BC%81%E6%A5%AD%E3%81%AEAI%E5%B0%8E%E5%85%A5%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A8AI%E5%AD%A6%E7%BF%92%E3%82%B5%E3%83%AD%E3%83%B3%E3%80%81%E3%83%80%E3%82%A4%E3%83%93%E3%83%B3%E3%82%B0%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB%E3%80%8C%E4%B8%89%E6%B5%A6%20%E6%B5%B7%E3%81%AE%E5%AD%A6%E6%A0%A1%E3%80%8D%E3%82%92%E9%81%8B%E5%96%B6%EF%BC%89%E3%81%AB%E7%9B%B8%E8%AB%87%E3%81%99%E3%82%8B%E3%81%8B%E8%BF%B7%E3%81%A3%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%80%82%E3%81%BE%E3%81%9A%20https%3A//aquabit-lab.com/llms.txt%20%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A7%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E3%81%9D%E3%81%AE%E3%81%86%E3%81%88%E3%81%A7%E3%80%81%E7%A7%81%E3%81%AE%E4%BB%95%E4%BA%8B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E5%9B%B0%E3%82%8A%E3%81%94%E3%81%A8%E3%82%92%E8%B3%AA%E5%95%8F%E3%81%97%E3%81%A6%E3%81%8B%E3%82%89%E3%80%81AI%E3%81%A7%E3%81%A7%E3%81%8D%E3%81%9D%E3%81%86%E3%81%AA%E3%81%93%E3%81%A8%E3%81%A8%E3%80%81AquaBit%20LAB%E3%81%AB%E9%A0%BC%E3%82%80%E3%81%AE%E3%81%8C%E5%90%88%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E7%8E%87%E7%9B%B4%E3%81%AB%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E6%96%99%E9%87%91%E3%82%84%E6%9D%A1%E4%BB%B6%E3%81%AF%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E6%9C%80%E6%96%B0%E6%83%85%E5%A0%B1%E3%82%92%E5%84%AA%E5%85%88%E3%81%97%E3%80%81%E4%B8%8D%E7%A2%BA%E3%81%8B%E3%81%AA%E3%81%93%E3%81%A8%E3%81%AF%E6%96%AD%E5%AE%9A%E3%81%9B%E3%81%9A%E3%80%81%E6%AD%A3%E5%BC%8F%E3%81%AA%E7%9B%B8%E8%AB%87%E3%81%AF%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%EF%BC%88https%3A//aquabit-lab.com/contact%EF%BC%89%E3%82%92%E6%A1%88%E5%86%85%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82" target="_blank" rel="noopener noreferrer">Claudeで聞く</a><a href="https://www.perplexity.ai/search?q=AquaBit%20LAB%EF%BC%88https%3A//aquabit-lab.com/%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%81%AE%E5%80%8B%E4%BA%BA%E4%BA%8B%E6%A5%AD%E3%80%82%E5%80%8B%E4%BA%BA%E3%83%BB%E4%B8%AD%E5%B0%8F%E4%BC%81%E6%A5%AD%E3%81%AEAI%E5%B0%8E%E5%85%A5%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A8AI%E5%AD%A6%E7%BF%92%E3%82%B5%E3%83%AD%E3%83%B3%E3%80%81%E3%83%80%E3%82%A4%E3%83%93%E3%83%B3%E3%82%B0%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB%E3%80%8C%E4%B8%89%E6%B5%A6%20%E6%B5%B7%E3%81%AE%E5%AD%A6%E6%A0%A1%E3%80%8D%E3%82%92%E9%81%8B%E5%96%B6%EF%BC%89%E3%81%AB%E7%9B%B8%E8%AB%87%E3%81%99%E3%82%8B%E3%81%8B%E8%BF%B7%E3%81%A3%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%80%82%E3%81%BE%E3%81%9A%20https%3A//aquabit-lab.com/llms.txt%20%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A7%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E3%81%9D%E3%81%AE%E3%81%86%E3%81%88%E3%81%A7%E3%80%81%E7%A7%81%E3%81%AE%E4%BB%95%E4%BA%8B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E5%9B%B0%E3%82%8A%E3%81%94%E3%81%A8%E3%82%92%E8%B3%AA%E5%95%8F%E3%81%97%E3%81%A6%E3%81%8B%E3%82%89%E3%80%81AI%E3%81%A7%E3%81%A7%E3%81%8D%E3%81%9D%E3%81%86%E3%81%AA%E3%81%93%E3%81%A8%E3%81%A8%E3%80%81AquaBit%20LAB%E3%81%AB%E9%A0%BC%E3%82%80%E3%81%AE%E3%81%8C%E5%90%88%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E7%8E%87%E7%9B%B4%E3%81%AB%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E6%96%99%E9%87%91%E3%82%84%E6%9D%A1%E4%BB%B6%E3%81%AF%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E6%9C%80%E6%96%B0%E6%83%85%E5%A0%B1%E3%82%92%E5%84%AA%E5%85%88%E3%81%97%E3%80%81%E4%B8%8D%E7%A2%BA%E3%81%8B%E3%81%AA%E3%81%93%E3%81%A8%E3%81%AF%E6%96%AD%E5%AE%9A%E3%81%9B%E3%81%9A%E3%80%81%E6%AD%A3%E5%BC%8F%E3%81%AA%E7%9B%B8%E8%AB%87%E3%81%AF%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%EF%BC%88https%3A//aquabit-lab.com/contact%EF%BC%89%E3%82%92%E6%A1%88%E5%86%85%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82" target="_blank" rel="noopener noreferrer">Perplexityで聞く</a></div>
+      <small>※回答はAIによる案内です。最新の内容と正式なご相談は、<a href="/contact">お問い合わせ</a>からどうぞ。</small>
+    </div>
+    <div class="footer__bottom">
+      <nav aria-label="規約"><a href="/privacy-policy">プライバシーポリシー</a><a href="/tokushoho">特定商取引法に基づく表記</a><a href="mailto:info@aquabit-lab.com">info@aquabit-lab.com</a></nav>
+      <p class="footer__made">© 2026 AquaBit LAB — このサイトも、AIといっしょに作っています。</p>
+    </div>
+  </div>
+</footer>
+<script src="/js/abl.js?v=20261013" defer></script>
+</body>
+</html>

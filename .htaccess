@@ -35,6 +35,8 @@ RewriteRule ^404$ - [R=404,L]
 
 # /ai-salon → /ai-salon/
 RewriteRule ^ai-salon$ /ai-salon/ [R=301,L]
+# /ryumyaku → /ryumyaku/ 、 /ryumyaku/privacy → /ryumyaku/privacy/ 、 /ryumyaku/data → /ryumyaku/data/
+RewriteRule ^ryumyaku(/privacy|/data)?$ /ryumyaku$1/ [R=301,L]
 
 # /about/ → /about（末尾スラッシュ付きで来たページを揃える。実在するディレクトリは除く）
 RewriteCond %{REQUEST_FILENAME} !-d

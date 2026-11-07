@@ -1,0 +1,143 @@
+<!--@ {
+"title": "龍脈マップの場所のデータと作り方（ODbL）｜AquaBit LAB",
+"description": "iPhone アプリ「龍脈マップ」に入れている神社・お寺・自然の場所 99,783 か所のデータと、その作り方を公開しています。OpenStreetMap 由来のため Open Database License（ODbL）1.0。© OpenStreetMap contributors。Wikidata（CC0）から集めた、まつる神さま・創建などの補足つき。",
+"path": "/ryumyaku/data/",
+"out": "ryumyaku/data/index.html",
+"og": "og-home.jpg",
+"nav": "",
+"crumbs": [["龍脈マップ", "/ryumyaku/"], ["場所のデータと作り方", "/ryumyaku/data/"]],
+"jsonld": [
+  {"@type": "Dataset", "name": "龍脈マップ 場所のデータ（2026年11月7日版）",
+   "description": "iPhone アプリ「龍脈マップ」に入れている、日本の神社・お寺・自然の場所（滝・巨樹・湧き水・岩・山・洞窟）99,783 か所の名前・読み・位置・種類。OpenStreetMap（© OpenStreetMap contributors）から取り出して整え、OpenStreetMap に無い場所を Wikidata（CC0）から加えたもの。Wikidata から集めた、まつる神さま・ご本尊・創建の年・文化財の区分の補足と、作り方のスクリプトもあわせて公開しています。",
+   "url": "https://aquabit-lab.com/ryumyaku/data/", "inLanguage": "ja", "dateModified": "2026-11-07",
+   "license": "https://opendatacommons.org/licenses/odbl/1-0/", "creditText": "© OpenStreetMap contributors",
+   "isBasedOn": ["https://www.openstreetmap.org/", "https://www.wikidata.org/"],
+   "spatialCoverage": {"@type": "Place", "name": "日本"},
+   "keywords": ["神社", "寺院", "滝", "巨樹", "湧き水", "OpenStreetMap", "Wikidata"],
+   "creator": {"@id": "https://aquabit-lab.com/#org"},
+   "distribution": [
+     {"@type": "DataDownload", "name": "場所のデータ（CSV・gzip）", "encodingFormat": "application/gzip", "contentUrl": "https://aquabit-lab.com/ryumyaku/data/ryumyaku-places-20261107.csv.gz"},
+     {"@type": "DataDownload", "name": "Wikidata の補足（TSV・gzip）", "encodingFormat": "application/gzip", "contentUrl": "https://aquabit-lab.com/ryumyaku/data/ryumyaku-facts-20261107.tsv.gz"},
+     {"@type": "DataDownload", "name": "作り方のスクリプト（ZIP）", "encodingFormat": "application/zip", "contentUrl": "https://aquabit-lab.com/ryumyaku/data/ryumyaku-data-method-20261107.zip"}
+   ]}
+]
+} @-->
+<section class="phero on-dark" aria-labelledby="page-title">
+  <div class="phero__bits">{{bits}}</div>
+  <div class="wrap">
+    <ol class="crumbs"><li><a href="/">ホーム</a></li><li><a href="/ryumyaku/">龍脈マップ</a></li><li aria-current="page">場所のデータと作り方</li></ol>
+    <p class="eyebrow">OPEN DATA — 龍脈マップ</p>
+    <h1 class="h1" id="page-title">場所のデータと、<br>その作り方。</h1>
+    <p class="lead">iPhone アプリ「龍脈マップ」に入れている、神社・お寺・自然の場所のデータです。全国の有志がつくる地図 OpenStreetMap から取り出して整えたものなので、同じオープンなライセンスで、データそのものと作り方を公開しています。</p>
+    <p class="hero__note">© OpenStreetMap contributors ／ Open Database License 1.0 ／ 2026年11月7日版</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="dl-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">DOWNLOAD — ダウンロード</p>
+      <h2 class="h2" id="dl-title">3つのファイル。</h2>
+      <p class="lead">文字はすべて UTF-8 です。.gz は gzip で圧縮しています（ふつうの解凍ソフトで開けます）。</p>
+    </div>
+    <div class="uses">
+      <div class="use">{{icon:map:use__icon}}<h3>場所のデータ（CSV）</h3>
+        <p>神社・お寺・自然の場所 99,783 か所の名前・読み・位置・種類。見出しの行つき。</p>
+        <p class="note" style="overflow-wrap:anywhere">ryumyaku-places-20261107.csv.gz<br>約2.4MB（展開すると約10MB）／ Open Database License 1.0</p>
+        <p class="use__proof"><a href="/ryumyaku/data/ryumyaku-places-20261107.csv.gz" download>ダウンロード</a></p></div>
+      <div class="use">{{icon:book:use__icon}}<h3>Wikidata の補足（TSV）</h3>
+        <p>まつる神さま・ご本尊、古社などの印、創建の年、文化財の区分。アプリの「さらに知る」に出しているもの。18,436 行。</p>
+        <p class="note" style="overflow-wrap:anywhere">ryumyaku-facts-20261107.tsv.gz<br>約120KB ／ Wikidata（CC0）から</p>
+        <p class="use__proof"><a href="/ryumyaku/data/ryumyaku-facts-20261107.tsv.gz" download>ダウンロード</a></p></div>
+      <div class="use">{{icon:build:use__icon}}<h3>作り方（スクリプト）</h3>
+        <p>OpenStreetMap から取り出す → Wikidata と照らし合わせる → まとめる、の Python のスクリプトと説明書き。</p>
+        <p class="note" style="overflow-wrap:anywhere">ryumyaku-data-method-20261107.zip<br>約20KB</p>
+        <p class="use__proof"><a href="/ryumyaku/data/ryumyaku-data-method-20261107.zip" download>ダウンロード</a></p></div>
+    </div>
+
+    <div class="stats mt-l">
+      <div class="stat"><b>99,783<small>か所</small></b><span>ぜんぶ</span></div>
+      <div class="stat"><b>54,018<small>社</small></b><span>神社</span></div>
+      <div class="stat"><b>37,555<small>か所</small></b><span>お寺</span></div>
+      <div class="stat"><b>8,210<small>か所</small></b><span>山・巨樹・滝・岩・湧き水・洞窟</span></div>
+    </div>
+    <p class="note mt-s">内訳：OpenStreetMap から 80,395 か所、Wikidata から 19,388 か所。自然の場所は、山 2,793・巨樹 2,343・滝 1,433・岩 713・湧き水 705・洞窟 223。</p>
+  </div>
+</section>
+
+<section class="section section--white" aria-labelledby="license-title">
+  <div class="wrap wrap--narrow">
+    <div class="prose">
+      <h2 id="license-title">ライセンス</h2>
+      <p><b>場所のデータ（ryumyaku-places）</b>は、OpenStreetMap のデータから取り出して整えた部分を含むため、<a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener">Open Database License（ODbL）1.0</a> で提供します。</p>
+      <p>© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a></p>
+      <p>source 列が「Wikidata (CC0)」の行は、OpenStreetMap に無く、Wikidata（CC0）から加えた場所です。</p>
+      <p>このデータを使って地図やアプリなどを公開するときは、「© OpenStreetMap contributors」と、ODbL のデータであることを示してください。このデータに手を加えたデータベースを公開・配布するときは、同じ ODbL で提供してください。くわしくは <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener">ODbL の本文</a>と、<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap の著作権とライセンスのページ</a>をご覧ください。</p>
+      <p><b>Wikidata の補足（ryumyaku-facts）</b>は、<a href="https://www.wikidata.org/" target="_blank" rel="noopener">Wikidata</a>（CC0）から集めた情報です。</p>
+      <p>龍脈マップはこのデータベースをアプリに入れて配っているため、ODbL（4.6）にしたがって、データベースそのものと、その作り方をここで公開しています。アプリのデータを作り直したときは、新しい版をここに足します。</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="cols-title">
+  <div class="wrap wrap--narrow">
+    <div class="sec-head">
+      <p class="eyebrow">COLUMNS — 中身</p>
+      <h2 class="h2" id="cols-title">列の説明。</h2>
+    </div>
+    <h3 class="h3" style="margin-bottom:16px">場所のデータ（CSV・見出しの行つき）</h3>
+    <dl class="dl">
+      <div><dt>id</dt><dd>osm:node/番号・osm:way/番号（OpenStreetMap）、wikidata:Q番号（Wikidata）</dd></div>
+      <div><dt>source</dt><dd>OpenStreetMap (ODbL) ／ Wikidata (CC0)</dd></div>
+      <div><dt>kind</dt><dd>神社・お寺・滝・巨樹・湧き水・岩・山・洞窟</dd></div>
+      <div><dt>name, yomi</dt><dd>名前と読み（読みは分かるものだけ）</dd></div>
+      <div><dt>lat, lon</dt><dd>緯度・経度（世界測地系）</dd></div>
+      <div><dt>lineage</dt><dd>神社の名前から読み取った「系統」（例：お稲荷さん）<small>名前からの推定で、由緒を示すものではありません。</small></dd></div>
+      <div><dt>notable</dt><dd>Wikipedia・Wikidata の項目があるなど、よく知られた場所なら 1</dd></div>
+      <div><dt>unnamed</dt><dd>名前の登録がない場所なら 1</dd></div>
+      <div><dt>approx_position</dt><dd>Wikidata だけにある場所なら 1<small>位置が数百mずれていることがあります（アプリでは「位置は目安」と出します）。</small></dd></div>
+      <div><dt>wikipedia_ja</dt><dd>日本語版ウィキペディアの項目名（分かるものだけ）</dd></div>
+    </dl>
+
+    <h3 class="h3" style="margin:48px 0 16px">Wikidata の補足（TSV・タブ区切り・見出しの行なし）</h3>
+    <dl class="dl">
+      <div><dt>1列目</dt><dd>場所のデータの何行目か<small>0 から数えます。見出しの行は数えません（0 ＝ 見出しのすぐ下の行）。</small></dd></div>
+      <div><dt>2列目</dt><dd>まつる神さま・ご本尊（「・」区切り）</dd></div>
+      <div><dt>3列目</dt><dd>古社などの印（カンマ区切り）<small>S＝式内社、R＝論社、K1＝官幣社、K2＝国幣社（旧社格）、H＝国史見在社、E＝勅祭社、C＝勅願寺、J＝霊場</small></dd></div>
+      <div><dt>4列目</dt><dd>創建の年（西暦・分かるものだけ）</dd></div>
+      <div><dt>5列目</dt><dd>文化財などの区分（国宝・重要文化財・世界遺産の構成資産・国の史跡など。「・」区切り）</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section section--white" aria-labelledby="how-title">
+  <div class="wrap wrap--narrow">
+    <div class="prose">
+      <h2 id="how-title">作り方</h2>
+      <ol>
+        <li><b>取り出す：</b>OpenStreetMap の日本の抽出（<a href="https://download.geofabrik.de/asia/japan.html" target="_blank" rel="noopener">Geofabrik</a>）から、神社・お寺・滝・巨樹・湧き水・岩・山・洞窟の印がついたものを取り出します。</li>
+        <li><b>分けて、まとめる：</b>種類に分け、社殿や堂の一部として登録されたものを外し、点と輪郭の二重登録をまとめます。お寺は名前のあるもの（道ばたの地蔵や石仏などの小さなものは入れていません）、山は名の知られたもの（Wikipedia・Wikidata の項目があるもの）を入れています。</li>
+        <li><b>照らし合わせる：</b>Wikidata の社寺・名所と重ね、OpenStreetMap にある場所には読みとウィキペディアの項目名を足します。OpenStreetMap に無い場所は、「位置は目安」の印をつけて加えます。</li>
+        <li><b>読み取る：</b>神社の名前から「系統」（お稲荷さん・八幡さま など）を読み取ります。</li>
+        <li><b>書き出す：</b>アプリに入れる形にまとめ、同じ中身を、このページの CSV と TSV に書き出します。</li>
+      </ol>
+      <p>スクリプトを動かすには、Geofabrik の日本の抽出（japan-latest.osm.pbf）と、Python のライブラリ（pyosmium）が要ります。くわしくは ZIP の中の説明書きをご覧ください。</p>
+
+      <h2>そのほかの出どころ</h2>
+      <p>次のものは、アプリの中で使っていますが、このページの公開データには入っていません。</p>
+      <ul>
+        <li><b>地図と地形：</b>国土地理院の<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">地理院タイル</a>（標高タイル・淡色地図）を加工して作成しています。アプリが、見ている範囲だけその場で読み込みます。龍脈の線は、この標高から計算しています。</li>
+        <li><b>ウィキペディア：</b>「ここの読み方」で読める冒頭の文は、押したときにその場で日本語版ウィキペディアから読み込み、出典とライセンス（<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ja" target="_blank" rel="noopener">CC BY-SA 4.0</a>）を添えて出しています。公開データには、項目名（wikipedia_ja 列）だけが入っています。</li>
+      </ul>
+
+      <h2>ご注意</h2>
+      <ul>
+        <li>位置や名前は、もとのデータのとおりです。まちがいを見つけたら、<a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap</a> で直していただくと、次の版に入ります。</li>
+        <li>系統は名前からの推定です。まつる神さまやご利益は、神社ごとに異なります。</li>
+        <li>このデータは、場所を探す手がかりとして作ったものです。境内や自然の場所を訪ねるときは、それぞれの決まりと安全にご注意ください。</li>
+      </ul>
+      <p>データについてのお問い合わせは、<a href="/contact?topic=other">お問い合わせフォーム</a>（「その他・取材・コラボ」）から、本文のはじめに「龍脈マップ」とお書きください。</p>
+      <p><a href="/ryumyaku/">龍脈マップの案内とサポート</a> ／ <a href="/ryumyaku/privacy/">プライバシーポリシー（龍脈マップ）</a></p>
+    </div>
+  </div>
+</section>

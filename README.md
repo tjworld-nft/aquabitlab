@@ -16,6 +16,9 @@
 | `/about` | `src/pages/about.html` | ABLとは・代表プロフィール・事業者情報 |
 | `/contact` | `src/pages/contact.html` | お問い合わせ（相談の種類つき・3分診断の結果を引き継ぐ） |
 | `/tokushoho` `/privacy-policy` `/404` | `src/pages/*.html` | 法務・エラー |
+| `/ryumyaku/` | `src/pages/ryumyaku.html` | iPhone アプリ「龍脈マップ」の案内とサポート（App Store のサポート URL） |
+| `/ryumyaku/privacy/` | `src/pages/ryumyaku-privacy.html` | 龍脈マップのプライバシーポリシー（App Store のプライバシーポリシー URL） |
+| `/ryumyaku/data/` | `src/pages/ryumyaku-data.html` | 龍脈マップの場所のデータと作り方（OpenStreetMap の ODbL 4.6 のための公開）。ファイルは `ryumyaku/data/` に直接置く（`.htaccess` で .gz をそのまま渡す） |
 
 ## 仕組み
 
