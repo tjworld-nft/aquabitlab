@@ -1,7 +1,7 @@
 <!--@ {
 "title": "ラボの中｜ショート動画の工場と、SNSの予約投稿の仕組み｜AquaBit LAB",
-"og_title": "毎日、ここで作って、出している。— ラボの中｜AquaBit LAB",
-"description": "AquaBit LAB のラボの中。三浦 海の学校の縦の短い動画を、国土地理院・海底地形・気象庁の実データと Blender の3D・AI音声で作り、Facebook・Instagram・X・YouTube に毎日予約投稿している仕組みと、その時刻表。人が決めることと、AIに任せていることの線引き。",
+"og_title": "作って、出して、数える。— ラボの中｜AquaBit LAB",
+"description": "AquaBit LAB のラボの中。三浦 海の学校の縦の短い動画を、国土地理院・海底地形・気象庁の実データと Blender の3D・AI音声で作り、Facebook・Instagram・X・YouTube に予約投稿してきた仕組み。人が決めることと、AIに任せていることの線引き。",
 "path": "/lab",
 "og": "og-lab.jpg",
 "nav": "lab",
@@ -18,61 +18,41 @@
   <div class="phero__photo"><img src="/images/abl/lab/canyon-wide.webp" alt="" width="1600" height="840" fetchpriority="high"></div>
   <div class="wrap">
     <ol class="crumbs"><li><a href="/">ホーム</a></li><li aria-current="page">ラボの中</li></ol>
-    <div class="phero__grid">
-      <div>
-        <p class="phero__mono">INSIDE THE LAB — いまも動いています</p>
-        <h1 class="h1" id="page-title"><span class="nw">毎日、ここで作って、</span><span class="nw">出している。</span></h1>
-        <p class="lead">三浦 海の学校のSNSは、2026年10月から、AIが毎日回しています。人が決めるのは、シリーズの方針と、使ってよい事実と、やらないこと。その範囲で、AIが作って、別のAIが確かめて、予約します。</p>
-        <div class="btn-row">
-          <a class="btn btn--aqua btn--lg" href="#schedule">きょうの時刻表 {{arr}}</a>
-          <a class="btn btn--ghost btn--lg" href="#xray">動画の中身</a>
-        </div>
-      </div>
-      <div>
-        <div class="ring" data-ring>
-          {{ring}}
-          <div class="ring__center" aria-live="off">
-            <p class="ring__now" data-ring-now>--:--<small>JST</small></p>
-            <p class="ring__next" data-ring-next><b>あなたの時計で動きます</b><span>点は定時の仕事、大きい点は投稿</span></p>
-          </div>
-        </div>
-        <p class="ring__legend"><span><i style="background:var(--live)"></i>いま</span><span><i style="border:2.5px solid var(--live)"></i>投稿</span><span><i style="background:var(--aqua)"></i>毎日の仕事</span><span><i style="border:1.5px solid var(--aqua)"></i>曜日の仕事</span></p>
-        <p class="ring__human">人が決める：シリーズの方針・使ってよい事実・やらないこと</p>
-      </div>
+    <p class="phero__mono">INSIDE THE LAB — ラボの中</p>
+    <h1 class="h1" id="page-title"><span class="nw">作って、出して、</span><span class="nw">数える。</span></h1>
+    <p class="lead">三浦 海の学校のSNSは、2026年10月から、AIといっしょに回してきました。人が決めるのは、シリーズの方針と、使ってよい事実と、やらないこと。その範囲で、AIが作って、別のAIが確かめて、予約します。</p>
+    <div class="btn-row">
+      <a class="btn btn--aqua btn--lg" href="#xray">動画の中身 {{arr}}</a>
+      <a class="btn btn--ghost btn--lg" href="#rule">人とAIの線引き</a>
     </div>
   </div>
 </section>
 
-<section class="paper" id="schedule" aria-labelledby="sched-title">
+<section class="paper" id="rule" aria-labelledby="rule2-title">
   <div class="wrap">
-    <div class="split split--top">
-      <div>
-        <p class="label label--live">SCHEDULE — 日本時間</p>
-        <h2 class="h2" id="sched-title" style="margin-top:14px"><span class="nw">きょうの、</span><span class="nw">ラボの時刻表。</span></h2>
-        <p class="lead" style="margin-top:18px">この時刻表は、実際に動いている定時の仕事です。済んだもの・次のもの・いま動いているものが、あなたの端末の時計で変わります。曜日の仕事は、その曜日にだけ出ます。</p>
-        <div class="duo mt-l">
-          <div class="duo__col duo__col--human">
-            <p class="duo__h">HUMAN — 人が決める</p>
-            <ul>
-              <li>シリーズの方針と、使ってよい事実の出どころ</li>
-              <li>やらないこと（言わない言葉・出さない写真）</li>
-              <li>お客さまの写真と、LINEの一斉配信の確認</li>
-              <li>止める・変える・やめる</li>
-            </ul>
-          </div>
-          <div class="duo__col duo__col--ai">
-            <p class="duo__h">AI — AIが回す</p>
-            <ul>
-              <li>3Dと字幕を組み、声と音楽をつける</li>
-              <li>別のAIが講評して、直す</li>
-              <li>各SNSに予約して、出たかを確かめる</li>
-              <li>数字を台帳に書いて、理由を1行で</li>
-            </ul>
-          </div>
-        </div>
+    <div class="sec-head">
+      <p class="label">RULE</p>
+      <h2 class="h2" id="rule2-title"><span class="nw">人が決める。</span><span class="nw">AIが回す。</span></h2>
+      <p class="lead">任せきりにしないために、線を先に引いておく。お客さまの仕事でも、同じ線の引き方をします。</p>
+    </div>
+    <div class="duo reveal">
+      <div class="duo__col duo__col--human">
+        <p class="duo__h">HUMAN — 人が決める</p>
+        <ul>
+          <li>シリーズの方針と、使ってよい事実の出どころ</li>
+          <li>やらないこと（言わない言葉・出さない写真）</li>
+          <li>お客さまの写真と、LINEの一斉配信の確認</li>
+          <li>止める・変える・やめる</li>
+        </ul>
       </div>
-      <div>
-        {{labnow:full}}
+      <div class="duo__col duo__col--ai">
+        <p class="duo__h">AI — AIが回す</p>
+        <ul>
+          <li>3Dと字幕を組み、声と音楽をつける</li>
+          <li>別のAIが講評して、直す</li>
+          <li>各SNSに予約して、出たかを確かめる</li>
+          <li>数字を台帳に書いて、理由を1行で</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -83,7 +63,7 @@
     <div class="sec-head">
       <p class="label">FACTORY — 2026-10〜</p>
       <h2 class="h2" id="factory-title">ショート動画の工場。</h2>
-      <p class="lead">縦の短い動画を、1日に数本。朝の回、18:00の「海の行き先」、19:30の「鬼と仏」。材料は実データと実写。組み立てと声と音はAI。</p>
+      <p class="lead">縦の短い動画を、シリーズごとに作り置きして予約する。地形や数字の回、「海の行き先」、「鬼と仏」。材料は実データと実写。組み立てと声と音はAI。</p>
     </div>
     <ol class="flow reveal">
       <li data-who="human"><b>題材と事実を決める</b><small>人。使ってよい数字の出どころ、言わない言葉、出さない写真</small></li>
@@ -190,13 +170,13 @@
     <div class="sec-head">
       <p class="label">AUTO POST</p>
       <h2 class="h2" id="post-title"><span class="nw">決めるのは人。</span><span class="nw">回すのはAI。</span></h2>
-      <p class="lead">各SNSの予約投稿と、決まった時刻に動くAIの作業を組み合わせています。ボタンひとつの「全部おまかせ」ではなく、止める仕組みも一緒に。</p>
+      <p class="lead">各SNSの予約投稿と、AIの作業を組み合わせて回してきました。ボタンひとつの「全部おまかせ」ではなく、止める仕組みも一緒に。</p>
     </div>
     <div class="ledger">
-      <div class="ledger__row"><span class="ledger__k">05:15<b>見張り</b></span><span class="ledger__main"><h3>出すべきでない朝は、予約を止める。</h3><p>毎朝、地震・事故のニュースを確かめ、当てはまる朝はその日の予約を取り消す。</p></span><span class="ledger__go">AI</span></div>
-      <div class="ledger__row"><span class="ledger__k">Facebook<b>予約投稿</b></span><span class="ledger__main"><h3>Meta Business Suite で、日時を決めて予約。</h3><p>朝の回・18:00「海の行き先」・19:30「鬼と仏」。</p></span><span class="ledger__go">AI</span></div>
-      <div class="ledger__row"><span class="ledger__k">Instagram<b>予約・定時投稿</b></span><span class="ledger__main"><h3>予約できるものは予約。できないものは、決まった時刻にAIが投稿。</h3><p>投稿したあと、出たかどうかを確かめて記録する。</p></span><span class="ledger__go">AI</span></div>
-      <div class="ledger__row"><span class="ledger__k">X<b>予約投稿</b></span><span class="ledger__main"><h3>朝の回と18:00の回を、日時を決めて予約。</h3></span><span class="ledger__go">AI</span></div>
+      <div class="ledger__row"><span class="ledger__k">GUARD<b>見張り</b></span><span class="ledger__main"><h3>出すべきでない朝は、予約を止める。</h3><p>投稿の前に地震・事故のニュースを確かめ、当てはまる日は予約を取り消す。</p></span><span class="ledger__go">AI</span></div>
+      <div class="ledger__row"><span class="ledger__k">Facebook<b>予約投稿</b></span><span class="ledger__main"><h3>Meta Business Suite で、日時を決めて予約。</h3><p>シリーズごとに、作り置きした回を予約。</p></span><span class="ledger__go">AI</span></div>
+      <div class="ledger__row"><span class="ledger__k">Instagram<b>予約・定時投稿</b></span><span class="ledger__main"><h3>予約できるものは予約。できないものは、AIが投稿する。</h3><p>投稿したあと、出たかどうかを確かめて記録する。</p></span><span class="ledger__go">AI</span></div>
+      <div class="ledger__row"><span class="ledger__k">X<b>予約投稿</b></span><span class="ledger__main"><h3>日時を決めて予約。</h3></span><span class="ledger__go">AI</span></div>
       <div class="ledger__row"><span class="ledger__k">YouTube<b>まとめて予約</b></span><span class="ledger__main"><h3>ショートを、約1か月分まとめてアップロードして予約。</h3></span><span class="ledger__go">AI</span></div>
       <div class="ledger__row"><span class="ledger__k">公式LINE<b>配信の準備</b></span><span class="ledger__main"><h3>Messaging API で、配信の文と送る相手まで用意。</h3><p>送るかどうかは、人が確かめてから決める。</p></span><span class="ledger__go" style="color:#ff9b83">人</span></div>
     </div>
@@ -207,15 +187,15 @@
   <div class="wrap">
     <div class="sec-head">
       <p class="label">NEW MEDIA — 2026-11〜</p>
-      <h2 class="h2" id="oni-title"><span class="nw">鬼と仏 —</span><span class="nw">仏さまを、1日1本。</span></h2>
-      <p class="lead">海とは別の、新しいメディア。仏さまのことを30秒前後の縦動画で、毎日19:30に。3DはBlenderで手づくり、声はAI音声。始めたばかりです。</p>
+      <h2 class="h2" id="oni-title"><span class="nw">鬼と仏 —</span><span class="nw">仏さまを、30秒で。</span></h2>
+      <p class="lead">海とは別の、新しいメディア。仏さまのことを、30秒前後の縦動画で。3DはBlenderで手づくり、声はAI音声。始めたばかりです。</p>
     </div>
     <div class="shorts reveal">
-      <a class="short" href="https://www.instagram.com/onitohotoke/reel/DfPSyg8Ppxp/" target="_blank" rel="noopener"><span class="short__img"><img src="/images/abl/lab/shorts/oni-01.webp" alt="鬼と仏 1本目の表紙" width="360" height="640" loading="lazy"><i>01</i></span><span class="short__meta">毎日 19:30</span><b>10円玉の、この建物</b></a>
-      <a class="short" href="https://www.instagram.com/onitohotoke/reel/DfRrQaqvpRU/" target="_blank" rel="noopener"><span class="short__img"><img src="/images/abl/lab/shorts/oni-02.webp" alt="鬼と仏 2本目の表紙" width="360" height="640" loading="lazy"><i>02</i></span><span class="short__meta">毎日 19:30</span><b>千手観音の手、ほんとうに1,000本？</b></a>
-      <a class="short" href="https://www.instagram.com/onitohotoke/reel/DfW0wr-PEXT/" target="_blank" rel="noopener"><span class="short__img"><img src="/images/abl/lab/shorts/oni-03.webp" alt="鬼と仏 3本目の表紙" width="360" height="640" loading="lazy"><i>03</i></span><span class="short__meta">毎日 19:30</span><b>この子、1,300年、踏まれっぱなし。</b></a>
-      <a class="short" href="https://www.instagram.com/onitohotoke/reel/DfZzhyqP7O8/" target="_blank" rel="noopener"><span class="short__img"><img src="/images/abl/lab/shorts/oni-04.webp" alt="鬼と仏 4本目の表紙" width="360" height="640" loading="lazy"><i>04</i></span><span class="short__meta">毎日 19:30</span><b>この顔、屋根の上で、何してる？</b></a>
-      <a class="short" href="https://www.facebook.com/reel/1809438296979419/" target="_blank" rel="noopener"><span class="short__img"><img src="/images/abl/lab/shorts/oni-05.webp" alt="鬼と仏 5本目の表紙" width="360" height="640" loading="lazy"><i>05</i></span><span class="short__meta">毎日 19:30</span><b>大仏の頭のつぶつぶ、何個？</b></a>
+      <a class="short" href="https://www.instagram.com/onitohotoke/reel/DfPSyg8Ppxp/" target="_blank" rel="noopener"><span class="short__img"><img src="/images/abl/lab/shorts/oni-01.webp" alt="鬼と仏 1本目の表紙" width="360" height="640" loading="lazy"><i>01</i></span><span class="short__meta">鬼と仏</span><b>10円玉の、この建物</b></a>
+      <a class="short" href="https://www.instagram.com/onitohotoke/reel/DfRrQaqvpRU/" target="_blank" rel="noopener"><span class="short__img"><img src="/images/abl/lab/shorts/oni-02.webp" alt="鬼と仏 2本目の表紙" width="360" height="640" loading="lazy"><i>02</i></span><span class="short__meta">鬼と仏</span><b>千手観音の手、ほんとうに1,000本？</b></a>
+      <a class="short" href="https://www.instagram.com/onitohotoke/reel/DfW0wr-PEXT/" target="_blank" rel="noopener"><span class="short__img"><img src="/images/abl/lab/shorts/oni-03.webp" alt="鬼と仏 3本目の表紙" width="360" height="640" loading="lazy"><i>03</i></span><span class="short__meta">鬼と仏</span><b>この子、1,300年、踏まれっぱなし。</b></a>
+      <a class="short" href="https://www.instagram.com/onitohotoke/reel/DfZzhyqP7O8/" target="_blank" rel="noopener"><span class="short__img"><img src="/images/abl/lab/shorts/oni-04.webp" alt="鬼と仏 4本目の表紙" width="360" height="640" loading="lazy"><i>04</i></span><span class="short__meta">鬼と仏</span><b>この顔、屋根の上で、何してる？</b></a>
+      <a class="short" href="https://www.facebook.com/reel/1809438296979419/" target="_blank" rel="noopener"><span class="short__img"><img src="/images/abl/lab/shorts/oni-05.webp" alt="鬼と仏 5本目の表紙" width="360" height="640" loading="lazy"><i>05</i></span><span class="short__meta">鬼と仏</span><b>大仏の頭のつぶつぶ、何個？</b></a>
     </div>
     <div class="btn-row mt-m">
       <a class="btn btn--ghost" href="https://www.facebook.com/onitohotoke" target="_blank" rel="noopener">Facebook {{ext}}</a>
@@ -230,7 +210,7 @@
     <div class="sec-head">
       <p class="label">TEAM</p>
       <h2 class="h2" id="team-title"><span class="nw">役割を分けた、</span><span class="nw">8つのAIの係。</span></h2>
-      <p class="lead">三浦 海の学校のサイトの検索と守りは、役割を分けたAIの作業が、毎週 月・水・木・土の夜中に動いています。公開する前に、検品係が別の目で確かめます。</p>
+      <p class="lead">三浦 海の学校のサイトの検索と守りは、役割を分けたAIの作業で回してきました。公開する前に、検品係が別の目で確かめます。</p>
     </div>
     <div class="ledger ledger--team reveal">
       <div class="ledger__row"><span class="ledger__k">{{icon:search}}<b>検索データ係</b></span><span class="ledger__main"><p>検索の数字（Search Console）を測り、前の週との違いと理由の見立てを出す。</p></span></div>
@@ -251,7 +231,7 @@
       <div>
         <p class="label">FOR YOUR SHOP</p>
         <h2 class="h2" id="cta-title"><span class="nw">同じ仕組みを、</span><span class="nw">あなたの店にも。</span></h2>
-        <p>毎日の発信を、人が決めてAIが回す形に。どこまでAIに任せて、どこを人が持つか。線の引き方から、いっしょに決めます。</p>
+        <p>ふだんの発信を、人が決めてAIが回す形に。どこまでAIに任せて、どこを人が持つか。線の引き方から、いっしょに決めます。</p>
       </div>
       <div class="cta__actions">
         <a class="btn btn--aqua btn--lg" href="/contact?topic=lab">発信の仕組みを相談する {{arr}}</a>

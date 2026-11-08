@@ -420,120 +420,15 @@
   }
 })();
 
-/* ラボの時計（LAB NOW）・24時間リング・動画のレントゲン（X-RAY）
- * 時刻は来た人の端末の時計を日本時間に直して使う（サーバーとは通信しない）。
- * JS が無いときは、予定の一覧と動画の静止画・層の一覧がそのまま読める。
+/* 動画のレントゲン（X-RAY）
+ * 縦動画を音なしで流しながら、いまの秒を作っている材料（実データ・AI・実写・人）を光らせる。
+ * JS が無いとき・動きを減らす設定・省データでは、静止画と層の一覧がそのまま読める。
  */
 (() => {
   'use strict';
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const DOW = '日月火水木金土';
   const pad = (n) => String(n).padStart(2, '0');
-  const fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Tokyo', hourCycle: 'h23', weekday: 'short', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' });
-  const WD = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
-  function jst() {
-    const p = {};
-    fmt.formatToParts(new Date()).forEach((x) => { p[x.type] = x.value; });
-    const h = +p.hour % 24, m = +p.minute, s = +p.second;
-    return { h, m, s, dow: WD[p.weekday], mon: +p.month, day: +p.day, sec: h * 3600 + m * 60 + s };
-  }
-  const toSec = (t) => { const [h, m] = t.split(':').map(Number); return h * 3600 + m * 60; };
-  const hms = (d) => `${pad(Math.floor(d / 3600))}:${pad(Math.floor(d / 60) % 60)}:${pad(d % 60)}`;
-
-  // ---- LAB NOW
-  const boxes = $$('[data-labnow]');
-  const rings = $$('[data-ring]');
-  const jsonEl = document.querySelector('[data-ln-json]');
-  let sched = null;
-  try { sched = jsonEl ? JSON.parse(jsonEl.textContent) : null; } catch (e) { sched = null; }
-
-  function today(dow) {
-    if (!sched) return [];
-    return sched.daily.concat(sched.weekly.filter((w) => w.dow === dow)).sort((a, b) => toSec(a.t) - toSec(b.t));
-  }
-  function nextTomorrow(now) {
-    const list = today((now.dow + 1) % 7);
-    return list[0] ? { item: list[0], wait: 86400 - now.sec + toSec(list[0].t) } : null;
-  }
-
-  // 変わった所だけ書き換える（毎秒ページ全体を計算し直さない）
-  const setText = (el, t) => { if (el && el.textContent !== t) el.textContent = t; };
-  function prep(box) {
-    if (box._ln) return box._ln;
-    const rows = $$('.ln__row', box).map((el) => {
-      const st = el.querySelector('[data-ln-state]');
-      return { el, st, t: toSec(el.dataset.t), dow: el.dataset.dow === undefined ? -1 : +el.dataset.dow, kind: st.textContent, cls: '' };
-    });
-    box._ln = { rows, clock: box.querySelector('[data-ln-clock]'), day: box.querySelector('[data-ln-day]'),
-      list: box.querySelector('[data-ln-list]'), view: box.querySelector('.ln__view'), rh: 0, shown: 0, first: -1, dow: -1,
-      full: box.classList.contains('ln--full') };
-    return box._ln;
-  }
-  addEventListener('resize', () => boxes.forEach((b) => { if (b._ln) b._ln.rh = 0; }), { passive: true });
-
-  function tickBox(box, now) {
-    const S = prep(box);
-    setText(S.clock, `${pad(now.h)}:${pad(now.m)}:${pad(now.s)}`);
-    if (S.dow !== now.dow) {
-      S.dow = now.dow;
-      S.rows.forEach((r) => { if (r.dow >= 0) r.el.hidden = r.dow !== now.dow; });
-      S.rh = 0;
-    }
-    const vis = S.rows.filter((r) => r.dow < 0 || r.dow === now.dow);
-    let next = -1;
-    vis.forEach((r, i) => {
-      let cls = '', txt = r.kind;
-      if (r.t <= now.sec) {
-        if (now.sec - r.t < 600) { cls = 'is-now'; txt = 'いま'; } else { cls = 'is-done'; txt = '済'; }
-      } else if (next < 0) {
-        next = i; cls = 'is-next'; txt = 'あと ' + hms(r.t - now.sec);
-      }
-      if (cls !== r.cls) { if (r.cls) r.el.classList.remove(r.cls); if (cls) r.el.classList.add(cls); r.cls = cls; }
-      setText(r.st, txt);
-    });
-    let txt = `きょう ${now.mon}/${now.day}（${DOW[now.dow]}）の予定`;
-    if (next < 0) {
-      const nt = nextTomorrow(now);
-      if (nt) txt = `きょうの分は済み。次は あす ${nt.item.t}「${nt.item.what}」 あと ${hms(nt.wait)}`;
-    }
-    setText(S.day, txt);
-    if (!S.full && S.list && S.view && vis.length) {
-      if (!S.rh) { S.rh = vis[0].el.offsetHeight || 52; S.shown = Math.max(1, Math.round(S.view.clientHeight / S.rh)); S.first = -1; }
-      const focus = next < 0 ? vis.length - 1 : next;
-      const first = Math.max(0, Math.min(vis.length - S.shown, focus - 1));
-      if (first !== S.first) { S.first = first; S.list.style.transform = `translateY(${-first * S.rh}px)`; }
-    }
-  }
-
-  function tickRing(ring, now) {
-    const hand = ring.querySelector('[data-ring-hand]');
-    const deg = Math.floor(now.sec / 60) * 0.25;
-    if (hand && ring._deg !== deg) { ring._deg = deg; hand.style.transform = `rotate(${deg}deg)`; }
-    if (!ring.classList.contains('is-live')) ring.classList.add('is-live');
-    const big = ring.querySelector('[data-ring-now]');
-    if (big && big.firstChild && big.firstChild.textContent !== `${pad(now.h)}:${pad(now.m)}`) big.firstChild.textContent = `${pad(now.h)}:${pad(now.m)}`;
-    const nx = ring.querySelector('[data-ring-next]');
-    if (nx && sched) {
-      const n = today(now.dow).find((x) => toSec(x.t) > now.sec);
-      let head = '', what = '';
-      if (n) { head = `${n.t} まで あと ${hms(toSec(n.t) - now.sec)}`; what = n.what; }
-      else { const nt = nextTomorrow(now); if (nt) { head = `あす ${nt.item.t} まで あと ${hms(nt.wait)}`; what = nt.item.what; } }
-      const b = nx.querySelector('b') || nx.appendChild(document.createElement('b'));
-      const s = nx.querySelector('span') || nx.appendChild(document.createElement('span'));
-      setText(b, head); setText(s, what);
-    }
-  }
-
-  if (boxes.length || rings.length) {
-    let timer = 0;
-    const tick = () => { const now = jst(); boxes.forEach((b) => tickBox(b, now)); rings.forEach((r) => tickRing(r, now)); };
-    const startT = () => { if (!timer) { tick(); timer = setInterval(tick, 1000); } };
-    const stopT = () => { clearInterval(timer); timer = 0; };
-    document.addEventListener('visibilitychange', () => (document.hidden ? stopT() : startT()));
-    const go = () => ('requestIdleCallback' in window ? requestIdleCallback(startT, { timeout: 1200 }) : setTimeout(startT, 300));
-    if (document.readyState === 'complete') go(); else addEventListener('load', go, { once: true });
-  }
 
   // ---- 動画のレントゲン
   const saveData = navigator.connection && navigator.connection.saveData;

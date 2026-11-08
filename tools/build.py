@@ -26,7 +26,7 @@ from urllib.parse import quote
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "src"
 SITE = "https://aquabit-lab.com"
-V = "20261108"          # css/js を変えたら上げる（.htaccess で1か月キャッシュしている）
+V = "2026110802"          # css/js を変えたら上げる（.htaccess で1か月キャッシュしている）
 LINE_URL = "https://lin.ee/obePsOF"
 MAIL = "info@aquabit-lab.com"
 
@@ -189,7 +189,6 @@ def header(active):
     </a>
     <nav class="gnav" aria-label="メインメニュー">
       {''.join(links)}
-      <a class="live-dot" href="/lab" aria-label="ラボの中（いま動いている仕組みを見る）" title="ラボはいまも動いています"><i aria-hidden="true"></i></a>
       <a class="btn btn--sm" href="/contact?topic=ai">相談する</a>
     </nav>
     <button class="menu-btn" type="button" aria-controls="mnav" aria-expanded="false" aria-label="メニューを開く" data-menu><span></span></button>
@@ -257,62 +256,6 @@ def footer():
 <script src="/js/abl.js?v={V}" defer></script>
 """
 
-# ---------------------------------------------------------------- ラボの時計（LAB NOW）と24時間リング
-SCHED = json.loads((SRC / "data" / "lab-schedule.json").read_text(encoding="utf-8"))
-DOW = "日月火水木金土"
-
-def _esc(t):
-    return (t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;"))
-
-def _row(item, weekly=False):
-    who = item.get("who", "ai")
-    kind = "投稿" if who == "post" else "AI"
-    dow = f' data-dow="{item["dow"]}" hidden' if weekly else ""
-    wk = f'<small class="ln__dow">毎週{DOW[item["dow"]]}</small>' if weekly else ""
-    return (f'<li class="ln__row ln__row--{who}" data-t="{item["t"]}"{dow}>'
-            f'<time class="ln__t">{item["t"]}</time>'
-            f'<span class="ln__what">{_esc(item["what"])}{wk}<small>{_esc(item.get("sub", ""))}</small></span>'
-            f'<em class="ln__state" data-ln-state>{kind}</em></li>')
-
-def labnow(mode="hero"):
-    rows = [_row(x) for x in SCHED["daily"]] + [_row(x, True) for x in SCHED["weekly"]]
-    rows.sort(key=lambda r: re.search(r'data-t="([0-9:]+)"', r).group(1))
-    full = mode == "full"
-    return (f'<div class="ln{" ln--full" if full else ""}" data-labnow aria-label="ラボのきょうの予定（日本時間）">'
-            f'<div class="ln__head"><span class="ln__label">LAB NOW</span>'
-            f'<b class="ln__clock"><i class="ln__dot" aria-hidden="true"></i><time data-ln-clock>--:--:--</time> <small>JST</small></b></div>'
-            f'<p class="ln__day" data-ln-day>毎日の予定</p>'
-            f'<div class="ln__view"><ol class="ln__list" data-ln-list>{"".join(rows)}</ol></div>'
-            f'<p class="ln__foot">実際に動いている定時の仕事です。時刻は目安。<a href="/lab">ラボの中を見る {ARR}</a></p>'
-            f'<script type="application/json" data-ln-json>{json.dumps({"daily": SCHED["daily"], "weekly": SCHED["weekly"]}, ensure_ascii=False, separators=(",", ":"))}</script>'
-            f'</div>')
-
-def ring():
-    """24時間リング（SVG）。目盛り・予定の点・針（JSで回す）。中央の文字はHTMLで重ねる。"""
-    import math
-    cx = cy = 260
-    R0 = 214
-    parts = [f'<circle cx="{cx}" cy="{cy}" r="{R0}" class="ring__track"/>']
-    for h in range(24):
-        a = math.radians(h * 15 - 90)
-        r1, r2 = (R0 - 16, R0 + 2) if h % 6 == 0 else (R0 - 8, R0 + 2)
-        parts.append(f'<line x1="{cx + r1*math.cos(a):.1f}" y1="{cy + r1*math.sin(a):.1f}" x2="{cx + r2*math.cos(a):.1f}" y2="{cy + r2*math.sin(a):.1f}" class="ring__tick{" ring__tick--major" if h % 6 == 0 else ""}"/>')
-        if h % 6 == 0:
-            rt = R0 - 36
-            parts.append(f'<text x="{cx + rt*math.cos(a):.1f}" y="{cy + rt*math.sin(a) + 5:.1f}" class="ring__hour">{h:02d}</text>')
-    seen = set()
-    for it in SCHED["daily"] + SCHED["weekly"]:
-        hh, mm = map(int, it["t"].split(":"))
-        if it["t"] in seen:
-            continue
-        seen.add(it["t"])
-        a = math.radians((hh + mm / 60) * 15 - 90)
-        cls = "post" if it.get("who") == "post" else ("week" if "dow" in it else "ai")
-        parts.append(f'<circle cx="{cx + R0*math.cos(a):.1f}" cy="{cy + R0*math.sin(a):.1f}" r="{7 if cls == "post" else 5}" class="ring__pt ring__pt--{cls}"/>')
-    parts.append(f'<g class="ring__hand" data-ring-hand style="transform-origin:{cx}px {cy}px"><line x1="{cx}" y1="{cy}" x2="{cx}" y2="{cy - R0 + 6}"/><circle cx="{cx}" cy="{cy - R0}" r="6"/></g>')
-    return (f'<svg class="ring__svg" viewBox="0 0 520 520" role="img" aria-label="24時間の文字盤。点は定時の仕事、大きい点は投稿の時刻">'
-            + "".join(parts) + "</svg>")
-
 # ---------------------------------------------------------------- 組み立て
 FM = re.compile(r"^<!--@\s*(\{.*?\})\s*@-->\s*", re.S)
 
@@ -331,8 +274,6 @@ def render(src: Path):
     body = (body.replace("{{arr}}", ARR).replace("{{ext}}", EXT).replace("{{bits}}", bits_svg())
                 .replace("{{V}}", V).replace("{{line}}", LINE_URL).replace("{{mail}}", MAIL))
     body = re.sub(r"\{\{ai_links:([a-z]+)\}\}", lambda mm: ai_links(mm.group(1)), body)
-    body = re.sub(r"\{\{labnow(?::([a-z]+))?\}\}", lambda mm: labnow(mm.group(1) or "hero"), body)
-    body = body.replace("{{ring}}", ring())
     left = re.findall(r"\{\{[^}]+\}\}", body)
     if left:
         raise SystemExit(f"{src.name}: 置き換えられていない印があります {left[:5]}")
