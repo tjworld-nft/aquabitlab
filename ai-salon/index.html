@@ -23,8 +23,8 @@
 <link rel="apple-touch-icon" href="/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@500;700;800&display=swap" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="/css/abl.css?v=20261013">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@500;700;800&display=optional" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="/css/abl.css?v=20261108">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","name":"AI学習サロン","serviceType":"オンラインのAI学習コミュニティ","url":"https://aquabit-lab.com/ai-salon/","provider":{"@type":"Organization","@id":"https://aquabit-lab.com/#org","name":"AquaBit LAB"},"offers":{"@type":"Offer","price":"9800","priceCurrency":"JPY","url":"https://buy.stripe.com/28EeVdfpzbkGeFu6QX18c00","priceSpecification":{"@type":"UnitPriceSpecification","price":"9800","priceCurrency":"JPY","billingDuration":"P1M","unitText":"月額（税込）"}}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"完全な初心者でも大丈夫ですか？","acceptedAnswer":{"@type":"Answer","text":"はい。AIの基礎知識がない方でも進められるよう、段階的に学べる内容を用意しています。わからないところはDiscordで質問できます。"}},{"@type":"Question","name":"どのくらいの時間が必要ですか？","acceptedAnswer":{"@type":"Answer","text":"1日30分〜1時間ほどを想定していますが、自分のペースで進められます。週末にまとめて学ぶこともできます。"}},{"@type":"Question","name":"退会はいつでもできますか？","acceptedAnswer":{"@type":"Answer","text":"はい、いつでも退会できます。最低利用期間の縛りはありません。"}},{"@type":"Question","name":"質問の回答はどのくらいで返ってきますか？","acceptedAnswer":{"@type":"Answer","text":"できる限り早くお答えしますが、内容や時間帯によって数時間〜1日ほどいただく場合があります。サポートは平日夜・土日が中心です。"}},{"@type":"Question","name":"プログラミングの知識は必要ですか？","acceptedAnswer":{"@type":"Answer","text":"基本的には不要です。AIツールの使い方から始め、必要に応じて簡単なプログラミングも学べます。"}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://aquabit-lab.com/"},{"@type":"ListItem","position":2,"name":"AI学習サロン","item":"https://aquabit-lab.com/ai-salon/"}]}]}</script>
 </head>
@@ -37,7 +37,8 @@
       <span><b>AquaBit LAB</b><small>SEA × AI</small></span>
     </a>
     <nav class="gnav" aria-label="メインメニュー">
-      <a href="/ai-service">AI導入サポート</a><a href="/works">実績・取り組み</a><a href="/ai-salon/" aria-current="page">AI学習サロン</a><a href="/marine">マリン事業</a><a href="/about">ABLとは</a>
+      <a href="/ai-service">AI導入サポート</a><a href="/works">実績・取り組み</a><a href="/lab">ラボの中</a><a href="/ai-salon/" aria-current="page">AI学習サロン</a><a href="/marine">マリン事業</a><a href="/about">ABLとは</a>
+      <a class="live-dot" href="/lab" aria-label="ラボの中（いま動いている仕組みを見る）" title="ラボはいまも動いています"><i aria-hidden="true"></i></a>
       <a class="btn btn--sm" href="/contact?topic=ai">相談する</a>
     </nav>
     <button class="menu-btn" type="button" aria-controls="mnav" aria-expanded="false" aria-label="メニューを開く" data-menu><span></span></button>
@@ -45,7 +46,7 @@
 </header>
 <div class="mnav" id="mnav" data-mnav hidden>
   <a class="mnav__link" href="/">ホーム<small>HOME</small></a>
-  <a class="mnav__link" href="/ai-service">AI導入サポート<small>AI ADOPTION</small></a><a class="mnav__link" href="/works">実績・取り組み<small>WORKS</small></a><a class="mnav__link" href="/ai-salon/" aria-current="page">AI学習サロン<small>SALON</small></a><a class="mnav__link" href="/marine">マリン事業<small>MARINE</small></a><a class="mnav__link" href="/about">ABLとは<small>ABOUT</small></a>
+  <a class="mnav__link" href="/ai-service">AI導入サポート<small>AI ADOPTION</small></a><a class="mnav__link" href="/works">実績・取り組み<small>WORKS</small></a><a class="mnav__link" href="/lab">ラボの中<small>INSIDE THE LAB</small></a><a class="mnav__link" href="/ai-salon/" aria-current="page">AI学習サロン<small>SALON</small></a><a class="mnav__link" href="/marine">マリン事業<small>MARINE</small></a><a class="mnav__link" href="/about">ABLとは<small>ABOUT</small></a>
   <a class="mnav__link" href="/contact">お問い合わせ<small>CONTACT</small></a>
   <div class="btn-row">
     <a class="btn btn--aqua btn--lg" href="/contact?topic=ai">AI導入の相談をする <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
@@ -54,57 +55,58 @@
 </div>
 <main id="main">
 <section class="phero on-dark" aria-labelledby="page-title">
-  <div class="phero__bits"><svg viewBox="0 0 600 420" aria-hidden="true" focusable="false"><ellipse cx="300" cy="300" rx="38" ry="10.6" fill="none" stroke="#3fe3e6" stroke-width="2" opacity="0.9"/><ellipse cx="300" cy="300" rx="86" ry="24.1" fill="none" stroke="#3fe3e6" stroke-width="1.6" opacity="0.6"/><ellipse cx="300" cy="300" rx="148" ry="41.4" fill="none" stroke="#3fe3e6" stroke-width="1.3" opacity="0.38"/><ellipse cx="300" cy="300" rx="222" ry="62.2" fill="none" stroke="#3fe3e6" stroke-width="1" opacity="0.22"/><ellipse cx="300" cy="300" rx="296" ry="82.9" fill="none" stroke="#3fe3e6" stroke-width="1" opacity="0.12"/><path d="M300 262c-6 12-9 20-9 27a9 9 0 0 0 18 0c0-7-3-15-9-27z" fill="#3fe3e6"/><rect x="289.9" y="240.8" width="11.9" height="11.9" rx="1.4" fill="#3fe3e6" opacity="1.00"/><rect x="295.4" y="238.0" width="10.2" height="10.2" rx="1.4" fill="#3fe3e6" opacity="0.97"/><rect x="296.0" y="232.9" width="8.2" height="8.2" rx="1.4" fill="#3fe3e6" opacity="0.95"/><rect x="286.7" y="222.8" width="8.5" height="8.5" rx="1.4" fill="#3fe3e6" opacity="0.92"/><rect x="303.5" y="216.6" width="8.7" height="8.7" rx="1.4" fill="#3fe3e6" opacity="0.89"/><rect x="296.6" y="209.9" width="13.7" height="13.7" rx="1.4" fill="#3fe3e6" opacity="0.87"/><rect x="290.0" y="200.1" width="13.9" height="13.9" rx="1.4" fill="#3fe3e6" opacity="0.84"/><rect x="307.0" y="201.3" width="9.7" height="9.7" rx="1.4" fill="#3fe3e6" opacity="0.82"/><rect x="281.3" y="194.0" width="9.9" height="9.9" rx="1.4" fill="#3fe3e6" opacity="0.79"/><rect x="281.8" y="180.3" width="11.5" height="11.5" rx="1.4" fill="#3fe3e6" opacity="0.76"/><rect x="290.5" y="177.5" width="8.3" height="8.3" rx="1.4" fill="#3fe3e6" opacity="0.74"/><rect x="277.1" y="178.1" width="6.2" height="6.2" rx="1.4" fill="#3fe3e6" opacity="0.71"/><rect x="293.1" y="165.4" width="6.9" height="6.9" rx="1.4" fill="#3fe3e6" opacity="0.68"/><rect x="294.2" y="160.1" width="6.8" height="6.8" rx="1.4" fill="#3fe3e6" opacity="0.66"/><rect x="307.5" y="152.0" width="6.5" height="6.5" rx="1.4" fill="#3fe3e6" opacity="0.63"/><rect x="296.3" y="146.1" width="10.3" height="10.3" rx="1.4" fill="#3fe3e6" opacity="0.61"/><rect x="281.8" y="138.1" width="10.9" height="10.9" rx="1.4" fill="#3fe3e6" opacity="0.58"/><rect x="290.1" y="138.6" width="9.5" height="9.5" rx="1.4" fill="#3fe3e6" opacity="0.55"/><rect x="296.7" y="134.3" width="5.2" height="5.2" rx="1.4" fill="#3fe3e6" opacity="0.53"/><rect x="314.0" y="121.3" width="8.4" height="8.4" rx="1.4" fill="#3fe3e6" opacity="0.50"/><rect x="282.0" y="112.7" width="9.2" height="9.2" rx="1.4" fill="#3fe3e6" opacity="0.47"/><rect x="302.1" y="110.0" width="7.7" height="7.7" rx="1.4" fill="#3fe3e6" opacity="0.45"/><rect x="330.8" y="101.3" width="7.8" height="7.8" rx="1.4" fill="#3fe3e6" opacity="0.42"/><rect x="259.8" y="96.2" width="9.2" height="9.2" rx="1.4" fill="#3fe3e6" opacity="0.39"/><rect x="336.5" y="89.8" width="9.9" height="9.9" rx="1.4" fill="#3fe3e6" opacity="0.37"/><rect x="285.6" y="87.6" width="9.0" height="9.0" rx="1.4" fill="#3fe3e6" opacity="0.34"/><rect x="293.5" y="85.6" width="6.0" height="6.0" rx="1.4" fill="#3fe3e6" opacity="0.32"/><rect x="254.2" y="76.6" width="9.6" height="9.6" rx="1.4" fill="#3fe3e6" opacity="0.29"/><rect x="272.1" y="71.4" width="7.3" height="7.3" rx="1.4" fill="#3fe3e6" opacity="0.26"/><rect x="254.6" y="57.6" width="7.7" height="7.7" rx="1.4" fill="#3fe3e6" opacity="0.24"/><rect x="334.1" y="53.5" width="9.9" height="9.9" rx="1.4" fill="#3fe3e6" opacity="0.21"/><rect x="273.0" y="45.4" width="7.5" height="7.5" rx="1.4" fill="#3fe3e6" opacity="0.18"/><rect x="336.1" y="42.6" width="10.7" height="10.7" rx="1.4" fill="#3fe3e6" opacity="0.18"/><rect x="260.9" y="40.7" width="6.4" height="6.4" rx="1.4" fill="#3fe3e6" opacity="0.18"/></svg></div>
   <div class="wrap">
     <ol class="crumbs"><li><a href="/">ホーム</a></li><li aria-current="page">AI学習サロン</li></ol>
     <p class="eyebrow">AI LEARNING SALON — 月額9,800円（税込）</p>
-    <h1 class="h1" id="page-title">AIを“使う”から、<br>“創る”へ。</h1>
-    <p class="lead">「知ってる」と「できる」は、まったく違う。画像・音楽・Webサイト・アプリまで、実際に手を動かして“できた”を積み上げる、実践型のAI学習サロンです。わからないことは、Discordでいつでも質問できます。</p>
+    <h1 class="h1" id="page-title"><span class="nw">AIを“使う”から、</span><span class="nw">“創る”へ。</span></h1>
+    <p class="lead">「知ってる」と「できる」は、まったく違う。画像・音楽・Webサイト・アプリまで、実際に手を動かして“できた”を積み上げる、実践型のAI学習サロンです。わからないことは、Discordで質問できます。</p>
     <div class="btn-row">
       <a class="btn btn--aqua btn--lg" href="https://buy.stripe.com/28EeVdfpzbkGeFu6QX18c00" target="_blank" rel="noopener">サロンに参加する <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
       <a class="btn btn--ghost btn--lg" href="#price">料金と内容を見る</a>
     </div>
-    <p class="hero__note"><span>最低利用期間なし</span><span>いつでも解約できる</span><span>Stripeの安全な決済</span></p>
+    <p class="hero__note"><span>月額9,800円（税込）</span><span>最低利用期間なし</span><span>いつでも解約できる</span><span>Stripeの安全な決済</span></p>
   </div>
 </section>
 
-<section class="section" aria-labelledby="myth-title">
+<section class="paper" aria-labelledby="myth-title">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">MYTH — よくある勘違い</p>
-      <h2 class="h2" id="myth-title">AI学習の、<br>3つのよくある勘違い。</h2>
+      <p class="label">01 — よくある勘違い</p>
+      <h2 class="h2" id="myth-title"><span class="nw">AI学習の、</span><span class="nw">3つのよくある勘違い。</span></h2>
     </div>
-    <div class="principles">
-      <div class="principle reveal"><span class="principle__no">01</span><div><h3>「理論を学べば、使えるようになる」</h3><p>動画や記事で情報を集めても、手を動かさなければ「できる」にはなりません。このサロンは、作って確かめることが中心です。</p></div></div>
-      <div class="principle reveal" data-d="1"><span class="principle__no">02</span><div><h3>「1つのAIをマスターすれば十分」</h3><p>文章・画像・音楽・コード。用途に合わせて複数のAIを使い分けると、できることが一気に広がります。</p></div></div>
-      <div class="principle reveal"><span class="principle__no">03</span><div><h3>「最新のAIを追いかければいい」</h3><p>新しいツールを追うだけでは、身につきません。基本の頼み方と組み合わせ方を覚えれば、新しいAIにもすぐなじめます。</p></div></div>
-      <div class="principle reveal" data-d="1"><span class="principle__no">04</span><div><h3>だから、「作る」ことから。</h3><p>自分の作品・自分の仕事の道具を1つ完成させる。その繰り返しで、AIが自分のものになります。</p></div></div>
+    <div class="ledger">
+      <div class="ledger__row"><span class="ledger__k">01<b>理論から</b></span><div class="ledger__main"><h3>「理論を学べば、使えるようになる」</h3><p>動画や記事で情報を集めても、手を動かさなければ「できる」にはなりません。このサロンは、作って確かめることが中心です。</p></div></div>
+      <div class="ledger__row"><span class="ledger__k">02<b>1つだけ</b></span><div class="ledger__main"><h3>「1つのAIをマスターすれば十分」</h3><p>文章・画像・音楽・コード。用途に合わせて複数のAIを使い分けると、できることが一気に広がります。</p></div></div>
+      <div class="ledger__row"><span class="ledger__k">03<b>最新だけ</b></span><div class="ledger__main"><h3>「最新のAIを追いかければいい」</h3><p>新しいツールを追うだけでは、身につきません。基本の頼み方と組み合わせ方を覚えれば、新しいAIにもすぐなじめます。</p></div></div>
+      <div class="ledger__row ledger__row--check"><span class="ledger__k">だから<b>作る</b></span><div class="ledger__main"><h3>だから、「作る」ことから。</h3><p>自分の作品・自分の仕事の道具を1つ完成させる。その繰り返しで、AIが自分のものになります。</p></div></div>
     </div>
+    <p class="mt-m muted">何から始めればいいかわからない。仕事にAIを活かしたい。独学だと続かない。絵や曲、アプリ、自分の発信に使ってみたい。——どれか1つでも当てはまれば、ちょうどいい場所です。</p>
   </div>
 </section>
 
-<section class="section section--white" aria-labelledby="who-title">
+<section class="stage on-dark" aria-labelledby="make-title">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">FOR YOU — こんな方に</p>
-      <h2 class="h2" id="who-title">一つでも当てはまれば、<br>ちょうどいい場所です。</h2>
+      <p class="label">02 — 講師の作品</p>
+      <h2 class="h2" id="make-title"><span class="nw">講師が実際に作ったものが、</span><span class="nw">そのまま教材です。</span></h2>
+      <p class="lead">どれも講師がAIといっしょに作り、公開・販売しているものです。</p>
     </div>
-    <div class="uses">
-      <div class="use reveal"><svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.4 2.4c-.6.3-1 .8-1 1.5v.6M12 17h.01"/></svg><h3>何から始めればいいかわからない</h3><p>ChatGPTは使ったことがあるけれど、ほかのAIは知らない。何ができるのか具体的にイメージできない。</p></div>
-      <div class="use reveal" data-d="1"><svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 6.5a4 4 0 0 0-5.3 5.3L4 17l3 3 5.2-5.2a4 4 0 0 0 5.3-5.3l-2.4 2.4-2.6-.6-.6-2.6z"/></svg><h3>仕事にAIを活かしたい</h3><p>会社でAI活用を求められている。副業や起業に使いたい。業務を楽にしたいが、どのツールを選べばいいかわからない。</p></div>
-      <div class="use reveal" data-d="2"><svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8.5" r="3.2"/><path d="M3.5 19c.6-3.2 2.8-5 5.5-5s4.9 1.8 5.5 5"/><circle cx="17" cy="9.5" r="2.4"/><path d="M16 14.2c2.3.2 3.9 1.8 4.5 4.3"/></svg><h3>独学だと続かない</h3><p>質問できる相手がほしい。高額なスクールには通えないけれど、しっかり学びたい。自分のペースで進めたい。</p></div>
-      <div class="use reveal"><svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/></svg><h3>創作・趣味に使いたい</h3><p>絵が描けなくてもイラストを、楽器ができなくても曲を、プログラミングできなくてもアプリを作ってみたい。</p></div>
-      <div class="use reveal" data-d="1"><svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-4.5L21 9l-9 4.5z"/><path d="M7 11v4.5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V11"/><path d="M21 9v5"/></svg><h3>時代の変化についていきたい</h3><p>AIを不安に思うより、味方にしたい。新しいスキルを身につけて、できることを増やしたい。</p></div>
-      <div class="use reveal" data-d="2"><svg class="use__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 4l5 5L9 20H4v-5z"/><path d="M13 6l5 5"/></svg><h3>自分の発信にAIを使いたい</h3><p>SNSやブログ、画像や短い動画。毎日の発信を、AIといっしょに楽に続けられるようになりたい。</p></div>
+    <div class="ledger">
+      <a class="ledger__row" href="/works#apps"><span class="ledger__k">APPS<b>iPhoneアプリ 4本</b></span><div class="ledger__main"><h3>Blue Logbook・いまメシ・海学・龍脈マップ。</h3><p>どれも App Store で無料公開中。いちばん新しい龍脈マップは、2026年11月8日の公開です。</p></div><span class="ledger__go">アプリを見る <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
+      <a class="ledger__row" href="https://miura-diving.com/manga/" target="_blank" rel="noopener"><span class="ledger__k">MANGA<b>まんが 24話</b></span><div class="ledger__main"><h3>よくある質問を、1話ずつまんがに。</h3><p>三浦 海の学校の「まんがで読むダイビング」。24話と動画版を、AIといっしょに作って公開しています。</p></div><span class="ledger__go">読む <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="ledger__row" href="https://tj-music.com/" target="_blank" rel="noopener"><span class="ledger__k">MUSIC<b>アルバム「魚歌」</b></span><div class="ledger__main"><h3>海の生き物を歌う、全19曲。</h3><p>AIの音楽制作ツールで作ったアルバムを配信しています。サビから試聴できます。</p></div><span class="ledger__go">試聴する <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="ledger__row" href="https://www.amazon.co.jp/dp/B0CW1D9Y1Y" target="_blank" rel="noopener"><span class="ledger__k">KINDLE<b>AI絵本・Kindle本</b></span><div class="ledger__main"><h3>文章と絵をAIで作り、Amazonで出版。</h3><p>『うみがめになったぜんくんの大冒険』は、AmazonのAI絵本ランキングで2位に。</p></div><span class="ledger__go">Amazon <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a class="ledger__row" href="https://store.line.me/stickershop/author/4627048/ja" target="_blank" rel="noopener"><span class="ledger__k">STICKERS<b>LINEスタンプ</b></span><div class="ledger__main"><h3>キャラクターを描いて、販売まで。</h3><p>画像生成AIでキャラクターを描き、LINEスタンプとして販売しています。</p></div><span class="ledger__go">LINE STORE <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
     </div>
+    <p class="mt-m"><a class="textlink" href="/works">ほかの実績・取り組みも見る <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></p>
   </div>
 </section>
 
-<section class="section" aria-labelledby="step-title">
+<section class="paper paper--2" aria-labelledby="step-title">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">STEPS — 学び方</p>
-      <h2 class="h2" id="step-title">実践で身につける、<br>4つのステップ。</h2>
+      <p class="label">03 — 学び方</p>
+      <h2 class="h2" id="step-title"><span class="nw">実践で身につける、</span><span class="nw">4つのステップ。</span></h2>
     </div>
     <ol class="steps steps--4">
       <li class="step reveal"><span class="step__no">STEP 01</span><h3>基本のAIを、実際に使う</h3><p>ChatGPT・Claudeなどで文章を作り、自分で頼み方（プロンプト）を書いて、「こんなことができるんだ」を体験します。</p></li>
@@ -112,58 +114,9 @@
       <li class="step reveal" data-d="2"><span class="step__no">STEP 03</span><h3>組み合わせて完成させる</h3><p>文章→画像→動画のように、複数のAIをつないで1つの作品を最後まで仕上げます。</p></li>
       <li class="step reveal" data-d="3"><span class="step__no">STEP 04</span><h3>自分のアイデアを形に</h3><p>身につけたことで、自分の仕事や趣味のプロジェクトを実現。続けてAIを使える状態へ。</p></li>
     </ol>
-  </div>
-</section>
-
-<section class="section section--dark grid-bg" aria-labelledby="make-title">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="eyebrow">WHAT YOU CAN MAKE — 作れるもの</p>
-      <h2 class="h2" id="make-title">講師が実際に作ったものが、<br>そのまま教材です。</h2>
-      <p class="lead">どれも講師がAIといっしょに作り、公開・販売しているものです。</p>
-    </div>
-    <div class="works">
-      <a class="work reveal" href="https://store.line.me/stickershop/author/4627048/ja" target="_blank" rel="noopener"><div class="work__body"><p class="work__cat">LINE STICKERS</p><h3>LINEスタンプ</h3><p>画像生成AIでキャラクターを描き、LINEスタンプとして販売。</p><span class="work__more">LINE STORE <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div></a>
-      <a class="work reveal" data-d="1" href="https://www.amazon.co.jp/dp/B0CW1D9Y1Y" target="_blank" rel="noopener"><div class="work__body"><p class="work__cat">KINDLE</p><h3>AI絵本・Kindle本</h3><p>AIで文章と絵を作り、Amazonで出版。『うみがめになったぜんくんの大冒険』はAmazonのAI絵本ランキング2位に。</p><span class="work__more">Amazonで見る <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div></a>
-      <a class="work reveal" data-d="2" href="https://tj-music.com/" target="_blank" rel="noopener"><div class="work__body"><p class="work__cat">MUSIC</p><h3>オリジナル音楽</h3><p>AIの音楽制作ツールで作ったアルバム「魚歌」（全19曲）を配信中。</p><span class="work__more">試聴する <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div></a>
-      <a class="work reveal" href="https://miura-diving.com/" target="_blank" rel="noopener"><div class="work__body"><p class="work__cat">WEB</p><h3>ホームページ・LP</h3><p>Vibe Codingで、コードを書かずにサイトを。三浦 海の学校のサイトもAIといっしょに作っています。</p><span class="work__more">サイトを見る <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div></a>
-      <a class="work reveal" data-d="1" href="/works#apps"><div class="work__body"><p class="work__cat">APPS</p><h3>iPhoneアプリ</h3><p>ダイビングのログブック「Blue Logbook」と、旅先の食事処探し「いまメシ」をApp Storeで公開。</p><span class="work__more">アプリを見る <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></div></a>
-      <a class="work reveal" data-d="2" href="https://miura-diving.com/manga/" target="_blank" rel="noopener"><div class="work__body"><p class="work__cat">MANGA</p><h3>解説まんが・短い動画</h3><p>よくある質問を1話ずつまんがに。24話と動画版を、AIといっしょに作って公開中。</p><span class="work__more">読んでみる <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></div></a>
-    </div>
-  </div>
-</section>
-
-<section class="section section--white" aria-labelledby="mentor-title">
-  <div class="wrap">
-    <div class="person">
-      <figure class="person__photo reveal">
-        <img src="/images/abl/photo-founder.webp" alt="透明な水の中を泳ぐ、講師の吉田哲司（TJ）" width="800" height="800" loading="lazy">
-        <figcaption>講師 TJ（吉田哲司）。本業は、人に教えること。</figcaption>
-      </figure>
+    <div class="split split--top mt-l">
       <div>
-        <p class="eyebrow">MENTOR — 講師</p>
-        <p class="person__name"><b id="mentor-title">TJ（吉田 哲司）</b><span>ティージェー</span></p>
-        <p class="person__role">AIデジタルクリエイター ／ PADIコースディレクター</p>
-        <p>インストラクターを育てる立場で、1,500名以上のダイバーを育ててきました。「できない」を「できる」にする教え方は、AIでも同じです。</p>
-        <p>AIウェビナーを50回以上開き、のべ500名以上が参加。ChatGPT・Claude・Gemini・Claude Code・Codexなどを毎日の仕事で使い、絵本・音楽・Webサイト・アプリを自分で作っています。</p>
-        <div class="stats">
-          <div class="stat"><b>1,500<small>名+</small></b><span>育てた認定ダイバー</span></div>
-          <div class="stat"><b>50<small>回+</small></b><span>AIウェビナー</span></div>
-          <div class="stat"><b>500<small>名+</small></b><span>ウェビナーの参加者</span></div>
-          <div class="stat"><b>12<small>冊</small></b><span>Kindleの著書</span></div>
-        </div>
-        <p class="mt-m"><a class="textlink" href="/about#founder">プロフィールをくわしく <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="price-title" id="price">
-  <div class="wrap">
-    <div class="split split--top">
-      <div>
-        <p class="eyebrow">INCLUDED — 含まれるもの</p>
-        <h2 class="h2 mt-s" id="price-title">サロンの内容は、<br>月額9,800円で。</h2>
+        <h3 class="h3">サロンに含まれるもの</h3>
         <ul class="checks">
           <li><b>Discordで質問サポート</b> — 平日夜・土日を中心に、講師が直接お答えします</li>
           <li><b>段階的に学べる内容</b> — まったくの初心者から、作品づくりまで</li>
@@ -171,13 +124,33 @@
           <li><b>AIの最新情報の共有</b> — 変化の速い道具の、今の使い方</li>
           <li><b>作品づくりの伴走</b> — アイデアから完成まで相談できます</li>
         </ul>
-        <div class="aside-card mt-m">
-          <h3><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/></svg> 有料版AIのすすめ</h3>
-          <p>本格的に学ぶなら、ChatGPTやClaudeなどの有料プラン（個人向けは月額数千円程度・2026年9月時点）の利用をおすすめします。回数制限を気にせず、より高性能なモデルで学べます。サロン料金には含まれません。</p>
+      </div>
+      <div>
+        <h3 class="h3">有料版AIのすすめ</h3>
+        <p class="mt-s muted">本格的に学ぶなら、ChatGPTやClaudeなどの有料プラン（個人向けは月額数千円程度・2026年11月時点）の利用をおすすめします。無料版は1日の利用回数に制限があり、学習の途中で止まってしまうことがあるからです。有料プランの料金は、サロン料金には含まれません。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="paper" aria-labelledby="price-title" id="price">
+  <div class="wrap">
+    <div class="split split--top">
+      <div>
+        <div class="sec-head">
+          <p class="label">04 — 講師と料金</p>
+          <h2 class="h2" id="price-title"><span class="nw">教えるのは、</span><span class="nw">人に教えてきた人。</span></h2>
+          <p class="lead">講師は TJ（吉田 哲司）。インストラクターを育てる立場で、「できない」を「できる」にしてきました。</p>
         </div>
+        <div class="ledger">
+          <div class="ledger__row"><span class="ledger__k">1997–<b>海の仕事</b></span><div class="ledger__main"><h3>2001年から、PADIコースディレクター。</h3><p>インストラクターを育てる立場で、1,500名以上のダイバーを育ててきました。</p></div></div>
+          <div class="ledger__row"><span class="ledger__k">50回+<b>AIウェビナー</b></span><div class="ledger__main"><h3>のべ500名以上が参加。</h3><p>AIの使い方を、パソコンが苦手な方にも伝わる言葉で教えてきました。</p></div></div>
+          <div class="ledger__row"><span class="ledger__k">毎日<b>自分でも作る</b></span><div class="ledger__main"><h3>毎日の仕事で使って、自分で作る。</h3><p>ChatGPT・Claude・Gemini・Claude Code・Codexを使い、絵本・音楽・Webサイト・アプリを自分で作っています。</p></div></div>
+        </div>
+        <p class="mt-m"><a class="textlink" href="/about#founder">プロフィールをくわしく <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></p>
       </div>
       <div class="plan-card on-dark reveal">
-        <p class="eyebrow">AI LEARNING SALON</p>
+        <p class="label">AI LEARNING SALON</p>
         <div class="plan-card__price"><b>¥9,800</b><span>／月（税込）</span></div>
         <p style="color:var(--on-dark-2)">最低利用期間なし。いつでも解約できます。無料体験はありません。</p>
         <ul class="checks">
@@ -190,23 +163,17 @@
         <p class="fine">お支払いはStripeの安全な決済ページで行います。お申し込み日を起算日として毎月自動で更新されます。解約・返金の条件は<a href="/tokushoho" style="color:var(--aqua)">特定商取引法に基づく表記</a>をご確認ください。</p>
       </div>
     </div>
-  </div>
-</section>
 
-<section class="section section--white" aria-labelledby="faq-title">
-  <div class="wrap wrap--narrow">
-    <div class="sec-head">
-      <p class="eyebrow">FAQ — よくあるご質問</p>
-      <h2 class="h2" id="faq-title">よくあるご質問</h2>
-    </div>
-    <div class="faq">
-      <details><summary>完全な初心者でも大丈夫ですか？</summary><div class="a"><p>はい。AIの基礎知識がない方でも進められるよう、段階的に学べる内容を用意しています。わからないところはDiscordで質問できます。</p></div></details>
-      <details><summary>どのくらいの時間が必要ですか？</summary><div class="a"><p>1日30分〜1時間ほどを想定していますが、自分のペースで進められます。忙しい方は、週末にまとめて学ぶこともできます。</p></div></details>
-      <details><summary>退会はいつでもできますか？</summary><div class="a"><p>はい、いつでも退会できます。最低利用期間の縛りはありません。</p></div></details>
-      <details><summary>質問の回答はどのくらいで返ってきますか？</summary><div class="a"><p>できる限り早くお答えしますが、内容や時間帯によって数時間〜1日ほどいただく場合があります。サポートは平日夜・土日が中心です。</p></div></details>
-      <details><summary>AIツールは無料でも使えるのに、なぜ有料版をすすめるのですか？</summary><div class="a"><p>無料版は1日の利用回数に制限があり、学習の途中で止まってしまうことがあるからです。有料版なら、より高性能なモデルや高品質な画像・音楽の生成を、待ち時間を気にせず使えます。</p></div></details>
-      <details><summary>プログラミングの知識は必要ですか？</summary><div class="a"><p>基本的には不要です。AIツールの使い方から始め、必要に応じて簡単なプログラミングも学べます。</p></div></details>
-      <details><summary>会社やチームで学びたいのですが。</summary><div class="a"><p>社内研修・勉強会として承ることもできます。<a href="/contact?topic=training">お問い合わせ</a>からご相談ください。</p></div></details>
+    <div class="mt-l" style="max-width:820px">
+      <h3 class="h3" id="faq-title" style="margin-bottom:18px">よくあるご質問</h3>
+      <div class="faq">
+        <details><summary>完全な初心者でも大丈夫ですか？</summary><div class="a"><p>はい。AIの基礎知識がない方でも進められるよう、段階的に学べる内容を用意しています。わからないところはDiscordで質問できます。</p></div></details>
+        <details><summary>どのくらいの時間が必要ですか？</summary><div class="a"><p>1日30分〜1時間ほどを想定していますが、自分のペースで進められます。忙しい方は、週末にまとめて学ぶこともできます。</p></div></details>
+        <details><summary>退会はいつでもできますか？</summary><div class="a"><p>はい、いつでも退会できます。最低利用期間の縛りはありません。</p></div></details>
+        <details><summary>質問の回答はどのくらいで返ってきますか？</summary><div class="a"><p>できる限り早くお答えしますが、内容や時間帯によって数時間〜1日ほどいただく場合があります。サポートは平日夜・土日が中心です。</p></div></details>
+        <details><summary>プログラミングの知識は必要ですか？</summary><div class="a"><p>基本的には不要です。AIツールの使い方から始め、必要に応じて簡単なプログラミングも学べます。</p></div></details>
+        <details><summary>会社やチームで学びたいのですが。</summary><div class="a"><p>社内研修・勉強会として承ることもできます。<a href="/contact?topic=training">お問い合わせ</a>からご相談ください。</p></div></details>
+      </div>
     </div>
   </div>
 </section>
@@ -214,11 +181,10 @@
 <section class="section section--tight" aria-labelledby="cta-title">
   <div class="wrap">
     <div class="cta on-dark">
-      <div class="cta__bits"><svg viewBox="0 0 600 420" aria-hidden="true" focusable="false"><ellipse cx="300" cy="300" rx="38" ry="10.6" fill="none" stroke="#3fe3e6" stroke-width="2" opacity="0.9"/><ellipse cx="300" cy="300" rx="86" ry="24.1" fill="none" stroke="#3fe3e6" stroke-width="1.6" opacity="0.6"/><ellipse cx="300" cy="300" rx="148" ry="41.4" fill="none" stroke="#3fe3e6" stroke-width="1.3" opacity="0.38"/><ellipse cx="300" cy="300" rx="222" ry="62.2" fill="none" stroke="#3fe3e6" stroke-width="1" opacity="0.22"/><ellipse cx="300" cy="300" rx="296" ry="82.9" fill="none" stroke="#3fe3e6" stroke-width="1" opacity="0.12"/><path d="M300 262c-6 12-9 20-9 27a9 9 0 0 0 18 0c0-7-3-15-9-27z" fill="#3fe3e6"/><rect x="289.9" y="240.8" width="11.9" height="11.9" rx="1.4" fill="#3fe3e6" opacity="1.00"/><rect x="295.4" y="238.0" width="10.2" height="10.2" rx="1.4" fill="#3fe3e6" opacity="0.97"/><rect x="296.0" y="232.9" width="8.2" height="8.2" rx="1.4" fill="#3fe3e6" opacity="0.95"/><rect x="286.7" y="222.8" width="8.5" height="8.5" rx="1.4" fill="#3fe3e6" opacity="0.92"/><rect x="303.5" y="216.6" width="8.7" height="8.7" rx="1.4" fill="#3fe3e6" opacity="0.89"/><rect x="296.6" y="209.9" width="13.7" height="13.7" rx="1.4" fill="#3fe3e6" opacity="0.87"/><rect x="290.0" y="200.1" width="13.9" height="13.9" rx="1.4" fill="#3fe3e6" opacity="0.84"/><rect x="307.0" y="201.3" width="9.7" height="9.7" rx="1.4" fill="#3fe3e6" opacity="0.82"/><rect x="281.3" y="194.0" width="9.9" height="9.9" rx="1.4" fill="#3fe3e6" opacity="0.79"/><rect x="281.8" y="180.3" width="11.5" height="11.5" rx="1.4" fill="#3fe3e6" opacity="0.76"/><rect x="290.5" y="177.5" width="8.3" height="8.3" rx="1.4" fill="#3fe3e6" opacity="0.74"/><rect x="277.1" y="178.1" width="6.2" height="6.2" rx="1.4" fill="#3fe3e6" opacity="0.71"/><rect x="293.1" y="165.4" width="6.9" height="6.9" rx="1.4" fill="#3fe3e6" opacity="0.68"/><rect x="294.2" y="160.1" width="6.8" height="6.8" rx="1.4" fill="#3fe3e6" opacity="0.66"/><rect x="307.5" y="152.0" width="6.5" height="6.5" rx="1.4" fill="#3fe3e6" opacity="0.63"/><rect x="296.3" y="146.1" width="10.3" height="10.3" rx="1.4" fill="#3fe3e6" opacity="0.61"/><rect x="281.8" y="138.1" width="10.9" height="10.9" rx="1.4" fill="#3fe3e6" opacity="0.58"/><rect x="290.1" y="138.6" width="9.5" height="9.5" rx="1.4" fill="#3fe3e6" opacity="0.55"/><rect x="296.7" y="134.3" width="5.2" height="5.2" rx="1.4" fill="#3fe3e6" opacity="0.53"/><rect x="314.0" y="121.3" width="8.4" height="8.4" rx="1.4" fill="#3fe3e6" opacity="0.50"/><rect x="282.0" y="112.7" width="9.2" height="9.2" rx="1.4" fill="#3fe3e6" opacity="0.47"/><rect x="302.1" y="110.0" width="7.7" height="7.7" rx="1.4" fill="#3fe3e6" opacity="0.45"/><rect x="330.8" y="101.3" width="7.8" height="7.8" rx="1.4" fill="#3fe3e6" opacity="0.42"/><rect x="259.8" y="96.2" width="9.2" height="9.2" rx="1.4" fill="#3fe3e6" opacity="0.39"/><rect x="336.5" y="89.8" width="9.9" height="9.9" rx="1.4" fill="#3fe3e6" opacity="0.37"/><rect x="285.6" y="87.6" width="9.0" height="9.0" rx="1.4" fill="#3fe3e6" opacity="0.34"/><rect x="293.5" y="85.6" width="6.0" height="6.0" rx="1.4" fill="#3fe3e6" opacity="0.32"/><rect x="254.2" y="76.6" width="9.6" height="9.6" rx="1.4" fill="#3fe3e6" opacity="0.29"/><rect x="272.1" y="71.4" width="7.3" height="7.3" rx="1.4" fill="#3fe3e6" opacity="0.26"/><rect x="254.6" y="57.6" width="7.7" height="7.7" rx="1.4" fill="#3fe3e6" opacity="0.24"/><rect x="334.1" y="53.5" width="9.9" height="9.9" rx="1.4" fill="#3fe3e6" opacity="0.21"/><rect x="273.0" y="45.4" width="7.5" height="7.5" rx="1.4" fill="#3fe3e6" opacity="0.18"/><rect x="336.1" y="42.6" width="10.7" height="10.7" rx="1.4" fill="#3fe3e6" opacity="0.18"/><rect x="260.9" y="40.7" width="6.4" height="6.4" rx="1.4" fill="#3fe3e6" opacity="0.18"/></svg></div>
       <div>
-        <p class="eyebrow">JOIN</p>
-        <h2 class="h2" id="cta-title">「知ってる」で終わらせない。<br>今日、1つ作ってみよう。</h2>
-        <p>月額9,800円（税込）・最低利用期間なし。まずは1か月、手を動かしてみてください。</p>
+        <p class="label">JOIN — 月額9,800円（税込）</p>
+        <h2 class="h2" id="cta-title"><span class="nw">「知ってる」で</span><span class="nw">終わらせない。</span><br><span class="nw">今日、1つ</span><span class="nw">作ってみよう。</span></h2>
+        <p>最低利用期間なし。まずは1か月、手を動かしてみてください。</p>
       </div>
       <div class="cta__actions">
         <a class="btn btn--aqua btn--lg" href="https://buy.stripe.com/28EeVdfpzbkGeFu6QX18c00" target="_blank" rel="noopener">サロンに参加する <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
@@ -233,45 +199,41 @@
     <div class="footer__top">
       <div class="footer__brand">
         <a class="brand" href="/"><img src="/images/logo-mark.webp" alt="" width="38" height="38" loading="lazy"><span><b>AquaBit LAB</b><small>SEA × AI</small></span></a>
-        <p class="footer__tag">海とAI、<br>二つの未来へ。</p>
-        <p>個人・中小企業のAI導入サポートと、神奈川・三浦のダイビングスクール「三浦 海の学校」。「自分には無理」を「できた」に変える、二つの事業のラボです。</p>
+        <p class="footer__tag">海とAI、二つの未来へ。<span>神奈川・三浦のラボ</span></p>
       </div>
-      <div class="footer__col">
-        <h2 class="footer__h">AI事業</h2>
-        <ul>
-          <li><a href="/ai-service">AI導入サポート</a></li>
-          <li><a href="/ai-service#diagnosis">3分でわかる最初の一歩</a></li>
-          <li><a href="/works">実績・取り組み</a></li>
-          <li><a href="/ai-salon/">AI学習サロン</a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <h2 class="footer__h">マリン事業</h2>
-        <ul>
-          <li><a href="/marine">マリン事業について</a></li>
-          <li><a href="https://miura-diving.com/" target="_blank" rel="noopener">三浦 海の学校 <small>↗</small></a></li>
-          <li><a href="https://miura-diving.com/manga/" target="_blank" rel="noopener">まんがで読むダイビング <small>↗</small></a></li>
-          <li><a href="https://miura-diving.com/bluelogbook/" target="_blank" rel="noopener">Blue Logbook <small>↗</small></a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <h2 class="footer__h">AquaBit LAB</h2>
-        <ul>
-          <li><a href="/about">ABLとは・代表</a></li>
-          <li><a href="/contact">お問い合わせ</a></li>
-          <li><a href="https://lin.ee/obePsOF" target="_blank" rel="noopener">公式LINE <small>↗</small></a></li>
-          <li><a href="https://www.tj-web3.com/" target="_blank" rel="noopener">TJ（代表の個人サイト） <small>↗</small></a></li>
-          <li><a href="https://tj-music.com/" target="_blank" rel="noopener">TJ Music <small>↗</small></a></li>
-        </ul>
-      </div>
+      <nav class="footer__cols" aria-label="サイトの案内">
+        <div class="footer__col">
+          <h2 class="footer__h">AI</h2>
+          <ul>
+            <li><a href="/ai-service">AI導入サポート</a></li>
+            <li><a href="/ai-service#diagnosis">3分診断</a></li>
+            <li><a href="/lab">ラボの中</a></li>
+            <li><a href="/works">実績・取り組み</a></li>
+            <li><a href="/ai-salon/">AI学習サロン</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h2 class="footer__h">SEA</h2>
+          <ul>
+            <li><a href="/marine">マリン事業</a></li>
+            <li><a href="https://miura-diving.com/" target="_blank" rel="noopener">三浦 海の学校 <small>↗</small></a></li>
+            <li><a href="https://miura-diving.com/manga/" target="_blank" rel="noopener">まんがで読むダイビング <small>↗</small></a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h2 class="footer__h">LAB</h2>
+          <ul>
+            <li><a href="/about">ABLとは・代表</a></li>
+            <li><a href="/contact">お問い合わせ</a></li>
+            <li><a href="https://lin.ee/obePsOF" target="_blank" rel="noopener">公式LINE <small>↗</small></a></li>
+            <li><a href="https://www.tj-web3.com/" target="_blank" rel="noopener">TJ（代表の個人サイト） <small>↗</small></a></li>
+          </ul>
+        </div>
+      </nav>
     </div>
     <div class="ai-ask">
-      <div>
-        <h2 class="ai-ask__h">このラボのこと、あなたのAIに聞いてみる</h2>
-        <p>ボタンを押すと、お使いのAIがこのサイトの案内（llms.txt）を読んで、あなたの仕事に合うかどうかを一緒に考えてくれます。</p>
-      </div>
+      <p class="ai-ask__h">このラボのこと、あなたのAIに聞いてみる <small>— llms.txt を読んで、あなたの仕事に合うかを一緒に考えます</small></p>
       <div class="ai-ask__links"><a href="https://chatgpt.com/?q=AquaBit%20LAB%EF%BC%88https%3A//aquabit-lab.com/%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%81%AE%E5%80%8B%E4%BA%BA%E4%BA%8B%E6%A5%AD%E3%80%82%E5%80%8B%E4%BA%BA%E3%83%BB%E4%B8%AD%E5%B0%8F%E4%BC%81%E6%A5%AD%E3%81%AEAI%E5%B0%8E%E5%85%A5%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A8AI%E5%AD%A6%E7%BF%92%E3%82%B5%E3%83%AD%E3%83%B3%E3%80%81%E3%83%80%E3%82%A4%E3%83%93%E3%83%B3%E3%82%B0%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB%E3%80%8C%E4%B8%89%E6%B5%A6%20%E6%B5%B7%E3%81%AE%E5%AD%A6%E6%A0%A1%E3%80%8D%E3%82%92%E9%81%8B%E5%96%B6%EF%BC%89%E3%81%AB%E7%9B%B8%E8%AB%87%E3%81%99%E3%82%8B%E3%81%8B%E8%BF%B7%E3%81%A3%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%80%82%E3%81%BE%E3%81%9A%20https%3A//aquabit-lab.com/llms.txt%20%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A7%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E3%81%9D%E3%81%AE%E3%81%86%E3%81%88%E3%81%A7%E3%80%81%E7%A7%81%E3%81%AE%E4%BB%95%E4%BA%8B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E5%9B%B0%E3%82%8A%E3%81%94%E3%81%A8%E3%82%92%E8%B3%AA%E5%95%8F%E3%81%97%E3%81%A6%E3%81%8B%E3%82%89%E3%80%81AI%E3%81%A7%E3%81%A7%E3%81%8D%E3%81%9D%E3%81%86%E3%81%AA%E3%81%93%E3%81%A8%E3%81%A8%E3%80%81AquaBit%20LAB%E3%81%AB%E9%A0%BC%E3%82%80%E3%81%AE%E3%81%8C%E5%90%88%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E7%8E%87%E7%9B%B4%E3%81%AB%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E6%96%99%E9%87%91%E3%82%84%E6%9D%A1%E4%BB%B6%E3%81%AF%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E6%9C%80%E6%96%B0%E6%83%85%E5%A0%B1%E3%82%92%E5%84%AA%E5%85%88%E3%81%97%E3%80%81%E4%B8%8D%E7%A2%BA%E3%81%8B%E3%81%AA%E3%81%93%E3%81%A8%E3%81%AF%E6%96%AD%E5%AE%9A%E3%81%9B%E3%81%9A%E3%80%81%E6%AD%A3%E5%BC%8F%E3%81%AA%E7%9B%B8%E8%AB%87%E3%81%AF%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%EF%BC%88https%3A//aquabit-lab.com/contact%EF%BC%89%E3%82%92%E6%A1%88%E5%86%85%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82" target="_blank" rel="noopener noreferrer">ChatGPTで聞く</a><a href="https://claude.ai/new?q=AquaBit%20LAB%EF%BC%88https%3A//aquabit-lab.com/%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%81%AE%E5%80%8B%E4%BA%BA%E4%BA%8B%E6%A5%AD%E3%80%82%E5%80%8B%E4%BA%BA%E3%83%BB%E4%B8%AD%E5%B0%8F%E4%BC%81%E6%A5%AD%E3%81%AEAI%E5%B0%8E%E5%85%A5%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A8AI%E5%AD%A6%E7%BF%92%E3%82%B5%E3%83%AD%E3%83%B3%E3%80%81%E3%83%80%E3%82%A4%E3%83%93%E3%83%B3%E3%82%B0%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB%E3%80%8C%E4%B8%89%E6%B5%A6%20%E6%B5%B7%E3%81%AE%E5%AD%A6%E6%A0%A1%E3%80%8D%E3%82%92%E9%81%8B%E5%96%B6%EF%BC%89%E3%81%AB%E7%9B%B8%E8%AB%87%E3%81%99%E3%82%8B%E3%81%8B%E8%BF%B7%E3%81%A3%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%80%82%E3%81%BE%E3%81%9A%20https%3A//aquabit-lab.com/llms.txt%20%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A7%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E3%81%9D%E3%81%AE%E3%81%86%E3%81%88%E3%81%A7%E3%80%81%E7%A7%81%E3%81%AE%E4%BB%95%E4%BA%8B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E5%9B%B0%E3%82%8A%E3%81%94%E3%81%A8%E3%82%92%E8%B3%AA%E5%95%8F%E3%81%97%E3%81%A6%E3%81%8B%E3%82%89%E3%80%81AI%E3%81%A7%E3%81%A7%E3%81%8D%E3%81%9D%E3%81%86%E3%81%AA%E3%81%93%E3%81%A8%E3%81%A8%E3%80%81AquaBit%20LAB%E3%81%AB%E9%A0%BC%E3%82%80%E3%81%AE%E3%81%8C%E5%90%88%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E7%8E%87%E7%9B%B4%E3%81%AB%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E6%96%99%E9%87%91%E3%82%84%E6%9D%A1%E4%BB%B6%E3%81%AF%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E6%9C%80%E6%96%B0%E6%83%85%E5%A0%B1%E3%82%92%E5%84%AA%E5%85%88%E3%81%97%E3%80%81%E4%B8%8D%E7%A2%BA%E3%81%8B%E3%81%AA%E3%81%93%E3%81%A8%E3%81%AF%E6%96%AD%E5%AE%9A%E3%81%9B%E3%81%9A%E3%80%81%E6%AD%A3%E5%BC%8F%E3%81%AA%E7%9B%B8%E8%AB%87%E3%81%AF%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%EF%BC%88https%3A//aquabit-lab.com/contact%EF%BC%89%E3%82%92%E6%A1%88%E5%86%85%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82" target="_blank" rel="noopener noreferrer">Claudeで聞く</a><a href="https://www.perplexity.ai/search?q=AquaBit%20LAB%EF%BC%88https%3A//aquabit-lab.com/%20%E7%A5%9E%E5%A5%88%E5%B7%9D%E3%81%AE%E5%80%8B%E4%BA%BA%E4%BA%8B%E6%A5%AD%E3%80%82%E5%80%8B%E4%BA%BA%E3%83%BB%E4%B8%AD%E5%B0%8F%E4%BC%81%E6%A5%AD%E3%81%AEAI%E5%B0%8E%E5%85%A5%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88%E3%81%A8AI%E5%AD%A6%E7%BF%92%E3%82%B5%E3%83%AD%E3%83%B3%E3%80%81%E3%83%80%E3%82%A4%E3%83%93%E3%83%B3%E3%82%B0%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB%E3%80%8C%E4%B8%89%E6%B5%A6%20%E6%B5%B7%E3%81%AE%E5%AD%A6%E6%A0%A1%E3%80%8D%E3%82%92%E9%81%8B%E5%96%B6%EF%BC%89%E3%81%AB%E7%9B%B8%E8%AB%87%E3%81%99%E3%82%8B%E3%81%8B%E8%BF%B7%E3%81%A3%E3%81%A6%E3%81%84%E3%81%BE%E3%81%99%E3%80%82%E3%81%BE%E3%81%9A%20https%3A//aquabit-lab.com/llms.txt%20%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A7%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E3%81%9D%E3%81%AE%E3%81%86%E3%81%88%E3%81%A7%E3%80%81%E7%A7%81%E3%81%AE%E4%BB%95%E4%BA%8B%E3%81%AE%E5%86%85%E5%AE%B9%E3%81%A8%E5%9B%B0%E3%82%8A%E3%81%94%E3%81%A8%E3%82%92%E8%B3%AA%E5%95%8F%E3%81%97%E3%81%A6%E3%81%8B%E3%82%89%E3%80%81AI%E3%81%A7%E3%81%A7%E3%81%8D%E3%81%9D%E3%81%86%E3%81%AA%E3%81%93%E3%81%A8%E3%81%A8%E3%80%81AquaBit%20LAB%E3%81%AB%E9%A0%BC%E3%82%80%E3%81%AE%E3%81%8C%E5%90%88%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%8B%E3%81%A9%E3%81%86%E3%81%8B%E3%82%92%E7%8E%87%E7%9B%B4%E3%81%AB%E6%95%99%E3%81%88%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82%E6%96%99%E9%87%91%E3%82%84%E6%9D%A1%E4%BB%B6%E3%81%AF%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E6%9C%80%E6%96%B0%E6%83%85%E5%A0%B1%E3%82%92%E5%84%AA%E5%85%88%E3%81%97%E3%80%81%E4%B8%8D%E7%A2%BA%E3%81%8B%E3%81%AA%E3%81%93%E3%81%A8%E3%81%AF%E6%96%AD%E5%AE%9A%E3%81%9B%E3%81%9A%E3%80%81%E6%AD%A3%E5%BC%8F%E3%81%AA%E7%9B%B8%E8%AB%87%E3%81%AF%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%EF%BC%88https%3A//aquabit-lab.com/contact%EF%BC%89%E3%82%92%E6%A1%88%E5%86%85%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82" target="_blank" rel="noopener noreferrer">Perplexityで聞く</a></div>
-      <small>※回答はAIによる案内です。最新の内容と正式なご相談は、<a href="/contact">お問い合わせ</a>からどうぞ。</small>
     </div>
     <div class="footer__bottom">
       <nav aria-label="規約"><a href="/privacy-policy">プライバシーポリシー</a><a href="/tokushoho">特定商取引法に基づく表記</a><a href="mailto:info@aquabit-lab.com">info@aquabit-lab.com</a></nav>
@@ -279,6 +241,6 @@
     </div>
   </div>
 </footer>
-<script src="/js/abl.js?v=20261013" defer></script>
+<script src="/js/abl.js?v=20261108" defer></script>
 </body>
 </html>

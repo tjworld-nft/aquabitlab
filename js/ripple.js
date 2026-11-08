@@ -233,6 +233,7 @@ void main(){
   let now = 0;
   let pointer = [-1e4, -1e4];
   let quant = 0;
+  let wasBits = false;
 
   // しずくの落ちる点：PCは右寄り、スマホは下寄り（文字と重ならない位置）
   function origin() {
@@ -290,7 +291,10 @@ void main(){
   }
   {
     const [ox, oy] = origin();
-    seedDrop(ox / scale, cssH - oy / scale, 1.8, 1.0);
+    // その日はじめて来た人には、しずくが落ちる瞬間から見せる（2回目からは少し前に落ちた波紋）
+    let firstDrop = false;
+    try { firstDrop = !still && !sessionStorage.getItem('abl.drop'); sessionStorage.setItem('abl.drop', '1'); } catch (e) { firstDrop = false; }
+    seedDrop(ox / scale, cssH - oy / scale, firstDrop ? 0.05 : 1.8, 1.0);
     if (cssW < 760) {
       seedDrop(cssW * 0.22, Math.min(cssH * 0.12, 110), 3.2, 0.5);
     } else {
@@ -347,6 +351,9 @@ void main(){
     const prog = Math.min(1, Math.max(0, -r.top / Math.max(1, r.height)));
     const target = prog <= 0.04 ? 0 : Math.min(1, (prog - 0.04) / 0.7);
     quant += (target * target * (3 - 2 * target) - quant) * Math.min(1, dt * 6);
+    // 海がビットになったら、見出しの「現場の道具」の色も変える（CSS: html.is-bits）
+    const bitsNow = quant > 0.5;
+    if (bitsNow !== wasBits) { wasBits = bitsNow; document.documentElement.classList.toggle('is-bits', bitsNow); }
 
     draw();
 

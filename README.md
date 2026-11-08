@@ -10,6 +10,7 @@
 |---|---|---|
 | `/` | `src/pages/index.html` | トップ。ヒーロー＝ロゴの「しずく→波紋→ビット」を自作WebGLで動かしたもの |
 | `/ai-service` | `src/pages/ai-service.html` | AI導入サポート（3つの進め方・用途・**3分診断**・自社事例・流れ・料金・FAQ） |
+| `/lab` | `src/pages/lab.html` | ラボの中（2026-11 新設）。24時間リング・きょうの時刻表（LAB NOW）・ショート動画の工場と動画のレントゲン（X-RAY）・伸びた回の数字・12原則・予約投稿の仕組み・鬼と仏・AIの係8役 |
 | `/works` | `src/pages/works.html` | 実績・取り組み（種類で絞り込み。`/works#apps` `#media` `#web` `#create` `#teach`） |
 | `/ai-salon/` | `src/pages/ai-salon.html` | AI学習サロン（月額9,800円・Stripe） |
 | `/marine` | `src/pages/marine.html` | マリン事業 → miura-diving.com への橋渡し |
@@ -39,10 +40,19 @@
 - OGP画像は `images/abl/og-*.jpg`（1200×630）。作り直しは `_dev/og.html` ＋ `tools/og.mjs`。
 - AI検索向けの案内 `llms.txt`。料金・特典・実績の数字を変えたらここも直す。
 
+## 2026-11 リデザイン（「このサイトは、いま動いているラボの窓。」）
+
+- 設計は Fable（2026-11-08）。海＝暗い舞台 `.stage`／AI＝紙の帳面 `.paper` と行 `.ledger`。白いカード・ティッカー・方眼・ビットの飾り（`{{bits}}`）は使わない。
+- **ラボの時計（LAB NOW）**：`src/data/lab-schedule.json` が正（実際に動いている定時の仕事と予約投稿の時刻）。`{{labnow}}`（トップの箱・5行ぶんを見せて次の予定へ送る）／`{{labnow:full}}`（全部の行）／`{{ring}}`（24時間リングのSVG）を build.py が差し込む。時刻は来た人の端末の時計を日本時間に直して、`js/abl.js` が1秒ごとに「済／いま／あと 00:00:00」を書き換える（通信なし）。**定時の仕事を足した・やめたら、この JSON を直して build する。**
+- **動画のレントゲン（X-RAY）**：`[data-xray]`。動画は `video/lab/`（540×960・無音・約2MB・`preload="none"`・30%見えてから読む）。層の `data-from`/`data-to`（秒）で、その秒を作っているものが光る。動きを減らす設定・省データでは読まない。
+- ヒーローの水面がビットに変わると `html.is-bits` が付き、見出しの「現場の道具」の色が変わる（`js/ripple.js`）。
+- 数字（再生回数など）は `/lab` と `/works` にだけ書く。トップに置かない（直し忘れを防ぐ）。
+- 公開前に `python3 tools/check.py`：言わない言葉（必ず・絶対・日本初・No.1・最先端・全自動・バズ など）、古い数（アプリ2本・まんが22話）、郵便番号の形、`{{…}}` の置き換え忘れ、外部リンクの rel、img の width/height/alt を見る。
+
 ## 決めごと
 
 - **数字・実績を作らない**。使ってよいのは公開済みのもの（認定ダイバー1,500名+／ウェビナー50回+・参加500名+／
-  1997年〜・2001年PADIコースディレクター／App Store公開2本／まんが22話／「魚歌」19曲／Kindle12冊）。
+  1997年〜・2001年PADIコースディレクター／App Store公開4本／まんが24話／「魚歌」19曲／Kindle12冊）。
   お客さまの声は、実在・掲載許可のあるものだけ。
 - 旧住所・旧固定電話は、どのページにも出さない（このリポジトリは公開なので、ここにも書かない）。所在地は「神奈川県三浦市（詳細は請求時に開示）」。
 - トーンは「海とAI、二つの未来へ」。短く断定。ただし誇大表現（必ず・絶対・日本初・No.1）と恐怖で煽る書き方はしない。
@@ -64,7 +74,7 @@ php -S 127.0.0.1:8983 -t . tools/router.php
 
 ## デプロイ
 
-- `main` へ push → GitHub Actions（`.github/workflows/deploy.yml`）が Xserver の `aquabit-lab.com/public_html/` へFTPで差分アップロード。
+- `main` へ push → GitHub Actions（`.github/workflows/deploy.yml`）が Xserver の `aquabit-lab.com/public_html/` へ **FTPS（暗号化）** で差分アップロード（2026-11-08 に平文FTPから切り替え・アクションはコミットIDで固定・ログは standard でファイル一覧を出さない）。
 - `src/` `tools/` `_dev/` `README.md` などはアップロード対象外。
 - 2026-09-27 に `dangerous-clean-slate`（毎回サーバーを全消しして再アップロード）を外した。以後は差分だけ。
 
