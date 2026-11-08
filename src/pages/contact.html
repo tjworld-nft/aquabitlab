@@ -1,33 +1,34 @@
 <!--@ {
 "title": "お問い合わせ・ご相談｜AquaBit LAB",
-"description": "AquaBit LABへのお問い合わせ。AI導入のご相談、Web・アプリ・映像の制作や研修のご依頼、AI学習サロン、マリン事業（三浦 海の学校）について。フォームかLINEでお気軽にどうぞ。通常2〜3営業日以内にお返事します。",
+"description": "AquaBit LABへのお問い合わせ。AI導入のご相談、SNSの発信・自動投稿の仕組み、Web・アプリ・映像の制作や研修のご依頼、AI学習サロン、マリン事業（三浦 海の学校）について。フォームかLINEでお気軽にどうぞ。通常2〜3営業日以内にお返事します。",
 "path": "/contact",
 "og": "og-home.jpg",
 "nav": "contact",
+"body_class": "is-light-top",
 "crumbs": [["お問い合わせ", "/contact"]],
 "jsonld": [
   {"@type": "ContactPage", "name": "お問い合わせ・ご相談", "url": "https://aquabit-lab.com/contact", "isPartOf": {"@id": "https://aquabit-lab.com/#site"}}
 ]
 } @-->
-<section class="phero on-dark" aria-labelledby="page-title" style="padding-bottom:clamp(40px,6vw,72px)">
-  <div class="phero__bits">{{bits}}</div>
+<section class="phero phero--paper phero--short" aria-labelledby="page-title">
   <div class="wrap">
     <ol class="crumbs"><li><a href="/">ホーム</a></li><li aria-current="page">お問い合わせ</li></ol>
-    <p class="eyebrow">CONTACT — お問い合わせ・ご相談</p>
-    <h1 class="h1" id="page-title">困っていることを、<br>1つだけ教えてください。</h1>
-    <p class="lead">まとまっていなくて大丈夫です。AI導入のご相談、制作・研修のご依頼、AI学習サロン、マリン事業のことまで。通常2〜3営業日以内にお返事します。</p>
+    <p class="label">CONTACT — お問い合わせ・ご相談</p>
+    <h1 class="h1" id="page-title"><span class="nw">困っていることを、</span><span class="nw">1つだけ</span><span class="nw">教えてください。</span></h1>
+    <p class="lead">まとまっていなくて大丈夫です。AI導入のご相談、SNSの発信の仕組み、制作・研修のご依頼、AI学習サロン、マリン事業のことまで。通常2〜3営業日以内にお返事します。</p>
   </div>
 </section>
 
-<section class="section section--tight" aria-labelledby="form-title">
+<section class="paper" aria-labelledby="form-title" style="padding-top:clamp(8px,2vw,24px)">
   <div class="wrap">
     <div class="contact-grid">
       <form class="form" action="/send-mail.php" method="post" data-contact novalidate>
         <h2 class="sr-only" id="form-title">お問い合わせフォーム</h2>
         <fieldset class="field" style="border:0;margin:0;padding:0">
-          <legend class="label" style="font-weight:700;margin-bottom:10px;display:flex;gap:10px;align-items:center">ご相談の種類 <span class="req">必須</span></legend>
+          <legend style="font-weight:700;font-size:.95rem;margin-bottom:10px;display:flex;gap:10px;align-items:center">ご相談の種類 <span class="req">必須</span></legend>
           <div class="topics opts">
             <label class="opt"><input type="radio" name="topic" value="ai" checked><span>AI導入の相談</span></label>
+            <label class="opt"><input type="radio" name="topic" value="lab"><span>SNSの発信・自動投稿のこと</span></label>
             <label class="opt"><input type="radio" name="topic" value="build"><span>制作のご依頼（Web・アプリ・映像など）</span></label>
             <label class="opt"><input type="radio" name="topic" value="training"><span>研修・講演・ウェビナーのご依頼</span></label>
             <label class="opt"><input type="radio" name="topic" value="salon"><span>AI学習サロンについて</span></label>
@@ -71,30 +72,36 @@
         <noscript><p class="form__status is-err">JavaScriptが無効になっています。<a href="mailto:{{mail}}">{{mail}}</a>へ直接メールでお問い合わせください。</p></noscript>
       </form>
 
-      <aside>
-        <div class="aside-card">
-          <h3>{{icon:line}} LINEで気軽に</h3>
-          <p>ちょっとした質問なら、公式LINEがいちばん早くお返事できます。</p>
-          <p class="note mt-s">※「三浦 海の学校」と共通のアカウントです。友だち追加すると、ダイビングのお知らせも届きます。</p>
-          <div style="display:flex;gap:16px;align-items:center;margin-top:16px">
-            <img src="/images/abl/line-qr.webp" alt="公式LINEの友だち追加QRコード" width="124" height="124" loading="lazy" style="border-radius:10px;border:1px solid var(--line)">
-            <a class="btn btn--line btn--sm" href="{{line}}" target="_blank" rel="noopener">友だち追加</a>
+      <aside class="ledger ledger--side" aria-label="フォーム以外の連絡方法">
+        <div class="ledger__row">
+          <span class="ledger__k">LINE<b>LINEで気軽に</b></span>
+          <div class="ledger__main">
+            <p>ちょっとした質問なら、公式LINEがいちばん早くお返事できます。</p>
+            <p class="note">※「三浦 海の学校」と共通のアカウントです。友だち追加すると、ダイビングのお知らせも届きます。</p>
+            <div class="qr">
+              <img src="/images/abl/line-qr.webp" alt="公式LINEの友だち追加QRコード" width="124" height="124" loading="lazy">
+              <a class="btn btn--line btn--sm" href="{{line}}" target="_blank" rel="noopener">友だち追加</a>
+            </div>
           </div>
         </div>
-        <div class="aside-card">
-          <h3>{{icon:mail}} メールでも</h3>
-          <p><a href="mailto:{{mail}}" style="font-weight:700;color:var(--aqua-ink)">{{mail}}</a></p>
-          <p class="note mt-s">通常2〜3営業日以内にお返事します。数日たっても返事がない場合は、迷惑メールフォルダもご確認ください。</p>
+        <div class="ledger__row">
+          <span class="ledger__k">MAIL<b>メールでも</b></span>
+          <div class="ledger__main">
+            <p><a href="mailto:{{mail}}" style="font-weight:700;color:var(--aqua-ink)">{{mail}}</a></p>
+            <p class="note">通常2〜3営業日以内にお返事します。数日たっても返事がない場合は、迷惑メールフォルダもご確認ください。</p>
+          </div>
         </div>
-        <div class="aside-card">
-          <h3>{{icon:check}} 書いておくと早いこと</h3>
-          <ul class="checks" style="margin-top:8px;font-size:.9rem">
-            <li>お仕事の内容と、何人で回しているか</li>
-            <li>いちばん困っていること</li>
-            <li>いま使っているツール（あれば）</li>
-            <li>いつ頃までに・ご予算の目安（あれば）</li>
-          </ul>
-          <p class="note mt-s">迷ったら、<a href="/ai-service#diagnosis" style="color:var(--aqua-ink);font-weight:700">3分診断</a>の結果をそのまま送ってください。</p>
+        <div class="ledger__row ledger__row--check">
+          <span class="ledger__k">TIPS<b>書いておくと早いこと</b></span>
+          <div class="ledger__main">
+            <ul class="checks" style="margin-top:4px;font-size:.92rem">
+              <li>お仕事の内容と、何人で回しているか</li>
+              <li>いちばん困っていること</li>
+              <li>いま使っているツール（あれば）</li>
+              <li>いつ頃までに・ご予算の目安（あれば）</li>
+            </ul>
+            <p class="note" style="margin-top:12px">迷ったら、<a href="/ai-service#diagnosis" style="color:var(--aqua-ink);font-weight:700">3分診断</a>の結果をそのまま送ってください。</p>
+          </div>
         </div>
       </aside>
     </div>

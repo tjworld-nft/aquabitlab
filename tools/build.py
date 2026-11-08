@@ -26,13 +26,14 @@ from urllib.parse import quote
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "src"
 SITE = "https://aquabit-lab.com"
-V = "20261013"          # css/js を変えたら上げる（.htaccess で1か月キャッシュしている）
+V = "20261108"          # css/js を変えたら上げる（.htaccess で1か月キャッシュしている）
 LINE_URL = "https://lin.ee/obePsOF"
 MAIL = "info@aquabit-lab.com"
 
 NAV = [
     ("ai", "/ai-service", "AI導入サポート", "AI ADOPTION"),
     ("works", "/works", "実績・取り組み", "WORKS"),
+    ("lab", "/lab", "ラボの中", "INSIDE THE LAB"),
     ("salon", "/ai-salon/", "AI学習サロン", "SALON"),
     ("marine", "/marine", "マリン事業", "MARINE"),
     ("about", "/about", "ABLとは", "ABOUT"),
@@ -165,7 +166,7 @@ def head(meta):
 <link rel="apple-touch-icon" href="/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@500;700;800&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@500;700;800&display=optional" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="/css/abl.css?v={V}">
 <script>document.documentElement.classList.add('js')</script>
 {extra}{ld_html}
@@ -188,6 +189,7 @@ def header(active):
     </a>
     <nav class="gnav" aria-label="メインメニュー">
       {''.join(links)}
+      <a class="live-dot" href="/lab" aria-label="ラボの中（いま動いている仕組みを見る）" title="ラボはいまも動いています"><i aria-hidden="true"></i></a>
       <a class="btn btn--sm" href="/contact?topic=ai">相談する</a>
     </nav>
     <button class="menu-btn" type="button" aria-controls="mnav" aria-expanded="false" aria-label="メニューを開く" data-menu><span></span></button>
@@ -210,45 +212,41 @@ def footer():
     <div class="footer__top">
       <div class="footer__brand">
         <a class="brand" href="/"><img src="/images/logo-mark.webp" alt="" width="38" height="38" loading="lazy"><span><b>AquaBit LAB</b><small>SEA × AI</small></span></a>
-        <p class="footer__tag">海とAI、<br>二つの未来へ。</p>
-        <p>個人・中小企業のAI導入サポートと、神奈川・三浦のダイビングスクール「三浦 海の学校」。「自分には無理」を「できた」に変える、二つの事業のラボです。</p>
+        <p class="footer__tag">海とAI、二つの未来へ。<span>神奈川・三浦のラボ</span></p>
       </div>
-      <div class="footer__col">
-        <h2 class="footer__h">AI事業</h2>
-        <ul>
-          <li><a href="/ai-service">AI導入サポート</a></li>
-          <li><a href="/ai-service#diagnosis">3分でわかる最初の一歩</a></li>
-          <li><a href="/works">実績・取り組み</a></li>
-          <li><a href="/ai-salon/">AI学習サロン</a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <h2 class="footer__h">マリン事業</h2>
-        <ul>
-          <li><a href="/marine">マリン事業について</a></li>
-          <li><a href="https://miura-diving.com/" target="_blank" rel="noopener">三浦 海の学校 <small>↗</small></a></li>
-          <li><a href="https://miura-diving.com/manga/" target="_blank" rel="noopener">まんがで読むダイビング <small>↗</small></a></li>
-          <li><a href="https://miura-diving.com/bluelogbook/" target="_blank" rel="noopener">Blue Logbook <small>↗</small></a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <h2 class="footer__h">AquaBit LAB</h2>
-        <ul>
-          <li><a href="/about">ABLとは・代表</a></li>
-          <li><a href="/contact">お問い合わせ</a></li>
-          <li><a href="{LINE_URL}" target="_blank" rel="noopener">公式LINE <small>↗</small></a></li>
-          <li><a href="https://www.tj-web3.com/" target="_blank" rel="noopener">TJ（代表の個人サイト） <small>↗</small></a></li>
-          <li><a href="https://tj-music.com/" target="_blank" rel="noopener">TJ Music <small>↗</small></a></li>
-        </ul>
-      </div>
+      <nav class="footer__cols" aria-label="サイトの案内">
+        <div class="footer__col">
+          <h2 class="footer__h">AI</h2>
+          <ul>
+            <li><a href="/ai-service">AI導入サポート</a></li>
+            <li><a href="/ai-service#diagnosis">3分診断</a></li>
+            <li><a href="/lab">ラボの中</a></li>
+            <li><a href="/works">実績・取り組み</a></li>
+            <li><a href="/ai-salon/">AI学習サロン</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h2 class="footer__h">SEA</h2>
+          <ul>
+            <li><a href="/marine">マリン事業</a></li>
+            <li><a href="https://miura-diving.com/" target="_blank" rel="noopener">三浦 海の学校 <small>↗</small></a></li>
+            <li><a href="https://miura-diving.com/manga/" target="_blank" rel="noopener">まんがで読むダイビング <small>↗</small></a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h2 class="footer__h">LAB</h2>
+          <ul>
+            <li><a href="/about">ABLとは・代表</a></li>
+            <li><a href="/contact">お問い合わせ</a></li>
+            <li><a href="{LINE_URL}" target="_blank" rel="noopener">公式LINE <small>↗</small></a></li>
+            <li><a href="https://www.tj-web3.com/" target="_blank" rel="noopener">TJ（代表の個人サイト） <small>↗</small></a></li>
+          </ul>
+        </div>
+      </nav>
     </div>
     <div class="ai-ask">
-      <div>
-        <h2 class="ai-ask__h">このラボのこと、あなたのAIに聞いてみる</h2>
-        <p>ボタンを押すと、お使いのAIがこのサイトの案内（llms.txt）を読んで、あなたの仕事に合うかどうかを一緒に考えてくれます。</p>
-      </div>
+      <p class="ai-ask__h">このラボのこと、あなたのAIに聞いてみる <small>— llms.txt を読んで、あなたの仕事に合うかを一緒に考えます</small></p>
       <div class="ai-ask__links">{ai_links('site')}</div>
-      <small>※回答はAIによる案内です。最新の内容と正式なご相談は、<a href="/contact">お問い合わせ</a>からどうぞ。</small>
     </div>
     <div class="footer__bottom">
       <nav aria-label="規約"><a href="/privacy-policy">プライバシーポリシー</a><a href="/tokushoho">特定商取引法に基づく表記</a><a href="mailto:{MAIL}">{MAIL}</a></nav>
@@ -258,6 +256,62 @@ def footer():
 </footer>
 <script src="/js/abl.js?v={V}" defer></script>
 """
+
+# ---------------------------------------------------------------- ラボの時計（LAB NOW）と24時間リング
+SCHED = json.loads((SRC / "data" / "lab-schedule.json").read_text(encoding="utf-8"))
+DOW = "日月火水木金土"
+
+def _esc(t):
+    return (t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;"))
+
+def _row(item, weekly=False):
+    who = item.get("who", "ai")
+    kind = "投稿" if who == "post" else "AI"
+    dow = f' data-dow="{item["dow"]}" hidden' if weekly else ""
+    wk = f'<small class="ln__dow">毎週{DOW[item["dow"]]}</small>' if weekly else ""
+    return (f'<li class="ln__row ln__row--{who}" data-t="{item["t"]}"{dow}>'
+            f'<time class="ln__t">{item["t"]}</time>'
+            f'<span class="ln__what">{_esc(item["what"])}{wk}<small>{_esc(item.get("sub", ""))}</small></span>'
+            f'<em class="ln__state" data-ln-state>{kind}</em></li>')
+
+def labnow(mode="hero"):
+    rows = [_row(x) for x in SCHED["daily"]] + [_row(x, True) for x in SCHED["weekly"]]
+    rows.sort(key=lambda r: re.search(r'data-t="([0-9:]+)"', r).group(1))
+    full = mode == "full"
+    return (f'<div class="ln{" ln--full" if full else ""}" data-labnow aria-label="ラボのきょうの予定（日本時間）">'
+            f'<div class="ln__head"><span class="ln__label">LAB NOW</span>'
+            f'<b class="ln__clock"><i class="ln__dot" aria-hidden="true"></i><time data-ln-clock>--:--:--</time> <small>JST</small></b></div>'
+            f'<p class="ln__day" data-ln-day>毎日の予定</p>'
+            f'<div class="ln__view"><ol class="ln__list" data-ln-list>{"".join(rows)}</ol></div>'
+            f'<p class="ln__foot">実際に動いている定時の仕事です。時刻は目安。<a href="/lab">ラボの中を見る {ARR}</a></p>'
+            f'<script type="application/json" data-ln-json>{json.dumps({"daily": SCHED["daily"], "weekly": SCHED["weekly"]}, ensure_ascii=False, separators=(",", ":"))}</script>'
+            f'</div>')
+
+def ring():
+    """24時間リング（SVG）。目盛り・予定の点・針（JSで回す）。中央の文字はHTMLで重ねる。"""
+    import math
+    cx = cy = 260
+    R0 = 214
+    parts = [f'<circle cx="{cx}" cy="{cy}" r="{R0}" class="ring__track"/>']
+    for h in range(24):
+        a = math.radians(h * 15 - 90)
+        r1, r2 = (R0 - 16, R0 + 2) if h % 6 == 0 else (R0 - 8, R0 + 2)
+        parts.append(f'<line x1="{cx + r1*math.cos(a):.1f}" y1="{cy + r1*math.sin(a):.1f}" x2="{cx + r2*math.cos(a):.1f}" y2="{cy + r2*math.sin(a):.1f}" class="ring__tick{" ring__tick--major" if h % 6 == 0 else ""}"/>')
+        if h % 6 == 0:
+            rt = R0 - 36
+            parts.append(f'<text x="{cx + rt*math.cos(a):.1f}" y="{cy + rt*math.sin(a) + 5:.1f}" class="ring__hour">{h:02d}</text>')
+    seen = set()
+    for it in SCHED["daily"] + SCHED["weekly"]:
+        hh, mm = map(int, it["t"].split(":"))
+        if it["t"] in seen:
+            continue
+        seen.add(it["t"])
+        a = math.radians((hh + mm / 60) * 15 - 90)
+        cls = "post" if it.get("who") == "post" else ("week" if "dow" in it else "ai")
+        parts.append(f'<circle cx="{cx + R0*math.cos(a):.1f}" cy="{cy + R0*math.sin(a):.1f}" r="{7 if cls == "post" else 5}" class="ring__pt ring__pt--{cls}"/>')
+    parts.append(f'<g class="ring__hand" data-ring-hand style="transform-origin:{cx}px {cy}px"><line x1="{cx}" y1="{cy}" x2="{cx}" y2="{cy - R0 + 6}"/><circle cx="{cx}" cy="{cy - R0}" r="6"/></g>')
+    return (f'<svg class="ring__svg" viewBox="0 0 520 520" role="img" aria-label="24時間の文字盤。点は定時の仕事、大きい点は投稿の時刻">'
+            + "".join(parts) + "</svg>")
 
 # ---------------------------------------------------------------- 組み立て
 FM = re.compile(r"^<!--@\s*(\{.*?\})\s*@-->\s*", re.S)
@@ -277,6 +331,8 @@ def render(src: Path):
     body = (body.replace("{{arr}}", ARR).replace("{{ext}}", EXT).replace("{{bits}}", bits_svg())
                 .replace("{{V}}", V).replace("{{line}}", LINE_URL).replace("{{mail}}", MAIL))
     body = re.sub(r"\{\{ai_links:([a-z]+)\}\}", lambda mm: ai_links(mm.group(1)), body)
+    body = re.sub(r"\{\{labnow(?::([a-z]+))?\}\}", lambda mm: labnow(mm.group(1) or "hero"), body)
+    body = body.replace("{{ring}}", ring())
     left = re.findall(r"\{\{[^}]+\}\}", body)
     if left:
         raise SystemExit(f"{src.name}: 置き換えられていない印があります {left[:5]}")

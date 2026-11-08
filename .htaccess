@@ -5,6 +5,10 @@ ErrorDocument 404 /404.html
 <Files ".ftp-deploy-sync-state.json">
   Require all denied
 </Files>
+# 先頭が「.」のファイル（配布の印・作業用の記録など）は外から読ませない（2026-11-08）
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
 
 RewriteEngine On
 
@@ -53,6 +57,7 @@ RewriteRule ^([^./]+)$ $1.html [L]
   AddType image/webp .webp
   AddType application/javascript .js
   AddType text/plain .txt
+  AddType video/mp4 .mp4
   AddCharset UTF-8 .html .css .js .txt .xml
 </IfModule>
 
@@ -71,6 +76,7 @@ RewriteRule ^([^./]+)$ $1.html [L]
   ExpiresByType text/css "access plus 1 month"
   ExpiresByType application/javascript "access plus 1 month"
   ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType video/mp4 "access plus 30 days"
   ExpiresByType image/png "access plus 7 days"
   ExpiresByType image/jpeg "access plus 7 days"
   ExpiresByType image/svg+xml "access plus 30 days"
@@ -79,6 +85,7 @@ RewriteRule ^([^./]+)$ $1.html [L]
 
 # ── セキュリティ ────────────────────────────────────
 <IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000"
   Header always set X-Content-Type-Options nosniff
   Header always set X-Frame-Options DENY
   Header always set Referrer-Policy strict-origin-when-cross-origin
