@@ -1,7 +1,7 @@
 <!--@ {
 "title": "実績・取り組み｜AIで作ったアプリ・まんが・映像・Web｜AquaBit LAB",
 "og_title": "作って、公開して、使っている。— 実績・取り組み｜AquaBit LAB",
-"description": "AquaBit LABがAIといっしょに作り、公開・運用しているもの。App Storeで公開中のiOSアプリ「Blue Logbook」「いまメシ」、解説まんが22話、PV・データ映像、アルバム「魚歌」、Webサイトの全面リニューアル、AI検索対策、著書、AIウェビナーなど。",
+"description": "AquaBit LABがAIといっしょに作り、公開・運用しているもの。App Storeで公開中のiOSアプリ「Blue Logbook」「いまメシ」「海学」「龍脈マップ」、解説まんが22話、PV・データ映像、アルバム「魚歌」、Webサイトの全面リニューアル、AI検索対策、著書、AIウェビナーなど。",
 "path": "/works",
 "og": "og-works.jpg",
 "nav": "works",
@@ -11,8 +11,10 @@
    "mainEntity": {"@type": "ItemList", "itemListElement": [
      {"@type": "ListItem", "position": 1, "item": {"@type": "SoftwareApplication", "name": "Blue Logbook - ダイビングログブック", "operatingSystem": "iOS", "applicationCategory": "SportsApplication", "url": "https://apps.apple.com/jp/app/id6806158093", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "author": {"@type": "Person", "name": "吉田 哲司"}}},
      {"@type": "ListItem", "position": 2, "item": {"@type": "SoftwareApplication", "name": "いまメシ", "operatingSystem": "iOS", "applicationCategory": "FoodAndDrinkApplication", "url": "https://apps.apple.com/jp/app/id6806607641", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "author": {"@type": "Person", "name": "吉田 哲司"}}},
-     {"@type": "ListItem", "position": 3, "item": {"@type": "CreativeWorkSeries", "name": "まんがで読むダイビング", "url": "https://miura-diving.com/manga/"}},
-     {"@type": "ListItem", "position": 4, "item": {"@type": "MusicAlbum", "name": "魚歌 UO-UTA", "url": "https://tj-music.com/", "numTracks": 19}}
+     {"@type": "ListItem", "position": 3, "item": {"@type": "SoftwareApplication", "name": "龍脈マップ", "operatingSystem": "iOS", "applicationCategory": "TravelApplication", "url": "https://apps.apple.com/jp/app/id6831985741", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "author": {"@type": "Person", "name": "吉田 哲司"}}},
+     {"@type": "ListItem", "position": 4, "item": {"@type": "SoftwareApplication", "name": "海学", "operatingSystem": "iOS", "applicationCategory": "GameApplication", "url": "https://apps.apple.com/jp/app/id6810276864", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}, "author": {"@type": "Person", "name": "吉田 哲司"}}},
+     {"@type": "ListItem", "position": 5, "item": {"@type": "CreativeWorkSeries", "name": "まんがで読むダイビング", "url": "https://miura-diving.com/manga/"}},
+     {"@type": "ListItem", "position": 6, "item": {"@type": "MusicAlbum", "name": "魚歌 UO-UTA", "url": "https://tj-music.com/", "numTracks": 19}}
    ]}}
 ]
 } @-->
@@ -60,23 +62,25 @@
         </div>
       </a>
       <a class="work work--row reveal" data-cat="apps" href="/ryumyaku/">
-        <div class="work__media" style="display:grid;place-items:center;background:radial-gradient(70% 80% at 60% 30%,#3a2f12,#03121f)"><div style="width:62%">{{bits}}</div><div class="work__badge"><span class="tag">近日公開</span><span class="tag">無料</span></div></div>
+        <div class="work__media"><img src="/images/abl/work-ryumyaku.webp" alt="龍脈マップのアプリ画面3枚。金の線で描いた尾根の地図、神社の「ここの読み方」、百人一首の便り" width="960" height="600" loading="lazy"><div class="work__badge"><span class="tag tag--live">App Store 公開中</span><span class="tag">無料</span></div></div>
         <div class="work__body">
-          <p class="work__cat">iOS APP · COMING SOON</p>
+          <p class="work__cat">iOS APP · 2026.11</p>
           <h3>龍脈マップ — 神社と、土地のかたちを見る地図</h3>
           <p>全国の神社・お寺・自然の場所 約10万か所と、国土地理院の標高から計算した尾根のつながり「龍脈」。暦と方位もいっしょに見られるiPhoneアプリです。場所のデータと作り方も公開しています。</p>
-          <p class="work__ai"><span class="tag tag--ai">AI</span>設計・実装・データの整備に伴走。何を作るかと、最後の確認は人が。</p>
-          <span class="work__more">案内とサポートを見る {{arr}}</span>
+          <p class="work__ai"><span class="tag tag--ai">AI</span>設計・実装・データの整備・App Store審査への対応に伴走。何を作るかと、最後の確認は人が。</p>
+          <span class="work__more">案内とダウンロード {{arr}}</span>
         </div>
       </a>
-      <div class="work work--row reveal" data-cat="apps">
-        <div class="work__media" style="display:grid;place-items:center;background:radial-gradient(70% 80% at 60% 30%,#0f4a63,#03121f)"><div style="width:62%">{{bits}}</div><div class="work__badge"><span class="tag">開発中</span></div></div>
+      <a class="work work--row reveal" data-cat="apps" href="https://miura-diving.com/umigaku-app/" target="_blank" rel="noopener">
+        <div class="work__media"><img src="/images/abl/work-umigaku-app.webp" alt="海学のアプリ画面3枚。ガチャで出会った海のなかま、歩数と相棒のホーム、今日の海のタロット" width="960" height="600" loading="lazy"><div class="work__badge"><span class="tag tag--live">App Store 公開中</span><span class="tag">無料</span></div></div>
         <div class="work__body">
-          <p class="work__cat">iOS APP · IN DEVELOPMENT</p>
-          <h3>三浦 海の学校 公式アプリ</h3>
-          <p>海の学校のお客さま向けのアプリを開発中です。歩いた日も、潜った日も、海とのつながりが続くように。</p>
+          <p class="work__cat">iOS APP · 2026.09</p>
+          <h3>海学 — 三浦 海の学校の公式アプリ</h3>
+          <p>歩いた日も、潜った日も、海とのつながりが続くように。歩数といっしょに海の相棒と過ごし、1日1枚の「海のタロット」や海のなかま図鑑を楽しめます。予約の相談は公式LINEへ。アカウント登録なしで使えます。</p>
+          <p class="work__ai"><span class="tag tag--ai">AI</span>キャラクターの絵・映像・音楽、設計と実装に伴走。何を作るかと、最後の確認は人が。</p>
+          <span class="work__more">アプリの案内を見る {{ext}}</span>
         </div>
-      </div>
+      </a>
     </div>
 
     <div class="works mt-l" id="media">
