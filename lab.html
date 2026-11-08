@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ラボの中｜ショート動画の工場と、SNSの予約投稿の仕組み｜AquaBit LAB</title>
-<meta name="description" content="AquaBit LAB のラボの中。三浦 海の学校の縦の短い動画を、国土地理院・海底地形・気象庁の実データと Blender の3D・AI音声で作り、Facebook・Instagram・X・YouTube に毎日予約投稿している仕組みと、その時刻表。人が決めることと、AIに任せていることの線引き。">
+<meta name="description" content="AquaBit LAB のラボの中。三浦 海の学校の縦の短い動画を、国土地理院・海底地形・気象庁の実データと Blender の3D・AI音声で作り、Facebook・Instagram・X・YouTube に予約投稿してきた仕組み。人が決めることと、AIに任せていることの線引き。">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://aquabit-lab.com/lab">
 <meta name="theme-color" content="#03121f">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AquaBit LAB">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="毎日、ここで作って、出している。— ラボの中｜AquaBit LAB">
-<meta property="og:description" content="AquaBit LAB のラボの中。三浦 海の学校の縦の短い動画を、国土地理院・海底地形・気象庁の実データと Blender の3D・AI音声で作り、Facebook・Instagram・X・YouTube に毎日予約投稿している仕組みと、その時刻表。人が決めることと、AIに任せていることの線引き。">
+<meta property="og:title" content="作って、出して、数える。— ラボの中｜AquaBit LAB">
+<meta property="og:description" content="AquaBit LAB のラボの中。三浦 海の学校の縦の短い動画を、国土地理院・海底地形・気象庁の実データと Blender の3D・AI音声で作り、Facebook・Instagram・X・YouTube に予約投稿してきた仕組み。人が決めることと、AIに任せていることの線引き。">
 <meta property="og:url" content="https://aquabit-lab.com/lab">
 <meta property="og:image" content="https://aquabit-lab.com/images/abl/og-lab.jpg">
 <meta property="og:image:width" content="1200">
@@ -24,7 +24,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@500;700;800&display=optional" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="/css/abl.css?v=20261108">
+<link rel="stylesheet" href="/css/abl.css?v=2026110802">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://aquabit-lab.com/lab#page","name":"ラボの中 — ショート動画の工場と、SNSの予約投稿の仕組み","url":"https://aquabit-lab.com/lab","inLanguage":"ja","isPartOf":{"@id":"https://aquabit-lab.com/#site"},"about":{"@id":"https://aquabit-lab.com/#org"}},{"@type":"VideoObject","name":"東京湾の水を、ぜんぶ抜いたら？","description":"海底地形の実データ（GMRT）と国土地理院の航空写真で、東京湾から水を抜いたときの形を3Dで見せる30秒の縦動画（三浦 海の学校）。","thumbnailUrl":"https://aquabit-lab.com/images/abl/lab/xray-tokyo-bay.webp","contentUrl":"https://aquabit-lab.com/video/lab/tokyo-bay-540.mp4","uploadDate":"2026-10-25","duration":"PT30S","inLanguage":"ja","publisher":{"@id":"https://aquabit-lab.com/#org"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://aquabit-lab.com/"},{"@type":"ListItem","position":2,"name":"ラボの中","item":"https://aquabit-lab.com/lab"}]}]}</script>
 </head>
@@ -38,7 +38,6 @@
     </a>
     <nav class="gnav" aria-label="メインメニュー">
       <a href="/ai-service">AI導入サポート</a><a href="/works">実績・取り組み</a><a href="/lab" aria-current="page">ラボの中</a><a href="/ai-salon/">AI学習サロン</a><a href="/marine">マリン事業</a><a href="/about">ABLとは</a>
-      <a class="live-dot" href="/lab" aria-label="ラボの中（いま動いている仕組みを見る）" title="ラボはいまも動いています"><i aria-hidden="true"></i></a>
       <a class="btn btn--sm" href="/contact?topic=ai">相談する</a>
     </nav>
     <button class="menu-btn" type="button" aria-controls="mnav" aria-expanded="false" aria-label="メニューを開く" data-menu><span></span></button>
@@ -58,61 +57,41 @@
   <div class="phero__photo"><img src="/images/abl/lab/canyon-wide.webp" alt="" width="1600" height="840" fetchpriority="high"></div>
   <div class="wrap">
     <ol class="crumbs"><li><a href="/">ホーム</a></li><li aria-current="page">ラボの中</li></ol>
-    <div class="phero__grid">
-      <div>
-        <p class="phero__mono">INSIDE THE LAB — いまも動いています</p>
-        <h1 class="h1" id="page-title"><span class="nw">毎日、ここで作って、</span><span class="nw">出している。</span></h1>
-        <p class="lead">三浦 海の学校のSNSは、2026年10月から、AIが毎日回しています。人が決めるのは、シリーズの方針と、使ってよい事実と、やらないこと。その範囲で、AIが作って、別のAIが確かめて、予約します。</p>
-        <div class="btn-row">
-          <a class="btn btn--aqua btn--lg" href="#schedule">きょうの時刻表 <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
-          <a class="btn btn--ghost btn--lg" href="#xray">動画の中身</a>
-        </div>
-      </div>
-      <div>
-        <div class="ring" data-ring>
-          <svg class="ring__svg" viewBox="0 0 520 520" role="img" aria-label="24時間の文字盤。点は定時の仕事、大きい点は投稿の時刻"><circle cx="260" cy="260" r="214" class="ring__track"/><line x1="260.0" y1="62.0" x2="260.0" y2="44.0" class="ring__tick ring__tick--major"/><text x="260.0" y="87.0" class="ring__hour">00</text><line x1="313.3" y1="61.0" x2="315.9" y2="51.4" class="ring__tick"/><line x1="363.0" y1="81.6" x2="368.0" y2="72.9" class="ring__tick"/><line x1="405.7" y1="114.3" x2="412.7" y2="107.3" class="ring__tick"/><line x1="438.4" y1="157.0" x2="447.1" y2="152.0" class="ring__tick"/><line x1="459.0" y1="206.7" x2="468.6" y2="204.1" class="ring__tick"/><line x1="458.0" y1="260.0" x2="476.0" y2="260.0" class="ring__tick ring__tick--major"/><text x="438.0" y="265.0" class="ring__hour">06</text><line x1="459.0" y1="313.3" x2="468.6" y2="315.9" class="ring__tick"/><line x1="438.4" y1="363.0" x2="447.1" y2="368.0" class="ring__tick"/><line x1="405.7" y1="405.7" x2="412.7" y2="412.7" class="ring__tick"/><line x1="363.0" y1="438.4" x2="368.0" y2="447.1" class="ring__tick"/><line x1="313.3" y1="459.0" x2="315.9" y2="468.6" class="ring__tick"/><line x1="260.0" y1="458.0" x2="260.0" y2="476.0" class="ring__tick ring__tick--major"/><text x="260.0" y="443.0" class="ring__hour">12</text><line x1="206.7" y1="459.0" x2="204.1" y2="468.6" class="ring__tick"/><line x1="157.0" y1="438.4" x2="152.0" y2="447.1" class="ring__tick"/><line x1="114.3" y1="405.7" x2="107.3" y2="412.7" class="ring__tick"/><line x1="81.6" y1="363.0" x2="72.9" y2="368.0" class="ring__tick"/><line x1="61.0" y1="313.3" x2="51.4" y2="315.9" class="ring__tick"/><line x1="62.0" y1="260.0" x2="44.0" y2="260.0" class="ring__tick ring__tick--major"/><text x="82.0" y="265.0" class="ring__hour">18</text><line x1="61.0" y1="206.7" x2="51.4" y2="204.1" class="ring__tick"/><line x1="81.6" y1="157.0" x2="72.9" y2="152.0" class="ring__tick"/><line x1="114.3" y1="114.3" x2="107.3" y2="107.3" class="ring__tick"/><line x1="157.0" y1="81.6" x2="152.0" y2="72.9" class="ring__tick"/><line x1="206.7" y1="61.0" x2="204.1" y2="51.4" class="ring__tick"/><circle cx="469.9" cy="218.3" r="5" class="ring__pt ring__pt--ai"/><circle cx="474.0" cy="260.0" r="7" class="ring__pt ring__pt--post"/><circle cx="367.0" cy="445.3" r="5" class="ring__pt ring__pt--ai"/><circle cx="204.6" cy="466.7" r="5" class="ring__pt ring__pt--ai"/><circle cx="46.0" cy="260.0" r="7" class="ring__pt ring__pt--post"/><circle cx="62.3" cy="178.1" r="7" class="ring__pt ring__pt--post"/><circle cx="82.1" cy="141.1" r="5" class="ring__pt ring__pt--ai"/><circle cx="141.1" cy="82.1" r="5" class="ring__pt ring__pt--ai"/><circle cx="367.0" cy="74.7" r="5" class="ring__pt ring__pt--week"/><circle cx="411.3" cy="411.3" r="5" class="ring__pt ring__pt--week"/><circle cx="390.3" cy="429.8" r="5" class="ring__pt ring__pt--week"/><g class="ring__hand" data-ring-hand style="transform-origin:260px 260px"><line x1="260" y1="260" x2="260" y2="52"/><circle cx="260" cy="46" r="6"/></g></svg>
-          <div class="ring__center" aria-live="off">
-            <p class="ring__now" data-ring-now>--:--<small>JST</small></p>
-            <p class="ring__next" data-ring-next><b>あなたの時計で動きます</b><span>点は定時の仕事、大きい点は投稿</span></p>
-          </div>
-        </div>
-        <p class="ring__legend"><span><i style="background:var(--live)"></i>いま</span><span><i style="border:2.5px solid var(--live)"></i>投稿</span><span><i style="background:var(--aqua)"></i>毎日の仕事</span><span><i style="border:1.5px solid var(--aqua)"></i>曜日の仕事</span></p>
-        <p class="ring__human">人が決める：シリーズの方針・使ってよい事実・やらないこと</p>
-      </div>
+    <p class="phero__mono">INSIDE THE LAB — ラボの中</p>
+    <h1 class="h1" id="page-title"><span class="nw">作って、出して、</span><span class="nw">数える。</span></h1>
+    <p class="lead">三浦 海の学校のSNSは、2026年10月から、AIといっしょに回してきました。人が決めるのは、シリーズの方針と、使ってよい事実と、やらないこと。その範囲で、AIが作って、別のAIが確かめて、予約します。</p>
+    <div class="btn-row">
+      <a class="btn btn--aqua btn--lg" href="#xray">動画の中身 <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn--ghost btn--lg" href="#rule">人とAIの線引き</a>
     </div>
   </div>
 </section>
 
-<section class="paper" id="schedule" aria-labelledby="sched-title">
+<section class="paper" id="rule" aria-labelledby="rule2-title">
   <div class="wrap">
-    <div class="split split--top">
-      <div>
-        <p class="label label--live">SCHEDULE — 日本時間</p>
-        <h2 class="h2" id="sched-title" style="margin-top:14px"><span class="nw">きょうの、</span><span class="nw">ラボの時刻表。</span></h2>
-        <p class="lead" style="margin-top:18px">この時刻表は、実際に動いている定時の仕事です。済んだもの・次のもの・いま動いているものが、あなたの端末の時計で変わります。曜日の仕事は、その曜日にだけ出ます。</p>
-        <div class="duo mt-l">
-          <div class="duo__col duo__col--human">
-            <p class="duo__h">HUMAN — 人が決める</p>
-            <ul>
-              <li>シリーズの方針と、使ってよい事実の出どころ</li>
-              <li>やらないこと（言わない言葉・出さない写真）</li>
-              <li>お客さまの写真と、LINEの一斉配信の確認</li>
-              <li>止める・変える・やめる</li>
-            </ul>
-          </div>
-          <div class="duo__col duo__col--ai">
-            <p class="duo__h">AI — AIが回す</p>
-            <ul>
-              <li>3Dと字幕を組み、声と音楽をつける</li>
-              <li>別のAIが講評して、直す</li>
-              <li>各SNSに予約して、出たかを確かめる</li>
-              <li>数字を台帳に書いて、理由を1行で</li>
-            </ul>
-          </div>
-        </div>
+    <div class="sec-head">
+      <p class="label">RULE</p>
+      <h2 class="h2" id="rule2-title"><span class="nw">人が決める。</span><span class="nw">AIが回す。</span></h2>
+      <p class="lead">任せきりにしないために、線を先に引いておく。お客さまの仕事でも、同じ線の引き方をします。</p>
+    </div>
+    <div class="duo reveal">
+      <div class="duo__col duo__col--human">
+        <p class="duo__h">HUMAN — 人が決める</p>
+        <ul>
+          <li>シリーズの方針と、使ってよい事実の出どころ</li>
+          <li>やらないこと（言わない言葉・出さない写真）</li>
+          <li>お客さまの写真と、LINEの一斉配信の確認</li>
+          <li>止める・変える・やめる</li>
+        </ul>
       </div>
-      <div>
-        <div class="ln ln--full" data-labnow aria-label="ラボのきょうの予定（日本時間）"><div class="ln__head"><span class="ln__label">LAB NOW</span><b class="ln__clock"><i class="ln__dot" aria-hidden="true"></i><time data-ln-clock>--:--:--</time> <small>JST</small></b></div><p class="ln__day" data-ln-day>毎日の予定</p><div class="ln__view"><ol class="ln__list" data-ln-list><li class="ln__row ln__row--ai" data-t="02:00" data-dow="1" hidden><time class="ln__t">02:00</time><span class="ln__what">検索（SEO）の定例<small class="ln__dow">毎週月</small><small>検索の数字を見て、対策を並べ直す</small></span><em class="ln__state" data-ln-state>AI</em></li><li class="ln__row ln__row--ai" data-t="02:00" data-dow="3" hidden><time class="ln__t">02:00</time><span class="ln__what">セキュリティの点検<small class="ln__dow">毎週水</small><small>サイト・サーバー・公開リポジトリを点検表どおりに</small></span><em class="ln__state" data-ln-state>AI</em></li><li class="ln__row ln__row--ai" data-t="02:00" data-dow="4" hidden><time class="ln__t">02:00</time><span class="ln__what">検索（SEO）の作業日<small class="ln__dow">毎週木</small><small>上から1〜3件を直して、確かめて公開</small></span><em class="ln__state" data-ln-state>AI</em></li><li class="ln__row ln__row--ai" data-t="02:00" data-dow="6" hidden><time class="ln__t">02:00</time><span class="ln__what">検索（SEO）の制作日<small class="ln__dow">毎週土</small><small>知識のページ・図を作って、確かめて公開</small></span><em class="ln__state" data-ln-state>AI</em></li><li class="ln__row ln__row--ai" data-t="05:15"><time class="ln__t">05:15</time><span class="ln__what">朝の見張り<small>地震・事故のニュースを確かめ、出すべきでない朝は予約を止める</small></span><em class="ln__state" data-ln-state>AI</em></li><li class="ln__row ln__row--post" data-t="06:00"><time class="ln__t">06:00</time><span class="ln__what">朝の回を投稿<small>Facebook・X（Instagram は 7:00）</small></span><em class="ln__state" data-ln-state>投稿</em></li><li class="ln__row ln__row--ai" data-t="09:00" data-dow="5" hidden><time class="ln__t">09:00</time><span class="ln__what">ブログの段取り<small class="ln__dow">毎週金</small><small>潜った週は、人に3つだけ聞く（写真・一言・海況）</small></span><em class="ln__state" data-ln-state>AI</em></li><li class="ln__row ln__row--ai" data-t="09:00" data-dow="6" hidden><time class="ln__t">09:00</time><span class="ln__what">「海の行き先」の編集会議<small class="ln__dow">毎週土</small><small>1週間の数字から、来週の7本を決める</small></span><em class="ln__state" data-ln-state>AI</em></li><li class="ln__row ln__row--ai" data-t="09:30" data-dow="0" hidden><time class="ln__t">09:30</time><span class="ln__what">朝の回の編集会議<small class="ln__dow">毎週日</small><small>1週間の数字から、来週の7本を決める</small></span><em class="ln__state" data-ln-state>AI</em></li><li class="ln__row ln__row--ai" data-t="10:00"><time class="ln__t">10:00</time><span class="ln__what">作り置きの確認<small>「海の行き先」が3日分を切ったら、1本作って予約</small></span><em class="ln__state" data-ln-state>AI</em></li><li class="ln__row ln__row--ai" data-t="13:00"><time class="ln__t">13:00</time><span class="ln__what">朝の回の数字と作り置き<small>数字を台帳へ。足りなければ翌朝の回を作って予約</small></span><em class="ln__state" data-ln-state>AI</em></li><li class="ln__row ln__row--post" data-t="18:00"><time class="ln__t">18:00</time><span class="ln__what">「海の行き先」を投稿<small>Facebook・Instagram・X・YouTube</small></span><em class="ln__state" data-ln-state>投稿</em></li><li class="ln__row ln__row--post" data-t="19:30"><time class="ln__t">19:30</time><span class="ln__what">「鬼と仏」を投稿<small>Facebook・Instagram・YouTube</small></span><em class="ln__state" data-ln-state>投稿</em></li><li class="ln__row ln__row--ai" data-t="20:15"><time class="ln__t">20:15</time><span class="ln__what">「海の行き先」の数字を台帳へ<small>2時間・48時間・7日の数字。下回った回は理由を1行</small></span><em class="ln__state" data-ln-state>AI</em></li><li class="ln__row ln__row--ai" data-t="21:45"><time class="ln__t">21:45</time><span class="ln__what">「鬼と仏」の数字と作り置き<small>数字を台帳へ。足りなければ次の回を作って予約</small></span><em class="ln__state" data-ln-state>AI</em></li></ol></div><p class="ln__foot">実際に動いている定時の仕事です。時刻は目安。<a href="/lab">ラボの中を見る <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></p><script type="application/json" data-ln-json>{"daily":[{"t":"05:15","what":"朝の見張り","sub":"地震・事故のニュースを確かめ、出すべきでない朝は予約を止める","who":"ai"},{"t":"06:00","what":"朝の回を投稿","sub":"Facebook・X（Instagram は 7:00）","who":"post"},{"t":"10:00","what":"作り置きの確認","sub":"「海の行き先」が3日分を切ったら、1本作って予約","who":"ai"},{"t":"13:00","what":"朝の回の数字と作り置き","sub":"数字を台帳へ。足りなければ翌朝の回を作って予約","who":"ai"},{"t":"18:00","what":"「海の行き先」を投稿","sub":"Facebook・Instagram・X・YouTube","who":"post"},{"t":"19:30","what":"「鬼と仏」を投稿","sub":"Facebook・Instagram・YouTube","who":"post"},{"t":"20:15","what":"「海の行き先」の数字を台帳へ","sub":"2時間・48時間・7日の数字。下回った回は理由を1行","who":"ai"},{"t":"21:45","what":"「鬼と仏」の数字と作り置き","sub":"数字を台帳へ。足りなければ次の回を作って予約","who":"ai"}],"weekly":[{"dow":1,"t":"02:00","what":"検索（SEO）の定例","sub":"検索の数字を見て、対策を並べ直す","who":"ai"},{"dow":3,"t":"02:00","what":"セキュリティの点検","sub":"サイト・サーバー・公開リポジトリを点検表どおりに","who":"ai"},{"dow":4,"t":"02:00","what":"検索（SEO）の作業日","sub":"上から1〜3件を直して、確かめて公開","who":"ai"},{"dow":5,"t":"09:00","what":"ブログの段取り","sub":"潜った週は、人に3つだけ聞く（写真・一言・海況）","who":"ai"},{"dow":6,"t":"02:00","what":"検索（SEO）の制作日","sub":"知識のページ・図を作って、確かめて公開","who":"ai"},{"dow":6,"t":"09:00","what":"「海の行き先」の編集会議","sub":"1週間の数字から、来週の7本を決める","who":"ai"},{"dow":0,"t":"09:30","what":"朝の回の編集会議","sub":"1週間の数字から、来週の7本を決める","who":"ai"}]}</script></div>
+      <div class="duo__col duo__col--ai">
+        <p class="duo__h">AI — AIが回す</p>
+        <ul>
+          <li>3Dと字幕を組み、声と音楽をつける</li>
+          <li>別のAIが講評して、直す</li>
+          <li>各SNSに予約して、出たかを確かめる</li>
+          <li>数字を台帳に書いて、理由を1行で</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -123,7 +102,7 @@
     <div class="sec-head">
       <p class="label">FACTORY — 2026-10〜</p>
       <h2 class="h2" id="factory-title">ショート動画の工場。</h2>
-      <p class="lead">縦の短い動画を、1日に数本。朝の回、18:00の「海の行き先」、19:30の「鬼と仏」。材料は実データと実写。組み立てと声と音はAI。</p>
+      <p class="lead">縦の短い動画を、シリーズごとに作り置きして予約する。地形や数字の回、「海の行き先」、「鬼と仏」。材料は実データと実写。組み立てと声と音はAI。</p>
     </div>
     <ol class="flow reveal">
       <li data-who="human"><b>題材と事実を決める</b><small>人。使ってよい数字の出どころ、言わない言葉、出さない写真</small></li>
@@ -230,13 +209,13 @@
     <div class="sec-head">
       <p class="label">AUTO POST</p>
       <h2 class="h2" id="post-title"><span class="nw">決めるのは人。</span><span class="nw">回すのはAI。</span></h2>
-      <p class="lead">各SNSの予約投稿と、決まった時刻に動くAIの作業を組み合わせています。ボタンひとつの「全部おまかせ」ではなく、止める仕組みも一緒に。</p>
+      <p class="lead">各SNSの予約投稿と、AIの作業を組み合わせて回してきました。ボタンひとつの「全部おまかせ」ではなく、止める仕組みも一緒に。</p>
     </div>
     <div class="ledger">
-      <div class="ledger__row"><span class="ledger__k">05:15<b>見張り</b></span><span class="ledger__main"><h3>出すべきでない朝は、予約を止める。</h3><p>毎朝、地震・事故のニュースを確かめ、当てはまる朝はその日の予約を取り消す。</p></span><span class="ledger__go">AI</span></div>
-      <div class="ledger__row"><span class="ledger__k">Facebook<b>予約投稿</b></span><span class="ledger__main"><h3>Meta Business Suite で、日時を決めて予約。</h3><p>朝の回・18:00「海の行き先」・19:30「鬼と仏」。</p></span><span class="ledger__go">AI</span></div>
-      <div class="ledger__row"><span class="ledger__k">Instagram<b>予約・定時投稿</b></span><span class="ledger__main"><h3>予約できるものは予約。できないものは、決まった時刻にAIが投稿。</h3><p>投稿したあと、出たかどうかを確かめて記録する。</p></span><span class="ledger__go">AI</span></div>
-      <div class="ledger__row"><span class="ledger__k">X<b>予約投稿</b></span><span class="ledger__main"><h3>朝の回と18:00の回を、日時を決めて予約。</h3></span><span class="ledger__go">AI</span></div>
+      <div class="ledger__row"><span class="ledger__k">GUARD<b>見張り</b></span><span class="ledger__main"><h3>出すべきでない朝は、予約を止める。</h3><p>投稿の前に地震・事故のニュースを確かめ、当てはまる日は予約を取り消す。</p></span><span class="ledger__go">AI</span></div>
+      <div class="ledger__row"><span class="ledger__k">Facebook<b>予約投稿</b></span><span class="ledger__main"><h3>Meta Business Suite で、日時を決めて予約。</h3><p>シリーズごとに、作り置きした回を予約。</p></span><span class="ledger__go">AI</span></div>
+      <div class="ledger__row"><span class="ledger__k">Instagram<b>予約・定時投稿</b></span><span class="ledger__main"><h3>予約できるものは予約。できないものは、AIが投稿する。</h3><p>投稿したあと、出たかどうかを確かめて記録する。</p></span><span class="ledger__go">AI</span></div>
+      <div class="ledger__row"><span class="ledger__k">X<b>予約投稿</b></span><span class="ledger__main"><h3>日時を決めて予約。</h3></span><span class="ledger__go">AI</span></div>
       <div class="ledger__row"><span class="ledger__k">YouTube<b>まとめて予約</b></span><span class="ledger__main"><h3>ショートを、約1か月分まとめてアップロードして予約。</h3></span><span class="ledger__go">AI</span></div>
       <div class="ledger__row"><span class="ledger__k">公式LINE<b>配信の準備</b></span><span class="ledger__main"><h3>Messaging API で、配信の文と送る相手まで用意。</h3><p>送るかどうかは、人が確かめてから決める。</p></span><span class="ledger__go" style="color:#ff9b83">人</span></div>
     </div>
@@ -247,15 +226,15 @@
   <div class="wrap">
     <div class="sec-head">
       <p class="label">NEW MEDIA — 2026-11〜</p>
-      <h2 class="h2" id="oni-title"><span class="nw">鬼と仏 —</span><span class="nw">仏さまを、1日1本。</span></h2>
-      <p class="lead">海とは別の、新しいメディア。仏さまのことを30秒前後の縦動画で、毎日19:30に。3DはBlenderで手づくり、声はAI音声。始めたばかりです。</p>
+      <h2 class="h2" id="oni-title"><span class="nw">鬼と仏 —</span><span class="nw">仏さまを、30秒で。</span></h2>
+      <p class="lead">海とは別の、新しいメディア。仏さまのことを、30秒前後の縦動画で。3DはBlenderで手づくり、声はAI音声。始めたばかりです。</p>
     </div>
     <div class="shorts reveal">
-      <a class="short" href="https://www.instagram.com/onitohotoke/reel/DfPSyg8Ppxp/" target="_blank" rel="noopener"><span class="short__img"><img src="/images/abl/lab/shorts/oni-01.webp" alt="鬼と仏 1本目の表紙" width="360" height="640" loading="lazy"><i>01</i></span><span class="short__meta">毎日 19:30</span><b>10円玉の、この建物</b></a>
-      <a class="short" href="https://www.instagram.com/onitohotoke/reel/DfRrQaqvpRU/" target="_blank" rel="noopener"><span class="short__img"><img src="/images/abl/lab/shorts/oni-02.webp" alt="鬼と仏 2本目の表紙" width="360" height="640" loading="lazy"><i>02</i></span><span class="short__meta">毎日 19:30</span><b>千手観音の手、ほんとうに1,000本？</b></a>
-      <a class="short" href="https://www.instagram.com/onitohotoke/reel/DfW0wr-PEXT/" target="_blank" rel="noopener"><span class="short__img"><img src="/images/abl/lab/shorts/oni-03.webp" alt="鬼と仏 3本目の表紙" width="360" height="640" loading="lazy"><i>03</i></span><span class="short__meta">毎日 19:30</span><b>この子、1,300年、踏まれっぱなし。</b></a>
-      <a class="short" href="https://www.instagram.com/onitohotoke/reel/DfZzhyqP7O8/" target="_blank" rel="noopener"><span class="short__img"><img src="/images/abl/lab/shorts/oni-04.webp" alt="鬼と仏 4本目の表紙" width="360" height="640" loading="lazy"><i>04</i></span><span class="short__meta">毎日 19:30</span><b>この顔、屋根の上で、何してる？</b></a>
-      <a class="short" href="https://www.facebook.com/reel/1809438296979419/" target="_blank" rel="noopener"><span class="short__img"><img src="/images/abl/lab/shorts/oni-05.webp" alt="鬼と仏 5本目の表紙" width="360" height="640" loading="lazy"><i>05</i></span><span class="short__meta">毎日 19:30</span><b>大仏の頭のつぶつぶ、何個？</b></a>
+      <a class="short" href="https://www.instagram.com/onitohotoke/reel/DfPSyg8Ppxp/" target="_blank" rel="noopener"><span class="short__img"><img src="/images/abl/lab/shorts/oni-01.webp" alt="鬼と仏 1本目の表紙" width="360" height="640" loading="lazy"><i>01</i></span><span class="short__meta">鬼と仏</span><b>10円玉の、この建物</b></a>
+      <a class="short" href="https://www.instagram.com/onitohotoke/reel/DfRrQaqvpRU/" target="_blank" rel="noopener"><span class="short__img"><img src="/images/abl/lab/shorts/oni-02.webp" alt="鬼と仏 2本目の表紙" width="360" height="640" loading="lazy"><i>02</i></span><span class="short__meta">鬼と仏</span><b>千手観音の手、ほんとうに1,000本？</b></a>
+      <a class="short" href="https://www.instagram.com/onitohotoke/reel/DfW0wr-PEXT/" target="_blank" rel="noopener"><span class="short__img"><img src="/images/abl/lab/shorts/oni-03.webp" alt="鬼と仏 3本目の表紙" width="360" height="640" loading="lazy"><i>03</i></span><span class="short__meta">鬼と仏</span><b>この子、1,300年、踏まれっぱなし。</b></a>
+      <a class="short" href="https://www.instagram.com/onitohotoke/reel/DfZzhyqP7O8/" target="_blank" rel="noopener"><span class="short__img"><img src="/images/abl/lab/shorts/oni-04.webp" alt="鬼と仏 4本目の表紙" width="360" height="640" loading="lazy"><i>04</i></span><span class="short__meta">鬼と仏</span><b>この顔、屋根の上で、何してる？</b></a>
+      <a class="short" href="https://www.facebook.com/reel/1809438296979419/" target="_blank" rel="noopener"><span class="short__img"><img src="/images/abl/lab/shorts/oni-05.webp" alt="鬼と仏 5本目の表紙" width="360" height="640" loading="lazy"><i>05</i></span><span class="short__meta">鬼と仏</span><b>大仏の頭のつぶつぶ、何個？</b></a>
     </div>
     <div class="btn-row mt-m">
       <a class="btn btn--ghost" href="https://www.facebook.com/onitohotoke" target="_blank" rel="noopener">Facebook <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
@@ -270,7 +249,7 @@
     <div class="sec-head">
       <p class="label">TEAM</p>
       <h2 class="h2" id="team-title"><span class="nw">役割を分けた、</span><span class="nw">8つのAIの係。</span></h2>
-      <p class="lead">三浦 海の学校のサイトの検索と守りは、役割を分けたAIの作業が、毎週 月・水・木・土の夜中に動いています。公開する前に、検品係が別の目で確かめます。</p>
+      <p class="lead">三浦 海の学校のサイトの検索と守りは、役割を分けたAIの作業で回してきました。公開する前に、検品係が別の目で確かめます。</p>
     </div>
     <div class="ledger ledger--team reveal">
       <div class="ledger__row"><span class="ledger__k"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/><path d="M8.5 11h5M11 8.5v5"/></svg><b>検索データ係</b></span><span class="ledger__main"><p>検索の数字（Search Console）を測り、前の週との違いと理由の見立てを出す。</p></span></div>
@@ -291,7 +270,7 @@
       <div>
         <p class="label">FOR YOUR SHOP</p>
         <h2 class="h2" id="cta-title"><span class="nw">同じ仕組みを、</span><span class="nw">あなたの店にも。</span></h2>
-        <p>毎日の発信を、人が決めてAIが回す形に。どこまでAIに任せて、どこを人が持つか。線の引き方から、いっしょに決めます。</p>
+        <p>ふだんの発信を、人が決めてAIが回す形に。どこまでAIに任せて、どこを人が持つか。線の引き方から、いっしょに決めます。</p>
       </div>
       <div class="cta__actions">
         <a class="btn btn--aqua btn--lg" href="/contact?topic=lab">発信の仕組みを相談する <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
@@ -349,6 +328,6 @@
     </div>
   </div>
 </footer>
-<script src="/js/abl.js?v=20261108" defer></script>
+<script src="/js/abl.js?v=2026110802" defer></script>
 </body>
 </html>
