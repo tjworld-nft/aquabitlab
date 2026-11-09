@@ -1,0 +1,10 @@
+# 仏のたとえ：アプリが毎朝読む feed.json は長く覚えさせない（新しい話がすぐ届くように）
+<Files "feed.json">
+  <IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType application/json "access plus 5 minutes"
+  </IfModule>
+  <IfModule mod_headers.c>
+    Header set Cache-Control "public, max-age=300"
+  </IfModule>
+</Files>
