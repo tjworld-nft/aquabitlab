@@ -58,6 +58,7 @@
 - [AI学習サロン](https://aquabit-lab.com/ai-salon/)
 - [マリン事業](https://aquabit-lab.com/marine)
 - [龍脈マップ（iPhoneアプリの案内とサポート）](https://aquabit-lab.com/ryumyaku/)
+- [仏のたとえ（iPhoneアプリの案内とサポート・お経のたとえ話を原文と一緒に）](https://aquabit-lab.com/hotoke/)
 - [ABLとは・代表プロフィール](https://aquabit-lab.com/about)
 - [お問い合わせ](https://aquabit-lab.com/contact)
 - [特定商取引法に基づく表記](https://aquabit-lab.com/tokushoho)
