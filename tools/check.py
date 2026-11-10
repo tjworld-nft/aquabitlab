@@ -21,7 +21,7 @@ FORBID = [
     "バズ", "爆発的", "誰でも簡単", "効果保証", "完全自動", "24時間監視", "ゼロトラスト",
 ]
 STALE = [
-    (r"アプリ\s*2\s*本", "アプリは4本"),
+    (r"アプリ\s*[24]\s*本", "アプリは5本"),
     (r"(?<![0-9])22\s*話", "まんがは24話"),
     (r"2026年9月時点", "数字の時点が古い"),
 ]
@@ -61,6 +61,8 @@ def main():
             errs.append("郵便番号の形の文字列（旧住所でないか確認）")
         if "{{" in raw:
             errs.append("置き換え忘れの {{…}}")
+        if re.search(r"(?<!\{)\{(arr|ext)\}(?!\})", raw):
+            errs.append("かっこが1つだけの {arr}/{ext}（{{…}} の書き損じ）")
         for m in re.finditer(r"<a\b[^>]*target=\"_blank\"[^>]*>", raw):
             if "noopener" not in m.group(0):
                 errs.append("target=_blank に rel=noopener が無い: " + m.group(0)[:80])
