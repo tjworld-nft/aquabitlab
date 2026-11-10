@@ -19,6 +19,9 @@
 | `/tokushoho` `/privacy-policy` `/404` | `src/pages/*.html` | 法務・エラー |
 | `/ryumyaku/` | `src/pages/ryumyaku.html` | iPhone アプリ「龍脈マップ」の案内とサポート（App Store のサポート URL） |
 | `/ryumyaku/privacy/` | `src/pages/ryumyaku-privacy.html` | 龍脈マップのプライバシーポリシー（App Store のプライバシーポリシー URL） |
+| `/hotoke/` | `src/pages/hotoke.html` | iPhone アプリ「仏のたとえ」の案内とサポート（App Store のサポート URL・2026-11-10 公開） |
+| `/hotoke/privacy/` | `src/pages/hotoke-privacy.html` | 仏のたとえのプライバシーポリシー |
+| `/hotoke/feed.json` | （直接置く） | アプリが読む新しい話と動画の一覧。動画は `hotoke/v/`。アプリ側の道具 `~/Developer/hotoke-app-20261109/tools/feed_video.py` が足す（キャッシュ5分・`hotoke/.htaccess`） |
 | `/ryumyaku/data/` | `src/pages/ryumyaku-data.html` | 龍脈マップの場所のデータと作り方（OpenStreetMap の ODbL 4.6 のための公開）。ファイルは `ryumyaku/data/` に直接置く（`.htaccess` で .gz をそのまま渡す） |
 
 ## 仕組み
@@ -52,7 +55,7 @@
 ## 決めごと
 
 - **数字・実績を作らない**。使ってよいのは公開済みのもの（認定ダイバー1,500名+／ウェビナー50回+・参加500名+／
-  1997年〜・2001年PADIコースディレクター／App Store公開4本／まんが24話／「魚歌」19曲／Kindle12冊）。
+  1997年〜・2001年PADIコースディレクター／App Store公開5本／まんが24話／「魚歌」19曲／Kindle12冊）。
   お客さまの声は、実在・掲載許可のあるものだけ。
 - 旧住所・旧固定電話は、どのページにも出さない（このリポジトリは公開なので、ここにも書かない）。所在地は「神奈川県三浦市（詳細は請求時に開示）」。
 - トーンは「海とAI、二つの未来へ」。短く断定。ただし誇大表現（必ず・絶対・日本初・No.1）と恐怖で煽る書き方はしない。
