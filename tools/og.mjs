@@ -7,10 +7,11 @@ const out = process.argv[2];
 const cards = [
   ['og-home', 'AquaBit LAB — 海とAI、二つの未来へ。', 'AIを、|*現場の道具*に。', '個人・中小企業のAI導入サポート／相談から定着まで', '/images/abl/hero-poster.webp'],
   ['og-ai', 'AI導入サポート', 'AIの導入は、|使えるところから、*いっしょに*。', '相談する・いっしょに作る・自分たちで回す', '/images/abl/hero-poster.webp'],
-  ['og-works', 'WORKS — 実績・取り組み', '作って、公開して、|*使っている*。', 'iOSアプリ5本・解説まんが・PV・Web・音楽', '/images/abl/work-bluelogbook.webp'],
+  ['og-works', 'WORKS — 実績・取り組み', '作って、公開して、|*使っている*。', 'iOSアプリ6本・解説まんが・PV・Web・音楽', '/images/abl/work-bluelogbook.webp'],
   ['og-lab', 'INSIDE THE LAB — ラボの中', '作って、出して、|*数える*。', 'ショート動画の工場と、4つのSNSへの予約投稿の仕組み', '/images/abl/lab/canyon-wide.webp'],
   ['og-ryumyaku', 'IPHONE APP — 龍脈マップ', '神社と、|*土地のかたち*を見る地図。', '全国 約10万か所・龍脈・暦と方位／App Store で無料', '/images/abl/work-ryumyaku.webp'],
   ['og-hotoke', 'IPHONE APP — 仏のたとえ', 'お経のたとえ話を、|*原文と一緒に*。', 'パーリ語と漢訳の両方に伝わる話／App Store で無料', '/images/abl/og-bg-hotoke.webp'],
+  ['og-gyoji-album', 'IPHONE APP — うちの行事アルバム', '子どもの行事の写真を、|*日付で*集める。', '誕生日・七五三・入学式・運動会／App Store で無料', '/images/abl/og-bg-gyoji-album.webp'],
   ['og-salon', 'AI学習サロン — 月額9,800円', 'AIを“使う”から、|*“創る”*へ。', '画像・音楽・Vibe Codingまで。Discordで質問できる', '/images/abl/hero-poster.webp'],
   ['og-marine', 'MARINE — 三浦 海の学校', '泳げなくても、|*ひとりでも*。', '神奈川・城ヶ島と宮川湾のダイビングスクール', '/images/abl/photo-fun.webp'],
   ['og-about', 'ABOUT — AquaBit LAB', '「自分には無理」を、|*「できた」*に変える。', '代表 吉田哲司（TJ）／PADIコースディレクター', '/images/abl/photo-surface.webp'],
