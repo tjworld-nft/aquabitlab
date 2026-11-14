@@ -15,7 +15,7 @@
     <ol class="crumbs"><li><a href="/">ホーム</a></li><li aria-current="page">お問い合わせ</li></ol>
     <p class="label">CONTACT — お問い合わせ・ご相談</p>
     <h1 class="h1" id="page-title"><span class="nw">困っていることを、</span><span class="nw">1つだけ</span><span class="nw">教えてください。</span></h1>
-    <p class="lead">まとまっていなくて大丈夫です。AI導入のご相談、SNSの発信の仕組み、制作・研修のご依頼、AI学習サロン、マリン事業のことまで。通常2〜3営業日以内にお返事します。</p>
+    <p class="lead" data-contact-lead>まとまっていなくて大丈夫です。AI導入のご相談、SNSの発信の仕組み、制作・研修のご依頼、AI学習サロン、マリン事業のことまで。通常2〜3営業日以内にお返事します。</p>
   </div>
 </section>
 
@@ -32,6 +32,7 @@
             <label class="opt"><input type="radio" name="topic" value="build"><span>制作のご依頼（Web・アプリ・映像など）</span></label>
             <label class="opt"><input type="radio" name="topic" value="training"><span>研修・講演・ウェビナーのご依頼</span></label>
             <label class="opt"><input type="radio" name="topic" value="salon"><span>AI学習サロンについて</span></label>
+            <label class="opt"><input type="radio" name="topic" value="app"><span>アプリのこと（使い方・不具合）</span></label>
             <label class="opt"><input type="radio" name="topic" value="marine"><span>マリン事業（ダイビング）</span></label>
             <label class="opt"><input type="radio" name="topic" value="other"><span>その他・取材・コラボ</span></label>
           </div>
@@ -41,7 +42,7 @@
           <input class="input" id="f-name" name="name" type="text" autocomplete="name" maxlength="100" required aria-describedby="e-name">
           <p class="field__err" id="e-name" data-err-for="name" hidden></p>
         </div>
-        <div class="field">
+        <div class="field" data-biz>
           <label for="f-company">会社名・屋号 <span class="opt-tag">任意</span></label>
           <input class="input" id="f-company" name="company" type="text" autocomplete="organization" maxlength="120">
         </div>
@@ -57,7 +58,7 @@
         <div class="field">
           <label for="f-message">ご相談内容 <span class="req">必須</span></label>
           <textarea class="textarea" id="f-message" name="message" maxlength="5000" required aria-describedby="h-message e-message"></textarea>
-          <p class="field__hint" id="h-message">例：「飲食店を2人でやっています。Instagramの更新が続かず、AIで楽にできないか相談したいです。」<br>お客さまの個人情報など、ここに書かなくてよい情報は書かないでください。</p>
+          <p class="field__hint" id="h-message" data-contact-hint><span data-app-ask hidden>どのアプリのことかを、はじめにお書きください。<br>写真やお子さまの情報など、ここに書かなくてよい情報は書かないでください。</span><span data-app-ex>例：「飲食店を2人でやっています。Instagramの更新が続かず、AIで楽にできないか相談したいです。」<br>お客さまの個人情報など、ここに書かなくてよい情報は書かないでください。</span></p>
           <p class="field__err" id="e-message" data-err-for="message" hidden></p>
         </div>
         <div class="hp" aria-hidden="true"><label>この欄は空のままにしてください<input type="text" name="abl_hp" tabindex="-1" autocomplete="off"></label></div>
@@ -73,7 +74,7 @@
       </form>
 
       <aside class="ledger ledger--side" aria-label="フォーム以外の連絡方法">
-        <div class="ledger__row">
+        <div class="ledger__row" data-biz>
           <span class="ledger__k">LINE<b>LINEで気軽に</b></span>
           <div class="ledger__main">
             <p>ちょっとした質問なら、公式LINEがいちばん早くお返事できます。</p>
@@ -91,7 +92,7 @@
             <p class="note">通常2〜3営業日以内にお返事します。数日たっても返事がない場合は、迷惑メールフォルダもご確認ください。</p>
           </div>
         </div>
-        <div class="ledger__row ledger__row--check">
+        <div class="ledger__row ledger__row--check" data-biz>
           <span class="ledger__k">TIPS<b>書いておくと早いこと</b></span>
           <div class="ledger__main">
             <ul class="checks" style="margin-top:4px;font-size:.92rem">

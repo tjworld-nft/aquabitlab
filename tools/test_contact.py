@@ -8,6 +8,8 @@ overrides exist solely in a generated router outside the repository.
 """
 
 import concurrent.futures
+import email
+import email.header
 import http.cookies
 import json
 import os
@@ -115,6 +117,8 @@ class Client:
         if token is not None:
             fields["form_token"] = token
         fields.update(updates)
+        # None を渡した欄は送らない（ブラウザは、止めた欄＝disabled を送らない。その形を作る）
+        fields = {key: value for key, value in fields.items() if value is not None}
         return self.request(fields)
 
 
@@ -307,6 +311,26 @@ class ContactSecurityTests(unittest.TestCase):
         self.rejected(self.client.submit(token, agree="yes"))
         self.accepted(self.client.submit(token))
 
+    def test_app_topic_is_accepted_and_named_in_admin_mail(self):
+        # /contact?topic=app&app=gyoji-album から届く形（会社名の欄は止めてあるので送られない・本文はひな形つき）。
+        # send-mail.php の $topics から app が消えると、ここで落ちる。
+        # フォームの側（contact.html の value）との食いちがいは、下の FormTopicsTests が見る。
+        token = self.client.token()
+        self.accepted(self.client.submit(
+            token, topic="app", company=None,
+            message="【うちの行事アルバム】\niPhone の機種：iPhone 13\niOS のバージョン：17.5\n"
+                    "どの画面で、何が起きたか：写真が入りません。"))
+        mails = self.server.mails()
+        self.assertEqual(len(mails), 2)
+        admin = email.message_from_string(mails[0]["mail"])
+        subject = str(email.header.make_header(email.header.decode_header(admin["Subject"])))
+        body = admin.get_payload(decode=True).decode("utf-8")
+        self.assertIn("アプリのこと（使い方・不具合）", subject)
+        self.assertIn("ご相談の種類: アプリのこと（使い方・不具合）", body)
+        self.assertIn("【うちの行事アルバム】", body)
+        self.assertNotIn("会社名・屋号", body)
+        self.assertNotIn("その他・取材・コラボ", body)
+
     def test_header_injection_rejected(self):
         token = self.client.token()
         self.rejected(self.client.submit(token, email="valid@example.test\r\nBcc: another@example.test"))
@@ -484,6 +508,38 @@ class ContactSecurityTests(unittest.TestCase):
         state_text = "\n".join(path.read_text(errors="replace") for path in files)
         for value in ("inquiry@example.test", "192.0.2.1", "検証担当", "業務の自動化", "検証用株式会社"):
             self.assertNotIn(value, state_text)
+
+
+class FormTopicsTests(unittest.TestCase):
+    """フォームの「ご相談の種類」と、send-mail.php が受けつける種類が、同じ集まりか（ファイルを読むだけ）。"""
+
+    @staticmethod
+    def server_topics():
+        php = (ROOT / "send-mail.php").read_text(encoding="utf-8")
+        block = re.search(r"\$topics\s*=\s*\[(.*?)\];", php, re.S)
+        assert block, "send-mail.php に $topics が見つからない"
+        return dict(re.findall(r"'([a-z_-]+)'\s*=>\s*'([^']*)'", block.group(1)))
+
+    @staticmethod
+    def form_topics(path):
+        html = (ROOT / path).read_text(encoding="utf-8")
+        return dict(re.findall(r'<input type="radio" name="topic" value="([^"]*)"[^>]*>\s*<span>([^<]*)</span>', html))
+
+    def test_form_topics_match_server_topics(self):
+        server = self.server_topics()
+        self.assertIn("app", server)
+        # 原稿（src/pages）と、書き出した contact.html の両方を見る（build し忘れも分かる）
+        for path in ("src/pages/contact.html", "contact.html"):
+            with self.subTest(path=path):
+                form = self.form_topics(path)
+                self.assertEqual(sorted(form), sorted(server), f"{path} の value と send-mail.php の $topics の鍵がちがう")
+                # 「アプリのこと」は、フォームで見える名前と、メールに入る名前も同じにしておく
+                self.assertEqual(form["app"], server["app"])
+
+    def test_app_view_script_selects_the_app_topic(self):
+        # アプリ向けの見た目（js/abl.js）は、value="app" の選択肢をさがす。名前を変えたら、3か所とも直す
+        script = (ROOT / "js" / "abl.js").read_text(encoding="utf-8")
+        self.assertIn('input[name="topic"][value="app"]', script)
 
 
 if __name__ == "__main__":
