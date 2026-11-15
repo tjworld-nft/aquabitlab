@@ -1,5 +1,5 @@
 /* AquaBit LAB — サイト共通の動き
- * ヘッダー／メニュー／出現アニメ／実績の絞り込み／3分診断／お問い合わせ送信
+ * ヘッダー／メニュー／出現アニメ／よくある質問を番号つきリンクで開く／実績の絞り込み／3分診断／お問い合わせ送信
  * どれも JS が無くてもページは読める（JS は“あると便利”の役）。
  */
 (() => {
@@ -59,6 +59,41 @@
     reveals.forEach((el) => io.observe(el));
   } else {
     reveals.forEach((el) => el.classList.add('is-in'));
+  }
+
+  // ---------------------------------------------------------- よくある質問：番号つきリンク（#faq-…）で答えを開く
+  // ページをひらいた時と、ページの中のリンクで # が変わった時の両方。<details> のときだけ開いて、そこへ送る。
+  const openFaq = (atLoad) => {
+    const d = document.getElementById(location.hash.slice(1));
+    if (!d || d.tagName !== 'DETAILS') return;
+    d.open = true;
+    if (atLoad !== true) { d.scrollIntoView(); return; }
+    // ページをひらいた時は、上から流さずに、すぐその答えへ着く（なめらかな動きを、この1回だけ切る）
+    const root = document.documentElement;
+    root.style.scrollBehavior = 'auto';
+    d.scrollIntoView();
+    requestAnimationFrame(() => requestAnimationFrame(() => { root.style.scrollBehavior = ''; }));
+  };
+  openFaq(true);
+  addEventListener('hashchange', () => openFaq());
+  // 同じリンクをもう一度押した時（# が変わらない時）も、閉じていたら開く
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    const d = a ? document.getElementById(a.getAttribute('href').slice(1)) : null;
+    if (d && d.tagName === 'DETAILS') d.open = true;
+  });
+
+  // ---------------------------------------------------------- アプリの画面の帯：横に送れる幅のときだけ、キーボードで入れるようにする
+  const shots = $$('.shots[tabindex]');
+  if (shots.length) {
+    const wide = matchMedia('(min-width: 1000px)');   // css/abl.css の .shots と同じ幅。PC は5枚が並ぶので送らない
+    const setTab = () => shots.forEach((b) => {
+      if (!b.dataset.label) b.dataset.label = b.getAttribute('aria-label') || '';
+      if (wide.matches) { b.removeAttribute('tabindex'); b.setAttribute('aria-label', b.dataset.label.replace(/（.*?）$/, '')); }
+      else { b.setAttribute('tabindex', '0'); b.setAttribute('aria-label', b.dataset.label); }
+    });
+    setTab();
+    wide.addEventListener('change', setTab);
   }
 
   // ---------------------------------------------------------- 実績の絞り込み
@@ -289,6 +324,51 @@
     if (params.get('from') === 'diagnosis' && msg && !msg.value) {
       try { const s = sessionStorage.getItem('abl-diag'); if (s) msg.value = s; } catch (e) { /* noop */ }
     }
+    // アプリの案内ページから来たとき（/contact?topic=app&app=…）：アプリ向けの見た目にして、本文にひな形を入れる。
+    // ?topic=app でないときは、見た目を変えない（「アプリのこと」を手でえらんだ時に、どのアプリかをたずねる1行が出るだけ）。
+    // app の値は、下の一覧にある物だけ受けつける。URL の文字は、そのまま画面に入れない。
+    const APPS = {
+      'gyoji-album': 'うちの行事アルバム',
+      'umi-himekuri': '海の日めくり',
+      hotoke: '仏のたとえ',
+      ryumyaku: '龍脈マップ',
+    };
+    const appRadio = f.querySelector('input[name="topic"][value="app"]');
+    let appTemplate = '';   // 本文に入れたひな形。これだけのまま送ろうとしたら、空と同じにあつかう
+    // ふつうの /contact で「アプリのこと」を手でえらんだときは、どのアプリの話かをたずねる1行を出す（ほかの種類では出さない）
+    // そのあいだ、お店の相談の例文（アプリの話には合わない）は隠す
+    const appAsk = $('[data-app-ask]', f);
+    const appEx = $('[data-app-ex]', f);
+    if (appAsk && appRadio && topic !== 'app') {
+      const askApp = () => { appAsk.hidden = !appRadio.checked; if (appEx) appEx.hidden = appRadio.checked; };
+      f.addEventListener('change', (e) => { if (e.target && e.target.name === 'topic') askApp(); });
+      f.addEventListener('reset', () => setTimeout(askApp, 0));
+      // 「戻る」で帰ってきた時は、えらんだ種類だけがブラウザに戻されるので、もう一度合わせる
+      addEventListener('pageshow', askApp);
+      askApp();
+    }
+    if (topic === 'app' && appRadio) {
+      appRadio.checked = true;
+      // 送ったあとの reset() でも「アプリのこと」がえらばれたままになるように、はじめの値も替える
+      $$('input[name="topic"]', f).forEach((r) => {
+        r.defaultChecked = r === appRadio;
+        if (r !== appRadio) r.closest('label').hidden = true;
+      });
+      $$('[data-biz]').forEach((el) => { el.hidden = true; });
+      // 隠した欄は、送る中身にも入れない（自動入力が見えない欄に入れても、届かないように）
+      $$('[data-biz] input, [data-biz] textarea, [data-biz] select').forEach((i) => { i.disabled = true; });
+      const lead = $('[data-contact-lead]');
+      if (lead) lead.textContent = 'アプリの使い方・不具合は、こちらから。通常2〜3営業日以内にお返事します。';
+      const hint = $('[data-contact-hint]', f);
+      const key = params.get('app') || '';
+      const appName = Object.prototype.hasOwnProperty.call(APPS, key) ? APPS[key] : '';
+      // どのアプリか決まらないとき（app が無い・一覧に無い）は、はじめにたずねる。入れるのは決まった文だけ
+      if (hint) hint.textContent = (appName ? '' : 'どのアプリのことかを、はじめにお書きください。') + '写真やお子さまの情報など、ここに書かなくてよい情報は書かないでください。';
+      if (appName && msg && !msg.value) {
+        appTemplate = `【${appName}】\niPhone の機種：\niOS のバージョン：\nどの画面で、何が起きたか：\n`;
+        msg.value = appTemplate;
+      }
+    }
     let tokenField = $('[name="form_token"]', f);
     // 更新直後に古いHTMLが残っている場合も、送信に必要な欄を補う。
     if (!tokenField) {
@@ -349,7 +429,7 @@
       const need = [
         [el('name'), (v) => v.trim() ? '' : 'お名前を入力してください。'],
         [el('email'), (v) => !v.trim() ? 'メールアドレスを入力してください。' : (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? '' : 'メールアドレスの形式をご確認ください。')],
-        [el('message'), (v) => v.trim() ? '' : 'ご相談内容を入力してください。'],
+        [el('message'), (v) => !v.trim() ? 'ご相談内容を入力してください。' : (appTemplate && v.trim() === appTemplate.trim() ? 'どの画面で、何が起きたかをお書きください。' : '')],
       ];
       need.forEach(([el, rule]) => { const t = rule(el.value); setErr(el, t); if (t && !first) first = el; });
       const agree = f.querySelector('[name="agree"]');

@@ -26,7 +26,7 @@ from urllib.parse import quote
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "src"
 SITE = "https://aquabit-lab.com"
-V = "2026110802"          # css/js を変えたら上げる（.htaccess で1か月キャッシュしている）
+V = "2026111401"          # css/js を変えたら上げる（.htaccess で1か月キャッシュしている）
 LINE_URL = "https://lin.ee/obePsOF"
 MAIL = "info@aquabit-lab.com"
 
@@ -77,6 +77,8 @@ ICONS = {
     "calendar": '<rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/><path d="M8 13.5h.01M12 13.5h.01M16 13.5h.01M8 16.5h.01M12 16.5h.01"/>',
     "pin": '<path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/>',
     "download": '<path d="M12 4v11M7 10.5l5 5 5-5"/><path d="M4 19.5h16"/>',
+    # アプリの案内ページ（/gyoji-album/）で使う：共有の印（四角から上向きの矢印）
+    "share": '<path d="M12 3v12M8 7l4-4 4 4"/><path d="M8.5 10.5H7a1.5 1.5 0 0 0-1.5 1.5v7.5A1.5 1.5 0 0 0 7 21h10a1.5 1.5 0 0 0 1.5-1.5V12a1.5 1.5 0 0 0-1.5-1.5h-1.5"/>',
 }
 
 def icon(name, cls="ico"):

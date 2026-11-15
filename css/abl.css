@@ -1059,3 +1059,86 @@ html.is-bits .hero h1 em { color: var(--live); }
 .ledger--team .ledger__k .ico { width: 22px; height: 22px; color: var(--aqua-ink); }
 .ledger--team .ledger__k b { display: inline; }
 @media (max-width: 720px) { .ledger--team .ledger__row { padding: 14px 0; } .ledger--team .ledger__main p { margin-top: 2px; } }
+
+/* ==========================================================================
+   アプリの案内ページの直し（/gyoji-album/・2026-11-14）— abl.css の末尾に足す
+   ========================================================================== */
+
+/* ---------- 指で押しやすく（高さ44px以上・となりのリンクと重ねない） ---------- */
+/* パンくず：見た目・位置・キーボードで選んだ時の枠はそのまま、押せる所だけ広げる（見えない当たりを足す。.tap と同じやり方） */
+.crumbs a { position: relative; }
+.crumbs a::after { content: ""; position: absolute; inset: -15px -10px; }
+/* 文字だけのリンク：見えない当たりを上下に足す（行の高さ・文字の位置は変えない）。
+   ・.tap … 矢印つきのリンク（.textlink）に付ける。2つ並べるときは .linkrow に入れる（折り返しても当たりが重ならない間）
+   ・.dl--tap … 表（.dl）の中のリンク。1つの行に2つ並べるときは、その dd に .dl__links
+   上下にリンクが続けて並ぶ所（<br> で2行など）には使わない（当たりが重なる） */
+.tap, .dl--tap dd a { position: relative; }
+.dl--tap dd a { display: inline-block; }
+.tap::after, .dl--tap dd a::after { content: ""; position: absolute; inset: -8px -6px; }
+.dl--tap dd small a::after { inset-block: -10px; }
+.linkrow { display: flex; flex-wrap: wrap; gap: 24px 28px; margin-top: 14px; }
+.linkrow .textlink { font-size: 0.92rem; }
+.dl__links { display: flex; flex-wrap: wrap; gap: 18px 28px; }
+
+/* ---------- 最初の1画面：小見出しの行にアプリのアイコン ---------- */
+.eyebrow--app::before { content: none; }
+.eyebrow--app img { width: 44px; height: 44px; border-radius: 10px; margin-right: 4px; }
+/* 端末3台の合成画像は、PC の2列のときだけ（スマホは、すぐ下に画面の帯が来る） */
+@media (max-width: 900px) { .phero__fig--wide { display: none; } }
+/* 幅の小さい iPhone（320px）でも、App Store のバッジが最初の1画面に入るように、上下の間を少し詰める（.phero--app を付けたページだけ） */
+@media (max-width: 360px) { .phero--app .crumbs { margin-bottom: 20px; } .phero--app .btn-row { margin-top: 24px; } }
+/* 文字を大きくした時（150%から）に、題とリードの右はしが切れないように、句の途中でも折り返せるようにする（ふだんの折り返しは変わらない） */
+.phero--app .phero__grid > * { min-width: 0; }
+.phero--app h1, .phero--app .lead { overflow-wrap: anywhere; }
+/* 同じページの、下の節の見出しも同じに（幅320・文字200% で、見出しがはみ出してページが横に動いていた）。
+   全ページの .h2 には付けない：/marine の見出しが、幅320〜328 のふつうの文字で「…早いで／す。」と折れてしまうため */
+.phero--app ~ section .h2 { overflow-wrap: anywhere; }
+
+/* ---------- アプリの画面を横に送る帯（スマホ）／5枚を等分に並べる（PC） ---------- */
+.shots {
+  overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory;
+  margin: -2px calc(var(--gut) * -1) 0 -2px; padding: 2px var(--gut) 14px 2px; scroll-padding-left: 2px;
+  scrollbar-width: thin;
+}
+.shots__list { display: grid; grid-auto-flow: column; grid-auto-columns: min(74vw, 280px); gap: 16px; width: max-content; }
+.shots__list > li { scroll-snap-align: start; }
+/* 絵は四隅が透明（画面の丸みの外）。同じ丸みで細い線と影を付ける */
+.shots img { width: 100%; height: auto; border-radius: 6.64% / 3.05%; box-shadow: 0 0 0 1px var(--line-strong), 0 18px 34px -22px rgba(11, 26, 38, 0.45); }
+.shots figcaption { margin-top: 12px; font-size: 0.9rem; font-weight: 700; line-height: 1.6; color: var(--ink-2); text-wrap: balance; }
+@media (min-width: 1000px) {
+  .shots { overflow: visible; scroll-snap-type: none; margin: 0; padding: 0; }
+  .shots__list { grid-auto-flow: row; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(16px, 2vw, 28px); width: auto; }
+}
+
+/* ---------- できること：スマホでは番号とアイコンを横1列にして、行を詰める ---------- */
+@media (max-width: 720px) {
+  .ledger--tight .ledger__k { display: flex; align-items: center; gap: 10px; }
+  .ledger--tight .ledger__k b { display: inline-flex; }
+  .ledger--tight .ledger__row { padding: 14px 0; }
+}
+
+/* ---------- よくある質問：小見出しで分ける・番号つきの手順 ---------- */
+.faq__h { margin: 40px 0 10px; font-size: 1.02rem; font-weight: 800; line-height: 1.5; }
+/* 小見出しで分けた質問（アプリの案内ページ）：質問の文のさいごの行が1〜2字だけにならないように、行の長さをそろえる */
+.faq__h + .faq summary { text-wrap: balance; }
+.sec-head + .faq__h { margin-top: 0; }
+.faq .a .faq__who { margin-top: 1.2em; font-weight: 800; color: var(--ink); }
+.faq .a .faq__who:first-child { margin-top: 0; }
+.howto { counter-reset: howto; display: grid; gap: 10px; margin-top: 0.6em; }
+.howto > li { counter-increment: howto; position: relative; padding-left: 2.3em; }
+.howto > li::before {
+  content: counter(howto); position: absolute; left: 0; top: 0.2em; width: 1.7em; height: 1.7em; border-radius: 50%;
+  background: var(--ink); color: #fff; font-family: var(--f-disp); font-weight: 700; font-size: 0.86em; line-height: 1.7em; text-align: center;
+}
+.howto:first-child { margin-top: 0; }
+.howto + p { margin-top: 0.9em; }
+/* 答えの中では、番号を「Q」の列（左の46px）に置いて、文の左はしをほかの段落とそろえる */
+.faq .a .howto { margin-left: -46px; }
+/* ふだんは46px。文字を大きくした時は、番号の丸（幅1.462em＋左3px）に文が重ならないように広げる */
+.faq .a .howto > li { padding-left: max(46px, calc(1.462em + 11px)); }
+.faq .a .howto > li::before { left: 3px; }
+.howto--lg { font-size: 1.0625rem; line-height: 1.8; gap: 12px; }
+/* 答えの中のリンクは、1行を使って押しやすく */
+.faq__go { display: flex; width: fit-content; align-items: center; gap: 6px; min-height: 44px; }
+.faq__go .arr { width: 16px; height: 16px; flex: none; }
+.ico--inline { display: inline-block; width: 1.25em; height: 1.25em; vertical-align: -0.28em; color: var(--ink); }
