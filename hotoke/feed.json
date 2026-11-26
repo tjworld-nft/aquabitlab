@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-25",
+  "updated": "2026-11-26",
   "note": "仏のたとえ（iPhone アプリ）が読む、新しい話と動画の一覧。episodes＝アプリに入っていない新しい話（公開日前のものはアプリが出さない）。videos＝話の番号ごとの動画（https://aquabit-lab.com/hotoke/v/ ）。",
   "episodes": [],
   "videos": {
@@ -59,6 +59,10 @@
     "0017": {
       "url": "https://aquabit-lab.com/hotoke/v/0017.mp4?v=867e35ea",
       "dur": 54.3
+    },
+    "0018": {
+      "url": "https://aquabit-lab.com/hotoke/v/0018.mp4?v=10b50a0e",
+      "dur": 54.5
     }
   }
 }
